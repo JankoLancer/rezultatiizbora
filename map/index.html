@@ -73,7 +73,7 @@
   }
   *{box-sizing:border-box}
   html,body{height:100%;margin:0;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-  #map{position:absolute;inset:0;z-index:0;background:#0b1220}
+  #map{position:fixed;inset:0;z-index:0;background:#0b1220}
   .panel{position:absolute;z-index:1000;background:rgba(15,23,42,.92);backdrop-filter:blur(8px);
     border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
   /* ---- header ---- */
@@ -168,11 +168,17 @@
   .pp .src{color:#5f7290;font-size:10px;margin-top:8px}
   .legend-inline{display:flex;align-items:center;gap:5px;font-size:10.5px;color:var(--muted);margin-top:6px}
   @media (max-width:720px){
-    #header{right:14px;max-width:none;padding:12px 14px}
-    #controls{top:auto;bottom:14px;right:14px;padding:8px 10px}
+    #header{left:0;right:0;top:auto;bottom:0;max-width:none;max-height:82dvh;overflow-y:auto;
+      padding:16px 14px 12px;border-radius:16px 16px 0 0;border-bottom:0;box-shadow:0 -6px 24px rgba(0,0,0,.45)}
+    #header::before{content:"";position:absolute;top:7px;left:50%;transform:translateX(-50%);
+      width:40px;height:4px;border-radius:2px;background:var(--line)}
+    #header .site-h1{font-size:15px;margin-bottom:2px}
+    #header .sub{margin-bottom:8px}
+    #top5-rows{max-height:30dvh}
+    #controls{top:14px;bottom:auto;right:14px;padding:8px 10px}
     #controls .hint{display:none}
     #legend{display:none}
-    .leaflet-popup-content{width:min(330px,86vw) !important}
+    .leaflet-popup-content{width:min(340px,90vw) !important}
   }
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1D190SES3N"></script>
@@ -482,6 +488,14 @@ document.querySelectorAll(".collapse-btn").forEach(btn=>{
     btn.textContent=p.classList.contains("collapsed")?"⌄":"⌃";
   });
 });
+/* na telefonu: panel kao bottom-sheet, podrazumevano skupljen */
+if(window.matchMedia("(max-width:720px)").matches){
+  const h=document.getElementById("header");
+  if(h){
+    h.classList.add("collapsed");
+    const b=h.querySelector(".collapse-btn"); if(b) b.textContent="⌄";
+  }
+}
 
 /* ---------------- map ---------------- */
 let map, layer, tileLayer, labelsLayer;
@@ -500,7 +514,7 @@ function radius(s){
 }
 
 function initMap(){
-  map=L.map("map",{zoomControl:true, preferCanvas:false}).setView([43.9,21.3],9);
+  map=L.map("map",{zoomControl:true, preferCanvas:true}).setView([43.9,21.3],9);
   tileLayer=L.tileLayer(basemaps.osm,{attribution, maxZoom:19}).addTo(map);
   labelsLayer=L.layerGroup().addTo(map);
   layer=L.layerGroup().addTo(map);
