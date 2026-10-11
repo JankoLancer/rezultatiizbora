@@ -178,7 +178,23 @@
     #controls{top:14px;bottom:auto;right:14px;padding:8px 10px}
     #controls .hint{display:none}
     #legend{display:none}
-    .leaflet-popup-content{width:min(340px,90vw) !important}
+    .leaflet-popup-content{margin:10px 12px;width:min(300px,88vw) !important}
+    .pp h2{font-size:13px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .pp .addr{font-size:10.5px;margin-bottom:7px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .pp .win{padding:7px 8px;margin-bottom:7px;gap:7px}
+    .pp .win .nm{font-size:12px}
+    .pp .win .sub2{font-size:10.5px}
+    .pp .grid{gap:5px;margin-bottom:7px}
+    .pp .cell{padding:5px 7px}
+    .pp .cell .k{font-size:9.5px}
+    .pp .cell .v{font-size:12px}
+    .pp .bar{font-size:10.5px;margin:4px 0;grid-template-columns:9px 1fr auto}
+    .pp .bar .track{height:5px}
+    .pp .bar .nm4{max-width:180px}
+    .pp .docs{margin-top:7px;gap:5px}
+    .pp .docs a{font-size:10.5px;padding:3px 7px}
+    .pp .legend-inline{font-size:10px;margin-top:4px}
+    .pp .src{display:none}
   }
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1D190SES3N"></script>
@@ -607,12 +623,15 @@ function bar(n,name,votes,pct,maxPct,color,winnerN){
 function popupHTML(s){
   const reg=s.registered, turn=s.turnout, valid=s.valid;
   const tp = reg? (turn/reg*100).toFixed(1) : "–";
+  const compact = window.matchMedia("(max-width:720px)").matches;
+  const k = compact?4:6;
   const maxPct = Math.max(...s.results.map(r=>r.pct||0));
-  const top = s.results.slice(0,6);
+  const top = s.results.slice(0,k);
   const docs = s.docs.map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener">Записник ${i+1} (PDF)</a>`).join("");
+  const addr = `${s.city}${s.muni && s.muni!==s.city?` · ${esc(s.muni)}`:""}${s.address?`<br>${esc(s.address)}`:""}${(!compact && s.display)?`<br>${esc(s.display)}`:""}`;
   return `<div class="pp">
     <h2>${s.no}. ${esc(shortName(s.place||s.name))}</h2>
-    <div class="addr">${s.city}${s.muni && s.muni!==s.city?` · ${esc(s.muni)}`:""}${s.address?`<br>${esc(s.address)}`:""}${s.display?`<br>${esc(s.display)}`:""}</div>
+    <div class="addr">${addr}</div>
     <div class="win">
       <span class="dot" style="background:${s.winner.color}"></span>
       <div><div class="nm">Победа: ${esc(listLabel(s.winner.name))}</div>
@@ -625,7 +644,7 @@ function popupHTML(s){
       <div class="cell"><div class="k">Изашло / важећи</div><div class="v">${fmt(turn)} / ${fmt(valid)}</div></div>
     </div>
     <div class="bars">${top.map(r=>bar(r.n,r.name,r.votes,r.pct,maxPct,(state.data.meta.colors[String(r.n)]||"#9aa5b1"),s.winner.n)).join("")}</div>
-    <div class="legend-inline">Приказано 6 најјачих листа од ${s.results.length}</div>
+    <div class="legend-inline">Приказано ${k} најјачих листа од ${s.results.length}</div>
     ${docs?`<div class="docs">${docs}</div>`:""}
     <div class="src">Локација: OpenStreetMap${s.loc_source?` (${esc(s.loc_source)})`:""}</div>
   </div>`;
