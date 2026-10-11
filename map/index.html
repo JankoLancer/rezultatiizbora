@@ -582,6 +582,7 @@ function draw(){
   layer.clearLayers(); labelsLayer.clearLayers();
   const list=currentStations();
   const maxValid=Math.max(...list.map(s=>s.valid||0),1);
+  const touch = window.matchMedia("(max-width:720px)").matches;   // na mobilnom bez hover tooltipa
   list.forEach(s=>{
     if(s.lat==null||state.hidden.has(s.winner.n)) return;
     let m;
@@ -593,7 +594,7 @@ function draw(){
         radius:r, color:"#0b1220", weight:1.2, fillColor:s.winner.color, fillOpacity:.72, opacity:.9
       });
     }
-    m.bindTooltip(`${s.no}. ${esc(shortName(s.place||s.name))}<br><b>${esc(listLabel(s.winner.name))}</b> · +${fmt(s.margin_votes)} (${s.margin_pct}%)`,{direction:"top",opacity:.95});
+    if(!touch) m.bindTooltip(`${s.no}. ${esc(shortName(s.place||s.name))}<br><b>${esc(listLabel(s.winner.name))}</b> · +${fmt(s.margin_votes)} (${s.margin_pct}%)`,{direction:"top",opacity:.95});
     m.bindPopup(popupHTML(s),{maxWidth:360,minWidth:320});
     m.addTo(layer);
     if(!state.labelsOff){
