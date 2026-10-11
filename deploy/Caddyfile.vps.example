@@ -1,0 +1,17 @@
+# Example Caddy site block for the host that already runs Caddy (this VPS).
+# 1) point DNS:  A  izbori-rezultati.rs  ->  57.131.200.44   (and www)
+# 2) append this block to /etc/caddy/Caddyfile and run:  sudo systemctl reload caddy
+# HTTPS (Let's Encrypt) is obtained automatically once DNS resolves.
+
+izbori-rezultati.rs, www.izbori-rezultati.rs {
+	root * /home/ubuntu/pro/izbori_vizualizacija/map
+	encode zstd gzip
+	file_server
+
+	# generated data file is big but immutable -> let the browser cache it
+	header /data.json  Cache-Control "public, max-age=86400"
+	header /index.html Cache-Control "no-cache"
+	header {
+		X-Content-Type-Options nosniff
+	}
+}

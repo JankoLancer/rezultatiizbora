@@ -1,0 +1,26 @@
+# ---- raw RIK downloads: huge (~19 GB) and reproducible ----
+rik_2023_*/
+__pycache__/
+*.pyc
+
+# ---- generated map data ----
+# map/data.json.gz IS committed; the uncompressed build artifacts are not
+map/data.json
+map/data.js
+
+# ---- geo: downloaded source docs, caches and logs (reproducible / bulky) ----
+geo/*.doc
+geo/*.docx
+geo/*.txt
+geo/*.pdf
+geo/*_cache*.json
+geo/*_finish_cache.json
+geo/*_geocode.log
+geo/_opstina_*.log
+geo/.nominatim.lock*
+geo/kosovo_centers.json
+
+# ---- misc ----
+*.log
+*.tmp
+.DS_Store

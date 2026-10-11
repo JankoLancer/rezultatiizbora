@@ -1,0 +1,52 @@
+[
+ {
+  "municipality": "Лепосавић",
+  "no": 1,
+  "name": "ОСНОВНА ШКОЛА „СУТЈЕСКА“",
+  "address": "",
+  "lat": 43.1019523,
+  "lon": 20.802696722684576,
+  "display": "Лепосавић (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Лепосавић",
+  "no": 2,
+  "name": "ОСНОВНА ШКОЛА „СУТЈЕСКА“",
+  "address": "",
+  "lat": 43.103093567819556,
+  "lon": 20.801561085907792,
+  "display": "Лепосавић (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Лепосавић",
+  "no": 3,
+  "name": "ОСНОВНА ШКОЛА „СУТЈЕСКА“",
+  "address": "",
+  "lat": 43.10265764230275,
+  "lon": 20.799723546898775,
+  "display": "Лепосавић (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Лепосавић",
+  "no": 4,
+  "name": "ОСНОВНА ШКОЛА „СУТЈЕСКА“",
+  "address": "",
+  "lat": 43.10124695769725,
+  "lon": 20.799723577535737,
+  "display": "Лепосавић (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Лепосавић",
+  "no": 5,
+  "name": "ОСНОВНА ШКОЛА „СУТЈЕСКА“",
+  "address": "",
+  "lat": 43.100811032180445,
+  "lon": 20.80156106697311,
+  "display": "Лепосавић (centar opštine)",
+  "source": "center"
+ }
+]

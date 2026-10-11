@@ -1,0 +1,52 @@
+[
+ {
+  "municipality": "Приштина",
+  "no": 1,
+  "name": "ОШ \"ДРИНКА ПАВЛОВИЋ\"",
+  "address": "",
+  "lat": 42.6638771,
+  "lon": 21.16571679372218,
+  "display": "Приштина (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Приштина",
+  "no": 2,
+  "name": "ОШ \"ДРИНКА ПАВЛОВИЋ\"",
+  "address": "",
+  "lat": 42.665018367819556,
+  "lon": 21.164589192150746,
+  "display": "Приштина (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Приштина",
+  "no": 3,
+  "name": "ОШ \"ДРИНКА ПАВЛОВИЋ\"",
+  "address": "",
+  "lat": 42.66458244230275,
+  "lon": 21.162764655266827,
+  "display": "Приштина (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Приштина",
+  "no": 4,
+  "name": "ОШ \"ДРИНКА ПАВЛОВИЋ\"",
+  "address": "",
+  "lat": 42.66317175769725,
+  "lon": 21.162764685224115,
+  "display": "Приштина (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Приштина",
+  "no": 5,
+  "name": "ОШ \"ДРИНКА ПАВЛОВИЋ\"",
+  "address": "",
+  "lat": 42.662735832180445,
+  "lon": 21.164589173636127,
+  "display": "Приштина (centar opštine)",
+  "source": "center"
+ }
+]

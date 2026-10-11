@@ -1,0 +1,32 @@
+[
+ {
+  "municipality": "Штрпце",
+  "no": 1,
+  "name": "ЗГРАДА ЛОКАЛНЕ АМБУЛАНТЕ",
+  "address": "",
+  "lat": 42.2401249,
+  "lon": 21.02695459002867,
+  "display": "Штрпце (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Штрпце",
+  "no": 2,
+  "name": "ЗГРАДА ЛОКАЛНЕ АМБУЛАНТЕ",
+  "address": "",
+  "lat": 42.24116413048454,
+  "lon": 21.024523241637535,
+  "display": "Штрпце (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Штрпце",
+  "no": 3,
+  "name": "ЗГРАДА ЛОКАЛНЕ АМБУЛАНТЕ",
+  "address": "",
+  "lat": 42.239085669515454,
+  "lon": 21.02452326833309,
+  "display": "Штрпце (centar opštine)",
+  "source": "center"
+ }
+]

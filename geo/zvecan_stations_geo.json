@@ -1,0 +1,32 @@
+[
+ {
+  "municipality": "Звечан",
+  "no": 1,
+  "name": "ГИМНАЗИЈА РАШКА",
+  "address": "",
+  "lat": 42.9091868,
+  "lon": 20.840569173452945,
+  "display": "Звечан (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Звечан",
+  "no": 2,
+  "name": "ГИМНАЗИЈА РАШКА",
+  "address": "",
+  "lat": 42.910226030484544,
+  "lon": 20.83811159946144,
+  "display": "Звечан (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Звечан",
+  "no": 3,
+  "name": "ГИМНАЗИЈА РАШКА",
+  "address": "",
+  "lat": 42.90814756951546,
+  "lon": 20.83811162708488,
+  "display": "Звечан (centar opštine)",
+  "source": "center"
+ }
+]

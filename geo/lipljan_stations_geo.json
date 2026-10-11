@@ -1,0 +1,22 @@
+[
+ {
+  "municipality": "Липљан",
+  "no": 1,
+  "name": "ОШ \"ДРИНКА ПАВЛОВИЋ\"",
+  "address": "",
+  "lat": 42.5213395,
+  "lon": 21.12422616582337,
+  "display": "Липљан (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Липљан",
+  "no": 2,
+  "name": "ОШ \"ДРИНКА ПАВЛОВИЋ\"",
+  "address": "",
+  "lat": 42.5213395,
+  "lon": 21.12096983417663,
+  "display": "Липљан (centar opštine)",
+  "source": "center"
+ }
+]

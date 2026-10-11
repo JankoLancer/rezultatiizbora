@@ -1,0 +1,1204 @@
+[
+ {
+  "slug": "prokuplje",
+  "name": "Прокупље",
+  "region": 4,
+  "value": 150,
+  "stations": 91,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13242/Prokuplje glasacka mesta.docx",
+   "https://www.rik.parlament.gov.rs/extfile/sr/13977/Prokuplje izmena  resenja c.docx"
+  ]
+ },
+ {
+  "slug": "aleksinac",
+  "name": "Алексинац",
+  "region": 4,
+  "value": 141,
+  "stations": 88,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12051/Aleksinac glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/14280/Aleksinac-izmena resenja.doc"
+  ]
+ },
+ {
+  "slug": "negotin",
+  "name": "Неготин",
+  "region": 4,
+  "value": 105,
+  "stations": 72,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13032/Negotin glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "sjenica",
+  "name": "Сјеница",
+  "region": 3,
+  "value": 119,
+  "stations": 68,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13347/Sjenica glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/14430/Sjenica izmena resenja .docx",
+   "https://www.rik.parlament.gov.rs/extfile/sr/14442/Sjenica ispravka resenja .doc"
+  ]
+ },
+ {
+  "slug": "trstenik",
+  "name": "Трстеник",
+  "region": 3,
+  "value": 134,
+  "stations": 67,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13494/Trstenik glasacka mesta.docx"
+  ]
+ },
+ {
+  "slug": "gornjimilanovac",
+  "name": "Горњи Милановац",
+  "region": 3,
+  "value": 121,
+  "stations": 66,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12579/Gornji Milanovac glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "prijepolje",
+  "name": "Пријепоље",
+  "region": 3,
+  "value": 118,
+  "stations": 66,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13230/Prijepolje glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "knjazevac",
+  "name": "Књажевац",
+  "region": 4,
+  "value": 108,
+  "stations": 65,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12771/Knjazevac glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/13902/Knjazevac izmena  resenja c.doc"
+  ]
+ },
+ {
+  "slug": "aleksandrovac",
+  "name": "Александровац",
+  "region": 3,
+  "value": 130,
+  "stations": 61,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12042/Aleksandrovac glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "tutin",
+  "name": "Тутин",
+  "region": 3,
+  "value": 129,
+  "stations": 61,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13503/Tutin glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/14490/Tutin izmena resenja .doc"
+  ]
+ },
+ {
+  "slug": "bujanovac",
+  "name": "Бујановац",
+  "region": 4,
+  "value": 164,
+  "stations": 59,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12444/Bujanovac glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/13872/Bujanovac dopuna resenja c.doc"
+  ]
+ },
+ {
+  "slug": "vlasotince",
+  "name": "Власотинце",
+  "region": 4,
+  "value": 156,
+  "stations": 58,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12507/Vlasotince glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "ivanjica",
+  "name": "Ивањица",
+  "region": 3,
+  "value": 122,
+  "stations": 57,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12693/Ivanjica glasacka mesta.docx"
+  ]
+ },
+ {
+  "slug": "paracin",
+  "name": "Параћин",
+  "region": 3,
+  "value": 98,
+  "stations": 55,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13146/Paracin glasacka mesta.docx"
+  ]
+ },
+ {
+  "slug": "starapazova",
+  "name": "Стара Пазова",
+  "region": 2,
+  "value": 61,
+  "stations": 53,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13422/Stara Pazova glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/14031/Stara Pazova dopuna resenja c.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/14460/Stara Pazova izmena resenja .doc"
+  ]
+ },
+ {
+  "slug": "pozega",
+  "name": "Пожега",
+  "region": 3,
+  "value": 116,
+  "stations": 53,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13203/Pozega glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "bajinabasta",
+  "name": "Бајина Башта",
+  "region": 3,
+  "value": 113,
+  "stations": 52,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12114/Bajina Basta glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/14289/Bajina Basta izmena resenja .doc"
+  ]
+ },
+ {
+  "slug": "ub",
+  "name": "Уб",
+  "region": 3,
+  "value": 76,
+  "stations": 52,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13536/Ub glasacka mesta.docx"
+  ]
+ },
+ {
+  "slug": "vladicinhan",
+  "name": "Владичин Хан",
+  "region": 4,
+  "value": 165,
+  "stations": 51,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13719/Vladicin_Han_211221_CIR.docx"
+  ]
+ },
+ {
+  "slug": "backatopola",
+  "name": "Бачка Топола",
+  "region": 2,
+  "value": 18,
+  "stations": 50,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12156/Backa Topola glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "smederevskapalanka",
+  "name": "Смедеревска Паланка",
+  "region": 4,
+  "value": 79,
+  "stations": 49,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13365/Smederevska Palanka glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "priboj",
+  "name": "Прибој",
+  "region": 3,
+  "value": 117,
+  "stations": 48,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13221/Priboj glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "kursumlija",
+  "name": "Куршумлија",
+  "region": 4,
+  "value": 149,
+  "stations": 48,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12861/Kursumlija glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "raska",
+  "name": "Рашка",
+  "region": 3,
+  "value": 128,
+  "stations": 47,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13275/Raska glasacka mesta.docx"
+  ]
+ },
+ {
+  "slug": "velikaplana",
+  "name": "Велика Плана",
+  "region": 4,
+  "value": 77,
+  "stations": 47,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12474/Velika Plana glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/14346/Velika Plana izmena i dopuna resenja .doc"
+  ]
+ },
+ {
+  "slug": "petrovacnamlavi",
+  "name": "Петровац на Млави",
+  "region": 4,
+  "value": 88,
+  "stations": 45,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13158/Petrovac na Mlavi glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "despotovac",
+  "name": "Деспотовац",
+  "region": 3,
+  "value": 96,
+  "stations": 44,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12591/Despotovac glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "surdulica",
+  "name": "Сурдулица",
+  "region": 4,
+  "value": 167,
+  "stations": 44,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13443/Surdulica glasacka mesta.docx"
+  ]
+ },
+ {
+  "slug": "backapalanka",
+  "name": "Бачка Паланка",
+  "region": 2,
+  "value": 45,
+  "stations": 43,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12144/Backa Palanka glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/13845/Backa Palanka izmena i dopuna resenja c.docx",
+   "https://www.rik.parlament.gov.rs/extfile/sr/14310/Backa Palanka dopuna resenja .docx"
+  ]
+ },
+ {
+  "slug": "ruma",
+  "name": "Рума",
+  "region": 2,
+  "value": 59,
+  "stations": 43,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13293/Ruma glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "lucani",
+  "name": "Лучани",
+  "region": 3,
+  "value": 123,
+  "stations": 43,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12930/Lucani glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "lebane",
+  "name": "Лебане",
+  "region": 4,
+  "value": 157,
+  "stations": 42,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12900/Lebane glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "svrljig",
+  "name": "Сврљиг",
+  "region": 4,
+  "value": 146,
+  "stations": 42,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13314/Svrljig glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/14421/Svrljig dopuna resenja .doc"
+  ]
+ },
+ {
+  "slug": "babusnica",
+  "name": "Бабушница",
+  "region": 4,
+  "value": 151,
+  "stations": 41,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12105/Babusnica glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/13836/Babusnica dopuna resenja c.doc"
+  ]
+ },
+ {
+  "slug": "majdanpek",
+  "name": "Мајданпек",
+  "region": 4,
+  "value": 104,
+  "stations": 41,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12966/Majdanpek glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "kula",
+  "name": "Кула",
+  "region": 2,
+  "value": 41,
+  "stations": 40,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12852/Kula glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/13938/Kula izmena  resenja c.doc"
+  ]
+ },
+ {
+  "slug": "arandjelovac",
+  "name": "Аранђеловац",
+  "region": 3,
+  "value": 89,
+  "stations": 40,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12084/Arandjelovac glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "varvarin",
+  "name": "Варварин",
+  "region": 3,
+  "value": 132,
+  "stations": 40,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12465/Varvarin glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "sid",
+  "name": "Шид",
+  "region": 2,
+  "value": 62,
+  "stations": 39,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13608/Sid glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "novavaros",
+  "name": "Нова Варош",
+  "region": 3,
+  "value": 115,
+  "stations": 39,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13050/Nova Varos glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/13959/Nova Varos izmena  resenja c.docx"
+  ]
+ },
+ {
+  "slug": "kucevo",
+  "name": "Кучево",
+  "region": 4,
+  "value": 86,
+  "stations": 39,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12870/Kucevo glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/14358/Kucevo ispravka resenja .doc"
+  ]
+ },
+ {
+  "slug": "becej",
+  "name": "Бечеј",
+  "region": 2,
+  "value": 48,
+  "stations": 38,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12366/Becej glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "mionica",
+  "name": "Мионица",
+  "region": 3,
+  "value": 74,
+  "stations": 38,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13020/Mionica glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "presevo",
+  "name": "Прешево",
+  "region": 4,
+  "value": 166,
+  "stations": 38,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13212/Presevo glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "indjija",
+  "name": "Инђија",
+  "region": 2,
+  "value": 56,
+  "stations": 37,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12702/Indjija glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/13893/Indjija izmena i dopuna resenja c.doc"
+  ]
+ },
+ {
+  "slug": "vladimirci",
+  "name": "Владимирци",
+  "region": 3,
+  "value": 64,
+  "stations": 37,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12492/Vladimirci glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "vrnjackabanja",
+  "name": "Врњачка Бања",
+  "region": 3,
+  "value": 125,
+  "stations": 37,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12540/Vrnjacka Banja glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/14049/Vrnjacka banja izmena i dopuna resenja c.doc"
+  ]
+ },
+ {
+  "slug": "belapalanka",
+  "name": "Бела Паланка",
+  "region": 4,
+  "value": 152,
+  "stations": 37,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12174/Bela Palanka glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "boljevac",
+  "name": "Бољевац",
+  "region": 4,
+  "value": 106,
+  "stations": 37,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12408/Boljevac glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/13854/Boljevac izmena resenja c.doc"
+  ]
+ },
+ {
+  "slug": "doljevac",
+  "name": "Дољевац",
+  "region": 4,
+  "value": 143,
+  "stations": 37,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12609/Doljevac glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "zabari",
+  "name": "Жабари",
+  "region": 4,
+  "value": 84,
+  "stations": 37,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12630/Zabari glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "vrbas",
+  "name": "Врбас",
+  "region": 2,
+  "value": 49,
+  "stations": 36,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12528/Vrbas glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "knic",
+  "name": "Кнић",
+  "region": 3,
+  "value": 91,
+  "stations": 36,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12762/Кnic glasacka mesta.docx"
+  ]
+ },
+ {
+  "slug": "rekovac",
+  "name": "Рековац",
+  "region": 3,
+  "value": 99,
+  "stations": 36,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13284/Rekovac glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "kanjiza",
+  "name": "Кањижа",
+  "region": 2,
+  "value": 27,
+  "stations": 35,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12735/Kanjiza glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "koceljeva",
+  "name": "Коцељева",
+  "region": 3,
+  "value": 65,
+  "stations": 34,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12807/Koceljeva glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "lajkovac",
+  "name": "Лајковац",
+  "region": 3,
+  "value": 72,
+  "stations": 34,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12882/Lajkovac glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "ljubovija",
+  "name": "Љубовија",
+  "region": 3,
+  "value": 68,
+  "stations": 34,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12951/Ljubovija glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "senta",
+  "name": "Сента",
+  "region": 2,
+  "value": 30,
+  "stations": 32,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13323/Senta glasacka mesta.docx"
+  ]
+ },
+ {
+  "slug": "krupanj",
+  "name": "Крупањ",
+  "region": 3,
+  "value": 66,
+  "stations": 32,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12834/Krupanj glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "velikogradiste",
+  "name": "Велико Градиште",
+  "region": 4,
+  "value": 82,
+  "stations": 32,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12483/Veliko Gradiste glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "sokobanja",
+  "name": "Сокобања",
+  "region": 4,
+  "value": 109,
+  "stations": 32,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13374/Sokobanja glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "zabalj",
+  "name": "Жабаљ",
+  "region": 2,
+  "value": 50,
+  "stations": 31,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12621/Zabalj glasacka mesta.docx"
+  ]
+ },
+ {
+  "slug": "zitiste",
+  "name": "Житиште",
+  "region": 2,
+  "value": 21,
+  "stations": 31,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12648/Zitiste glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "novibecej",
+  "name": "Нови Бечеј",
+  "region": 2,
+  "value": 24,
+  "stations": 31,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13068/Novi Becej glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "temerin",
+  "name": "Темерин",
+  "region": 2,
+  "value": 54,
+  "stations": 31,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13455/Temerin glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "bogatic",
+  "name": "Богатић",
+  "region": 3,
+  "value": 63,
+  "stations": 31,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12387/Bogatic glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "topola",
+  "name": "Топола",
+  "region": 3,
+  "value": 95,
+  "stations": 31,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13476/Topola glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "cuprija",
+  "name": "Ћуприја",
+  "region": 3,
+  "value": 101,
+  "stations": 31,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13524/Cuprija glasacka mesta.docx"
+  ]
+ },
+ {
+  "slug": "blace",
+  "name": "Блаце",
+  "region": 4,
+  "value": 147,
+  "stations": 31,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12375/Blace glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "bosilegrad",
+  "name": "Босилеград",
+  "region": 4,
+  "value": 163,
+  "stations": 31,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12426/Bosilegrad glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "gadzinhan",
+  "name": "Гаџин Хан",
+  "region": 4,
+  "value": 142,
+  "stations": 31,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12561/Gadzin Han glasacka mesta.docx"
+  ]
+ },
+ {
+  "slug": "kladovo",
+  "name": "Кладово",
+  "region": 4,
+  "value": 103,
+  "stations": 31,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12753/Kladovo glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "pecinci",
+  "name": "Пећинци",
+  "region": 2,
+  "value": 58,
+  "stations": 30,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13167/Pecinci glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "coka",
+  "name": "Чока",
+  "region": 2,
+  "value": 31,
+  "stations": 30,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13587/Coka glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "ljig",
+  "name": "Љиг",
+  "region": 3,
+  "value": 73,
+  "stations": 30,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12942/Ljig glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "svilajnac",
+  "name": "Свилајнац",
+  "region": 3,
+  "value": 100,
+  "stations": 30,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13305/Svilajnac glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "cajetina",
+  "name": "Чајетина",
+  "region": 3,
+  "value": 120,
+  "stations": 30,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13569/Cajetina glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "golubac",
+  "name": "Голубац",
+  "region": 4,
+  "value": 83,
+  "stations": 30,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12570/Golubac glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "ada",
+  "name": "Ада",
+  "region": 2,
+  "value": 26,
+  "stations": 29,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12039/Ada c.doc"
+  ]
+ },
+ {
+  "slug": "apatin",
+  "name": "Апатин",
+  "region": 2,
+  "value": 40,
+  "stations": 29,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12072/Apatin glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "kosjeric",
+  "name": "Косјерић",
+  "region": 3,
+  "value": 114,
+  "stations": 29,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12798/Kosjeric glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "malizvornik",
+  "name": "Мали Зворник",
+  "region": 3,
+  "value": 69,
+  "stations": 29,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12975/Mali Zvornik glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "malocrnice",
+  "name": "Мало Црниће",
+  "region": 4,
+  "value": 87,
+  "stations": 29,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12993/Malo Crnice glasacka mesta.docx"
+  ]
+ },
+ {
+  "slug": "srbobran",
+  "name": "Србобран",
+  "region": 2,
+  "value": 52,
+  "stations": 28,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13392/Srbobran glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "arilje",
+  "name": "Ариље",
+  "region": 3,
+  "value": 112,
+  "stations": 28,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12093/Arilje glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "brus",
+  "name": "Брус",
+  "region": 3,
+  "value": 131,
+  "stations": 28,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12435/Brus glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "odzaci",
+  "name": "Оџаци",
+  "region": 2,
+  "value": 42,
+  "stations": 27,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13125/Odzaci glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "raca",
+  "name": "Рача",
+  "region": 3,
+  "value": 94,
+  "stations": 27,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13266/Raca glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "zitoradja",
+  "name": "Житорађа",
+  "region": 4,
+  "value": 148,
+  "stations": 27,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12660/Zitoradja glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "merosina",
+  "name": "Мерошина",
+  "region": 4,
+  "value": 144,
+  "stations": 26,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13011/Merosina glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "bac",
+  "name": "Бач",
+  "region": 2,
+  "value": 44,
+  "stations": 25,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12132/Bac glasacka mesta.doc",
+   "https://www.rik.parlament.gov.rs/extfile/sr/14298/BAC izmena i dopuna resenja .doc"
+  ]
+ },
+ {
+  "slug": "kovin",
+  "name": "Ковин",
+  "region": 2,
+  "value": 36,
+  "stations": 25,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12789/Kovin glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "novacrnja",
+  "name": "Нова Црња",
+  "region": 2,
+  "value": 23,
+  "stations": 25,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13059/Nova Crnja glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "opovo",
+  "name": "Опово",
+  "region": 2,
+  "value": 37,
+  "stations": 25,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13107/Opovo glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "titel",
+  "name": "Тител",
+  "region": 2,
+  "value": 55,
+  "stations": 25,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13464/Titel glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "medvedja",
+  "name": "Медвеђа",
+  "region": 4,
+  "value": 159,
+  "stations": 25,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13002/Medvedja glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "trgoviste",
+  "name": "Трговиште",
+  "region": 4,
+  "value": 168,
+  "stations": 25,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13485/Trgoviste glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "alibunar",
+  "name": "Алибунар",
+  "region": 2,
+  "value": 32,
+  "stations": 24,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12063/Alibunar glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "bojnik",
+  "name": "Бојник",
+  "region": 4,
+  "value": 155,
+  "stations": 24,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12399/Bojnik glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "maliidjos",
+  "name": "Мали Иђош",
+  "region": 2,
+  "value": 19,
+  "stations": 23,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12984/Mali Idjos glasacka mesta.docx"
+  ]
+ },
+ {
+  "slug": "plandiste",
+  "name": "Пландиште",
+  "region": 2,
+  "value": 39,
+  "stations": 23,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13185/Plandiste glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "dimitrovgrad",
+  "name": "Димитровград",
+  "region": 4,
+  "value": 153,
+  "stations": 23,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12600/Dimitrovgrad glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "noviknezevac",
+  "name": "Нови Кнежевац",
+  "region": 2,
+  "value": 29,
+  "stations": 22,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13077/Novi Knezevac glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "batocina",
+  "name": "Баточина",
+  "region": 3,
+  "value": 90,
+  "stations": 22,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12123/Batocina glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "kovacica",
+  "name": "Ковачица",
+  "region": 2,
+  "value": 35,
+  "stations": 21,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12780/Kovacica glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "osecina",
+  "name": "Осечина",
+  "region": 3,
+  "value": 75,
+  "stations": 21,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13116/Osecina glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "razanj",
+  "name": "Ражањ",
+  "region": 4,
+  "value": 145,
+  "stations": 21,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13257/Razanj glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "belacrkva",
+  "name": "Бела Црква",
+  "region": 2,
+  "value": 33,
+  "stations": 19,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12183/Bela Crkva glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "cicevac",
+  "name": "Ћићевац",
+  "region": 3,
+  "value": 135,
+  "stations": 18,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13515/Cicevac glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "secanj",
+  "name": "Сечањ",
+  "region": 2,
+  "value": 25,
+  "stations": 17,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13335/Secanj glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "zagubica",
+  "name": "Жагубица",
+  "region": 4,
+  "value": 85,
+  "stations": 17,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12639/Zagubica glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "beocin",
+  "name": "Беочин",
+  "region": 2,
+  "value": 47,
+  "stations": 16,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12357/Beocin glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "irig",
+  "name": "Ириг",
+  "region": 2,
+  "value": 57,
+  "stations": 14,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12711/Irig glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "crnatrava",
+  "name": "Црна Трава",
+  "region": 4,
+  "value": 160,
+  "stations": 12,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13557/Crna Trava glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "backipetrovac",
+  "name": "Бачки Петровац",
+  "region": 2,
+  "value": 46,
+  "stations": 11,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12165/Backi Petrovac glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "lapovo",
+  "name": "Лапово",
+  "region": 3,
+  "value": 93,
+  "stations": 11,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/12891/Lapovo glasacka mesta.doc"
+  ]
+ },
+ {
+  "slug": "sremskikarlovci",
+  "name": "Сремски Карловци",
+  "region": 2,
+  "value": 53,
+  "stations": 10,
+  "docs": [
+   "https://www.rik.parlament.gov.rs/extfile/sr/13410/Sremski Karlovci glasacka mesta.doc"
+  ]
+ }
+]

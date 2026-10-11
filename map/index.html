@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Резултати избора 2023. у Србији — по бирачким местима</title>
+<meta name="description" content="Интерактивна мапа и база резултата парламентарних избора 2023. у Србији: свих 8.273 бирачких места, гласови по изборним листама, излазност и PDF записници, по општинама и градовима." />
+<meta name="keywords" content="rezultati izbora 2023, parlamentarni izbori 2023 Srbija, biračka mesta, izbori po opštinama, mapa biračkih mesta, izlaznost, RIK, izborne liste" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f172a" />
+<link rel="canonical" href="https://rezultatiizbora.rs/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="sr_RS" />
+<meta property="og:site_name" content="Rezultati izbora — Srbija" />
+<meta property="og:title" content="Резултати избора 2023. у Србији — по бирачким местима" />
+<meta property="og:description" content="Мапа и база резултата парламентарних избора 2023: свих 8.273 бирачких места, гласови по листама, излазност и записници." />
+<meta property="og:url" content="https://rezultatiizbora.rs/" />
+<meta property="og:image" content="https://rezultatiizbora.rs/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Резултати избора 2023. у Србији — по бирачким местима" />
+<meta name="twitter:description" content="Мапа и база резултата парламентарних избора 2023: 8.273 бирачка места, гласови по листама, излазност." />
+<meta name="twitter:image" content="https://rezultatiizbora.rs/og.png" />
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
+<link rel="preconnect" href="https://tile.openstreetmap.org" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://rezultatiizbora.rs/#website",
+      "url": "https://rezultatiizbora.rs/",
+      "name": "Rezultati izbora — Srbija",
+      "inLanguage": "sr",
+      "description": "Резултати избора у Србији по бирачким местима: интерактивна мапа, гласови по изборним листама и излазност."
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rezultatiizbora.rs/#dataset",
+      "name": "Резултати парламентарних избора 2023. у Србији по бирачким местима",
+      "description": "Комплетни резултати парламентарних избора 2023. у Србији: 8.273 бирачких места, гласови по изборним листама, број уписаних и изашлих бирача, као и линкови ка PDF записницима.",
+      "url": "https://rezultatiizbora.rs/",
+      "inLanguage": "sr",
+      "isAccessibleForFree": true,
+      "keywords": ["избори", "Србија", "2023", "бирачка места", "резултати", "излазност"],
+      "spatialCoverage": { "@type": "Place", "name": "Србија" },
+      "temporalCoverage": "2023-12-17",
+      "distribution": [
+        { "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://rezultatiizbora.rs/data.json" }
+      ],
+      "creator": { "@type": "Organization", "name": "Rezultati izbora — Srbija" }
+    }
+  ]
+}
+</script>
+<style>
+  :root{
+    --bg:#0f172a; --panel:#111c34; --panel2:#17233f; --ink:#e9eef7; --muted:#93a3bd;
+    --line:#26344f; --c1:#1a6fb5; --c7:#d7301f; --accent:#38bdf8;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+  #map{position:absolute;inset:0;z-index:0;background:#0b1220}
+  .panel{position:absolute;z-index:1000;background:rgba(15,23,42,.92);backdrop-filter:blur(8px);
+    border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+  /* ---- header ---- */
+  #header{top:14px;left:14px;max-width:min(430px,calc(100vw - 28px));padding:14px 16px 12px;
+    max-height:calc(100vh - 210px);overflow-y:auto}
+  #header h1{margin:0 0 2px;font-size:17px;line-height:1.25}
+  #header .sub{color:var(--muted);font-size:12.5px;margin-bottom:12px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+  .stat{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 9px}
+  .stat .k{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .stat .v{font-size:16px;font-weight:700;margin-top:2px}
+  .dot{width:12px;height:12px;border-radius:50%;flex:0 0 auto;box-shadow:0 0 0 2px rgba(255,255,255,.12)}
+  #header .foot{color:var(--muted);font-size:11px;margin-top:9px;line-height:1.4}
+  .field-label{display:block;font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:6px 0 3px}
+  .city-select{width:100%;max-width:420px;margin:0 0 10px;padding:8px 10px;border-radius:8px;
+    background:var(--panel2);color:var(--ink);border:1px solid var(--line);font-size:14px}
+  .city-select:focus{outline:none;border-color:var(--accent)}
+  .city-tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+  .city-tabs button{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;
+    padding:5px 11px;font-size:12px;cursor:pointer}
+  .city-tabs button:hover{border-color:var(--accent)}
+  .city-tabs button.active{background:var(--accent);color:#062033;border-color:var(--accent);font-weight:700}
+  /* ---- collapsible panels ---- */
+  .panel-bar{display:flex;align-items:center;gap:8px;justify-content:space-between}
+  .panel-bar .bar-title{font-size:12.5px;font-weight:700;letter-spacing:.02em}
+  .site-h1{font-size:13px;font-weight:600;line-height:1.3;margin:0 0 4px}
+  .collapse-btn{margin-left:auto;flex:0 0 auto;background:var(--panel2);color:var(--ink);border:1px solid var(--line);
+    border-radius:8px;width:26px;height:24px;cursor:pointer;font-size:13px;line-height:1;display:flex;align-items:center;justify-content:center;padding:0}
+  .collapse-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .panel.collapsed{padding:8px 10px}
+  .panel.collapsed .panel-body{display:none}
+  #header .panel-bar{margin-bottom:10px}
+  #header.collapsed .panel-bar{margin-bottom:0}
+  /* ---- top 5 lists ---- */
+  .top5-h{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:2px 0 7px}
+  #top5-rows{max-height:170px;overflow-y:auto;padding-right:3px}
+  #top5-rows::-webkit-scrollbar{width:8px}
+  #top5-rows::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+  #top5-rows::-webkit-scrollbar-track{background:transparent}
+  @media (max-height:820px){ #top5-rows{max-height:120px} }
+  .t5row{display:grid;grid-template-columns:14px 11px 1fr auto;gap:7px;align-items:center;
+    padding:5px 8px;border-radius:7px;font-size:12px;margin:3px 0}
+  .t5row .t5rank{color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
+  .t5row .t5dot{width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.10)}
+  .t5row .t5name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .t5row .t5v{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+  /* ---- pie view ---- */
+  .pie-wrap{background:none;border:none}
+  .pie{border-radius:50%;border:1px solid #0b1220;box-shadow:0 1px 3px rgba(0,0,0,.6);cursor:pointer}
+  /* ---- legends ---- */
+  #legend{left:14px;bottom:14px;padding:13px 15px;max-width:min(430px,calc(100vw - 28px))}
+  #legend h3{margin:0 0 9px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .lrow{display:flex;align-items:center;gap:9px;font-size:12.5px;padding:3px 0;cursor:pointer;user-select:none}
+  .lrow .swatch{width:16px;height:16px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.12)}
+  .lrow .cnt{color:var(--muted);margin-left:auto;font-variant-numeric:tabular-nums}
+  .lrow.off{opacity:.4}
+  .sizerow{display:flex;align-items:flex-end;gap:14px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+  .sizerow .cap{font-size:11px;color:var(--muted);margin-top:4px;text-align:center}
+  .sizerow .item{display:flex;flex-direction:column;align-items:center}
+  .sizerow .circle{background:rgba(56,189,248,.16);border:2px solid var(--accent);border-radius:50%}
+  /* ---- controls ---- */
+  #controls{top:14px;right:14px;padding:10px 12px;font-size:12.5px}
+  #controls .panel-body{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+  #controls.collapsed .panel-body{display:none}
+  #controls.collapsed .panel-body{margin-top:0}
+  #controls label{display:flex;align-items:center;gap:7px;cursor:pointer}
+  #controls select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:4px 6px;font-size:12.5px}
+  #controls .hint{color:var(--muted);font-size:11px;max-width:220px;line-height:1.35}
+  /* ---- popup ---- */
+  .leaflet-popup-content-wrapper{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+  .leaflet-popup-tip{background:var(--panel);border:1px solid var(--line)}
+  .leaflet-popup-content{margin:14px 16px;width:330px !important}
+  .pp h2{margin:0 0 3px;font-size:14.5px;line-height:1.3}
+  .pp .addr{color:var(--muted);font-size:11.5px;margin-bottom:10px}
+  .pp .win{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:9px;background:var(--panel2);border:1px solid var(--line);margin-bottom:9px}
+  .pp .win .nm{font-size:12.5px;font-weight:600;line-height:1.25}
+  .pp .win .sub2{font-size:11px;color:var(--muted);margin-top:2px}
+  .pp .grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
+  .pp .cell{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:6px 8px}
+  .pp .cell .k{font-size:10px;color:var(--muted);text-transform:uppercase}
+  .pp .cell .v{font-size:13px;font-weight:600;margin-top:1px}
+  .pp .bars{margin-top:4px}
+  .pp .bar{display:grid;grid-template-columns:10px 1fr auto;gap:7px;align-items:center;margin:5px 0;font-size:11.5px}
+  .pp .bar .bdot{width:9px;height:9px;border-radius:50%}
+  .pp .bar .track{grid-column:1 / -1;height:6px;background:var(--panel2);border-radius:3px;overflow:hidden;margin-top:-1px}
+  .pp .bar .fill{height:100%;border-radius:3px}
+  .pp .bar .nm4{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:230px}
+  .pp .bar .vt{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .pp .docs{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px}
+  .pp .docs a{font-size:11.5px;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:7px;padding:4px 8px;background:var(--panel2)}
+  .pp .docs a:hover{border-color:var(--accent)}
+  .pp .src{color:#5f7290;font-size:10px;margin-top:8px}
+  .legend-inline{display:flex;align-items:center;gap:5px;font-size:10.5px;color:var(--muted);margin-top:6px}
+  @media (max-width:720px){
+    #header{right:14px;max-width:none;padding:12px 14px}
+    #controls{top:auto;bottom:14px;right:14px;padding:8px 10px}
+    #controls .hint{display:none}
+    #legend{display:none}
+    .leaflet-popup-content{width:min(330px,86vw) !important}
+  }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1D190SES3N"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow_ad_personalization_signals:false});
+</script>
+</head>
+<body>
+<div id="map"></div>
+<noscript>
+  <div style="position:absolute;inset:0;z-index:2000;background:#0f172a;color:#e9eef7;padding:24px;overflow:auto;font-family:sans-serif">
+    <h2>Резултати избора у Србији по бирачким местима</h2>
+    <p>Интерактивна мапа захтева JavaScript. Подаци су доступни и као
+      <a href="data.json" style="color:#38bdf8">JSON</a>, а опис и извори су на страни
+      <a href="o-sajtu.html" style="color:#38bdf8">о сајту</a>.</p>
+  </div>
+</noscript>
+<!-- podaci: data.json (učitava se fetch-om; vidi deploy/prepare_map.sh) -->
+
+<div id="header" class="panel">
+  <div class="panel-bar">
+    <span class="bar-title" id="app-title">Избори у Србији</span>
+    <button class="collapse-btn" data-target="header" title="Скупи / рашири">⌃</button>
+  </div>
+  <div class="panel-body">
+    <h1 class="site-h1">Резултати избора у Србији по бирачким местима</h1>
+    <div class="sub" id="app-sub">Резултати по бирачким местима</div>
+    <label class="field-label" for="election-select">Избори</label>
+    <select class="city-select" id="election-select" title="Изабери избор"></select>
+    <label class="field-label" for="city-select">Град / општина</label>
+    <select class="city-select" id="city-select" title="Изабери град/општину"></select>
+    <div class="stats">
+      <div class="stat"><div class="k">Бирачка места</div><div class="v" id="s-stations">–</div></div>
+      <div class="stat"><div class="k">Изашло</div><div class="v" id="s-turnout">–</div></div>
+      <div class="stat"><div class="k">Излазност</div><div class="v" id="s-pct">–</div></div>
+    </div>
+    <div class="top5">
+      <div class="top5-h">Све изборне листе (укупно гласова)</div>
+      <div id="top5-rows"></div>
+    </div>
+    <div class="foot" id="foot-hint">Круг = једно бирачко место. Боја = победничка листа. Величина = разлика између првог и другог. Кликните круг за детаље.</div>
+    <div class="foot">Подаци и извори: <a href="o-sajtu.html" style="color:var(--accent)">о сајту</a>.</div>
+  </div>
+</div>
+
+<div id="controls" class="panel collapsed">
+  <div class="panel-bar">
+    <span class="bar-title">Подешавања</span>
+    <button class="collapse-btn" data-target="controls" title="Скупи / рашири">⌄</button>
+  </div>
+  <div class="panel-body">
+    <label>Подлога
+      <select id="basemap">
+        <option value="osm">Улична (OSM)</option>
+        <option value="hot">Хуманитарна (HOT)</option>
+        <option value="sat">Сателит (Esri)</option>
+      </select>
+    </label>
+    <label><input type="checkbox" id="toggleLabels" /> Приказ назива места</label>
+    <label>Величина по
+      <select id="sizeBy">
+        <option value="pct">разлици у %</option>
+        <option value="votes">разлици у гласовима</option>
+      </select>
+    </label>
+    <label>Приказ места
+      <select id="viewMode">
+        <option value="circles">Кругови (подразумевано)</option>
+        <option value="pies">Пита (топ 2 + остали)</option>
+      </select>
+    </label>
+    <label id="muni-wrap" style="display:none">Општина
+      <select id="muni-filter"></select>
+    </label>
+  </div>
+</div>
+
+<div id="legend" class="panel collapsed">
+  <div class="panel-bar">
+    <span class="bar-title">Победничке листе</span>
+    <button class="collapse-btn" data-target="legend" title="Скупи / рашири">⌄</button>
+  </div>
+  <div class="panel-body">
+    <div id="legend-rows"></div>
+    <div class="sizerow">
+      <div class="item"><div class="circle" style="width:10px;height:10px"></div><div class="cap" id="cap-s">мала</div></div>
+      <div class="item"><div class="circle" style="width:19px;height:19px"></div><div class="cap" id="cap-m">средња</div></div>
+      <div class="item"><div class="circle" style="width:28px;height:28px"></div><div class="cap" id="cap-l">велика</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const state = { data:null, election:null, city:"all", muni:"all", sizeBy:"pct", view:"circles", hidden:new Set(), labelsOff:true, min:0, max:1 };
+const fmt = n => (n==null? "–" : Number(n).toLocaleString("sr-RS"));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const shortName = s => s.replace(/^\d+\.\s*/,'');
+// кратко име изборне листе: без редног броја и „ИЗБОРНА ЛИСТА“, скраћено до првог
+// раздвајача („ - “ / „ – “ / зарез) који није унутар заграда
+function listLabel(full){
+  let s=String(full).replace(/^\s*\d+\.\s*/,'').trim();
+  s=s.replace(/^ИЗБОРН[АЕ]\s+ЛИСТ[АЕ]\s*/i,'').trim();
+  let depth=0,cut=s.length;
+  for(let i=0;i<s.length;i++){
+    const c=s[i];
+    if(c==='('||c==='[') depth++;
+    else if(c===')'||c===']') depth--;
+    else if(depth<=0){
+      if((c==='-'||c==='–'||c==='—') && s[i-1]===' ' && s[i+1]===' '){ cut=i; break; }
+      if(c===','||c===';'){ cut=i; break; }
+    }
+  }
+  let out=s.slice(0,cut).replace(/\s*\([^)]*$/,'').trim().replace(/^[“”"'‚'']+|[“”"'‚'']+$/g,'').replace(/[,\-–—\s]+$/,'').trim();
+  return out||shortName(full);
+}
+
+fetch("data.json").then(r=>r.json()).then(d=>{
+  if(!d){ console.error("No data loaded"); return; }
+  state.data=d;
+  const es=(d.meta.elections||[]);
+  state.election = electionFromURL() || (es[0]?es[0].id:null);
+  buildElectionTabs();
+  updateTitles();
+  initMap();
+  buildCityTabs();
+  applyCity(cityFromURL() || "all", true);
+  window.addEventListener("hashchange", ()=>{
+    const e=electionFromURL();
+    if(e && e!==state.election) applyElection(e,true);
+    const c=cityFromURL();
+    if(c && c!==state.city) applyCity(c,true);
+  });
+}).catch(()=>{
+  const h=document.getElementById("header");
+  if(h) h.insertAdjacentHTML("beforeend",'<div style="color:#f88;font-size:12px;margin-top:8px">Podaci nisu učitani. Otvori preko lokalnog servera (npr. <code>python3 -m http.server --directory map</code>), ne dvoklikom.</div>');
+});
+
+/* ---- град из URL-а (share linkovi) ---- */
+const CITY_SLUG={ "Крагујевац":"kragujevac", "Ниш":"nis", "Нови Сад":"novisad", "Суботица":"subotica", "Београд":"beograd",
+  "Јагодина":"jagodina", "Чачак":"cacak", "Краљево":"kraljevo", "Крушевац":"krusevac",
+  "Лесковац":"leskovac", "Врање":"vranje", "Ваљево":"valjevo", "Шабац":"sabac",
+  "Нови Пазар":"novipazar", "Лозница":"loznica", "Ужице":"uzice", "Пирот":"pirot",
+  "Смедерево":"smederevo", "Сомбор":"sombor", "Панчево":"pancevo", "Зрењанин":"zrenjanin",
+  "Зајечар":"zajecar", "Пожаревац":"pozarevac", "Кикинда":"kikinda",
+  "Сремска Митровица":"sremskamitrovica", "Вршац":"vrsac", "Бор":"bor" };
+function citySlug(name){
+  const m=(state&&state.data&&state.data.meta&&state.data.meta.city_slugs)||{};
+  return m[name] || CITY_SLUG[name] || String(name).toLowerCase().replace(/[^a-z0-9]+/g,"");
+}
+function allCities(){ return Object.keys((state.data.meta.city_slugs)||{}); }
+function slugToCity(slug){
+  const s=String(slug||"").toLowerCase();
+  for(const c of allCities()){ if(citySlug(c)===s) return c; }
+  return null;
+}
+function electionFromURL(){
+  const raw=((location.hash||"")+" "+(location.search||"")).toLowerCase();
+  const ids=(state.data.meta.elections||[]).map(e=>String(e.id).toLowerCase());
+  const m=raw.match(/[?&]election=([a-z0-9-]+)/);
+  if(m && ids.includes(m[1])) return m[1];
+  for(const id of ids){
+    if(new RegExp("(^|[#/?&])"+id+"([^a-z0-9]|$)").test(raw)) return id;
+  }
+  return null;
+}
+function cityFromURL(){
+  const raw=((location.hash||"")+" "+(location.search||"")+" "+(location.pathname||"")).toLowerCase();
+  const m=raw.match(/[?&#](?:city|grad)=([a-z0-9-]+)/);           // ?city=nis / #grad=...
+  if(m){ const c=slugToCity(m[1]); if(c) return c; }
+  for(const c of allCities()){                                     // bilo gde u URL-u
+    const s=citySlug(c);
+    if(s && new RegExp("(^|[^a-z0-9])"+s+"([^a-z0-9]|$)").test(raw)) return c;
+  }
+  return null;
+}
+function setURL(city){
+  try{
+    let hash="";
+    if(city && city!=="all") hash="#"+state.election+"/"+citySlug(city);
+    else if(state.election) hash="#"+state.election;
+    history.replaceState(null, "", location.pathname + (location.search||"") + hash);
+  }catch(e){/* file:// može da odbije */}
+}
+
+function buildElectionTabs(){
+  const sel=document.getElementById("election-select");
+  const list=state.data.meta.elections||[];
+  sel.innerHTML=list.map(e=>`<option value="${esc(e.id)}">${esc(e.name)}</option>`).join("");
+  sel.value=state.election||"";
+  sel.addEventListener("change",()=>applyElection(sel.value,true));
+}
+function updateTitles(){
+  const e=(state.data.meta.elections||[]).find(x=>x.id===state.election)||{};
+  const t=document.getElementById("app-title"), s=document.getElementById("app-sub");
+  if(t) t.textContent=(e.name||"Избори у Србији")+" — Србија";
+  if(s) s.textContent=e.note||"Резултати по бирачким местима";
+}
+function applyElection(id, fit){
+  state.election=id;
+  state.city="all"; state.muni="all"; state.hidden=new Set();
+  const sel=document.getElementById("election-select"); if(sel) sel.value=id;
+  updateTitles();
+  buildCityTabs();
+  refresh(fit);
+  setURL("all");
+}
+
+function cityStations(){ return state.data.stations.filter(s=> s.election===state.election && (state.city==="all" || s.city===state.city)); }
+function currentStations(){ return cityStations().filter(s=> state.muni==="all" || s.muni===state.muni); }
+function stationStats(list){
+  const reg=list.reduce((a,s)=>a+s.registered,0);
+  const turn=list.reduce((a,s)=>a+s.turnout,0);
+  return {n:list.length, registered:reg, turnout:turn, pct: reg? +(turn/reg*100).toFixed(1):0};
+}
+function topLists(list,k=5){
+  const agg={}, total=list.reduce((a,s)=>a+s.valid,0)||1;
+  list.forEach(s=>s.results.forEach(r=>{
+    const a=agg[r.n]||(agg[r.n]={n:r.n,name:r.name,votes:0});
+    a.votes+=r.votes;
+  }));
+  return Object.values(agg).sort((a,b)=>b.votes-a.votes).slice(0,k)
+    .map(a=>({...a, pct:+(a.votes/total*100).toFixed(2),
+              color:(state.data.meta.colors[String(a.n)]||"#9aa5b1")}));
+}
+function updateStats(list){
+  const st=stationStats(list);
+  document.getElementById("s-stations").textContent = fmt(st.n);
+  document.getElementById("s-turnout").textContent = fmt(st.turnout);
+  document.getElementById("s-pct").textContent = st.pct + "%";
+}
+function buildCityTabs(){
+  const sel=document.getElementById("city-select");
+  const be=((state.data.meta.by_election||{})[state.election])||{};
+  const bc=be.by_city||{};
+  const sorted=(be.cities||[]).slice().sort(
+    (a,b)=>((bc[b]&&bc[b].registered)||0)-((bc[a]&&bc[a].registered)||0));
+  const opts=['<option value="all">Сви градови и општине</option>'].concat(sorted.map(c=>{
+    const t=bc[c]||{};
+    const label=t.registered? `${c} — ${fmt(t.registered)} уписаних` : c;
+    return `<option value="${esc(c)}">${esc(label)}</option>`;
+  }));
+  sel.innerHTML=opts.join("");
+  sel.value=state.city||"all";
+  sel.addEventListener("change",()=>applyCity(sel.value,true));
+}
+function buildMuniFilter(){
+  const wrap=document.getElementById("muni-wrap");
+  const sel=document.getElementById("muni-filter");
+  state.muni="all";
+  if(state.city==="all"){ wrap.style.display="none"; return; }
+  const munis=[...new Set(cityStations().map(s=>s.muni).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"sr"));
+  if(munis.length<=1){ wrap.style.display="none"; return; }
+  wrap.style.display="";
+  sel.innerHTML='<option value="all">Све општине</option>'+munis.map(m=>`<option value="${esc(m)}">${esc(m)}</option>`).join("");
+  sel.value="all";
+}
+function applyCity(city, fit){
+  state.city=city;
+  const sel=document.getElementById("city-select");
+  if(sel) sel.value=city;
+  setURL(city);
+  buildMuniFilter();
+  refresh(fit);
+}
+function refresh(fit){
+  const list=currentStations();
+  state.max=Math.max(...list.map(s=> state.sizeBy==="pct"? s.margin_pct : s.margin_votes), 1);
+  state.min=Math.min(...list.map(s=> state.sizeBy==="pct"? s.margin_pct : s.margin_votes, ), 1);
+  updateStats(list);
+  renderTop5(topLists(list, 1000));
+  buildLegend(list);
+  updateSizeCaps();
+  draw();
+  if(fit !== false) fitToCity();
+}
+function fitToCity(){
+  let list=currentStations().filter(s=>s.lat!=null);
+  if(state.city==="all"){
+    // podrazumevani prikaz: samo Srbija (strane stanice se vide kad se izabere jedinica)
+    list=list.filter(s=> s.lat>=41.7 && s.lat<=46.3 && s.lon>=18.7 && s.lon<=23.2);
+  }
+  const pts=list.map(s=>[s.lat,s.lon]);
+  if(pts.length) map.fitBounds(L.latLngBounds(pts),{padding:[40,40], maxZoom: state.city==="all"?8:12});
+}
+
+function renderTop5(list){
+  const max=Math.max(...list.map(t=>t.votes),1);
+  document.getElementById("top5-rows").innerHTML = list.map((t,i)=>{
+    const w=(t.votes/max*100).toFixed(1);
+    return `<div class="t5row" style="background:linear-gradient(90deg, ${t.color}40 ${w}%, var(--panel2) ${w}%)">
+      <span class="t5rank">${i+1}</span>
+      <span class="t5dot" style="background:${t.color}"></span>
+      <span class="t5name" title="${esc(t.name)}">${esc(listLabel(t.name))}</span>
+      <span class="t5v">${fmt(t.votes)} · ${t.pct}%</span>
+    </div>`;
+  }).join("");
+}
+
+/* collapsible panels */
+document.querySelectorAll(".collapse-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const p=document.getElementById(btn.dataset.target);
+    p.classList.toggle("collapsed");
+    btn.textContent=p.classList.contains("collapsed")?"⌄":"⌃";
+  });
+});
+
+/* ---------------- map ---------------- */
+let map, layer, tileLayer, labelsLayer;
+const basemaps={
+  osm:"https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+  hot:"https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
+  sat:"https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+};
+const attribution='&copy; OpenStreetMap contributors, Tiles: OSM / HOT / Esri';
+
+function radius(s){
+  if(state.sizeBy==="pct"){
+    return 3.2 + 21*Math.sqrt(Math.max(s.margin_pct,0)/state.max);
+  }
+  return 3.2 + 21*Math.sqrt(Math.max(s.margin_votes,0)/state.max);
+}
+
+function initMap(){
+  map=L.map("map",{zoomControl:true, preferCanvas:false}).setView([43.9,21.3],9);
+  tileLayer=L.tileLayer(basemaps.osm,{attribution, maxZoom:19}).addTo(map);
+  labelsLayer=L.layerGroup().addTo(map);
+  layer=L.layerGroup().addTo(map);
+
+  document.getElementById("basemap").addEventListener("change",e=>{
+    map.removeLayer(tileLayer);
+    tileLayer=L.tileLayer(basemaps[e.target.value]||basemaps.osm,{attribution,maxZoom:19}).addTo(map);
+    tileLayer.bringToBack();
+  });
+  document.getElementById("sizeBy").addEventListener("change",e=>{
+    state.sizeBy=e.target.value;
+    const list=currentStations();
+    state.max=Math.max(...list.map(s=> state.sizeBy==="pct"? s.margin_pct : s.margin_votes),1);
+    state.min=Math.min(...list.map(s=> state.sizeBy==="pct"? s.margin_pct : s.margin_votes, ),1);
+    updateSizeCaps(); draw();
+  });
+  document.getElementById("viewMode").addEventListener("change",e=>{
+    state.view=e.target.value;
+    const f=document.getElementById("foot-hint");
+    if(f) f.textContent = state.view==="pies"
+      ? "Пита = једно бирачко место. Две најјаче листе у својим бојама, све остале у једној (сивој). Величина = број важећих гласова. Кликните питу за детаље."
+      : "Круг = једно бирачко место. Боја = победничка листа. Величина = разлика између првог и другог. Кликните круг за детаље.";
+    const sz=document.querySelector("#legend .sizerow");
+    if(sz) sz.style.display = state.view==="pies" ? "none" : "";
+    draw();
+  });
+  document.getElementById("toggleLabels").addEventListener("change",e=>{
+    state.labelsOff=!e.target.checked; draw();
+  });
+  document.getElementById("muni-filter").addEventListener("change",e=>{
+    state.muni=e.target.value; refresh(true);
+  });
+}
+
+function updateSizeCaps(){
+  const mn=Math.round(state.min*10)/10, mx=Math.round(state.max*10)/10, mid=Math.round((mn+mx)/2);
+  const u = state.sizeBy==="pct" ? "%" : "";
+  document.getElementById("cap-s").textContent = mn+u;
+  document.getElementById("cap-m").textContent = mid+u;
+  document.getElementById("cap-l").textContent = mx+u;
+}
+
+function draw(){
+  layer.clearLayers(); labelsLayer.clearLayers();
+  const list=currentStations();
+  const maxValid=Math.max(...list.map(s=>s.valid||0),1);
+  list.forEach(s=>{
+    if(s.lat==null||state.hidden.has(s.winner.n)) return;
+    let m;
+    if(state.view==="pies"){
+      m=pieMarker(s,maxValid);
+    }else{
+      const r=radius(s);
+      m=L.circleMarker([s.lat,s.lon],{
+        radius:r, color:"#0b1220", weight:1.2, fillColor:s.winner.color, fillOpacity:.72, opacity:.9
+      });
+    }
+    m.bindTooltip(`${s.no}. ${esc(shortName(s.place||s.name))}<br><b>${esc(listLabel(s.winner.name))}</b> · +${fmt(s.margin_votes)} (${s.margin_pct}%)`,{direction:"top",opacity:.95});
+    m.bindPopup(popupHTML(s),{maxWidth:360,minWidth:320});
+    m.addTo(layer);
+    if(!state.labelsOff){
+      L.marker([s.lat,s.lon],{interactive:false,icon:L.divIcon({className:"",html:`<div style="transform:translate(-50%,-140%);white-space:nowrap;font-size:10px;color:#e9eef7;text-shadow:0 1px 3px #000;font-weight:600">${s.no}</div>`,iconSize:[0,0]})}).addTo(labelsLayer);
+    }
+  });
+}
+
+/* pie marker: top-2 lists in their colours + all others in one neutral colour */
+function pieMarker(s,maxValid){
+  const valid=Math.max(s.valid||0,1);
+  const d=Math.round(15 + 23*Math.sqrt(valid/maxValid));     // diameter 15..38 px
+  const top=s.results.slice().sort((a,b)=>b.votes-a.votes);
+  const c=r=> (state.data.meta.colors[String(r.n)]||"#9aa5b1");
+  const v1=top[0]?top[0].votes:0, v2=top[1]?top[1].votes:0;
+  const a1=(v1/valid*360).toFixed(2), a2=((v1+v2)/valid*360).toFixed(2);
+  const c1=c(top[0]||{}), c2=c(top[1]||{}), co="#8a93a3";
+  const html=`<div class="pie" style="width:${d}px;height:${d}px;background:conic-gradient(${c1} 0 ${a1}deg, ${c2} ${a1}deg ${a2}deg, ${co} ${a2}deg 360deg)" title="${esc(shortName(s.place||s.name))}"></div>`;
+  return L.marker([s.lat,s.lon],{icon:L.divIcon({className:"pie-wrap",html,iconSize:[d,d],iconAnchor:[d/2,d/2]})});
+}
+
+function bar(n,name,votes,pct,maxPct,color,winnerN){
+  const bold = (n===winnerN) ? "font-weight:700;" : "";
+  return `<div class="bar">
+      <span class="bdot" style="background:${color}"></span>
+      <span class="nm4" style="${bold}">${n}. ${esc(listLabel(name))}</span>
+      <span class="vt">${fmt(votes)} · ${pct!=null?pct.toFixed(2)+"%":""}</span>
+      <span class="track"><span class="fill" style="width:${Math.max(1,(pct||0)/maxPct*100)}%;background:${color}"></span></span>
+    </div>`;
+}
+
+function popupHTML(s){
+  const reg=s.registered, turn=s.turnout, valid=s.valid;
+  const tp = reg? (turn/reg*100).toFixed(1) : "–";
+  const maxPct = Math.max(...s.results.map(r=>r.pct||0));
+  const top = s.results.slice(0,6);
+  const docs = s.docs.map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener">Записник ${i+1} (PDF)</a>`).join("");
+  return `<div class="pp">
+    <h2>${s.no}. ${esc(shortName(s.place||s.name))}</h2>
+    <div class="addr">${s.city}${s.muni && s.muni!==s.city?` · ${esc(s.muni)}`:""}${s.address?`<br>${esc(s.address)}`:""}${s.display?`<br>${esc(s.display)}`:""}</div>
+    <div class="win">
+      <span class="dot" style="background:${s.winner.color}"></span>
+      <div><div class="nm">Победа: ${esc(listLabel(s.winner.name))}</div>
+      <div class="sub2">${fmt(s.winner.votes)} гласова · ${s.winner.pct}% &nbsp;|&nbsp; друга: ${esc(listLabel(s.runner.name))} (${s.runner.pct}%)</div></div>
+    </div>
+    <div class="grid">
+      <div class="cell"><div class="k">Разлика</div><div class="v">+${fmt(s.margin_votes)} <span style="color:var(--muted);font-size:11px">(${s.margin_pct}%)</span></div></div>
+      <div class="cell"><div class="k">Излазност</div><div class="v">${tp}%</div></div>
+      <div class="cell"><div class="k">Уписани бирачи</div><div class="v">${fmt(reg)}</div></div>
+      <div class="cell"><div class="k">Изашло / важећи</div><div class="v">${fmt(turn)} / ${fmt(valid)}</div></div>
+    </div>
+    <div class="bars">${top.map(r=>bar(r.n,r.name,r.votes,r.pct,maxPct,(state.data.meta.colors[String(r.n)]||"#9aa5b1"),s.winner.n)).join("")}</div>
+    <div class="legend-inline">Приказано 6 најјачих листа од ${s.results.length}</div>
+    ${docs?`<div class="docs">${docs}</div>`:""}
+    <div class="src">Локација: OpenStreetMap${s.loc_source?` (${esc(s.loc_source)})`:""}</div>
+  </div>`;
+}
+
+/* ---------------- legend ---------------- */
+function buildLegend(list){
+  const rows=document.getElementById("legend-rows");
+  rows.innerHTML="";
+  const counts={}, seen={};
+  list.forEach(s=>{counts[s.winner.n]=(counts[s.winner.n]||0)+1;
+    if(!seen[s.winner.n]) seen[s.winner.n]={n:s.winner.n,name:s.winner.name,color:s.winner.color}});
+  Object.values(seen).sort((a,b)=>counts[b.n]-counts[a.n]).forEach(w=>{
+    const el=document.createElement("div");
+    el.className="lrow"+(state.hidden.has(w.n)?" off":"");
+    el.innerHTML=`<span class="swatch" style="background:${w.color}"></span><span>${w.n}. ${esc(listLabel(w.name))}</span><span class="cnt">${counts[w.n]} места</span>`;
+    el.addEventListener("click",()=>{
+      if(state.hidden.has(w.n)) state.hidden.delete(w.n); else state.hidden.add(w.n);
+      el.classList.toggle("off"); draw();
+    });
+    rows.appendChild(el);
+  });
+}
+</script>
+</body>
+</html>

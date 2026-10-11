@@ -1,0 +1,62 @@
+[
+ {
+  "municipality": "Косовска Митровица",
+  "no": 1,
+  "name": "ОШ „РАШКА“",
+  "address": "",
+  "lat": 42.8790424,
+  "lon": 20.86742377281285,
+  "display": "Косовска Митровица (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Косовска Митровица",
+  "no": 2,
+  "name": "ОШ „РАШКА“",
+  "address": "",
+  "lat": 42.88008163048455,
+  "lon": 20.866605000197204,
+  "display": "Косовска Митровица (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Косовска Митровица",
+  "no": 3,
+  "name": "ОШ „РАШКА“",
+  "address": "",
+  "lat": 42.88008163048455,
+  "lon": 20.864967399802794,
+  "display": "Косовска Митровица (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Косовска Митровица",
+  "no": 4,
+  "name": "ОШ „РАШКА“",
+  "address": "",
+  "lat": 42.8790424,
+  "lon": 20.86414862718715,
+  "display": "Косовска Митровица (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Косовска Митровица",
+  "no": 5,
+  "name": "ОШ „РАШКА“",
+  "address": "",
+  "lat": 42.87800316951546,
+  "lon": 20.864967427383622,
+  "display": "Косовска Митровица (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Косовска Митровица",
+  "no": 6,
+  "name": "ОШ „РАШКА“",
+  "address": "",
+  "lat": 42.87800316951546,
+  "lon": 20.866604972616376,
+  "display": "Косовска Митровица (centar opštine)",
+  "source": "center"
+ }
+]

@@ -1,0 +1,10 @@
+# Caddy config used inside the Docker image (listens on :80).
+# Put TLS / domain in front (see deploy/Caddyfile.vps.example).
+:80 {
+	root * /srv/map
+	encode zstd gzip
+	file_server
+	header {
+		X-Content-Type-Options nosniff
+	}
+}

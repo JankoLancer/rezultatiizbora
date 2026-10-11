@@ -1,0 +1,42 @@
+[
+ {
+  "municipality": "Гњилане",
+  "no": 1,
+  "name": "ХЕМИЈСКО-ТЕХНОЛОШКА ШКОЛА - ДЕСНО",
+  "address": "",
+  "lat": 42.463515,
+  "lon": 21.470986561211685,
+  "display": "Гњилане (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Гњилане",
+  "no": 2,
+  "name": "ХЕМИЈСКО-ТЕХНОЛОШКА ШКОЛА - ДЕСНО",
+  "address": "",
+  "lat": 42.464715,
+  "lon": 21.4693599,
+  "display": "Гњилане (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Гњилане",
+  "no": 3,
+  "name": "ХЕМИЈСКО-ТЕХНОЛОШКА ШКОЛА - ДЕСНО",
+  "address": "",
+  "lat": 42.463515,
+  "lon": 21.467733238788316,
+  "display": "Гњилане (centar opštine)",
+  "source": "center"
+ },
+ {
+  "municipality": "Гњилане",
+  "no": 4,
+  "name": "ХЕМИЈСКО-ТЕХНОЛОШКА ШКОЛА - ДЕСНО",
+  "address": "",
+  "lat": 42.462315000000004,
+  "lon": 21.4693599,
+  "display": "Гњилане (centar opštine)",
+  "source": "center"
+ }
+]

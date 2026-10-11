@@ -1,0 +1,9 @@
+{
+ "note": "2022 referendum amendment decisions inspected; RIK 2023 reverts to original names for Savski venac #25 (ПЕТА ЗДРАВСТВЕНА СТАНИЦА...) and Palilula #98/#99 (ИСТУРЕНО ОДЕЉЕЊЕ ОШ ОЛГА ПЕТРОВ), so the main 2022 decisions are the correct address reference for the 2023 target. Cukarica and Sopot amendments changed only the polling-area column.",
+ "amendments": {
+  "Градска општина Чукарица": "beograd_g2_cukarica_amd.txt",
+  "Градска општина Палилула (Београд)": "beograd_g2_palilula_amd.txt",
+  "Градска општина Савски Венац": "beograd_g2_savskivenac_amd.txt",
+  "Градска општина Сопот": "beograd_g2_sopot_amd.txt"
+ }
+}
