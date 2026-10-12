@@ -242,13 +242,11 @@
     <div class="sub" id="app-sub">Резултати по бирачким местима</div>
     <label class="field-label" for="election-select">Избори</label>
     <select class="city-select" id="election-select" title="Изабери избор"></select>
-    <label class="field-label" for="q">Претрага града / општине</label>
-    <div class="search-wrap">
-      <input id="q" type="search" autocomplete="off" placeholder="нпр. Крагујевац, Niš, Нови Београд…">
+    <label class="field-label" for="q">Град / општина</label>
+    <div class="search-wrap" id="combo">
+      <input id="q" type="text" autocomplete="off" placeholder="Куцај или изабери (ћирилица/латиница)…">
       <div id="q-results" class="search-results" hidden></div>
     </div>
-    <label class="field-label" for="city-select">Град / општина</label>
-    <select class="city-select" id="city-select" title="Изабери град/општину"></select>
     <div class="stats">
       <div class="stat"><div class="k">Бирачка места</div><div class="v" id="s-stations">–</div></div>
       <div class="stat"><div class="k">Изашло</div><div class="v" id="s-turnout">–</div></div>
@@ -342,7 +340,6 @@ fetch("data.json").then(r=>r.json()).then(d=>{
   buildElectionTabs();
   updateTitles();
   initMap();
-  buildCityTabs();
   buildSearchIndex();
   initSearch();
   applyCity(cityFromURL() || "Београд", true);
@@ -427,7 +424,7 @@ function applyElection(id, fit){
   const sel=document.getElementById("election-select"); if(sel) sel.value=id;
   updateTitles();
   buildSearchIndex();
-  buildCityTabs();
+  const inp=document.getElementById("q"); if(inp) inp.value="Сви градови и општине";
   refresh(fit);
   setURL("all");
 }
@@ -472,13 +469,19 @@ function searchMatches(q){
   }
   return starts.concat(has).slice(0,12);
 }
+function comboAll(){
+  const be=(state.data.meta.by_election||{})[state.election]||{};
+  const bc=be.by_city||{};
+  const cities=(be.cities||[]).slice().sort((a,b)=>((bc[b]&&bc[b].registered)||0)-((bc[a]&&bc[a].registered)||0));
+  return [{city:"all",muni:"all",label:"Сви градови и општине"}].concat(cities.map(c=>({city:c,muni:"all",label:c})));
+}
 function renderSearch(q){
   const box=document.getElementById("q-results");
   if(!box) return;
-  const res=searchMatches(q);
-  if(!q.trim() || !res.length){ box.hidden=true; box.innerHTML=""; return; }
-  box.innerHTML=res.map((it,i)=>
-    `<div class="sitem" data-i="${i}"><span>${esc(it.label)}</span><small>${it.muni!=="all"?esc(it.city):"град"}</small></div>`
+  const res = q.trim() ? searchMatches(q) : comboAll();
+  if(!res.length){ box.hidden=true; box.innerHTML=""; return; }
+  box.innerHTML=res.slice(0,200).map((it,i)=>
+    `<div class="sitem" data-i="${i}"><span>${esc(it.label)}</span><small>${it.city==="all"?"":(it.muni!=="all"?esc(it.city):"град")}</small></div>`
   ).join("");
   box.hidden=false;
   box.querySelectorAll(".sitem").forEach(el=>{
@@ -487,21 +490,21 @@ function renderSearch(q){
 }
 function pickSearch(it){
   if(!it) return;
-  const inp=document.getElementById("q"); if(inp) inp.value=it.label;
   const box=document.getElementById("q-results"); if(box){ box.hidden=true; box.innerHTML=""; }
   applyCity(it.city, true);
   if(it.muni!=="all"){
     const sel=document.getElementById("muni-filter");
     if(sel){ sel.value=it.muni; state.muni=it.muni; refresh(true); }
   }
+  const inp=document.getElementById("q"); if(inp) inp.blur();
 }
 function initSearch(){
   const inp=document.getElementById("q"); if(!inp) return;
   inp.addEventListener("input",()=>renderSearch(inp.value));
-  inp.addEventListener("focus",()=>{ if(inp.value.trim()) renderSearch(inp.value); });
+  inp.addEventListener("focus",()=>{ try{inp.select();}catch(e){} renderSearch(""); });
   inp.addEventListener("keydown",ev=>{
-    if(ev.key==="Enter"){ const r=searchMatches(inp.value); if(r.length) pickSearch(r[0]); }
-    if(ev.key==="Escape"){ const b=document.getElementById("q-results"); if(b) b.hidden=true; }
+    if(ev.key==="Enter"){ const r=inp.value.trim()?searchMatches(inp.value):comboAll(); if(r.length) pickSearch(r[0]); }
+    if(ev.key==="Escape"){ const b=document.getElementById("q-results"); if(b) b.hidden=true; inp.blur(); }
   });
   document.addEventListener("click",ev=>{
     if(!ev.target.closest(".search-wrap")){ const b=document.getElementById("q-results"); if(b) b.hidden=true; }
@@ -531,21 +534,6 @@ function updateStats(list){
   document.getElementById("s-turnout").textContent = fmt(st.turnout);
   document.getElementById("s-pct").textContent = st.pct + "%";
 }
-function buildCityTabs(){
-  const sel=document.getElementById("city-select");
-  const be=((state.data.meta.by_election||{})[state.election])||{};
-  const bc=be.by_city||{};
-  const sorted=(be.cities||[]).slice().sort(
-    (a,b)=>((bc[b]&&bc[b].registered)||0)-((bc[a]&&bc[a].registered)||0));
-  const opts=['<option value="all">Сви градови и општине</option>'].concat(sorted.map(c=>{
-    const t=bc[c]||{};
-    const label=t.registered? `${c} — ${fmt(t.registered)} уписаних` : c;
-    return `<option value="${esc(c)}">${esc(label)}</option>`;
-  }));
-  sel.innerHTML=opts.join("");
-  sel.value=state.city||"all";
-  sel.addEventListener("change",()=>applyCity(sel.value,true));
-}
 function buildMuniFilter(){
   const wrap=document.getElementById("muni-wrap");
   const sel=document.getElementById("muni-filter");
@@ -559,8 +547,8 @@ function buildMuniFilter(){
 }
 function applyCity(city, fit){
   state.city=city;
-  const sel=document.getElementById("city-select");
-  if(sel) sel.value=city;
+  const inp=document.getElementById("q");
+  if(inp) inp.value = (city==="all" ? "Сви градови и општине" : city);
   setURL(city);
   buildMuniFilter();
   refresh(fit);
