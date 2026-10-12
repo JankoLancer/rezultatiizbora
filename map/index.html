@@ -91,6 +91,17 @@
   .city-select{width:100%;max-width:420px;margin:0 0 10px;padding:8px 10px;border-radius:8px;
     background:var(--panel2);color:var(--ink);border:1px solid var(--line);font-size:14px}
   .city-select:focus{outline:none;border-color:var(--accent)}
+  .search-wrap{position:relative;max-width:420px;margin:0 0 10px}
+  .search-wrap input{width:100%;padding:8px 10px;border-radius:8px;background:var(--panel2);
+    color:var(--ink);border:1px solid var(--line);font-size:14px}
+  .search-wrap input:focus{outline:none;border-color:var(--accent)}
+  .search-results{position:absolute;left:0;right:0;top:100%;z-index:50;margin-top:4px;
+    background:var(--panel);border:1px solid var(--line);border-radius:8px;max-height:250px;
+    overflow:auto;box-shadow:0 12px 30px rgba(0,0,0,.55)}
+  .search-results .sitem{padding:8px 10px;cursor:pointer;font-size:13px;display:flex;justify-content:space-between;gap:8px}
+  .search-results .sitem+.sitem{border-top:1px solid rgba(255,255,255,.05)}
+  .search-results .sitem:hover,.search-results .sitem.active{background:var(--panel2)}
+  .search-results .sitem small{color:var(--muted);white-space:nowrap}
   .city-tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
   .city-tabs button{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;
     padding:5px 11px;font-size:12px;cursor:pointer}
@@ -231,6 +242,11 @@
     <div class="sub" id="app-sub">Резултати по бирачким местима</div>
     <label class="field-label" for="election-select">Избори</label>
     <select class="city-select" id="election-select" title="Изабери избор"></select>
+    <label class="field-label" for="q">Претрага града / општине</label>
+    <div class="search-wrap">
+      <input id="q" type="search" autocomplete="off" placeholder="нпр. Крагујевац, Niš, Нови Београд…">
+      <div id="q-results" class="search-results" hidden></div>
+    </div>
     <label class="field-label" for="city-select">Град / општина</label>
     <select class="city-select" id="city-select" title="Изабери град/општину"></select>
     <div class="stats">
@@ -327,6 +343,8 @@ fetch("data.json").then(r=>r.json()).then(d=>{
   updateTitles();
   initMap();
   buildCityTabs();
+  buildSearchIndex();
+  initSearch();
   applyCity(cityFromURL() || "Београд", true);
   window.addEventListener("hashchange", ()=>{
     const e=electionFromURL();
@@ -408,9 +426,86 @@ function applyElection(id, fit){
   state.city="all"; state.muni="all"; state.hidden=new Set();
   const sel=document.getElementById("election-select"); if(sel) sel.value=id;
   updateTitles();
+  buildSearchIndex();
   buildCityTabs();
   refresh(fit);
   setURL("all");
+}
+
+/* ---- pretraga gradova i opština (radi i na ćirilici i na latinici) ---- */
+function normSr(s){
+  const m={ 'а':'a','б':'b','в':'v','г':'g','д':'d','ђ':'dj','е':'e','ж':'z','з':'z','и':'i','ј':'j','к':'k','л':'l','љ':'lj','м':'m','н':'n','њ':'nj','о':'o','п':'p','р':'r','с':'s','т':'t','ћ':'c','у':'u','ф':'f','х':'h','ц':'c','ч':'c','џ':'dz','ш':'s' };
+  let o="";
+  for(const ch of String(s).toLowerCase()){
+    if(m[ch]!==undefined) o+=m[ch];
+    else if(ch==='č'||ch==='ć') o+='c';
+    else if(ch==='š') o+='s';
+    else if(ch==='ž') o+='z';
+    else if(ch==='đ') o+='dj';
+    else if(/[a-z0-9]/.test(ch)) o+=ch;
+    else o+=' ';
+  }
+  return o.replace(/\s+/g,' ').trim();
+}
+let SEARCH=[];
+function buildSearchIndex(){
+  SEARCH=[];
+  for(const c of allCities()) SEARCH.push({city:c, muni:"all", label:c});
+  const seen=new Set();
+  for(const s of state.data.stations){
+    if(s.election!==state.election) continue;
+    if(s.muni && s.muni!==s.city){
+      const k=s.city+"|"+s.muni;
+      if(!seen.has(k)){ seen.add(k); SEARCH.push({city:s.city, muni:s.muni, label:s.muni}); }
+    }
+  }
+}
+function searchMatches(q){
+  const nq=normSr(q);
+  if(!nq) return [];
+  const starts=[], has=[];
+  for(const it of SEARCH){
+    const hay=normSr(it.label+" "+it.city);
+    if(!hay.includes(nq)) continue;
+    (normSr(it.label).startsWith(nq) ? starts : has).push(it);
+    if(starts.length+has.length>=50) break;
+  }
+  return starts.concat(has).slice(0,12);
+}
+function renderSearch(q){
+  const box=document.getElementById("q-results");
+  if(!box) return;
+  const res=searchMatches(q);
+  if(!q.trim() || !res.length){ box.hidden=true; box.innerHTML=""; return; }
+  box.innerHTML=res.map((it,i)=>
+    `<div class="sitem" data-i="${i}"><span>${esc(it.label)}</span><small>${it.muni!=="all"?esc(it.city):"град"}</small></div>`
+  ).join("");
+  box.hidden=false;
+  box.querySelectorAll(".sitem").forEach(el=>{
+    el.addEventListener("mousedown",ev=>{ ev.preventDefault(); pickSearch(res[+el.dataset.i]); });
+  });
+}
+function pickSearch(it){
+  if(!it) return;
+  const inp=document.getElementById("q"); if(inp) inp.value=it.label;
+  const box=document.getElementById("q-results"); if(box){ box.hidden=true; box.innerHTML=""; }
+  applyCity(it.city, true);
+  if(it.muni!=="all"){
+    const sel=document.getElementById("muni-filter");
+    if(sel){ sel.value=it.muni; state.muni=it.muni; refresh(true); }
+  }
+}
+function initSearch(){
+  const inp=document.getElementById("q"); if(!inp) return;
+  inp.addEventListener("input",()=>renderSearch(inp.value));
+  inp.addEventListener("focus",()=>{ if(inp.value.trim()) renderSearch(inp.value); });
+  inp.addEventListener("keydown",ev=>{
+    if(ev.key==="Enter"){ const r=searchMatches(inp.value); if(r.length) pickSearch(r[0]); }
+    if(ev.key==="Escape"){ const b=document.getElementById("q-results"); if(b) b.hidden=true; }
+  });
+  document.addEventListener("click",ev=>{
+    if(!ev.target.closest(".search-wrap")){ const b=document.getElementById("q-results"); if(b) b.hidden=true; }
+  });
 }
 
 function cityStations(){ return state.data.stations.filter(s=> s.election===state.election && (state.city==="all" || s.city===state.city)); }
