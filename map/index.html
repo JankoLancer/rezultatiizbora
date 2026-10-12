@@ -277,10 +277,10 @@
     <label><input type="checkbox" id="toggleLabels" /> Приказ назива места</label>
     <label>Величина по
       <select id="sizeBy">
-        <option value="pct">разлици у %</option>
-        <option value="votes">разлици у гласовима</option>
         <option value="reg">броју уписаних бирача</option>
         <option value="turnout">броју изашлих</option>
+        <option value="pct">разлици у %</option>
+        <option value="votes">разлици у гласовима</option>
       </select>
     </label>
     <label>Приказ места
@@ -311,7 +311,7 @@
 </div>
 
 <script>
-const state = { data:null, election:null, city:"all", muni:"all", sizeBy:"pct", view:"circles", hidden:new Set(), labelsOff:true, min:0, max:1 };
+const state = { data:null, election:null, city:"all", muni:"all", sizeBy:"reg", view:"circles", hidden:new Set(), labelsOff:true, min:0, max:1 };
 const fmt = n => (n==null? "–" : Number(n).toLocaleString("sr-RS"));
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const shortName = s => s.replace(/^\d+\.\s*/,'');
