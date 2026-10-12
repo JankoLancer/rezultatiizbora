@@ -369,9 +369,11 @@ function electionFromURL(){
 }
 function cityFromURL(){
   const raw=((location.hash||"")+" "+(location.search||"")+" "+(location.pathname||"")).toLowerCase();
-  const m=raw.match(/[?&#](?:city|grad)=([a-z0-9-]+)/);           // ?city=nis / #grad=...
-  if(m){ const c=slugToCity(m[1]); if(c) return c; }
-  for(const c of allCities()){                                     // bilo gde u URL-u
+  const m=raw.match(/[?&#](?:city|grad)=([a-z0-9-]+)/);           // ?city=nis / #grad=... / ?city=all
+  if(m){ if(m[1]==="all"||m[1]==="sve") return "all"; const c=slugToCity(m[1]); if(c) return c; }
+  const hm=(location.hash||"").toLowerCase().match(/#[a-z0-9]+\/([a-z0-9-]+)/); // #parl2023/beograd | #parl2023/sve
+  if(hm){ if(hm[1]==="all"||hm[1]==="sve") return "all"; const c=slugToCity(hm[1]); if(c) return c; }
+  for(const c of allCities()){                                     // bilo gde u URL-u (stari linkovi)
     const s=citySlug(c);
     if(s && new RegExp("(^|[^a-z0-9])"+s+"([^a-z0-9]|$)").test(raw)) return c;
   }
@@ -380,8 +382,10 @@ function cityFromURL(){
 function setURL(city){
   try{
     let hash="";
-    if(city && city!=="all") hash="#"+state.election+"/"+citySlug(city);
-    else if(state.election) hash="#"+state.election;
+    if(state.election){
+      const seg=(city && city!=="all") ? citySlug(city) : "sve";   // "sve" = svi gradovi i opštine
+      hash="#"+state.election+"/"+seg;
+    }
     history.replaceState(null, "", location.pathname + (location.search||"") + hash);
   }catch(e){/* file:// može da odbije */}
 }
