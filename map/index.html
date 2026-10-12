@@ -279,6 +279,8 @@
       <select id="sizeBy">
         <option value="pct">разлици у %</option>
         <option value="votes">разлици у гласовима</option>
+        <option value="reg">броју уписаних бирача</option>
+        <option value="turnout">броју изашлих</option>
       </select>
     </label>
     <label>Приказ места
@@ -555,12 +557,14 @@ function applyCity(city, fit){
 }
 function refresh(fit){
   const list=currentStations();
-  state.max=Math.max(...list.map(s=> state.sizeBy==="pct"? s.margin_pct : s.margin_votes), 1);
-  state.min=Math.min(...list.map(s=> state.sizeBy==="pct"? s.margin_pct : s.margin_votes, ), 1);
+  const vals=list.map(sizeValue);
+  state.max=Math.max(1, ...vals);
+  state.min=vals.length? Math.min(...vals) : 0;
   updateStats(list);
   renderTop5(topLists(list, 1000));
   buildLegend(list);
   updateSizeCaps();
+  updateFootHint();
   draw();
   if(fit !== false) fitToCity();
 }
@@ -614,11 +618,16 @@ const basemaps={
 };
 const attribution='&copy; OpenStreetMap contributors, Tiles: OSM / HOT / Esri';
 
-function radius(s){
-  if(state.sizeBy==="pct"){
-    return 3.2 + 21*Math.sqrt(Math.max(s.margin_pct,0)/state.max);
+function sizeValue(s){
+  switch(state.sizeBy){
+    case "votes":   return s.margin_votes||0;
+    case "reg":     return s.registered||0;
+    case "turnout": return s.turnout||0;
+    default:        return s.margin_pct||0;
   }
-  return 3.2 + 21*Math.sqrt(Math.max(s.margin_votes,0)/state.max);
+}
+function radius(s){
+  return 3.2 + 21*Math.sqrt(Math.max(sizeValue(s),0)/Math.max(state.max,1));
 }
 
 function initMap(){
@@ -634,17 +643,14 @@ function initMap(){
   });
   document.getElementById("sizeBy").addEventListener("change",e=>{
     state.sizeBy=e.target.value;
-    const list=currentStations();
-    state.max=Math.max(...list.map(s=> state.sizeBy==="pct"? s.margin_pct : s.margin_votes),1);
-    state.min=Math.min(...list.map(s=> state.sizeBy==="pct"? s.margin_pct : s.margin_votes, ),1);
-    updateSizeCaps(); draw();
+    const vals=currentStations().map(sizeValue);
+    state.max=Math.max(1, ...vals);
+    state.min=vals.length? Math.min(...vals) : 0;
+    updateSizeCaps(); updateFootHint(); draw();
   });
   document.getElementById("viewMode").addEventListener("change",e=>{
     state.view=e.target.value;
-    const f=document.getElementById("foot-hint");
-    if(f) f.textContent = state.view==="pies"
-      ? "Пита = једно бирачко место. Две најјаче листе у својим бојама, све остале у једној (сивој). Величина = број важећих гласова. Кликните питу за детаље."
-      : "Круг = једно бирачко место. Боја = победничка листа. Величина = разлика између првог и другог. Кликните круг за детаље.";
+    updateFootHint();
     const sz=document.querySelector("#legend .sizerow");
     if(sz) sz.style.display = state.view==="pies" ? "none" : "";
     draw();
@@ -658,11 +664,23 @@ function initMap(){
 }
 
 function updateSizeCaps(){
-  const mn=Math.round(state.min*10)/10, mx=Math.round(state.max*10)/10, mid=Math.round((mn+mx)/2);
-  const u = state.sizeBy==="pct" ? "%" : "";
-  document.getElementById("cap-s").textContent = mn+u;
-  document.getElementById("cap-m").textContent = mid+u;
-  document.getElementById("cap-l").textContent = mx+u;
+  const f=v=> state.sizeBy==="pct" ? (Math.round(v*10)/10+"%") : fmt(Math.round(v));
+  const mn=state.min, mx=state.max, mid=(mn+mx)/2;
+  document.getElementById("cap-s").textContent = f(mn);
+  document.getElementById("cap-m").textContent = f(mid);
+  document.getElementById("cap-l").textContent = f(mx);
+}
+function updateFootHint(){
+  const f=document.getElementById("foot-hint"); if(!f) return;
+  if(state.view==="pies"){
+    f.textContent="Пита = једно бирачко место. Две најјаче листе у својим бојама, све остале у једној (сивој). Величина = број важећих гласова. Кликните питу за детаље.";
+    return;
+  }
+  const by={ pct:"разлика између првог и другог (у %)",
+             votes:"разлика између првог и другог (у гласовима)",
+             reg:"укупан број уписаних бирача",
+             turnout:"број изашлих бирача" }[state.sizeBy] || "разлика између првог и другог";
+  f.textContent="Круг = једно бирачко место. Боја = победничка листа. Величина = "+by+". Кликните круг за детаље.";
 }
 
 function draw(){
