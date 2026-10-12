@@ -629,6 +629,18 @@ function sizeValue(s){
 function radius(s){
   return 3.2 + 21*Math.sqrt(Math.max(sizeValue(s),0)/Math.max(state.max,1));
 }
+/* nijansa pobedničke boje: ubedljivija pobeda = punija boja, tesna = bleda */
+const MARGIN_FULL = 40; // % razlike pri kojoj je boja maksimalno jaka
+function mixWhite(hex, t){
+  const c=String(hex||"#9aa5b1").replace("#","");
+  const r=parseInt(c.substr(0,2),16), g=parseInt(c.substr(2,2),16), b=parseInt(c.substr(4,2),16);
+  const m=v=>Math.max(0,Math.min(255,Math.round(v+(255-v)*t)));
+  return "#"+[m(r),m(g),m(b)].map(x=>x.toString(16).padStart(2,"0")).join("");
+}
+function winnerShade(color, marginPct){
+  const t=Math.max(0,Math.min(1, 1-(marginPct||0)/MARGIN_FULL));
+  return mixWhite(color, t*0.68);
+}
 
 function initMap(){
   map=L.map("map",{zoomControl:true, preferCanvas:true}).setView([43.9,21.3],9);
@@ -680,7 +692,7 @@ function updateFootHint(){
              votes:"разлика између првог и другог (у гласовима)",
              reg:"укупан број уписаних бирача",
              turnout:"број изашлих бирача" }[state.sizeBy] || "разлика између првог и другог";
-  f.textContent="Круг = једно бирачко место. Боја = победничка листа. Величина = "+by+". Кликните круг за детаље.";
+  f.textContent="Круг = једно бирачко место. Боја = победничка листа (јача боја = убедљивија победа). Величина = "+by+". Кликните круг за детаље.";
 }
 
 function draw(){
@@ -696,7 +708,8 @@ function draw(){
     }else{
       const r=radius(s);
       m=L.circleMarker([s.lat,s.lon],{
-        radius:r, color:"#0b1220", weight:1.2, fillColor:s.winner.color, fillOpacity:.72, opacity:.9
+        radius:r, color:"#0b1220", weight:1.2,
+        fillColor:winnerShade(s.winner.color, s.margin_pct), fillOpacity:.88, opacity:.9
       });
     }
     if(!touch) m.bindTooltip(`${s.no}. ${esc(shortName(s.place||s.name))}<br><b>${esc(listLabel(s.winner.name))}</b> · +${fmt(s.margin_votes)} (${s.margin_pct}%)`,{direction:"top",opacity:.95});
