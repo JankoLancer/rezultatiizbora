@@ -44,6 +44,29 @@
   .pager button:disabled{opacity:.4;cursor:default}
   .b-l{display:inline-block;padding:1px 6px;border-radius:6px;background:var(--panel2)}
   .tag{color:var(--muted);font-size:11px}
+  /* modal sa detaljima */
+  .modal{position:fixed;inset:0;z-index:100;background:rgba(4,8,16,.72);display:flex;align-items:flex-start;justify-content:center;padding:40px 14px;overflow:auto}
+  .modal[hidden]{display:none}
+  .modal-box{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:14px;max-width:720px;width:100%;padding:18px 20px}
+  .mclose{position:absolute;top:8px;right:12px;background:none;border:0;color:var(--muted);font-size:26px;cursor:pointer;line-height:1}
+  .mclose:hover{color:var(--ink)}
+  #modal-body h2{margin:0 0 4px;font-size:18px;padding-right:24px}
+  .maddr{color:var(--muted);font-size:12px;margin-bottom:12px;line-height:1.5}
+  .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+  .mcell{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:7px 9px}
+  .mcell .k{font-size:10px;color:var(--muted);text-transform:uppercase}
+  .mcell .v{font-size:14px;font-weight:600;margin-top:2px}
+  .mbars{margin-bottom:12px}
+  .mbar{display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;margin:5px 0;font-size:12.5px}
+  .mbar .mname{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mbar .mvt{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .mbar .mtrack{grid-column:1/-1;height:6px;background:var(--panel2);border-radius:3px;overflow:hidden;margin-top:-1px}
+  .mbar .mfill{display:block;height:100%;border-radius:3px}
+  .mdocs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+  .mdocs a{font-size:12px;text-decoration:none;border:1px solid var(--line);border-radius:7px;padding:5px 9px;background:var(--panel2)}
+  .mdocs a:hover{border-color:var(--accent)}
+  .mlinks a{font-size:13px}
+  @media (max-width:640px){ .mgrid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -68,6 +91,13 @@
   <button id="prev">‹ Претходна</button>
   <span id="pginfo"></span>
   <button id="next">Следећа ›</button>
+</div>
+
+<div id="modal" class="modal" hidden>
+  <div class="modal-box">
+    <button class="mclose" id="mclose" aria-label="Затвори">×</button>
+    <div id="modal-body"></div>
+  </div>
 </div>
 
 <script>
@@ -177,11 +207,10 @@ function renderHead(){
 function renderRows(list){
   const cols=columns();
   const page=list.slice(state.page*state.pageSize,(state.page+1)*state.pageSize);
-  const slug=(state.dataCitySlugs||DATA.meta.city_slugs||{});
   document.querySelector("#tbl tbody").innerHTML=page.map(s=>{
     const cells=cols.map(c=>{
       let v;
-      if(c.k==="name"){ const link=slug[s.city]||""; v=`<a href="./#${state.election}/${link}">${esc(s.no)}. ${esc(s.place||s.name)}</a>`; }
+      if(c.k==="name"){ v=`${esc(s.no)}. ${esc(s.place||s.name)}`; }
       else if(c.k==="city"){ v=`${esc(s.city)}${s.muni&&s.muni!==s.city?`<br><span class="tag">${esc(s.muni)}</span>`:""}`; }
       else if(c.k==="winner"){ v=`<span class="dot" style="background:${s.winner.color}"></span>${esc(listLabel(s.winner.name))}`; }
       else if(c.k==="margin"){ v=`<b>+${s.margin_pct!=null?s.margin_pct.toFixed(1):"–"}</b>`; }
@@ -189,9 +218,47 @@ function renderRows(list){
       else { const val=valueOf(s,c.k); v= c.k==="turn_pct"||c.k==="invalid_pct" ? val.toFixed(1) : fmt(val); }
       return `<td class="${c.num?"num":""}">${v}</td>`;
     }).join("");
-    return `<tr>${cells}</tr>`;
+    return `<tr data-sid="${esc(s.sid)}" title="Клик за детаље и записник">${cells}</tr>`;
   }).join("");
+  document.querySelectorAll("#tbl tbody tr").forEach(tr=>{
+    tr.style.cursor="pointer";
+    tr.addEventListener("click",()=>{
+      const st=STATIONS.find(x=>x.election===state.election && String(x.sid)===tr.dataset.sid);
+      if(st) openStation(st);
+    });
+  });
 }
+function openStation(s){
+  const invalid=(s.turnout||0)-(s.valid||0);
+  const results=s.results.slice().sort((a,b)=>b.votes-a.votes);
+  const maxPct=Math.max(...results.map(r=>r.pct||0),1);
+  const rows=results.map(r=>{
+    const col=LIST_COLORS[r.n]||DEF;
+    return `<div class="mbar"><span class="dot" style="background:${col}"></span>`+
+      `<span class="mname">${esc(listLabel(r.name))}</span>`+
+      `<span class="mvt">${fmt(r.votes)} · ${(r.pct||0).toFixed(2)}%</span>`+
+      `<span class="mtrack"><span class="mfill" style="width:${Math.max(1,(r.pct||0)/maxPct*100)}%;background:${col}"></span></span></div>`;
+  }).join("");
+  const docs=(s.docs||[]).map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener">Записник ${i+1} (PDF)</a>`).join("");
+  const slug=(DATA.meta.city_slugs||{})[s.city]||"";
+  const mapHref=slug? `./#${state.election}/${slug}` : "";
+  document.getElementById("modal-body").innerHTML=
+    `<h2>${esc(s.no)}. ${esc(s.place||s.name)}</h2>
+     <div class="maddr">${esc(s.city)}${s.muni&&s.muni!==s.city?" · "+esc(s.muni):""}${s.address?"<br>"+esc(s.address):""}${s.display?"<br>"+esc(s.display):""}</div>
+     <div class="mgrid">
+       <div class="mcell"><div class="k">Победник</div><div class="v">${esc(listLabel(s.winner.name))} <span class="pm">${s.winner.pct}%</span></div></div>
+       <div class="mcell"><div class="k">Разлика</div><div class="v">+${fmt(s.margin_votes)} (${s.margin_pct}%)</div></div>
+       <div class="mcell"><div class="k">Излазност</div><div class="v">${turnoutPct(s).toFixed(1)}%</div></div>
+       <div class="mcell"><div class="k">Уписани бирачи</div><div class="v">${fmt(s.registered)}</div></div>
+       <div class="mcell"><div class="k">Изашло / важећи</div><div class="v">${fmt(s.turnout)} / ${fmt(s.valid)}</div></div>
+       <div class="mcell"><div class="k">Неважећи</div><div class="v">${fmt(invalid)} (${invalidPct(s).toFixed(1)}%)</div></div>
+     </div>
+     <div class="mbars">${rows}</div>
+     ${mapHref?`<div class="mlinks"><a href="${mapHref}">Прикажи на мапи</a></div>`:""}
+     ${docs?`<div class="mdocs">${docs}</div>`:""}`;
+  document.getElementById("modal").hidden=false;
+}
+function closeModal(){ document.getElementById("modal").hidden=true; }
 function render(){
   const list=sorted(filtered());
   const total=list.length, pages=Math.max(1,Math.ceil(total/state.pageSize));
@@ -218,10 +285,18 @@ function buildMuniOptions(){
   sel.value="all";
 }
 function buildLists(){
-  const seen=new Map();
-  for(const s of STATIONS){ if(s.election!==state.election) continue; for(const r of s.results){ if(!seen.has(r.n)) seen.set(r.n,{n:r.n,short:listLabel(r.name),color:LIST_COLORS[r.n]||DEF}); } }
-  LISTS=[...seen.values()].sort((a,b)=>a.n-b.n);
+  const seen=new Map(), totals=new Map();
+  for(const s of STATIONS){ if(s.election!==state.election) continue;
+    for(const r of s.results){
+      totals.set(r.n,(totals.get(r.n)||0)+(r.votes||0));
+      if(!seen.has(r.n)) seen.set(r.n,{n:r.n,short:listLabel(r.name),color:LIST_COLORS[r.n]||DEF});
+    } }
+  LISTS=[...seen.values()].sort((a,b)=> (totals.get(b.n)||0)-(totals.get(a.n)||0));  // по укупном броју гласова на изборима
 }
+
+document.getElementById("mclose").addEventListener("click",closeModal);
+document.getElementById("modal").addEventListener("click",e=>{ if(e.target.id==="modal") closeModal(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeModal(); });
 
 fetch("data.json").then(r=>r.json()).then(d=>{
   if(!d) return; DATA=d; STATIONS=d.stations;
