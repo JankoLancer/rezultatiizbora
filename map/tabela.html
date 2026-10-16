@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Табела бирачких места — филтрирање и сортирање | Резултати избора 2023.</title>
+<meta name="description" content="Табела свих бирачких места са филтрирањем и сортирањем: излазност, број уписаних, разлика између прве две листе и проценти по свакој изборној листи." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://rezultatiizbora.rs/tabela.html" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<style>
+  :root{ --bg:#0f172a;--panel:#111c34;--panel2:#17233f;--ink:#e9eef7;--muted:#93a3bd;--line:#26344f;--accent:#38bdf8 }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent)}
+  .top{padding:18px 20px 6px;max-width:1500px;margin:0 auto}
+  .top h1{margin:0 0 4px;font-size:22px}
+  .top .lead{color:var(--muted);font-size:13.5px;margin:0 0 10px}
+  .back{display:inline-block;margin-bottom:6px;font-size:13px}
+  .controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:end;max-width:1500px;margin:0 auto;padding:6px 20px 14px}
+  .controls label{display:flex;flex-direction:column;gap:3px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .controls select,.controls input{background:var(--panel2);color:var(--ink);border:1px solid var(--line);
+    border-radius:8px;padding:7px 9px;font-size:13px;min-width:120px}
+  .controls input[type=number]{width:120px}
+  .controls select:focus,.controls input:focus{outline:none;border-color:var(--accent)}
+  .count{max-width:1500px;margin:0 auto;padding:0 20px 8px;color:var(--muted);font-size:13px}
+  .tablewrap{max-width:1500px;margin:0 auto;padding:0 20px 20px;overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-size:12.5px;white-space:nowrap}
+  th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}
+  th{position:sticky;top:0;background:var(--panel);cursor:pointer;user-select:none;z-index:2;font-weight:600}
+  th:hover{color:var(--accent)}
+  th .ar{color:var(--accent);font-size:10px}
+  tbody tr:hover{background:var(--panel2)}
+  tbody td{background:var(--bg)}
+  tbody tr:hover td{background:var(--panel2)}
+  #tbl th:nth-child(1),#tbl td:nth-child(1){position:sticky;left:0;z-index:3;width:44px;min-width:44px}
+  #tbl th:nth-child(2),#tbl td:nth-child(2){position:sticky;left:44px;z-index:3;min-width:210px}
+  #tbl thead th:nth-child(1),#tbl thead th:nth-child(2){z-index:5}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+  .pm{color:var(--muted)}
+  .pager{display:flex;gap:10px;align-items:center;justify-content:center;padding:14px;color:var(--muted)}
+  .pager button{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 12px;cursor:pointer}
+  .pager button:disabled{opacity:.4;cursor:default}
+  .b-l{display:inline-block;padding:1px 6px;border-radius:6px;background:var(--panel2)}
+  .tag{color:var(--muted);font-size:11px}
+</style>
+</head>
+<body>
+<div class="top">
+  <a class="back" href="./">← Назад на мапу</a>
+  <h1>Табела бирачких места — филтрирање и сортирање</h1>
+  <p class="lead">Кликните на заглавље колоне да сортирате (поново клик мења смер). Колоне по листама приказују <strong>проценат</strong> те листе на месту.</p>
+</div>
+
+<div class="controls">
+  <label>Избори<select id="election"></select></label>
+  <label>Град<select id="city"></select></label>
+  <label id="muniWrap" style="display:none">Општина<select id="muni"></select></label>
+  <label>Претрага (место/адреса)<input id="q" type="text" placeholder="нпр. Београд, школа…"></label>
+  <label>Излазност ≥ (%)<input id="tmin" type="number" value="0" min="0" max="100" step="1"></label>
+  <label>Уписани ≥<input id="rmin" type="number" value="0" min="0" step="50"></label>
+</div>
+
+<div class="count" id="count"></div>
+<div class="tablewrap"><table id="tbl"><thead></thead><tbody></tbody></table></div>
+<div class="pager">
+  <button id="prev">‹ Претходна</button>
+  <span id="pginfo"></span>
+  <button id="next">Следећа ›</button>
+</div>
+
+<script>
+const LIST_COLORS = {1:"#1a6fb5",2:"#8856a7",3:"#e6550d",4:"#31a354",5:"#bd9e00",6:"#6b6b6b",7:"#d7301f",8:"#7fa8c9"};
+const DEF="#9aa5b1";
+const state={ election:null, city:"all", muni:"all", q:"", tmin:0, rmin:0, sortKey:"turn_pct", sortDir:-1, page:0, pageSize:100 };
+let DATA=null, STATIONS=[], LISTS=[];
+
+const fmt=n=> n==null? "–" : Number(n).toLocaleString("sr-RS");
+const esc=s=> String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function listLabel(full){
+  let s=String(full).replace(/^\s*\d+\.\s*/,"").trim();
+  s=s.replace(/^ИЗБОРН[АЕ]\s+ЛИСТ[АЕ]\s*/i,"").trim();
+  let depth=0,cut=s.length;
+  for(let i=0;i<s.length;i++){const c=s[i];
+    if(c==="("||c==="[")depth++;else if(c===")"||c==="]")depth--;
+    else if(depth<=0){ if((c==="-"||c==="–"||c==="—")&&s[i-1]===" "&&s[i+1]===" "){cut=i;break;} if(c===","||c===";"){cut=i;break;} }}
+  let out=s.slice(0,cut).replace(/\s*\([^)]*$/,"").trim().replace(/^[“”"'‚'']+|[“”"'‚'']+$/g,"").replace(/[,\-–—\s]+$/,"").trim();
+  return out||full;
+}
+function normSr(s){
+  const m={'а':'a','б':'b','в':'v','г':'g','д':'d','ђ':'dj','е':'e','ж':'z','з':'z','и':'i','ј':'j','к':'k','л':'l','љ':'lj','м':'m','н':'n','њ':'nj','о':'o','п':'p','р':'r','с':'s','т':'t','ћ':'c','у':'u','ф':'f','х':'h','ц':'c','ч':'c','џ':'dz','ш':'s'};
+  let o="";for(const ch of String(s).toLowerCase()){
+    if(m[ch]!==undefined)o+=m[ch];
+    else if(ch==="č"||ch==="ć")o+="c";else if(ch==="š")o+="s";else if(ch==="ž")o+="z";else if(ch==="đ")o+="dj";
+    else if(/[a-z0-9]/.test(ch))o+=ch;else o+=" ";}
+  return o.replace(/\s+/g," ").trim();
+}
+const turnoutPct=s=> s.registered? (s.turnout/s.registered*100):0;
+const invalidPct=s=> s.turnout? ((s.turnout-s.valid)/s.turnout*100):0;
+const listPct=(s,n)=>{ const r=s.results.find(x=>x.n===n); return r? (r.pct||0):0; };
+
+function valueOf(s,key){
+  switch(key){
+    case "no": return s.no;
+    case "name": return s.place||s.name;
+    case "city": return s.city;
+    case "muni": return s.muni;
+    case "reg": return s.registered||0;
+    case "turn": return s.turnout||0;
+    case "turn_pct": return turnoutPct(s);
+    case "valid": return s.valid||0;
+    case "invalid_pct": return invalidPct(s);
+    case "winner": return listLabel(s.winner.name);
+    case "margin": return s.margin_pct||0;
+    default:
+      if(key.startsWith("L")) return listPct(s, parseInt(key.slice(1),10));
+      return 0;
+  }
+}
+
+function filtered(){
+  const q=normSr(state.q);
+  return STATIONS.filter(s=>{
+    if(s.election!==state.election) return false;
+    if(state.city!=="all" && s.city!==state.city) return false;
+    if(state.muni!=="all" && s.muni!==state.muni) return false;
+    if(turnoutPct(s)+1e-9 < state.tmin) return false;
+    if((s.registered||0) < state.rmin) return false;
+    if(q){ const hay=normSr([s.name,s.place,s.address,s.city,s.muni].join(" ")); if(!hay.includes(q)) return false; }
+    return true;
+  });
+}
+function sorted(list){
+  const k=state.sortKey, d=state.sortDir;
+  const textKeys=["name","city","muni","winner"];
+  const arr=list.slice();
+  arr.sort((a,b)=>{
+    let va=valueOf(a,k), vb=valueOf(b,k);
+    if(textKeys.includes(k)){ return d*String(va).localeCompare(String(vb),"sr"); }
+    return d*((va>vb)-(va<vb));
+  });
+  return arr;
+}
+
+function columns(){
+  const cols=[
+    {k:"no",t:"#",num:true},
+    {k:"name",t:"Место"},
+    {k:"city",t:"Град / Општина"},
+    {k:"reg",t:"Уписани",num:true},
+    {k:"turn",t:"Изашло",num:true},
+    {k:"turn_pct",t:"Излазност %",num:true},
+    {k:"valid",t:"Важећи",num:true},
+    {k:"invalid_pct",t:"Неваж. %",num:true},
+    {k:"winner",t:"Победник"},
+    {k:"margin",t:"Разлика %",num:true}
+  ];
+  for(const l of LISTS) cols.push({k:"L"+l.n,t:l.short,num:true,list:l.n,color:l.color});
+  return cols;
+}
+function renderHead(){
+  const cols=columns();
+  document.querySelector("#tbl thead").innerHTML="<tr>"+cols.map(c=>{
+    const ar=state.sortKey===c.k? `<span class="ar">${state.sortDir<0?"▼":"▲"}</span>`:"";
+    const dot=c.list? `<span class="dot" style="background:${c.color}"></span>`:"";
+    return `<th class="${c.num?"num":""}" data-key="${c.k}" title="${esc(c.t||"")}">${dot}${esc(c.t)} ${ar}</th>`;
+  }).join("")+"</tr>";
+  document.querySelectorAll("#tbl thead th").forEach(th=>{
+    th.addEventListener("click",()=>{
+      const k=th.dataset.key;
+      if(state.sortKey===k) state.sortDir*=-1; else { state.sortKey=k; state.sortDir=-1; }
+      state.page=0; render();
+    });
+  });
+}
+function renderRows(list){
+  const cols=columns();
+  const page=list.slice(state.page*state.pageSize,(state.page+1)*state.pageSize);
+  const slug=(state.dataCitySlugs||DATA.meta.city_slugs||{});
+  document.querySelector("#tbl tbody").innerHTML=page.map(s=>{
+    const cells=cols.map(c=>{
+      let v;
+      if(c.k==="name"){ const link=slug[s.city]||""; v=`<a href="./#${state.election}/${link}">${esc(s.no)}. ${esc(s.place||s.name)}</a>`; }
+      else if(c.k==="city"){ v=`${esc(s.city)}${s.muni&&s.muni!==s.city?`<br><span class="tag">${esc(s.muni)}</span>`:""}`; }
+      else if(c.k==="winner"){ v=`<span class="dot" style="background:${s.winner.color}"></span>${esc(listLabel(s.winner.name))}`; }
+      else if(c.k==="margin"){ v=`<b>+${s.margin_pct!=null?s.margin_pct.toFixed(1):"–"}</b>`; }
+      else if(c.list){ const pc=listPct(s,c.list); v=`<span class="b-l">${pc.toFixed(1)}%</span>`; }
+      else { const val=valueOf(s,c.k); v= c.k==="turn_pct"||c.k==="invalid_pct" ? val.toFixed(1) : fmt(val); }
+      return `<td class="${c.num?"num":""}">${v}</td>`;
+    }).join("");
+    return `<tr>${cells}</tr>`;
+  }).join("");
+}
+function render(){
+  const list=sorted(filtered());
+  const total=list.length, pages=Math.max(1,Math.ceil(total/state.pageSize));
+  if(state.page>=pages) state.page=pages-1;
+  renderHead(); renderRows(list);
+  document.getElementById("count").textContent=`Пронађено ${fmt(total)} бирачких места (приказано ${Math.min(state.pageSize,total-state.page*state.pageSize)}).`;
+  document.getElementById("pginfo").textContent=`Страна ${state.page+1} / ${pages}`;
+  document.getElementById("prev").disabled=state.page<=0;
+  document.getElementById("next").disabled=state.page>=pages-1;
+}
+
+function buildCityOptions(){
+  const cities=(DATA.meta.by_election[state.election]||{}).cities||[];
+  const sel=document.getElementById("city");
+  sel.innerHTML='<option value="all">Сви градови</option>'+cities.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");
+}
+function buildMuniOptions(){
+  const wrap=document.getElementById("muniWrap"), sel=document.getElementById("muni");
+  state.muni="all";
+  const munis=[...new Set(STATIONS.filter(s=>s.election===state.election&&(state.city==="all"||s.city===state.city)).map(s=>s.muni).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"sr"));
+  if(munis.length<=1){ wrap.style.display="none"; return; }
+  wrap.style.display="";
+  sel.innerHTML='<option value="all">Све општине</option>'+munis.map(m=>`<option value="${esc(m)}">${esc(m)}</option>`).join("");
+  sel.value="all";
+}
+function buildLists(){
+  const seen=new Map();
+  for(const s of STATIONS){ if(s.election!==state.election) continue; for(const r of s.results){ if(!seen.has(r.n)) seen.set(r.n,{n:r.n,short:listLabel(r.name),color:LIST_COLORS[r.n]||DEF}); } }
+  LISTS=[...seen.values()].sort((a,b)=>a.n-b.n);
+}
+
+fetch("data.json").then(r=>r.json()).then(d=>{
+  if(!d) return; DATA=d; STATIONS=d.stations;
+  const es=d.meta.elections||[]; state.election=es[0]?es[0].id:null;
+  const sel=document.getElementById("election");
+  sel.innerHTML=es.map(e=>`<option value="${esc(e.id)}">${esc(e.name)}</option>`).join("");
+  sel.value=state.election;
+  buildLists(); buildCityOptions();
+  sel.addEventListener("change",()=>{ state.election=sel.value; state.city="all"; state.page=0; buildLists(); buildCityOptions(); buildMuniOptions(); render(); });
+  document.getElementById("city").addEventListener("change",e=>{ state.city=e.target.value; state.page=0; buildMuniOptions(); render(); });
+  document.getElementById("muni").addEventListener("change",e=>{ state.muni=e.target.value; state.page=0; render(); });
+  let t=null;
+  document.getElementById("q").addEventListener("input",e=>{ clearTimeout(t); t=setTimeout(()=>{ state.q=e.target.value; state.page=0; render(); },200); });
+  document.getElementById("tmin").addEventListener("input",e=>{ state.tmin=parseFloat(e.target.value)||0; state.page=0; render(); });
+  document.getElementById("rmin").addEventListener("input",e=>{ state.rmin=parseInt(e.target.value)||0; state.page=0; render(); });
+  document.getElementById("prev").addEventListener("click",()=>{ if(state.page>0){ state.page--; render(); } });
+  document.getElementById("next").addEventListener("click",()=>{ state.page++; render(); });
+  buildMuniOptions();
+  render();
+}).catch(()=>{ document.getElementById("count").textContent="Подаци нису учитани. Отвори преко сервера."; });
+</script>
+</body>
+</html>
