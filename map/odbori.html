@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Бирачки одбори 2026 — Крагујевац | Резултати избора</title>
+<meta name="description" content="Именовања бирачких одбора за парламентарне изборе 2026. у Крагујевцу: стални и проширени састав, чланови и заменици по бирачким местима и изборним листама." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://rezultatiizbora.rs/odbori.html" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<style>
+  :root{--bg:#0f172a;--panel:#111c34;--panel2:#17233f;--ink:#e9eef7;--muted:#93a3bd;--line:#26344f;--accent:#38bdf8;--good:#31a354;--warn:#f0b429}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent)}
+  .top{max-width:1500px;margin:0 auto;padding:18px 20px 6px}
+  .back{display:inline-block;margin-bottom:8px;font-size:13px;text-decoration:none}
+  h1{margin:0 0 4px;font-size:24px;line-height:1.2}
+  .lead{color:var(--muted);font-size:13.5px;margin:0 0 12px;max-width:900px;line-height:1.5}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 6px}
+  .chip{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:12px;color:var(--muted)}
+  .chip b{color:var(--ink)}
+  .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;max-width:1500px;margin:0 auto;padding:8px 20px 12px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+  .kpi .k{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .kpi .v{font-size:22px;font-weight:700;margin-top:3px;line-height:1.1}
+  .kpi .s{font-size:11.5px;color:var(--muted);margin-top:3px}
+  .controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:end;max-width:1500px;margin:0 auto;padding:4px 20px 10px}
+  .controls label{display:flex;flex-direction:column;gap:3px;font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .controls select,.controls input{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 9px;font-size:13px;min-width:140px}
+  .controls input[type=search]{min-width:260px}
+  .controls select:focus,.controls input:focus{outline:none;border-color:var(--accent)}
+  .seg{display:flex;background:var(--panel2);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .seg button{background:transparent;border:0;color:var(--muted);padding:8px 12px;font-size:12.5px;cursor:pointer}
+  .seg button+button{border-left:1px solid var(--line)}
+  .seg button.active{background:var(--accent);color:#062033;font-weight:700}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;max-width:1500px;margin:0 auto;padding:2px 20px 8px}
+  .tabs button{background:var(--panel2);border:1px solid var(--line);color:var(--ink);border-radius:9px;padding:7px 13px;font-size:13px;cursor:pointer}
+  .tabs button.active{background:var(--accent);border-color:var(--accent);color:#062033;font-weight:700}
+  .count{max-width:1500px;margin:0 auto;padding:0 20px 8px;color:var(--muted);font-size:12.5px}
+  .tablewrap{max-width:1500px;margin:0 auto;padding:0 20px 26px;overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-size:12.5px;white-space:nowrap}
+  th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+  th{position:sticky;top:0;background:var(--panel);z-index:2;font-weight:600;font-size:11.5px;color:#c7d3e6}
+  tbody tr:hover td{background:var(--panel2)}
+  tbody td{background:var(--bg)}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  .st-name{max-width:340px;white-space:normal;line-height:1.35}
+  .st-name small{color:var(--muted);display:block;margin-top:2px;font-size:11px;white-space:normal}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:-1px;flex:0 0 auto}
+  .lchip{display:inline-flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:7px;padding:2px 6px;margin:1px 3px 1px 0;background:var(--panel2);font-size:11px}
+  .lchip b{font-weight:700}
+  .lchip small{color:var(--muted);margin-left:3px}
+  .btn{background:var(--panel2);border:1px solid var(--line);color:var(--ink);border-radius:7px;padding:4px 9px;font-size:12px;cursor:pointer}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .linkbtn{background:none;border:0;color:var(--accent);cursor:pointer;padding:0;font:inherit;text-align:left}
+  .linkbtn:hover{text-decoration:underline}
+  .bar{height:7px;background:var(--panel2);border-radius:4px;overflow:hidden;min-width:70px}
+  .bar i{display:block;height:100%;border-radius:4px}
+  .pager{display:flex;gap:10px;align-items:center;justify-content:center;padding:14px;color:var(--muted)}
+  .pager button{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 12px;cursor:pointer}
+  .pager button:disabled{opacity:.4;cursor:default}
+  .muted{color:var(--muted)}
+  .none{color:var(--muted);font-style:italic}
+  .matrix td.c{text-align:center;font-variant-numeric:tabular-nums;min-width:48px}
+  .matrix td.c span{display:inline-block;min-width:24px;border-radius:5px;padding:1px 5px;font-weight:700}
+  .matrix td.c.zero{color:#3d4c66}
+  .matrix th.rot{max-width:84px;white-space:normal;line-height:1.15;font-size:10.5px;vertical-align:bottom}
+  .matrix th:first-child,.matrix td:first-child{position:sticky;left:0;z-index:3;background:var(--bg)}
+  .matrix th:first-child{z-index:5;background:var(--panel)}
+  .matrix tbody tr:hover td:first-child{background:var(--panel2)}
+  /* modal */
+  .modal{position:fixed;inset:0;z-index:100;background:rgba(4,8,16,.76);display:flex;align-items:flex-start;justify-content:center;padding:34px 12px;overflow:auto}
+  .modal[hidden]{display:none}
+  .modal-box{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:14px;max-width:1050px;width:100%;padding:18px 20px 20px}
+  .mclose{position:absolute;top:6px;right:10px;background:none;border:0;color:var(--muted);font-size:28px;cursor:pointer;line-height:1}
+  .mclose:hover{color:var(--ink)}
+  .modal h2{margin:0 0 3px;font-size:19px;padding-right:30px}
+  .msub{color:var(--muted);font-size:12.5px;margin-bottom:14px}
+  .mgrid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .card{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:11px 12px}
+  .card h3{margin:0 0 8px;font-size:13.5px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+  .card h3 span{font-size:11px;color:var(--muted);font-weight:400}
+  .role{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+  .person{display:grid;grid-template-columns:1fr auto;gap:2px 8px;padding:6px 0;border-top:1px solid rgba(255,255,255,.055)}
+  .person:first-of-type{border-top:0}
+  .person .nm{font-size:12.5px;font-weight:600}
+  .person .pr{font-size:11px;color:var(--muted);grid-column:1/-1;white-space:normal;line-height:1.35}
+  .docs{margin-top:13px}
+  .docs h3{margin:0 0 6px;font-size:12.5px}
+  .docs a{display:inline-block;font-size:11.5px;text-decoration:none;border:1px solid var(--line);border-radius:7px;padding:4px 8px;background:var(--panel2);margin:0 5px 5px 0}
+  .docs a:hover{border-color:var(--accent)}
+  .note{max-width:1500px;margin:0 auto;padding:0 20px 28px;color:var(--muted);font-size:12px;line-height:1.55}
+  .note strong{color:var(--ink)}
+  @media (max-width:900px){ .kpis{grid-template-columns:repeat(2,1fr)} .mgrid2{grid-template-columns:1fr} }
+  @media (max-width:640px){
+    .top{padding:14px 14px 4px} h1{font-size:20px}
+    .kpis,.controls,.tabs,.count,.tablewrap,.note{padding-left:14px;padding-right:14px}
+    .controls input[type=search]{min-width:100%}
+    .controls label{flex:1 1 46%}
+    .controls label:last-child{flex-basis:100%}
+    .tablewrap{padding-bottom:20px}
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Dataset",
+  "name":"Бирачки одбори — парламентарни избори 2026, Крагујевац",
+  "description":"Именовања бирачких одбора у сталном и проширеном саставу за парламентарне изборе 2026. у Крагујевцу, по бирачким местима и изборним листама.",
+  "url":"https://rezultatiizbora.rs/odbori.html",
+  "inLanguage":"sr",
+  "isAccessibleForFree":true,
+  "spatialCoverage":{"@type":"Place","name":"Град Крагујевац"},
+  "temporalCoverage":"2026-10-25",
+  "creator":{"@type":"Organization","name":"Rezultati izbora — Srbija"}
+}
+</script>
+</head>
+<body>
+
+<div class="top">
+  <a class="back" href="izbori2026.html">← Избори 2026</a>
+  <h1>Бирачки одбори — парламентарни избори 2026.</h1>
+  <p class="lead">Ко је именован у бирачке одборе, у ком саставу и на предлог које листе.
+    Приказан је састав <strong>после свих објављених измена, допуна и замена</strong>.
+    Први обрађени град је <strong>Крагујевац</strong>.</p>
+  <div class="chips" id="meta-chips"></div>
+</div>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="controls">
+  <label>Град / општина
+    <select id="city"><option value="kragujevac">Крагујевац</option></select>
+  </label>
+  <label>Састав
+    <span class="seg" id="comp-seg">
+      <button data-comp="prosireni" class="active">Проширени</button>
+      <button data-comp="stalni">Стални</button>
+      <button data-comp="oba">Оба</button>
+    </span>
+  </label>
+  <label>Изборна листа / група
+    <select id="list"><option value="all">Све листе</option></select>
+  </label>
+  <label>Претрага
+    <input id="q" type="search" placeholder="место, адреса или име особе…" autocomplete="off" />
+  </label>
+</div>
+
+<div class="tabs" id="tabs">
+  <button data-tab="mesta" class="active">По бирачким местима</button>
+  <button data-tab="liste">По листама</button>
+  <button data-tab="matrica">Матрица места × листа</button>
+  <button data-tab="ljudi">Сви људи</button>
+</div>
+
+<div class="count" id="count"></div>
+<div id="view"></div>
+
+<p class="note" id="note"></p>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-box">
+    <button class="mclose" id="mclose" aria-label="Затвори">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt=n=>new Intl.NumberFormat("sr-RS").format(n||0);
+const pct=(a,b)=>b?Math.round(1000*a/b)/10:0;
+
+let DATA=null, STATIONS=[], LISTS=[], BYKEY={};
+const state={tab:"mesta",comp:"prosireni",list:"all",q:"",page:0,peoplePage:0};
+
+function listInfo(k){ return BYKEY[k]||{key:k,name:k,short:k,color:"#9aa5b1"}; }
+function listDot(k){ const l=listInfo(k); return `<span class="dot" style="background:${l.color}"></span>`; }
+function lchip(k,count=null,extra=""){ const l=listInfo(k); return `<span class="lchip">${listDot(k)}<b>${esc(l.short)}</b>${count!==null?`<small>${count}</small>`:""}${extra}</span>`; }
+
+function stationName(s){ return s.name||s.title||("БМ "+s.no); }
+function stationPlace(s){ return s.place||""; }
+
+function roster(s,comp){ return (s.committees&&s.committees[comp]&&s.committees[comp].members)||[]; }
+function rosterCount(s,comp){ return (s.committees&&s.committees[comp]&&s.committees[comp].total)||0; }
+
+function matchesQuery(s,q){
+  if(!q) return true;
+  q=q.toLowerCase();
+  if(stationName(s).toLowerCase().includes(q)) return true;
+  if((s.place||"").toLowerCase().includes(q)) return true;
+  if(String(s.no)===q) return true;
+  for(const comp of ["stalni","prosireni"]){
+    for(const p of roster(s,comp)){
+      if(p.name.toLowerCase().includes(q)||(p.proposer_raw||"").toLowerCase().includes(q)) return true;
+    }
+  }
+  return false;
+}
+
+function stationHasList(s,comp,k){
+  if(k==="all") return true;
+  return roster(s,comp).some(p=>p.list===k);
+}
+
+function filteredStations(){
+  const q=state.q.trim();
+  return STATIONS.filter(s=>{
+    if(!matchesQuery(s,q)) return false;
+    if(state.list!=="all"){
+      if(state.comp==="oba") return stationHasList(s,"stalni",state.list)||stationHasList(s,"prosireni",state.list);
+      return stationHasList(s,state.comp,state.list);
+    }
+    return true;
+  });
+}
+
+function compLabel(c){ return c==="stalni"?"Стални састав":c==="prosireni"?"Проширени састав":"Оба састава"; }
+
+function renderMeta(){
+  const m=DATA.meta, sm=DATA.summary;
+  const total=sm.stations_total;
+  const st=sm.stations_stalni, pr=sm.stations_prosireni;
+  const people=STATIONS.reduce((n,s)=>n+rosterCount(s,"stalni")+rosterCount(s,"prosireni"),0);
+  const lists=new Set();
+  for(const s of STATIONS){ for(const c of ["stalni","prosireni"]) for(const p of roster(s,c)) lists.add(p.list); }
+  $("#meta-chips").innerHTML=`
+    <span class="chip">🗳️ <b>${esc(m.election.name)}</b></span>
+    <span class="chip">📍 <b>${esc(m.municipality.name)}</b></span>
+    <span class="chip">📄 <b>${fmt(total)}</b> бирачких места</span>
+    <span class="chip">👥 <b>${fmt(people)}</b> именовања</span>
+    <span class="chip">🔄 ажурирано <b>${esc(m.generated)}</b></span>`;
+  $("#kpis").innerHTML=`
+    <div class="kpi"><div class="k">Бирачка места</div><div class="v">${fmt(total)}</div><div class="s">у обради</div></div>
+    <div class="kpi"><div class="k">Стални састав</div><div class="v">${fmt(st)}</div><div class="s">места са објављеним решењем</div></div>
+    <div class="kpi"><div class="k">Проширени састав</div><div class="v">${fmt(pr)}</div><div class="s">места са контролорима</div></div>
+    <div class="kpi"><div class="k">Листе / групе</div><div class="v">${fmt(lists.size)}</div><div class="s">предлагача у одборима</div></div>`;
+  $("#note").innerHTML=`<strong>Извор:</strong> Републичка изборна комисија,
+    <a href="${esc(m.source)}" target="_blank" rel="noopener">документa о именовању бирачких одбора</a>.
+    Обрађено је ${fmt(total)} бирачких места у граду Крагујевцу.
+    ${sm.stations_stalni<total?`Стални састав није објављен за ${fmt(total-sm.stations_stalni)} места.`:""}
+    Подаци се аутоматски извлаче из PDF решења (OCR) и могу садржати грешке у именима;
+    за правно релевантан податак увек проверите изворни PDF.
+    <br>Преузимање: <a href="odbori.csv">odbori.csv</a> (табела) · <a href="odbori.json">odbori.json</a>.`;
+}
+
+function renderListOptions(){
+  const sel=$("#list");
+  const keys=new Set();
+  for(const s of STATIONS){ for(const c of ["stalni","prosireni"]) for(const p of roster(s,c)) keys.add(p.list); }
+  const arr=[...keys].map(listInfo).sort((a,b)=>a.name.localeCompare(b.name,"sr"));
+  sel.innerHTML='<option value="all">Све листе</option>'+arr.map(l=>`<option value="${esc(l.key)}">${esc(l.name)}</option>`).join("");
+}
+
+function renderSummary(){
+  const comps=state.comp==="oba"?["stalni","prosireni"]:[state.comp];
+  let html="", counts=[];
+  for(const comp of comps){
+    const rows=(DATA.summary.by_list[comp]||[]).filter(r=>state.list==="all"||r.key===state.list);
+    const max=Math.max(1,...rows.map(r=>r.members));
+    const totalStations=DATA.summary["stations_"+comp]||DATA.summary.stations_total;
+    html+=`<h3 class="section" style="max-width:1500px;margin:6px auto 7px;padding:0 20px">${compLabel(comp)}</h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>#</th><th>Листа / посланичка група</th><th class="num">Чланови</th><th class="num">Заменици</th>
+        <th class="num">Укупно</th><th class="num">Места</th><th>Покривеност</th><th></th></tr></thead>
+      <tbody>${rows.map((r,i)=>`<tr>
+        <td class="num">${i+1}</td>
+        <td>${listDot(r.key)}<b>${esc(r.name)}</b> <span class="muted">(${esc(r.short)})</span></td>
+        <td class="num">${fmt(r.members)}</td><td class="num">${fmt(r.deputies)}</td>
+        <td class="num"><b>${fmt(r.total)}</b></td><td class="num">${fmt(r.stations)}</td>
+        <td><div class="bar" title="${pct(r.stations,totalStations)}%"><i style="width:${pct(r.stations,totalStations)}%;background:${r.color}"></i></div>
+          <small class="muted">${pct(r.stations,totalStations)}%</small></td>
+        <td><button class="btn" data-listfilter="${esc(r.key)}">прикажи места</button></td>
+      </tr>`).join("")}</tbody></table></div>`;
+    counts.push(`${compLabel(comp)}: ${rows.length} листа/групе, ${fmt(rows.reduce((n,r)=>n+r.members,0))} чланова и ${fmt(rows.reduce((n,r)=>n+r.deputies,0))} заменика`);
+  }
+  $("#view").innerHTML=html;
+  $("#count").textContent=counts.join(" · ");
+  document.querySelectorAll("[data-listfilter]").forEach(b=>b.onclick=()=>{ state.list=b.dataset.listfilter; $("#list").value=state.list; state.tab="matrica"; state.page=0; syncTabs(); render(); });
+}
+function renderStations(){
+  const list=filteredStations();
+  const pageSize=40;
+  const pages=Math.max(1,Math.ceil(list.length/pageSize));
+  if(state.page>=pages) state.page=pages-1;
+  const rows=list.slice(state.page*pageSize,(state.page+1)*pageSize);
+  const comps=state.comp==="oba"?["stalni","prosireni"]:[state.comp];
+  $("#view").innerHTML=`<div class="tablewrap"><table>
+    <thead><tr><th class="num">БМ</th><th>Бирачко место</th>
+      ${comps.map(c=>`<th class="num">${c==="stalni"?"Стални":"Проширени"}</th>`).join("")}
+      <th>Састав (${comps.map(c=>c==="stalni"?"стални":"проширени").join(" + ")})</th><th>Документи</th></tr></thead>
+    <tbody>${rows.map(s=>{
+      const chips=comps.map(c=>{
+        const counts={}; for(const p of roster(s,c)) if(!p.deputy) counts[p.list]=(counts[p.list]||0)+1;
+        return Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([k,n])=>lchip(k,n)).join("");
+      }).join(comps.length>1?'<span class="muted"> · </span>':"");
+      return `<tr>
+        <td class="num">${s.no}</td>
+        <td class="st-name"><button class="linkbtn" data-open="${s.no}">${esc(stationName(s))}</button>
+          ${stationPlace(s)?`<small>${esc(stationPlace(s))}</small>`:""}</td>
+        ${comps.map(c=>`<td class="num">${rosterCount(s,c)||'<span class="none">—</span>'}</td>`).join("")}
+        <td style="white-space:normal;max-width:520px">${chips||'<span class="none">нема података</span>'}</td>
+        <td><button class="btn" data-open="${s.no}">детаљи</button></td>
+      </tr>`;}).join("")}</tbody></table></div>
+    <div class="pager"><button id="prev" ${state.page<=0?"disabled":""}>← Претходна</button>
+      <span>Страна ${state.page+1} / ${pages}</span>
+      <button id="next" ${state.page>=pages-1?"disabled":""}>Следећа →</button></div>`;
+  $("#count").textContent=`Пронађено ${fmt(list.length)} бирачких места (${compLabel(state.comp)}).`;
+  document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openStation(Number(b.dataset.open)));
+  $("#prev").onclick=()=>{ if(state.page>0){state.page--;render();} };
+  $("#next").onclick=()=>{ if(state.page<pages-1){state.page++;render();} };
+}
+
+function renderMatrix(){
+  const comp=state.comp==="oba"?"prosireni":state.comp;
+  const rows=filteredStations();
+  const totals={}; for(const s of STATIONS) for(const p of roster(s,comp)) if(!p.deputy) totals[p.list]=(totals[p.list]||0)+1;
+  let keys=Object.keys(totals).filter(k=>state.list==="all"||k===state.list);
+  keys.sort((a,b)=>(totals[b]||0)-(totals[a]||0));
+  const header=keys.map(k=>`<th class="rot" title="${esc(listInfo(k).name)}">${listDot(k)}${esc(listInfo(k).short)}</th>`).join("");
+  $("#view").innerHTML=`<div class="tablewrap"><table class="matrix">
+    <thead><tr><th>БМ / место</th>${header}<th class="num">Σ чланова</th></tr></thead>
+    <tbody>${rows.map(s=>{
+      const counts={}, total=roster(s,comp).filter(p=>!p.deputy).length;
+      for(const p of roster(s,comp)) if(!p.deputy) counts[p.list]=(counts[p.list]||0)+1;
+      return `<tr><td><button class="linkbtn" data-open="${s.no}"><b>${s.no}</b> · ${esc(stationName(s))}</button></td>
+        ${keys.map(k=>{
+          const n=counts[k]||0; const l=listInfo(k);
+          return `<td class="c ${n?'':'zero'}">${n?`<span style="background:${l.color}22;color:${l.color};border:1px solid ${l.color}55" title="${esc(l.name)}">${n}</span>`:"·"}</td>`;
+        }).join("")}<td class="num"><b>${total}</b></td></tr>`;
+    }).join("")}</tbody></table></div>`;
+  $("#count").textContent=`Матрица: ${fmt(rows.length)} места × ${keys.length} листа · ${compLabel(comp)} · бројеви су чланови (без заменика)`;
+  document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openStation(Number(b.dataset.open)));
+}
+
+function allPeople(){
+  const out=[];
+  for(const s of STATIONS){
+    for(const comp of ["stalni","prosireni"]){
+      for(const p of roster(s,comp)) out.push({...p,comp,station:s});
+    }
+  }
+  return out;
+}
+
+function renderPeople(){
+  const q=state.q.trim().toLowerCase();
+  let list=allPeople();
+  if(state.list!=="all") list=list.filter(p=>p.list===state.list);
+  if(state.comp!=="oba") list=list.filter(p=>p.comp===state.comp);
+  if(q) list=list.filter(p=>p.name.toLowerCase().includes(q)||(p.proposer_raw||"").toLowerCase().includes(q)||stationName(p.station).toLowerCase().includes(q)||String(p.station.no)===q);
+  const pageSize=80, pages=Math.max(1,Math.ceil(list.length/pageSize));
+  if(state.peoplePage>=pages) state.peoplePage=pages-1;
+  const rows=list.slice(state.peoplePage*pageSize,(state.peoplePage+1)*pageSize);
+  $("#view").innerHTML=`<div class="tablewrap"><table>
+    <thead><tr><th>Особа</th><th>Улога</th><th>Састав</th><th>Листа / група</th><th>Бирачко место</th><th>Предлог</th></tr></thead>
+    <tbody>${rows.map(p=>`<tr>
+      <td><b>${esc(p.name)}</b></td>
+      <td>${esc(p.role_label||p.role)}</td>
+      <td>${p.comp==="stalni"?"стални":"проширени"}</td>
+      <td>${listDot(p.list)}${esc(listInfo(p.list).short)} <span class="muted">${esc(listInfo(p.list).name)}</span></td>
+      <td><button class="linkbtn" data-open="${p.station.no}"><b>${p.station.no}</b> · ${esc(stationName(p.station))}</button></td>
+      <td style="white-space:normal;max-width:360px" class="muted">${esc(p.proposer_raw||"")}</td>
+    </tr>`).join("")}</tbody></table></div>
+    <div class="pager"><button id="prev" ${state.peoplePage<=0?"disabled":""}>← Претходна</button>
+      <span>Страна ${state.peoplePage+1} / ${pages}</span>
+      <button id="next" ${state.peoplePage>=pages-1?"disabled":""}>Следећа →</button></div>`;
+  $("#count").textContent=`${fmt(list.length)} именовања особа · ${compLabel(state.comp)}${state.list!=="all"?" · филтер по листи":""}`;
+  document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openStation(Number(b.dataset.open)));
+  $("#prev").onclick=()=>{ if(state.peoplePage>0){state.peoplePage--;render();} };
+  $("#next").onclick=()=>{ if(state.peoplePage<pages-1){state.peoplePage++;render();} };
+}
+
+function render(){
+  if(!DATA) return;
+  if(state.tab==="liste") renderSummary();
+  else if(state.tab==="matrica") renderMatrix();
+  else if(state.tab==="ljudi") renderPeople();
+  else renderStations();
+}
+
+function syncTabs(){
+  document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("active",b.dataset.tab===state.tab));
+  document.querySelectorAll("#comp-seg button").forEach(b=>b.classList.toggle("active",b.dataset.comp===state.comp));
+}
+
+function openStation(no){
+  const s=STATIONS.find(x=>x.no===no); if(!s) return;
+  const comps=["stalni","prosireni"];
+  const body=comps.map(c=>{
+    const ps=roster(s,c);
+    if(!ps.length) return `<div class="card"><h3>${c==="stalni"?"Стални састав":"Проширени састав"}<span>нема објављеног решења</span></h3><p class="muted">За ово бирачко место у РИК документима није пронађено решење за овај састав.</p></div>`;
+    return `<div class="card"><h3>${c==="stalni"?"Стални састав":"Проширени састав (контролори)"}<span>${ps.length} именовања</span></h3>
+      ${ps.map(p=>`<div class="person">
+        <div><div class="role">${esc(p.role_label||p.role)}</div><div class="nm">${esc(p.name)}</div></div>
+        <div style="text-align:right">${lchip(p.list)}</div>
+        <div class="pr">${esc(p.proposer_raw||"")}${p.changed?' <span class="muted">· замењен/а</span>':""}</div>
+      </div>`).join("")}</div>`;
+  }).join("");
+  const docs=(s.docs||[]).slice().sort((a,b)=>(b.datetime||0)-(a.datetime||0));
+  $("#modal-body").innerHTML=`<h2>${s.no} · ${esc(stationName(s))}</h2>
+    <div class="msub">${esc(stationPlace(s)||"")}</div>
+    <div class="mgrid2">${body}</div>
+    <div class="docs"><h3>Изворни документи (РИК)</h3>
+      ${docs.map(d=>`<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.type==="imenovanje"?"решење":d.type==="dopuna"?"допуна":d.type==="izmena"?"измена":d.type)} · ${d.composition==="stalni"?"стални":"проширени"}${d.datetime?` · ${new Date(d.datetime*1000).toLocaleDateString("sr-RS")}`:""}</a>`).join("")||'<span class="muted">нема</span>'}
+    </div>`;
+  $("#modal").hidden=false;
+}
+function closeModal(){ $("#modal").hidden=true; }
+
+$("#mclose").onclick=closeModal;
+$("#modal").addEventListener("click",e=>{ if(e.target.id==="modal") closeModal(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeModal(); });
+
+document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{ state.tab=b.dataset.tab; state.page=0; state.peoplePage=0; syncTabs(); render(); });
+document.querySelectorAll("#comp-seg button").forEach(b=>b.onclick=()=>{ state.comp=b.dataset.comp; state.page=0; state.peoplePage=0; syncTabs(); render(); });
+$("#list").onchange=e=>{ state.list=e.target.value; state.page=0; state.peoplePage=0; render(); };
+$("#q").addEventListener("input",e=>{ state.q=e.target.value; state.page=0; state.peoplePage=0; clearTimeout(window._qt); window._qt=setTimeout(render,160); });
+$("#city").onchange=()=>{ /* за сада само Крагујевац */ };
+
+fetch("odbori.json").then(r=>r.json()).then(d=>{
+  DATA=d; STATIONS=d.stations||[];
+  LISTS=d.meta.lists||[]; BYKEY=Object.fromEntries(LISTS.map(l=>[l.key,l]));
+  renderMeta(); renderListOptions(); render();
+}).catch(()=>{ $("#count").textContent="Подаци нису учитани. Отворите страну преко сервера (http://localhost:8000/odbori.html)."; });
+</script>
+</body>
+</html>

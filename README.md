@@ -87,11 +87,28 @@ FROM stations s JOIN cities c ON c.id=s.city_id GROUP BY c.id;
   свих бирачких места — по излазности, броју уписаних, разлици прве две листе, и
   по **проценту сваке изборне листе** (за проналажење екстрема).
 
+## Избори 2026 — бирачки одбори
+
+За парламентарне изборе 2026. постоји посебна секција
+`map/izbori2026.html` и анализа `map/odbori.html` (први обрађени град:
+**Крагујевац**). Из РИК-ових PDF решења извучени су стални и проширени састав
+бирачких одбора, са именима, улогама, предлагачима и линковима ка изворним
+документима.
+
+```bash
+python3 odbori/scrape_odbori.py "Град Крагујевац" --slug kragujevac
+python3 odbori/parse_odbori.py kragujevac
+python3 odbori/build_odbori.py kragujevac   # → map/odbori.json
+```
+
+Више у `odbori/README.md`.
+
 ## Структура
 
 ```
 izbori_vizualizacija/
 ├── elections.json             # регистар избора (id, name, source_prefix)
+├── odbori/                    # бирачки одбори 2026: scrape → OCR → JSON
 ├── download_rik_generic.py    # преузимање резултата и записника (регион + општине)
 ├── build_data.py              # спаја локације + резултате → map/data.json
 ├── build_db.py                # изградња SQLite базе → db/izbori.db

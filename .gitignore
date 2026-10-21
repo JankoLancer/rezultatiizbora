@@ -24,3 +24,7 @@ geo/kosovo_centers.json
 *.log
 *.tmp
 .DS_Store
+
+# ---- odbori: raw PDFs and OCR text (reproducible, bulky) ----
+odbori/pdf/
+odbori/ocr/
