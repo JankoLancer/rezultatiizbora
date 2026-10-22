@@ -1,0 +1,27 @@
+# Rezultati izbora — Srbija
+
+> Nezavisna analiza rezultata izbora i biračkih odbora u Srbiji, po biračkim mestima.
+> Podaci su preuzeti iz javno objavljenih dokumenata Republičke izborne komisije (RIK).
+
+## Ključne stranice
+
+- [Izbori 2026](https://rezultatiizbora.rs/izbori2026.html): pregled parlamentarnih izbora 2026.
+- [Birački odbori 2026](https://rezultatiizbora.rs/odbori.html): interaktivna analiza stalnog i proširenog sastava, kontrolora i pokrivenosti po listama.
+- [Svi gradovi i opštine](https://rezultatiizbora.rs/biracki-odbori/): statički pregled biračkih odbora po gradovima.
+- [Podaci i metodologija](https://rezultatiizbora.rs/podaci.html): preuzimanje CSV/JSON, polja, izvori i ograničenja.
+- [Mapa rezultata 2023](https://rezultatiizbora.rs/): rezultati parlamentarnih izbora 2023. po biračkim mestima.
+- [O sajtu](https://rezultatiizbora.rs/o-sajtu.html): izvori, metodologija i pravna napomena.
+- [llms-full.txt](https://rezultatiizbora.rs/llms-full.txt): metodologija i ključni pojmovi na jednom mestu.
+
+## Podaci
+
+- [odbori.json](https://rezultatiizbora.rs/odbori.json): kompletan dataset biračkih odbora 2026.
+- [odbori.csv](https://rezultatiizbora.rs/odbori.csv): tabela imenovanja (jedan red = jedna osoba).
+- [data.json](https://rezultatiizbora.rs/data.json): rezultati izbora 2023. po biračkim mestima.
+
+## Napomene
+
+- Podaci o biračkim odborima su iz javno objavljenih rešenja RIK-a.
+- Imena su izvučena OCR-om i mogu sadržati greške; merodavan je izvorni PDF.
+- Pokrivenost se računa samo od biračkih mesta za koja je RIK objavio rešenje.
+- Ažurirano: 22.10.2026.

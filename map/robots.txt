@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# LLM / AI context
+# https://rezultatiizbora.rs/llms.txt
+
 Sitemap: https://rezultatiizbora.rs/sitemap.xml

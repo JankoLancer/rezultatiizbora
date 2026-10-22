@@ -1,0 +1,19 @@
+# Birački odbori 2026 — metodologija i ključni pojmovi
+
+## Šta je birački odbor
+Birački odbor je telo koje sprovodi glasanje na jednom biračkom mestu. Za parlamentarne izbore 2026. ima stalni i prošireni sastav.
+
+## Stalni sastav
+Čine ga predsednik, zamenik predsednika, dva člana i dva zamenika članova. Predlažu ih poslaničke grupe u Narodnoj skupštini, a imenuje lokalna izborna komisija.
+
+## Prošireni sastav
+Čine ga član i zamenik člana koje predlaže svaka proglašena izborna lista. Članove proširenog sastava najčešće nazivamo kontrolorima. Jedna lista po pravilu ima jednog člana i jednog zamenika po biračkom mestu.
+
+## Pokrivenost
+Pokrivenost liste = broj objavljenih biračkih mesta na kojima lista ima bar jednog člana / broj objavljenih biračkih mesta za taj sastav. Mesta bez objavljenog rešenja ne ulaze u pokrivenost. Kod zbirnog prikaza oba sastava stalni sastav može samo da poveća pokrivenost.
+
+## Izvor
+Republička izborna komisija, javno objavljena rešenja o imenovanju biračkih odbora: https://www.rik.parlament.gov.rs/dokumenta/41985
+
+## Ograničenja
+PDF dokumenti su skenirani; imena su izvučena OCR-om. Moguće su greške u imenima i ulogama. Za pravno relevantan podatak proveriti izvorni PDF.

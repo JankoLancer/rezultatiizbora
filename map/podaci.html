@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Podaci o biračkim odborima 2026 — CSV, JSON i metodologija</title>
+<meta name="description" content="Preuzmite podatke o biračkim odborima 2026: 8.415 biračkih mesta, 142.044 imenovanja, 52.534 kontrolora. CSV i JSON, izvori, metodologija i ograničenja." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://rezultatiizbora.rs/podaci.html" />
+<meta name="keywords" content="podaci birački odbori 2026, CSV, JSON, dataset, kontrolori, izbori 2026, RIK, metodologija" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="sr_RS" />
+<meta property="og:site_name" content="Rezultati izbora — Srbija" />
+<meta property="og:title" content="Podaci o biračkim odborima 2026 — CSV, JSON i metodologija" />
+<meta property="og:description" content="Dataset biračkih odbora 2026: biračka mesta, članovi, zamenici, kontrolori, liste i pokrivenost. Preuzimanje u CSV i JSON formatu." />
+<meta property="og:url" content="https://rezultatiizbora.rs/podaci.html" />
+<meta property="og:image" content="https://rezultatiizbora.rs/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Podaci o biračkim odborima 2026 — CSV, JSON i metodologija" />
+<meta name="twitter:description" content="8.415 biračkih mesta, 142.044 imenovanja i 52.534 kontrolora. Preuzmite CSV i JSON." />
+<meta name="twitter:image" content="https://rezultatiizbora.rs/og.png" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Dataset",
+      "@id":"https://rezultatiizbora.rs/podaci.html#dataset",
+      "name":"Birački odbori — parlamentarni izbori 2026, Srbija",
+      "description":"Imenovanja u biračke odbore 2026. po biračkim mestima, sastavu, ulozi i izbornoj listi. Uključuje stalni i prošireni sastav, članove, zamenike i kontrolore.",
+      "url":"https://rezultatiizbora.rs/podaci.html",
+      "inLanguage":"sr",
+      "isAccessibleForFree":true,
+      "spatialCoverage":{"@type":"Place","name":"Srbija"},
+      "temporalCoverage":"2026-10-25",
+      "dateModified":"2026-10-22",
+      "creator":{"@type":"Organization","name":"Rezultati izbora — Srbija","url":"https://rezultatiizbora.rs/","sameAs":["https://github.com/JankoLancer/rezultatiizbora"]},
+      "publisher":{"@type":"Organization","name":"Rezultati izbora — Srbija","url":"https://rezultatiizbora.rs/"},
+      "license":"https://creativecommons.org/licenses/by-nc-nd/3.0/rs/",
+      "variableMeasured":["biračko mesto","sastav","uloga","izborna lista","članovi","zamenici","kontrolori","pokrivenost"],
+      "distribution":[
+        {"@type":"DataDownload","name":"odbori.csv","encodingFormat":"text/csv","contentUrl":"https://rezultatiizbora.rs/odbori.csv","description":"Tabela imenovanja; jedan red = jedna osoba."},
+        {"@type":"DataDownload","name":"odbori.json","encodingFormat":"application/json","contentUrl":"https://rezultatiizbora.rs/odbori.json","description":"Kompletan dataset sa gradovima, biračkim mestima, odborima i listama."}
+      ]
+    },
+    {
+      "@type":"WebPage",
+      "@id":"https://rezultatiizbora.rs/podaci.html#webpage",
+      "url":"https://rezultatiizbora.rs/podaci.html",
+      "name":"Podaci o biračkim odborima 2026 — CSV, JSON i metodologija",
+      "inLanguage":"sr",
+      "dateModified":"2026-10-22",
+      "isPartOf":{"@type":"WebSite","name":"Rezultati izbora — Srbija","url":"https://rezultatiizbora.rs/"}
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Početna","item":"https://rezultatiizbora.rs/"},
+        {"@type":"ListItem","position":2,"name":"Izbori 2026","item":"https://rezultatiizbora.rs/izbori2026.html"},
+        {"@type":"ListItem","position":3,"name":"Podaci i metodologija","item":"https://rezultatiizbora.rs/podaci.html"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Šta sadrži dataset biračkih odbora 2026?","acceptedAnswer":{"@type":"Answer","text":"Dataset sadrži 8.415 biračkih mesta, 142.044 imenovanja u stalnom i proširenom sastavu, 52.534 kontrolora i 46.260 zamenika kontrolora, sa izbornim listama i izvorima."}},
+        {"@type":"Question","name":"U kom formatu mogu da preuzmem podatke?","acceptedAnswer":{"@type":"Answer","text":"Podaci su dostupni kao CSV tabela (jedan red = jedna osoba) i kao JSON dataset sa gradovima, biračkim mestima i odborima."}},
+        {"@type":"Question","name":"Kako se računa pokrivenost?","acceptedAnswer":{"@type":"Answer","text":"Pokrivenost liste je broj objavljenih biračkih mesta gde lista ima bar jednog člana, podeljen brojem objavljenih mesta za taj sastav. Mesta bez objavljenog rešenja ne ulaze u pokrivenost."}},
+        {"@type":"Question","name":"Da li su podaci zvanični?","acceptedAnswer":{"@type":"Answer","text":"Podaci su izvučeni iz javno objavljenih rešenja RIK-a. Ovo je nezvanična analiza; imena su izvučena OCR-om i mogu sadržati greške. Merodavan je izvorni PDF."}}
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1D190SES3N"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow_ad_personalization_signals:false});
+</script>
+<style>
+  :root{--bg:#0f172a;--panel:#111c34;--panel2:#17233f;--ink:#e9eef7;--muted:#93a3bd;--line:#26344f;--accent:#38bdf8;--good:#31a354}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65}
+  a{color:var(--accent)}
+  .wrap{max-width:1080px;margin:0 auto;padding:26px 20px 70px}
+  .back{display:inline-block;margin-bottom:12px;font-size:13px;text-decoration:none}
+  h1{margin:0 0 7px;font-size:30px;line-height:1.18}
+  h2{font-size:18px;margin:28px 0 9px}
+  .lead{color:#c7d3e6;font-size:14.5px;margin:0 0 16px;max-width:900px}
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:16px 0 20px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:10px 12px}
+  .kpi .k{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .kpi .v{font-size:20px;font-weight:700}
+  .downloads{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 16px}
+  .dl{display:block;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 15px;text-decoration:none;color:var(--ink)}
+  .dl:hover{border-color:#3d5a86}
+  .dl b{font-size:15px}.dl span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:11px;background:var(--panel)}
+  table{border-collapse:collapse;width:100%;font-size:12.5px}
+  th,td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  th{background:var(--panel2);font-size:11.5px;color:#c7d3e6}
+  tr:last-child td{border-bottom:0}
+  code{background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:12px}
+  .callout{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:12px 15px;margin:12px 0}
+  details{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:9px 12px;margin:7px 0}
+  summary{cursor:pointer;font-weight:600}
+  .muted{color:var(--muted)}
+  .footer{margin-top:30px;color:var(--muted);font-size:12px;line-height:1.6}
+  .footer a{color:var(--accent)}
+  @media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}.downloads{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="izbori2026.html">← Izbori 2026</a> · <a class="back" href="odbori.html">Birački odbori</a> · <a class="back" href="biracki-odbori/">Svi gradovi</a>
+
+  <h1>Podaci o biračkim odborima 2026 — CSV, JSON i metodologija</h1>
+  <p class="lead">Dataset imenovanja u biračke odbore za parlamentarne izbore 2026. u Srbiji:
+    8.415 biračkih mesta, 142.044 imenovanja, 52.534 kontrolora i 46.260 zamenika kontrolora.
+    Podaci su izvučeni iz javno objavljenih rešenja RIK-a i dostupni su za preuzimanje.</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="k">Biračka mesta</div><div class="v">8.415</div></div>
+    <div class="kpi"><div class="k">Stalni sastav</div><div class="v">7.596</div></div>
+    <div class="kpi"><div class="k">Prošireni sastav</div><div class="v">7.553</div></div>
+    <div class="kpi"><div class="k">Imenovanja</div><div class="v">142.044</div></div>
+    <div class="kpi"><div class="k">Kontrolori</div><div class="v">52.534</div></div>
+  </div>
+
+  <h2>Preuzimanje</h2>
+  <div class="downloads">
+    <a class="dl" href="odbori.csv"><b>odbori.csv</b><span>CSV tabela · jedan red = jedna osoba · 74 MB (3,3 MB gzip)</span></a>
+    <a class="dl" href="odbori.json"><b>odbori.json</b><span>JSON dataset · gradovi, biračka mesta, odbori i liste · 87 MB (4,3 MB gzip)</span></a>
+  </div>
+  <p class="muted">Server automatski kompresuje velike fajlove. CSV koristi tačku-zapetu kao separator i UTF-8 sa BOM-om, radi lakšeg otvaranja u Excelu.</p>
+
+  <h2>Šta sadrži dataset</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Kolona</th><th>Značenje</th></tr></thead>
+    <tbody>
+      <tr><td><code>city</code>, <code>city_slug</code></td><td>Grad ili opština i njegova URL oznaka.</td></tr>
+      <tr><td><code>station_no</code>, <code>station_title</code>, <code>place</code></td><td>Broj i naziv biračkog mesta i naselje.</td></tr>
+      <tr><td><code>composition</code></td><td><code>stalni</code> ili <code>prosireni</code> sastav.</td></tr>
+      <tr><td><code>role</code></td><td>predsednik, zamenik predsednika, član ili zamenik člana.</td></tr>
+      <tr><td><code>name</code></td><td>Ime osobe iz rešenja (OCR).</td></tr>
+      <tr><td><code>list_key</code>, <code>list_short</code></td><td>Izborna lista ili poslanička grupa koja je predložila osobu.</td></tr>
+      <tr><td><code>proposer_raw</code></td><td>Tekst predlagača iz izvornog rešenja.</td></tr>
+      <tr><td><code>source</code></td><td>URL izvornog PDF dokumenta RIK-a.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Metodologija</h2>
+  <p><strong>Izvor.</strong> Javno objavljena rešenja Republičke izborne komisije o imenovanju
+    biračkih odbora za parlamentarne izbore 2026. Svako imenovanje u CSV-u ima link ka
+    izvornom PDF-u.</p>
+  <p><strong>Obrada.</strong> PDF dokumenti su skenirani i obrađeni OCR-om. Imena i uloge su
+    izvučeni automatski, a sumnjivi spojeni unosi su razdvojeni. Moguće su greške u imenima,
+    redosledu i pripadnosti listi; merodavan je izvorni PDF.</p>
+  <p><strong>Pokrivenost.</strong> Pokrivenost liste = broj objavljenih biračkih mesta gde lista
+    ima bar jednog člana / broj objavljenih biračkih mesta za taj sastav. Mesta bez objavljenog
+    rešenja ne ulaze u pokrivenost. Kod zbirnog prikaza oba sastava stalni sastav može samo da
+    poveća pokrivenost.</p>
+  <p><strong>Nedostajuća mesta.</strong> RIK objavljuje rešenja postepeno. Ako za neko mesto nema
+    rešenja za stalni ili prošireni sastav, ono je označeno kao nedostajuće i biće dopunjeno u
+    sledećem pregledu. Snapshot nedostajućih podataka je od 22.10.2026.</p>
+  <p><strong>Privatnost.</strong> Prikazujemo samo ime, ulogu, predlagača i biračko mesto.
+    Ne prikazujemo JMBG, adrese, kontakte ni druge lične podatke. Za ispravke otvorite
+    <a href="https://github.com/JankoLancer/rezultatiizbora/issues/new" target="_blank" rel="noopener">issue na GitHubu</a>
+    ili pogledajte <a href="o-sajtu.html">pravnu napomenu</a>.</p>
+
+  <h2>Kako citirati</h2>
+  <div class="callout">
+    <p style="margin:0">Rezultati izbora — Srbija. <em>Birački odbori 2026 — podaci i metodologija</em>.
+      https://rezultatiizbora.rs/podaci.html (pristupljeno 22.10.2026).</p>
+  </div>
+
+  <h2>Najčešća pitanja</h2>
+  <details><summary>Da li su podaci zvanični?</summary>
+    <p>Ne. Ovo je nezvanična analiza javno objavljenih rešenja RIK-a. Za zvaničan podatak
+      proverite izvorni PDF koji je linkovan uz svako imenovanje.</p></details>
+  <details><summary>Zašto se broj kontrolora razlikuje od broja imenovanja?</summary>
+    <p>Kontrolori su članovi proširenog sastava. Zamenici kontrolora su prikazani odvojeno,
+      a stalni sastav ima sopstvene članove i zamenike. Zato je ukupan broj imenovanja veći
+      od broja kontrolora.</p></details>
+  <details><summary>Mogu li da koristim podatke komercijalno?</summary>
+    <p>Izvorni dokumenti RIK-a su javno dostupni, ali proverite uslove korišćenja RIK sajta.
+      Ova analiza je namenjena nekomercijalnoj javnoj upotrebi; za komercijalnu upotrebu
+      tražite dozvolu. Detalji su u <a href="o-sajtu.html">pravnoj napomeni</a>.</p></details>
+
+  <div class="footer">
+    <p><a href="odbori.html">Interaktivna analiza</a> · <a href="biracki-odbori/">Svi gradovi</a> ·
+      <a href="izbori2026.html">Izbori 2026</a> · <a href="o-sajtu.html">O sajtu</a></p>
+    <p>Ažurirano: 22.10.2026.</p>
+  </div>
+</div>
+</body>
+</html>

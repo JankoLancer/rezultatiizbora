@@ -4,9 +4,24 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Бирачки одбори 2026 — сви градови и општине | Резултати избора</title>
-<meta name="description" content="Именовања бирачких одбора за парламентарне изборе 2026. у Србији: стални и проширени састав, чланови и заменици по бирачким местима и изборним листама, по градовима и општинама." />
+<meta name="description" content="Именовања бирачких одбора 2026. у Србији: стални и проширени састав, чланови, заменици и контролори по бирачким местима и изборним листама." />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://rezultatiizbora.rs/odbori.html" />
+<meta name="keywords" content="birački odbori 2026, biracki odbori 2026, kontrolori izbori 2026, izbori 2026 Srbija, biračka mesta 2026, stalni sastav, prošireni sastav, Kragujevac, Novi Sad, Beograd" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="sr_RS" />
+<meta property="og:site_name" content="Rezultati izbora — Srbija" />
+<meta property="og:title" content="Бирачки одбори 2026 — сви градови и општине" />
+<meta property="og:description" content="Стални и проширени састав бирачких одбора на изборима 2026: чланови, заменици, контролори и покривеност по листама и бирачким местима." />
+<meta property="og:url" content="https://rezultatiizbora.rs/odbori.html" />
+<meta property="og:image" content="https://rezultatiizbora.rs/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Бирачки одбори 2026 — сви градови и општине" />
+<meta name="twitter:description" content="Контролори и чланови бирачких одбора 2026 по градовима, местима и изборним листама." />
+<meta name="twitter:image" content="https://rezultatiizbora.rs/og.png" />
+
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <style>
   :root{--bg:#0f172a;--panel:#111c34;--panel2:#17233f;--ink:#e9eef7;--muted:#93a3bd;--line:#26344f;--accent:#38bdf8;--good:#31a354;--warn:#f0b429}
@@ -104,6 +119,12 @@
   .docs a{display:inline-block;font-size:11.5px;text-decoration:none;border:1px solid var(--line);border-radius:7px;padding:4px 8px;background:var(--panel2);margin:0 5px 5px 0}
   .docs a:hover{border-color:var(--accent)}
   .note{max-width:1500px;margin:0 auto;padding:0 20px 28px;color:var(--muted);font-size:12px;line-height:1.55}
+  .seo{max-width:1500px;margin:0 auto;padding:8px 20px 46px;color:#c7d3e6;font-size:13.5px;line-height:1.65}
+  .seo h2{font-size:17px;margin:24px 0 7px;color:var(--ink)}
+  .seo p{margin:0 0 9px}
+  .seo details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 12px;margin:7px 0}
+  .seo summary{cursor:pointer;font-weight:600;color:var(--ink)}
+  .seo .cities-link{display:inline-block;margin-top:6px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel2);text-decoration:none;font-weight:600}
   .note strong{color:var(--ink)}
   @media (max-width:900px){ .kpis{grid-template-columns:repeat(2,1fr)} .mgrid2{grid-template-columns:1fr} }
   @media (max-width:640px){
@@ -118,16 +139,71 @@
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
-  "@type":"Dataset",
-  "name":"Бирачки одбори — парламентарни избори 2026, Србија",
-  "description":"Именовања бирачких одбора у сталном и проширеном саставу за парламентарне изборе 2026. у Србији, по бирачким местима и изборним листама.",
-  "url":"https://rezultatiizbora.rs/odbori.html",
-  "inLanguage":"sr",
-  "isAccessibleForFree":true,
-  "spatialCoverage":{"@type":"Place","name":"Србија"},
-  "temporalCoverage":"2026-10-25",
-  "creator":{"@type":"Organization","name":"Rezultati izbora — Srbija"}
+  "@graph":[
+    {
+      "@type":"Organization",
+      "@id":"https://rezultatiizbora.rs/#organization",
+      "name":"Rezultati izbora — Srbija",
+      "url":"https://rezultatiizbora.rs/",
+      "sameAs":["https://github.com/JankoLancer/rezultatiizbora"]
+    },
+    {
+      "@type":"Dataset",
+      "@id":"https://rezultatiizbora.rs/odbori.html#dataset",
+      "name":"Бирачки одбори — парламентарни избори 2026, Србија",
+      "description":"Именовања бирачких одбора у сталном и проширеном саставу за парламентарне изборе 2026. у Србији, по бирачким местима и изборним листама.",
+      "url":"https://rezultatiizbora.rs/odbori.html",
+      "inLanguage":"sr",
+      "isAccessibleForFree":true,
+      "spatialCoverage":{"@type":"Place","name":"Србија"},
+      "temporalCoverage":"2026-10-25",
+      "dateModified":"2026-10-22",
+      "creator":{"@id":"https://rezultatiizbora.rs/#organization"},
+      "publisher":{"@id":"https://rezultatiizbora.rs/#organization"},
+      "license":"https://creativecommons.org/licenses/by-nc-nd/3.0/rs/",
+      "variableMeasured":["број чланова","број заменика","број бирачких места","покривеност по листама"],
+      "distribution":[
+        {"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://rezultatiizbora.rs/odbori.json"},
+        {"@type":"DataDownload","encodingFormat":"text/csv","contentUrl":"https://rezultatiizbora.rs/odbori.csv"}
+      ]
+    },
+    {
+      "@type":"WebPage",
+      "@id":"https://rezultatiizbora.rs/odbori.html#webpage",
+      "url":"https://rezultatiizbora.rs/odbori.html",
+      "name":"Бирачки одбори 2026 — сви градови и општине",
+      "inLanguage":"sr",
+      "isPartOf":{"@type":"WebSite","name":"Rezultati izbora — Srbija","url":"https://rezultatiizbora.rs/"},
+      "publisher":{"@id":"https://rezultatiizbora.rs/#organization"},
+      "about":{"@type":"Thing","name":"Парламентарни избори 2026. у Србији"},
+      "dateModified":"2026-10-22"
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Почетна","item":"https://rezultatiizbora.rs/"},
+        {"@type":"ListItem","position":2,"name":"Избори 2026","item":"https://rezultatiizbora.rs/izbori2026.html"},
+        {"@type":"ListItem","position":3,"name":"Бирачки одбори","item":"https://rezultatiizbora.rs/odbori.html"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Шта су бирачки одбори 2026?","acceptedAnswer":{"@type":"Answer","text":"Бирачки одбор је тело које спроводи гласање на бирачком месту. Чине га стални састав (председник, заменик председника, два члана и два заменика) и проширени састав (члан и заменик члана које предлаже свака изборна листа)."}},
+        {"@type":"Question","name":"Шта је проширени састав и ко су контролори?","acceptedAnswer":{"@type":"Answer","text":"Проширени састав чине чланови и заменици чланова које предлажу подносиоци изборних листа. Такве чланове најчешће називамо контролорима; у проширеном саставу листа може имати по једног члана и заменика по бирачком месту."}},
+        {"@type":"Question","name":"Како се рачуна покривеност листе?","acceptedAnswer":{"@type":"Answer","text":"Покривеност = број објављених бирачких места где листа има бар једног члана, подељен бројем објављених места за тај састав. Места без објављеног решења не улазе у покривеност."}},
+        {"@type":"Question","name":"Зашто нека бирачка места немају податке?","acceptedAnswer":{"@type":"Answer","text":"РИК у тренутку израде није објавио решење за тај састав или то место. Та места су означена као недостајућа и допуњују се у следећем прегледу објављених решења."}}
+      ]
+    }
+  ]
 }
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1D190SES3N"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow_ad_personalization_signals:false});
 </script>
 </head>
 <body>
@@ -170,10 +246,62 @@
   <button data-tab="ljudi">Сви људи</button>
 </div>
 
-<div class="count" id="count"></div>
+<div class="count" id="count">Učitavanje podataka…</div>
 <div id="view"></div>
 
 <p class="note" id="note"></p>
+
+<section class="seo">
+  <h2>Šta su birački odbori 2026?</h2>
+  <p>Birački odbor je telo koje sprovodi glasanje na jednom biračkom mestu. Za parlamentarne
+    izbore 2026. svaki odbor ima <strong>stalni</strong> i <strong>prošireni</strong> sastav.
+    Stalni čine predsednik, zamenik predsednika, dva člana i dva zamenika članova; prošireni
+    čine član i zamenik člana koje predlaže svaka proglašena izborna lista.</p>
+
+  <h2>Stalni i prošireni sastav</h2>
+  <p><strong>Stalni sastav</strong> predlažu poslaničke grupe u Narodnoj skupštini, a imenuje
+    lokalna izborna komisija. <strong>Prošireni sastav</strong> predlažu podnosioci izbornih
+    lista; njihove članove najčešće zovemo <strong>kontrolorima</strong>. U proširenom sastavu
+    jedna lista po pravilu ima jednog člana i jednog zamenika po biračkom mestu.</p>
+
+  <h2>Kako se računa pokrivenost</h2>
+  <p>Pokrivenost liste je odnos broja <strong>objavljenih biračkih mesta</strong> na kojima
+    lista ima bar jednog člana i broja objavljenih mesta za taj sastav. Mesta za koja RIK
+    nije objavio rešenje ne ulaze u pokrivenost. Kolona <strong>Bez</strong> pokazuje na
+    koliko objavljenih mesta lista nema nijednog člana. Kada je izabrano <strong>Oba</strong>,
+    stalni sastav može samo da poveća ukupnu pokrivenost.</p>
+
+  <h2>Zašto neka mesta nemaju podatke</h2>
+  <p>RIK objavljuje rešenja postepeno. Ako za neko biračko mesto u trenutku izrade nije
+    bilo rešenja za stalni ili prošireni sastav, mesto je označeno kao nedostajuće i biće
+    dopunjeno u sledećem pregledu. Izvorni PDF dokument je uvek merodavan.</p>
+
+  <h2>Najčešća pitanja</h2>
+  <details><summary>Koliko kontrolora ima svaka lista?</summary>
+    <p>Na strani „Po listama“ i u tabeli izabranog grada prikazani su članovi, zamenici,
+      broj mesta i pokrivenost za svaku listu. Kontrolori su članovi proširenog sastava;
+      zamenici su prikazani odvojeno.</p></details>
+  <details><summary>Da li su prikazani svi gradovi?</summary>
+    <p>Da. Obrađeno je 191 gradova i opština, uključujući Kosovo, zavode za izvršenje
+      krivičnih sankcija i inostranstvo. Možete izabrati grad u padajućem meniju ili otvoriti
+      statički pregled po gradovima.</p></details>
+  <details><summary>Odakle podaci i da li su zvanični?</summary>
+    <p>Podaci su iz javno objavljenih rešenja RIK-a. Ovo je nezvanična analiza; imena su
+      izvučena OCR-om i mogu sadržati greške. Za pravno relevantan podatak proverite izvorni
+      PDF koji je linkovan na strani.</p></details>
+
+  <h2>Svi gradovi i opštine</h2>
+  <p>Otvorite statički pregled sa tabelama po gradovima, bez učitavanja velikog JSON fajla.</p>
+  <a class="cities-link" href="biracki-odbori/">Birački odbori 2026 — svi gradovi →</a>
+  <a class="cities-link" href="podaci.html" style="margin-left:6px">Podaci i metodologija (CSV/JSON) →</a>
+</section>
+
+<noscript>
+  <div style="max-width:1500px;margin:0 auto;padding:12px 20px;color:#c7d3e6;font-size:13.5px">
+    <p>Interaktivna tabela zahteva JavaScript. Statički pregled biračkih odbora po gradovima dostupan je na
+      <a href="biracki-odbori/">birački-odbori/</a>.</p>
+  </div>
+</noscript>
 
 <div class="modal" id="modal" hidden>
   <div class="modal-box">
@@ -353,7 +481,8 @@ function renderMeta(){
     Покривеност се рачуна само од места где је састав објављен.
     Подаци се аутоматски извлаче из PDF решења (OCR) и могу садржати грешке у именима;
     за правно релевантан податак увек проверите изворни PDF.
-    <br>Преузимање: <a href="odbori.csv">odbori.csv</a> (табела) · <a href="odbori.json">odbori.json</a>.
+    <br>Преузимање: <a href="odbori.csv">odbori.csv</a> (табела) · <a href="odbori.json">odbori.json</a> ·
+    <a href="biracki-odbori/">svi gradovi (statički pregled)</a>.
     Уочили сте грешку? <a href="https://github.com/JankoLancer/rezultatiizbora/issues/new" target="_blank" rel="noopener">Пријавите је</a>.`;
 }
 
@@ -496,7 +625,7 @@ function renderMatrix(){
     }).join("")}</tbody></table></div>`;
   $("#count").textContent=`Матрица: ${fmt(rowDefs.length)} ${state.city==="all"?"градова":"места"} × ${keys.length} листа · ${compTitle(state.comp)} · бројеви су чланови (без заменика)`;
   document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openStation(b.dataset.open));
-  document.querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>{ state.city=b.dataset.city; $("#city").value=state.city; state.list="all"; state.page=0; renderListOptions(); render(); });
+  document.querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>{ state.city=b.dataset.city; $("#city").value=state.city; state.list="all"; state.page=0; history.replaceState(null,"","#city="+state.city); renderListOptions(); render(); });
 }
 
 function allPeople(){
@@ -589,6 +718,7 @@ $("#city").onchange=e=>{
   state.city=e.target.value;
   state.list="all"; state.page=0; state.peoplePage=0;
   SUMMARY_CACHE.clear();
+  history.replaceState(null,"","#city="+state.city);
   $("#list").value="all";
   renderListOptions(); render();
 };
@@ -620,10 +750,12 @@ fetch("odbori.json").then(r=>r.json()).then(d=>{
   LISTS=d.meta.lists||[]; BYKEY=Object.fromEntries(LISTS.map(l=>[l.key,l]));
   CITIES=d.meta.cities||[];
   state.city="all";
+  const hm=(location.hash||"").replace(/^#/,"").match(/^city=([a-z0-9-]+)$/i) || (location.hash||"").replace(/^#/,"").match(/^([a-z0-9-]+)$/i);
+  if(hm && CITIES.some(c=>c.slug===hm[1])) state.city=hm[1];
   buildCityOptions();
   $("#city").value=state.city;
   renderListOptions(); render();
-}).catch(()=>{ $("#count").textContent="Подаци нису учитани. Отворите страну преко сервера (http://localhost:8000/odbori.html)."; });
+}).catch(()=>{ $("#count").innerHTML='Podaci nisu učitani. Otvorite <a href="biracki-odbori/">statički pregled po gradovima</a> ili pokušajte ponovo.'; });
 </script>
 </body>
 </html>
