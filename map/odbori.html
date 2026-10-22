@@ -191,6 +191,7 @@
       "mainEntity":[
         {"@type":"Question","name":"Шта су бирачки одбори 2026?","acceptedAnswer":{"@type":"Answer","text":"Бирачки одбор је тело које спроводи гласање на бирачком месту. Чине га стални састав (председник, заменик председника, два члана и два заменика) и проширени састав (члан и заменик члана које предлаже свака изборна листа)."}},
         {"@type":"Question","name":"Шта је проширени састав и ко су контролори?","acceptedAnswer":{"@type":"Answer","text":"Проширени састав чине чланови и заменици чланова које предлажу подносиоци изборних листа. Такве чланове најчешће називамо контролорима; у проширеном саставу листа може имати по једног члана и заменика по бирачком месту."}},
+        {"@type":"Question","name":"Зашто су неке листе груписане?","acceptedAnswer":{"@type":"Answer","text":"Коалиционе листе су у приказу груписане ради прегледности: Европска Србија (ССП + СРЦЕ) и Фактор стабилности (СПС + ЈС + СДПС). CSV и JSON задржавају изворне list_key ознаке."}},
         {"@type":"Question","name":"Како се рачуна покривеност листе?","acceptedAnswer":{"@type":"Answer","text":"За појединачан састав, покривеност = број објављених бирачких места где листа има бар једног члана, подељен бројем објављених места тог састава. За приказ оба састава, бројилац су места где листа има члана у било ком саставу, а именилац места где је објављен бар један састав. Места без објављеног решења не улазе у покривеност."}},
         {"@type":"Question","name":"Зашто нека бирачка места немају податке?","acceptedAnswer":{"@type":"Answer","text":"РИК у тренутку израде није објавио решење за тај састав или то место. Та места су означена као недостајућа и допуњују се у следећем прегледу објављених решења."}}
       ]
@@ -274,6 +275,11 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
     biti niža od pokrivenosti samo proširenog sastava: računa se na širem skupu objavljenih
     mesta.</p>
 
+  <h2>Grupisanje koalicionih lista</h2>
+  <p>U prikazu po listama koalicione liste su grupisane: <strong>Evropska Srbija
+    (SSP + SRCE)</strong> i <strong>Faktor stabilnosti (SPS + JS + SDPS)</strong>.
+    CSV i JSON zadržavaju izvorne oznake listi; grupisanje je samo prikaz.</p>
+
   <h2>Zašto neka mesta nemaju podatke</h2>
   <p>RIK objavljuje rešenja postepeno. Ako za neko biračko mesto u trenutku izrade nije
     bilo rešenja za stalni ili prošireni sastav, mesto je označeno kao nedostajuće i biće
@@ -318,13 +324,21 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmt=n=>new Intl.NumberFormat("sr-RS").format(n||0);
 const pct=(a,b)=>b?Math.round(1000*a/b)/10:0;
+// Keep in sync with COALITIONS in odbori/generate_city_pages.py.
+const COALITIONS=[
+  {key:"evropska_srbija",name:"Европска Србија — ССП + СРЦЕ",short:"SSP+SRCE",color:"#bd9e00",members:["ssp","srce"]},
+  {key:"faktor_stabilnosti",name:"Фактор стабилности — СПС + ЈС + СДПС",short:"SPS+JS+SDPS",color:"#e6550d",members:["sps","js","sdps"]},
+];
+const GROUP_OF={};
+for(const g of COALITIONS) for(const k of g.members) GROUP_OF[k]=g.key;
+const groupKey=k=>GROUP_OF[k]||k;
 const CYR2LAT={а:"a",б:"b",в:"v",г:"g",д:"d",ђ:"dj",е:"e",ж:"z",з:"z",и:"i",ј:"j",к:"k",л:"l",љ:"lj",м:"m",н:"n",њ:"nj",о:"o",п:"p",р:"r",с:"s",т:"t",ћ:"c",у:"u",ф:"f",х:"h",ц:"c",ч:"c",џ:"dz",ш:"s",č:"c",ć:"c",š:"s",ž:"z",đ:"dj"};
 function foldText(v){return String(v||"").toLowerCase().replace(/[а-шђјљњћџčćšžđ]/g,ch=>CYR2LAT[ch]||ch).replace(/[^a-z0-9]+/g," ").trim();}
 
 let DATA=null, STATIONS=[], LISTS=[], BYKEY={}, CITIES=[];
 const state={city:"all",tab:"mesta",comp:"prosireni",list:"all",q:"",page:0,peoplePage:0};
 
-function listInfo(k){ return BYKEY[k]||{key:k,name:k,short:k,color:"#9aa5b1"}; }
+function listInfo(k){ const gk=groupKey(k); return BYKEY[gk]||{key:gk,name:gk,short:gk,color:"#9aa5b1"}; }
 function listDot(k){ const l=listInfo(k); return `<span class="dot" style="background:${l.color}"></span>`; }
 function lchip(k,count=null,extra=""){ const l=listInfo(k); return `<span class="lchip">${listDot(k)}<b>${esc(l.short)}</b>${count!==null?`<small>${count}</small>`:""}${extra}</span>`; }
 
@@ -352,8 +366,9 @@ function summaryRows(stations,comp){
   const agg=new Map();
   for(const s of stations){
     for(const p of roster(s,comp)){
-      let v=agg.get(p.list);
-      if(!v){ v={key:p.list,members:0,deputies:0,stations:new Set(),perStation:new Map()}; agg.set(p.list,v); }
+      const gk=groupKey(p.list);
+      let v=agg.get(gk);
+      if(!v){ v={key:gk,members:0,deputies:0,stations:new Set(),perStation:new Map()}; agg.set(gk,v); }
       if(p.deputy) v.deputies++;
       else {
         v.members++;
@@ -381,13 +396,14 @@ function combinedSummaryRows(stations){
     for(const comp of ["stalni","prosireni"]){
       const local=new Map();
       for(const p of roster(s,comp)){
-        let v=agg.get(p.list);
-        if(!v){ v={key:p.list,members:0,deputies:0,stations:new Set()}; agg.set(p.list,v); }
+        const gk=groupKey(p.list);
+        let v=agg.get(gk);
+        if(!v){ v={key:gk,members:0,deputies:0,stations:new Set()}; agg.set(gk,v); }
         if(p.deputy) v.deputies++;
         else {
           v.members++;
           v.stations.add(stationKey(s));
-          local.set(p.list,(local.get(p.list)||0)+1);
+          local.set(gk,(local.get(gk)||0)+1);
         }
       }
       for(const [k,n] of local){ if(n>1) multiLists.add(k); }
@@ -433,7 +449,7 @@ function matchesQuery(s,q){
 
 function stationHasList(s,comp,k){
   if(k==="all") return true;
-  return roster(s,comp).some(p=>p.list===k);
+  return roster(s,comp).some(p=>groupKey(p.list)===k);
 }
 
 function filteredStations(){
@@ -458,7 +474,7 @@ function renderMeta(){
   const nPr=st.filter(s=>rosterCount(s,"prosireni")).length;
   const people=st.reduce((n,s)=>n+rosterCount(s,"stalni")+rosterCount(s,"prosireni"),0);
   const lists=new Set();
-  for(const s of st){ for(const c of ["stalni","prosireni"]) for(const p of roster(s,c)) lists.add(p.list); }
+  for(const s of st){ for(const c of ["stalni","prosireni"]) for(const p of roster(s,c)) lists.add(groupKey(p.list)); }
   const cn=cityName();
   const ci=state.city==="all"?null:cityInfo(state.city);
   const asof=state.city==="all"?(m.data_as_of||m.generated||""):(ci?.fetched_at||ci?.generated||m.data_as_of||"");
@@ -492,7 +508,7 @@ function renderMeta(){
 function renderListOptions(){
   const sel=$("#list");
   const keys=new Set();
-  for(const s of cityStations()){ for(const c of ["stalni","prosireni"]) for(const p of roster(s,c)) keys.add(p.list); }
+  for(const s of cityStations()){ for(const c of ["stalni","prosireni"]) for(const p of roster(s,c)) keys.add(groupKey(p.list)); }
   const arr=[...keys].map(listInfo).sort((a,b)=>a.name.localeCompare(b.name,"sr"));
   sel.innerHTML='<option value="all">Све листе</option>'+arr.map(l=>`<option value="${esc(l.key)}">${esc(l.name)}</option>`).join("");
   sel.value=state.list;
@@ -573,7 +589,7 @@ function renderStations(){
       <th>Састав (${comps.map(c=>c==="stalni"?"стални":"проширени").join(" + ")})</th><th>Документи</th></tr></thead>
     <tbody>${rows.map(s=>{
       const chips=comps.map(c=>{
-        const counts={}; for(const p of roster(s,c)) if(!p.deputy) counts[p.list]=(counts[p.list]||0)+1;
+        const counts={}; for(const p of roster(s,c)) if(!p.deputy){ const gk=groupKey(p.list); counts[gk]=(counts[gk]||0)+1; }
         return Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([k,n])=>lchip(k,n)).join("");
       }).join(comps.length>1?'<span class="muted"> · </span>':"");
       return `<tr>
@@ -598,7 +614,7 @@ function renderMatrix(){
   const comps=state.comp==="oba"?["stalni","prosireni"]:[state.comp];
   const src=filteredStations();
   const totals={};
-  for(const s of src) for(const c of comps) for(const p of roster(s,c)) if(!p.deputy) totals[p.list]=(totals[p.list]||0)+1;
+  for(const s of src) for(const c of comps) for(const p of roster(s,c)) if(!p.deputy) { const gk=groupKey(p.list); totals[gk]=(totals[gk]||0)+1; }
   let keys=Object.keys(totals).filter(k=>state.list==="all"||k===state.list);
   keys.sort((a,b)=>(totals[b]||0)-(totals[a]||0));
   const header=keys.map(k=>`<th class="rot" title="${esc(listInfo(k).name)}">${listDot(k)}${esc(listInfo(k).short)}</th>`).join("");
@@ -618,7 +634,7 @@ function renderMatrix(){
     <thead><tr><th>${state.city==="all"?"Град / општина":"БМ / место"}</th>${header}<th class="num">Σ чланова</th></tr></thead>
     <tbody>${rowDefs.map(r=>{
       const counts={}; let total=0;
-      for(const s of r.stations){ for(const c of comps){ for(const p of roster(s,c)){ if(!p.deputy){ counts[p.list]=(counts[p.list]||0)+1; total++; } } } }
+      for(const s of r.stations){ for(const c of comps){ for(const p of roster(s,c)){ if(!p.deputy){ const gk=groupKey(p.list); counts[gk]=(counts[gk]||0)+1; total++; } } } }
       const label=r.station?`<button class="linkbtn" data-open="${r.key}"><b>${r.station.no}</b> · ${esc(stationName(r.station))}</button>`:`<button class="linkbtn" data-city="${esc(r.key)}"><b>${esc(r.label)}</b> <span class="muted">(${r.stations.length} м.)</span></button>`;
       return `<tr><td>${label}</td>
         ${keys.map(k=>{
@@ -644,7 +660,7 @@ function allPeople(){
 function renderPeople(){
   const q=state.q.trim().toLowerCase();
   let list=allPeople();
-  if(state.list!=="all") list=list.filter(p=>p.list===state.list);
+  if(state.list!=="all") list=list.filter(p=>groupKey(p.list)===state.list);
   if(state.comp!=="oba") list=list.filter(p=>p.comp===state.comp);
   if(q){ const fq=foldText(state.q.trim()); list=list.filter(p=>(p._search||"").includes(fq)||String(p.station.no)===state.q.trim()); }
   const pageSize=80, pages=Math.max(1,Math.ceil(list.length/pageSize));
@@ -750,7 +766,9 @@ fetch("odbori.json").then(r=>r.json()).then(d=>{
     s._search=foldText([stationName(s),s.place||"",s.city||"",...names].join(" "));
   }
   SUMMARY_CACHE.clear();
-  LISTS=d.meta.lists||[]; BYKEY=Object.fromEntries(LISTS.map(l=>[l.key,l]));
+  const rawLists=d.meta.lists||[];
+  LISTS=rawLists.filter(l=>!GROUP_OF[l.key]).concat(COALITIONS);
+  BYKEY=Object.fromEntries(LISTS.map(l=>[l.key,l]));
   CITIES=d.meta.cities||[];
   state.city="all";
   const hm=(location.hash||"").replace(/^#/,"").match(/^city=([a-z0-9-]+)$/i) || (location.hash||"").replace(/^#/,"").match(/^([a-z0-9-]+)$/i);

@@ -24,4 +24,5 @@
 - Podaci o biračkim odborima su iz javno objavljenih rešenja RIK-a.
 - Imena su izvučena OCR-om i mogu sadržati greške; merodavan je izvorni PDF.
 - Pokrivenost se računa samo od biračkih mesta za koja je RIK objavio rešenje; za oba sastava, od mesta gde je objavljen bar jedan sastav.
+- U prikazu su koalicione liste grupisane (Evropska Srbija: SSP + SRCE; Faktor stabilnosti: SPS + JS + SDPS); CSV/JSON zadržavaju izvorne list_key oznake.
 - Ažurirano: 22.10.2026.

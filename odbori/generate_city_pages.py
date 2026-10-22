@@ -21,6 +21,29 @@ DATA = os.path.join(MAP, "odbori.json")
 BASE = "https://rezultatiizbora.rs"
 AS_OF = "2026-10-22"
 
+# Keep in sync with COALITIONS in map/odbori.html.
+COALITIONS = [
+    {
+        "key": "evropska_srbija",
+        "name": "Европска Србија — ССП + СРЦЕ",
+        "short": "SSP+SRCE",
+        "color": "#bd9e00",
+        "members": ["ssp", "srce"],
+    },
+    {
+        "key": "faktor_stabilnosti",
+        "name": "Фактор стабилности — СПС + ЈС + СДПС",
+        "short": "SPS+JS+SDPS",
+        "color": "#e6550d",
+        "members": ["sps", "js", "sdps"],
+    },
+]
+GROUP_OF = {m: g["key"] for g in COALITIONS for m in g["members"]}
+
+
+def group_key(k):
+    return GROUP_OF.get(k, k)
+
 TR = {
     "а": "a", "б": "b", "в": "v", "г": "g", "д": "d", "ђ": "dj", "е": "e",
     "ж": "z", "з": "z", "и": "i", "ј": "j", "к": "k", "л": "l", "љ": "lj",
@@ -53,7 +76,10 @@ def pct(a, b):
 
 
 def list_map(meta):
-    return {l["key"]: l for l in meta.get("lists", [])}
+    lm = {l["key"]: l for l in meta.get("lists", [])}
+    for g in COALITIONS:
+        lm[g["key"]] = g
+    return lm
 
 
 def city_stats(stations):
@@ -72,7 +98,7 @@ def city_stats(stations):
             pub_union += 1
         for comp, mk, dk in (("stalni", "ms", "ds"), ("prosireni", "mp", "dp")):
             for p in s["committees"][comp]["members"]:
-                v = agg[p["list"]]
+                v = agg[group_key(p["list"])]
                 if p.get("deputy"):
                     v[dk] += 1
                 else:
@@ -187,7 +213,7 @@ def city_page(city, stations, meta, lm):
         for comp in ("stalni", "prosireni"):
             for p in s["committees"][comp]["members"]:
                 if not p.get("deputy"):
-                    counts[p["list"]] += 1
+                    counts[group_key(p["list"])] += 1
         chips = " ".join(
             f"<span class='chip'>{esc(lm.get(k, {'short': k}).get('short', k))} {n}</span>"
             for k, n in sorted(counts.items(), key=lambda x: (-x[1], x[0]))
@@ -255,6 +281,8 @@ kontrolori po izbornim listama, sa pokrivenošću po objavljenim biračkim mesti
 za prikaz. Za prikaz oba sastava, imenilac su mesta gde je objavljen bar jedan sastav (stalni ili
 prošireni; ovde {pub_union}). Kolona „Bez“ je broj objavljenih mesta bez člana te liste. Zato kombinovana pokrivenost
 može biti niža od pokrivenosti samo proširenog sastava.</p>
+<p class="note">Koalicione liste su grupisane: Evropska Srbija (SSP + SRCE) i Faktor stabilnosti
+(SPS + JS + SDPS). CSV i JSON zadržavaju izvorne oznake listi.</p>
 <div class="tablewrap"><table>
 <thead><tr><th>Lista / grupa</th><th class="num">Stalni član.</th><th class="num">Stalni zam.</th>
 <th class="num">Prošireni član.</th><th class="num">Prošireni zam.</th><th class="num">Ukupno članova</th>
@@ -351,6 +379,9 @@ jednog člana, podeljen brojem objavljenih mesta za taj prikaz. Za pojedinačan 
 su mesta gde je taj sastav objavljen; za oba sastava, imenilac su mesta gde je objavljen bar
 jedan sastav (stalni ili prošireni; na nivou Srbije {published_union_label}). Mesta bez ijednog objavljenog sastava ne ulaze u pokrivenost.
 Zato kombinovana pokrivenost može biti niža od pokrivenosti samo proširenog sastava.</p>
+<p><strong>Grupisanje koalicija.</strong> U tabelama su grupisane Evropska Srbija
+(SSP + SRCE) i Faktor stabilnosti (SPS + JS + SDPS). CSV i JSON zadržavaju izvorne
+<code>list_key</code> oznake; grupisanje je samo prikaz.</p>
 <h2>Najčešća pitanja</h2>
 <details><summary>Šta je razlika između stalnog i proširenog sastava?</summary>
 <p>Stalni sastav čine predsednik, zamenik predsednika, dva člana i dva zamenika članova.
