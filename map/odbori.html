@@ -159,7 +159,7 @@
     <select id="list"><option value="all">Све листе</option></select>
   </label>
   <label>Претрага
-    <input id="q" type="search" placeholder="место, адреса или име особе…" autocomplete="off" />
+    <input id="q" type="search" placeholder="име, место или адреса (ћирилица/латиница)…" autocomplete="off" />
   </label>
 </div>
 
@@ -187,9 +187,11 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmt=n=>new Intl.NumberFormat("sr-RS").format(n||0);
 const pct=(a,b)=>b?Math.round(1000*a/b)/10:0;
+const CYR2LAT={а:"a",б:"b",в:"v",г:"g",д:"d",ђ:"dj",е:"e",ж:"z",з:"z",и:"i",ј:"j",к:"k",л:"l",љ:"lj",м:"m",н:"n",њ:"nj",о:"o",п:"p",р:"r",с:"s",т:"t",ћ:"c",у:"u",ф:"f",х:"h",ц:"c",ч:"c",џ:"dz",ш:"s",č:"c",ć:"c",š:"s",ž:"z",đ:"dj"};
+function foldText(v){return String(v||"").toLowerCase().replace(/[а-шђјљњћџčćšžđ]/g,ch=>CYR2LAT[ch]||ch).replace(/[^a-z0-9]+/g," ").trim();}
 
 let DATA=null, STATIONS=[], LISTS=[], BYKEY={}, CITIES=[];
-const state={city:"kragujevac",tab:"mesta",comp:"prosireni",list:"all",q:"",page:0,peoplePage:0};
+const state={city:"all",tab:"mesta",comp:"prosireni",list:"all",q:"",page:0,peoplePage:0};
 
 function listInfo(k){ return BYKEY[k]||{key:k,name:k,short:k,color:"#9aa5b1"}; }
 function listDot(k){ const l=listInfo(k); return `<span class="dot" style="background:${l.color}"></span>`; }
@@ -274,14 +276,14 @@ function rowsFor(stations,comp){
 }
 
 function publishedCount(stations,comp){
-  if(comp==="oba") return stations.filter(s=>rosterCount(s,"stalni")>0||rosterCount(s,"prosireni")>0).length;
+  if(comp==="oba") return stations.filter(s=>rosterCount(s,"prosireni")>0).length;
   return stations.filter(s=>rosterCount(s,comp)>0).length;
 }
 
 function stationsWithoutControllers(stations,comp){
   return stations.filter(s=>{
     if(comp==="oba"){
-      if(!rosterCount(s,"stalni") && !rosterCount(s,"prosireni")) return false;
+      if(!rosterCount(s,"prosireni")) return false;
       const n=roster(s,"stalni").filter(p=>!p.deputy).length + roster(s,"prosireni").filter(p=>!p.deputy).length;
       return n===0;
     }
@@ -292,16 +294,9 @@ function stationsWithoutControllers(stations,comp){
 
 function matchesQuery(s,q){
   if(!q) return true;
-  q=q.toLowerCase();
-  if(stationName(s).toLowerCase().includes(q)) return true;
-  if((s.place||"").toLowerCase().includes(q)) return true;
-  if((s.city||"").toLowerCase().includes(q)) return true;
+  const fq=foldText(q);
+  if(s._search && s._search.includes(fq)) return true;
   if(String(s.no)===q) return true;
-  for(const comp of ["stalni","prosireni"]){
-    for(const p of roster(s,comp)){
-      if(p.name.toLowerCase().includes(q)||(p.proposer_raw||"").toLowerCase().includes(q)) return true;
-    }
-  }
   return false;
 }
 
@@ -377,16 +372,17 @@ function statsTable(stations,comp){
   const members=rows.reduce((n,r)=>n+r.members,0), deputies=rows.reduce((n,r)=>n+r.deputies,0);
   return `<div class="box"><h3>${compTitle(comp)} · ${esc(cityName())} <span>${fmt(members)} контролора · ${fmt(deputies)} заменика</span></h3>
     <div class="tablewrap" style="padding:0"><table>
-      <thead><tr><th>Листа / група</th><th class="num">Члан.</th><th class="num">Зам.</th><th class="num">Места</th><th class="num" title="Објављена места без члана ове листе">Без</th><th class="num" title="Места са 2 или више чланова ове листе">2+</th><th>Покривеност</th></tr></thead>
+      <thead><tr><th>Листа / група</th><th class="num">Члан.</th><th class="num">Зам.</th><th class="num">Места</th><th class="num" title="Објављена места без члана ове листе">Без</th><th>Покривеност</th></tr></thead>
       <tbody>${rows.map(r=>{
         const zero=Math.max(0,published-r.stations);
+        const cov=Math.min(100,pct(r.stations,published));
         return `<tr>
         <td>${listDot(r.key)}<span class="lname" title="${esc(r.name)}">${esc(r.short)}</span></td>
         <td class="num"><b>${fmt(r.members)}</b></td><td class="num">${fmt(r.deputies)}</td><td class="num">${fmt(r.stations)}</td>
-        <td class="num">${zero?`<b style="color:#f0b429">${fmt(zero)}</b>`:"0"}</td><td class="num">${r.multi?fmt(r.multi):"0"}</td>
-        <td><div class="bar" style="min-width:52px" title="${pct(r.stations,published)}%"><i style="width:${pct(r.stations,published)}%;background:${r.color}"></i></div><small class="muted">${pct(r.stations,published)}%</small></td>
-      </tr>`;}).join("")||'<tr><td colspan="7" class="none">нема података</td></tr>'}</tbody></table></div>
-    <div class="muted" style="font-size:11px;margin-top:6px;line-height:1.4">${comp==="oba"?"Објављена места (било који састав)":"Објављена места"}: <b>${fmt(published)}</b> · без иједног контролора: <b>${fmt(zeroAny)}</b>. Покривеност = места где листа има бар једног члана / објављена места.</div></div>`;
+        <td class="num">${zero?`<b style="color:#f0b429">${fmt(zero)}</b>`:"0"}</td>
+        <td><div class="bar" style="min-width:52px" title="${cov}%"><i style="width:${cov}%;background:${r.color}"></i></div><small class="muted">${cov}%</small></td>
+      </tr>`;}).join("")||'<tr><td colspan="6" class="none">нема података</td></tr>'}</tbody></table></div>
+    <div class="muted" style="font-size:11px;margin-top:6px;line-height:1.4">${comp==="oba"?"Објављена места проширеног састава":"Објављена места"}: <b>${fmt(published)}</b> · без иједног контролора: <b>${fmt(zeroAny)}</b>. Покривеност = јединствена места где листа има бар једног члана / објављена места; стални састав може само да дода.</div></div>`;
 }
 function renderCityStats(){
   const host=$("#city-stats"); if(!host) return;
@@ -408,20 +404,21 @@ function renderSummary(){
     html+=`<h3 class="section" style="max-width:1500px;margin:6px auto 7px;padding:0 20px">${compTitle(comp)} — ${esc(cityName())}</h3>
     <div class="tablewrap"><table>
       <thead><tr><th>#</th><th>Листа / посланичка група</th><th class="num">Чланови</th><th class="num">Заменици</th>
-        <th class="num">Укупно</th><th class="num">Места</th><th class="num" title="Објављена места без члана ове листе">Без</th><th class="num" title="Места са 2 или више чланова ове листе">2+</th><th>Покривеност</th><th></th></tr></thead>
+        <th class="num">Укупно</th><th class="num">Места</th><th class="num" title="Објављена места без члана ове листе">Без</th><th>Покривеност</th><th></th></tr></thead>
       <tbody>${rows.map((r,i)=>{
         const zero=Math.max(0,published-r.stations);
+        const cov=Math.min(100,pct(r.stations,published));
         return `<tr>
         <td class="num">${i+1}</td>
         <td>${listDot(r.key)}<b>${esc(r.name)}</b> <span class="muted">(${esc(r.short)})</span></td>
         <td class="num">${fmt(r.members)}</td><td class="num">${fmt(r.deputies)}</td>
         <td class="num"><b>${fmt(r.total)}</b></td><td class="num">${fmt(r.stations)}</td>
-        <td class="num">${zero?`<b style="color:#f0b429">${fmt(zero)}</b>`:"0"}</td><td class="num">${r.multi?fmt(r.multi):"0"}</td>
-        <td><div class="bar" title="${pct(r.stations,published)}%"><i style="width:${pct(r.stations,published)}%;background:${r.color}"></i></div>
-          <small class="muted">${pct(r.stations,published)}%</small></td>
+        <td class="num">${zero?`<b style="color:#f0b429">${fmt(zero)}</b>`:"0"}</td>
+        <td><div class="bar" title="${cov}%"><i style="width:${cov}%;background:${r.color}"></i></div>
+          <small class="muted">${cov}%</small></td>
         <td><button class="btn" data-listfilter="${esc(r.key)}">прикажи места</button></td>
-      </tr>`;}).join("")||'<tr><td colspan="10" class="none">нема података</td></tr>'}</tbody></table></div>
-    <div class="muted" style="max-width:1500px;margin:-2px auto 8px;padding:0 20px;font-size:11.5px">${comp==="oba"?"Објављена места (било који састав)":"Објављена места"}: <b>${fmt(published)}</b> · без иједног контролора: <b>${fmt(zeroAny)}</b>. Покривеност се рачуна само од објављених места; „Без“ је број објављених места где ова листа нема ниједног члана.</div>`;
+      </tr>`;}).join("")||'<tr><td colspan="9" class="none">нема података</td></tr>'}</tbody></table></div>
+    <div class="muted" style="max-width:1500px;margin:-2px auto 8px;padding:0 20px;font-size:11.5px">${comp==="oba"?"Објављена места проширеног састава":"Објављена места"}: <b>${fmt(published)}</b> · без иједног контролора: <b>${fmt(zeroAny)}</b>. Покривеност се рачуна само од објављених места; „Без“ је број објављених места где ова листа нема ниједног члана. За „Оба“ стални састав може само да повећа покривеност.</div>`;
     counts.push(`${compTitle(comp)}: ${rows.length} листа/групе, ${fmt(rows.reduce((n,r)=>n+r.members,0))} чланова, ${fmt(rows.reduce((n,r)=>n+r.deputies,0))} заменика, ${fmt(zeroAny)} места без контролора`);
   }
   $("#view").innerHTML=html;
@@ -505,7 +502,7 @@ function allPeople(){
   const out=[];
   for(const s of cityStations()){
     for(const comp of ["stalni","prosireni"]){
-      for(const p of roster(s,comp)) out.push({...p,comp,station:s});
+      for(const p of roster(s,comp)) out.push({...p,comp,station:s,_search:foldText(p.name+" "+(p.proposer_raw||"")+" "+stationName(s)+" "+(s.city||""))});
     }
   }
   return out;
@@ -516,7 +513,7 @@ function renderPeople(){
   let list=allPeople();
   if(state.list!=="all") list=list.filter(p=>p.list===state.list);
   if(state.comp!=="oba") list=list.filter(p=>p.comp===state.comp);
-  if(q) list=list.filter(p=>p.name.toLowerCase().includes(q)||(p.proposer_raw||"").toLowerCase().includes(q)||stationName(p.station).toLowerCase().includes(q)||(p.station.city||"").toLowerCase().includes(q)||String(p.station.no)===q);
+  if(q){ const fq=foldText(state.q.trim()); list=list.filter(p=>(p._search||"").includes(fq)||String(p.station.no)===state.q.trim()); }
   const pageSize=80, pages=Math.max(1,Math.ceil(list.length/pageSize));
   if(state.peoplePage>=pages) state.peoplePage=pages-1;
   const rows=list.slice(state.peoplePage*pageSize,(state.peoplePage+1)*pageSize);
@@ -613,15 +610,15 @@ function buildCityOptions(){
 
 fetch("odbori.json").then(r=>r.json()).then(d=>{
   DATA=d; STATIONS=d.stations||[];
+  for(const s of STATIONS){
+    const names=[];
+    for(const c of ["stalni","prosireni"]) for(const p of roster(s,c)) names.push(p.name,(p.proposer_raw||""));
+    s._search=foldText([stationName(s),s.place||"",s.city||"",...names].join(" "));
+  }
   SUMMARY_CACHE.clear();
   LISTS=d.meta.lists||[]; BYKEY=Object.fromEntries(LISTS.map(l=>[l.key,l]));
   CITIES=d.meta.cities||[];
-  if(CITIES.length){
-    const preferred=CITIES.find(c=>c.slug==="kragujevac")||CITIES.find(c=>c.name.includes("Крагујевац"))||CITIES[0];
-    state.city=preferred.slug;
-  } else {
-    state.city="all";
-  }
+  state.city="all";
   buildCityOptions();
   $("#city").value=state.city;
   renderListOptions(); render();

@@ -93,7 +93,7 @@ ROLE_RE = re.compile(
     r"(?P<marker>"
     r"(?:ПРЕДСЕДНИК|председник)\s*:"
     r"|(?:заменик|ЗАМЕНИК)\s+(?:председника|ПРЕДСЕДНИКА)\s*:"
-    r"|(?:заменик|ЗАМЕНИК)\s+(?:(?P<didx>\d+)\s*[.,:;]*\s*)?(?:члана|ЧЛАНА)\s*[:;]"
+    r"|(?:заменик|ЗАМЕНИК)\s+(?:(?P<didx>\d+)\s*[.,:;]*\s*)?(?:члана|ЧЛАНА)\s*[:;/.]?"
     r"|(?:(?P<idx>\d+)\.\s*)?(?:члан|ЧЛАН|члана|ЧЛАНА)\s*[:;]"
     r")"
 )
@@ -149,7 +149,7 @@ def extract_name(segment):
     # strip leading bullets / numbering
     s = re.sub(r"^[\s\-–—•*|]+", "", s)
     s = re.sub(r"^\d+\)\s*", "", s)
-    m = re.match(r"(.+?)(?:,|\s+на\s+предлог|$)", s, re.S)
+    m = re.match(r"(.+?)(?:,|\s*[„“\"']?\s*на\s+предлог|$)", s, re.S)
     if not m:
         return ""
     return clean_name(m.group(1))
@@ -264,7 +264,7 @@ def parse_base_lines(text):
 
 
 SHIFTED_RE = re.compile(
-    r"(\d+)\.\s*члан:\s*(.+?)\s*\n+\s*(.+?)\s*-\s*заменик\s+члана:\s*,?\s*на\s+предлог\s+(.+?);",
+    r"(\d+)\.\s*члан:\s*(.+?)\s*\n+\s*([^\n]+?)\s*-\s*заменик\s+члана:\s*,?\s*на\s+предлог\s+(.+?);",
     re.S | re.I,
 )
 
@@ -280,7 +280,14 @@ def parse_base_shifted(text):
         member = clean_name(re.sub(r"\s+и$", "", m.group(2)))
         deputy = clean_name(m.group(3))
         proposer = clean_proposer(m.group(4))
-        if not member:
+        if (
+            not member
+            or "члан" in member.lower()
+            or "заменик" in member.lower()
+            or "члан" in deputy.lower()
+            or "заменик" in deputy.lower()
+            or len(member) > 60
+        ):
             continue
         out.append({"role": "clan", "index": int(m.group(1)), "name": member, "proposer": proposer})
         if deputy:
@@ -329,7 +336,7 @@ ROLE_NC = re.compile(
     r"|Заменик\s+члана|заменик\s+члана"
     r"|ПРЕДСЕДНИК|председник"
     r"|ЧЛАН|Члан|члан"
-    r")\s+(?:(?P<idx>\d+)\.?\s*)?",
+    r")\b\s+(?:(?P<idx>\d+)\.?\s*)?",
     re.I,
 )
 
@@ -508,23 +515,10 @@ def fuzzy_find(name, candidates, threshold=0.72):
 
 def needs_page2(rec):
     if rec.get("type") in ("imenovanje", "dopuna"):
-        entries = rec.get("entries") or []
-        if not entries:
-            return True
-        for e in entries:
-            p = (e.get("proposer") or "").strip().lower()
-            if not p or p in ("посланичке групе", "подносиоца изборне листе", "на предлог") or p.endswith(("групе", "листе")):
-                return True
+        return not rec.get("entries")
     if rec.get("type") in ("izmena", "ispravka"):
-        changes = rec.get("changes") or []
-        if not changes:
-            return True
-        for ch in changes:
-            p = (ch.get("proposer") or "").strip().lower()
-            if not p or p.endswith(("групе", "листе")):
-                return True
+        return not rec.get("changes")
     return False
-
 
 def main(municipality="kragujevac"):
     meta_path = os.path.join(META, municipality + ".json")
@@ -578,13 +572,23 @@ def main(municipality="kragujevac"):
             elif typ == "ispravka":
                 rec["changes"] = parse_ispravka(text)
             elif typ in ("imenovanje", "dopuna"):
+                normal = parse_base(text)
+                if not normal:
+                    normal = parse_base_nocolon(text)
                 shifted = parse_base_shifted(text)
                 if len(shifted) >= 2:
+                    seen = {e["name"].lower() for e in shifted}
+                    for e in normal:
+                        n = e["name"].lower()
+                        if "заменик" in n or "члан" in n or " и " in n or n in seen:
+                            continue
+                        if any(n == x["name"].lower() for x in shifted):
+                            continue
+                        shifted.append(e)
+                        seen.add(n)
                     rec["entries"] = shifted
                 else:
-                    rec["entries"] = parse_base(text)
-                    if not rec["entries"]:
-                        rec["entries"] = parse_base_nocolon(text)
+                    rec["entries"] = normal
             else:
                 rec["entries"] = []
             if attempt == 0 and needs_page2(rec) and append_page2(municipality, key):

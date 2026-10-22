@@ -316,6 +316,21 @@ PROPOSER_FIXES = {
     (19, "ДРАГАНА МИЛОЈЕВИЋ"): "Посланичке групе АЛЕКСАНДАР ВУЧИЋ - Србија не сме да стане",
 }
 
+BAD_NAME_PARTS = (
+    "на предлог", "подносиоца", "посланичке", "изборне листе", "ово решењ",
+    "чланом", "закона", "бирачког одбора", "сме да стане", "србија не",
+    "не сме", "решењ", "заменик", "члан", " и ", "/", "|", ":", ";",
+)
+
+
+def valid_name(name):
+    n = (name or "").strip("() ")
+    if len(n) < 2 or len(n) > 60 or len(n.split()) > 5:
+        return False
+    low = n.lower()
+    return not any(t in low for t in BAD_NAME_PARTS)
+
+
 NAME_FIXES = {
     "ГОРАННИКОЛИЋ": "ГОРАН НИКОЛИЋ",
     "БРАНКОШОШКИЋ": "БРАНКО ШОШКИЋ",
@@ -443,7 +458,7 @@ def apply_decisions(decisions):
 
 def add_entry(roster, e, problems, no, comp, doc):
     name = NAME_FIXES.get(clean(e.get("name")), clean(e.get("name")))
-    if not name or "име и презиме" in name.lower() or len(name.strip("() ")) < 2:
+    if not name or "име и презиме" in name.lower() or not valid_name(name):
         return
     role = e.get("role")
     idx = e.get("index")
@@ -469,7 +484,7 @@ def add_entry(roster, e, problems, no, comp, doc):
 def apply_change(roster, ch, problems, no, comp, doc):
     old_name = clean(ch.get("old_name"))
     new_name = clean(ch.get("name"))
-    if "име и презиме" in (old_name + " " + new_name).lower() or len(new_name.strip("() ")) < 2:
+    if "име и презиме" in (old_name + " " + new_name).lower() or not valid_name(new_name) or not valid_name(old_name):
         return
     if not roster:
         problems.append(
