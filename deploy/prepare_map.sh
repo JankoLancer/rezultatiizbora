@@ -4,7 +4,9 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-if [ -f map/data.json.gz ] && [ ! -f map/data.json ]; then
-  gzip -dkf map/data.json.gz
-fi
+for f in data.json odbori.json odbori.csv; do
+  if [ -f "map/$f.gz" ] && [ ! -f "map/$f" ]; then
+    gzip -dkf "map/$f.gz"
+  fi
+done
 echo "OK: map/ spremno ($(du -sh map | cut -f1))"

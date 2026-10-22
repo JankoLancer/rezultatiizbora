@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Бирачки одбори 2026 — Крагујевац | Резултати избора</title>
-<meta name="description" content="Именовања бирачких одбора за парламентарне изборе 2026. у Крагујевцу: стални и проширени састав, чланови и заменици по бирачким местима и изборним листама." />
+<title>Бирачки одбори 2026 — сви градови и општине | Резултати избора</title>
+<meta name="description" content="Именовања бирачких одбора за парламентарне изборе 2026. у Србији: стални и проширени састав, чланови и заменици по бирачким местима и изборним листама, по градовима и општинама." />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://rezultatiizbora.rs/odbori.html" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -25,6 +25,15 @@
   .kpi .k{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
   .kpi .v{font-size:22px;font-weight:700;margin-top:3px;line-height:1.1}
   .kpi .s{font-size:11.5px;color:var(--muted);margin-top:3px}
+  .city-stats{max-width:1500px;margin:0 auto;padding:0 20px 8px}
+  .city-stats .box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 12px;max-height:330px;overflow:auto}
+  .city-stats .box h3{margin:0 0 7px;font-size:12.5px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+  .city-stats .box h3 span{font-size:11px;color:var(--muted);font-weight:400}
+  .city-stats .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .city-stats table{font-size:11.5px;white-space:nowrap}
+  .city-stats th,.city-stats td{padding:4px 6px}
+  .city-stats .lname{max-width:260px;overflow:hidden;text-overflow:ellipsis;display:inline-block;vertical-align:middle}
+  @media (max-width:900px){ .city-stats .grid{grid-template-columns:1fr} }
   .controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:end;max-width:1500px;margin:0 auto;padding:4px 20px 10px}
   .controls label{display:flex;flex-direction:column;gap:3px;font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
   .controls select,.controls input{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 9px;font-size:13px;min-width:140px}
@@ -106,12 +115,12 @@
 {
   "@context":"https://schema.org",
   "@type":"Dataset",
-  "name":"Бирачки одбори — парламентарни избори 2026, Крагујевац",
-  "description":"Именовања бирачких одбора у сталном и проширеном саставу за парламентарне изборе 2026. у Крагујевцу, по бирачким местима и изборним листама.",
+  "name":"Бирачки одбори — парламентарни избори 2026, Србија",
+  "description":"Именовања бирачких одбора у сталном и проширеном саставу за парламентарне изборе 2026. у Србији, по бирачким местима и изборним листама.",
   "url":"https://rezultatiizbora.rs/odbori.html",
   "inLanguage":"sr",
   "isAccessibleForFree":true,
-  "spatialCoverage":{"@type":"Place","name":"Град Крагујевац"},
+  "spatialCoverage":{"@type":"Place","name":"Србија"},
   "temporalCoverage":"2026-10-25",
   "creator":{"@type":"Organization","name":"Rezultati izbora — Srbija"}
 }
@@ -124,15 +133,16 @@
   <h1>Бирачки одбори — парламентарни избори 2026.</h1>
   <p class="lead">Ко је именован у бирачке одборе, у ком саставу и на предлог које листе.
     Приказан је састав <strong>после свих објављених измена, допуна и замена</strong>.
-    Први обрађени град је <strong>Крагујевац</strong>.</p>
+    Обрађени су <strong>сви градови и општине</strong>.</p>
   <div class="chips" id="meta-chips"></div>
 </div>
 
 <div class="kpis" id="kpis"></div>
+<div class="city-stats" id="city-stats"></div>
 
 <div class="controls">
   <label>Град / општина
-    <select id="city"><option value="kragujevac">Крагујевац</option></select>
+    <select id="city"><option value="all">Сви градови</option></select>
   </label>
   <label>Састав
     <span class="seg" id="comp-seg">
@@ -174,8 +184,8 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 const fmt=n=>new Intl.NumberFormat("sr-RS").format(n||0);
 const pct=(a,b)=>b?Math.round(1000*a/b)/10:0;
 
-let DATA=null, STATIONS=[], LISTS=[], BYKEY={};
-const state={tab:"mesta",comp:"prosireni",list:"all",q:"",page:0,peoplePage:0};
+let DATA=null, STATIONS=[], LISTS=[], BYKEY={}, CITIES=[];
+const state={city:"kragujevac",tab:"mesta",comp:"prosireni",list:"all",q:"",page:0,peoplePage:0};
 
 function listInfo(k){ return BYKEY[k]||{key:k,name:k,short:k,color:"#9aa5b1"}; }
 function listDot(k){ const l=listInfo(k); return `<span class="dot" style="background:${l.color}"></span>`; }
@@ -183,15 +193,47 @@ function lchip(k,count=null,extra=""){ const l=listInfo(k); return `<span class=
 
 function stationName(s){ return s.name||s.title||("БМ "+s.no); }
 function stationPlace(s){ return s.place||""; }
+function stationKey(s){ return `${s.city_slug}:${s.no}`; }
 
 function roster(s,comp){ return (s.committees&&s.committees[comp]&&s.committees[comp].members)||[]; }
 function rosterCount(s,comp){ return (s.committees&&s.committees[comp]&&s.committees[comp].total)||0; }
+
+function cityInfo(slug){ return CITIES.find(c=>c.slug===slug)||null; }
+function cityName(){
+  if(state.city==="all") return "Сви градови";
+  const c=cityInfo(state.city); return c?c.name:state.city;
+}
+function cityStations(){
+  return state.city==="all"?STATIONS:STATIONS.filter(s=>s.city_slug===state.city);
+}
+
+const SUMMARY_CACHE=new Map();
+function summaryRows(stations,comp){
+  const cacheKey=state.city+"|"+comp;
+  if(stations.length===cityStations().length && SUMMARY_CACHE.has(cacheKey)) return SUMMARY_CACHE.get(cacheKey);
+  const agg=new Map();
+  for(const s of stations){
+    for(const p of roster(s,comp)){
+      let v=agg.get(p.list);
+      if(!v){ v={key:p.list,members:0,deputies:0,stations:new Set()}; agg.set(p.list,v); }
+      if(p.deputy) v.deputies++;
+      else { v.members++; v.stations.add(stationKey(s)); }
+    }
+  }
+  const rows=[...agg.values()].map(v=>{
+    const info=listInfo(v.key);
+    return {...info,members:v.members,deputies:v.deputies,stations:v.stations.size,total:v.members+v.deputies};
+  }).sort((a,b)=> (b.members-a.members)||(b.total-a.total)||a.name.localeCompare(b.name,"sr"));
+  if(stations.length===cityStations().length) SUMMARY_CACHE.set(cacheKey,rows);
+  return rows;
+}
 
 function matchesQuery(s,q){
   if(!q) return true;
   q=q.toLowerCase();
   if(stationName(s).toLowerCase().includes(q)) return true;
   if((s.place||"").toLowerCase().includes(q)) return true;
+  if((s.city||"").toLowerCase().includes(q)) return true;
   if(String(s.no)===q) return true;
   for(const comp of ["stalni","prosireni"]){
     for(const p of roster(s,comp)){
@@ -208,7 +250,7 @@ function stationHasList(s,comp,k){
 
 function filteredStations(){
   const q=state.q.trim();
-  return STATIONS.filter(s=>{
+  return cityStations().filter(s=>{
     if(!matchesQuery(s,q)) return false;
     if(state.list!=="all"){
       if(state.comp==="oba") return stationHasList(s,"stalni",state.list)||stationHasList(s,"prosireni",state.list);
@@ -221,27 +263,33 @@ function filteredStations(){
 function compLabel(c){ return c==="stalni"?"Стални састав":c==="prosireni"?"Проширени састав":"Оба састава"; }
 
 function renderMeta(){
-  const m=DATA.meta, sm=DATA.summary;
-  const total=sm.stations_total;
-  const st=sm.stations_stalni, pr=sm.stations_prosireni;
-  const people=STATIONS.reduce((n,s)=>n+rosterCount(s,"stalni")+rosterCount(s,"prosireni"),0);
+  const m=DATA.meta, st=cityStations();
+  const total=st.length;
+  const nSt=st.filter(s=>rosterCount(s,"stalni")).length;
+  const nPr=st.filter(s=>rosterCount(s,"prosireni")).length;
+  const people=st.reduce((n,s)=>n+rosterCount(s,"stalni")+rosterCount(s,"prosireni"),0);
   const lists=new Set();
-  for(const s of STATIONS){ for(const c of ["stalni","prosireni"]) for(const p of roster(s,c)) lists.add(p.list); }
+  for(const s of st){ for(const c of ["stalni","prosireni"]) for(const p of roster(s,c)) lists.add(p.list); }
+  const cn=cityName();
+  const ci=state.city==="all"?null:cityInfo(state.city);
+  const asof=state.city==="all"?(m.data_as_of||m.generated||""):(ci?.fetched_at||ci?.generated||m.data_as_of||"");
   $("#meta-chips").innerHTML=`
     <span class="chip">🗳️ <b>${esc(m.election.name)}</b></span>
-    <span class="chip">📍 <b>${esc(m.municipality.name)}</b></span>
+    <span class="chip">📍 <b>${esc(cn)}</b></span>
     <span class="chip">📄 <b>${fmt(total)}</b> бирачких места</span>
     <span class="chip">👥 <b>${fmt(people)}</b> именовања</span>
-    <span class="chip">🔄 ажурирано <b>${esc(m.generated)}</b></span>`;
+    <span class="chip">🔄 ажурирано <b>${esc((asof||"").slice(0,10))}</b></span>`;
   $("#kpis").innerHTML=`
-    <div class="kpi"><div class="k">Бирачка места</div><div class="v">${fmt(total)}</div><div class="s">у обради</div></div>
-    <div class="kpi"><div class="k">Стални састав</div><div class="v">${fmt(st)}</div><div class="s">места са објављеним решењем</div></div>
-    <div class="kpi"><div class="k">Проширени састав</div><div class="v">${fmt(pr)}</div><div class="s">места са контролорима</div></div>
+    <div class="kpi"><div class="k">Бирачка места</div><div class="v">${fmt(total)}</div><div class="s">${esc(cn)}</div></div>
+    <div class="kpi"><div class="k">Стални састав</div><div class="v">${fmt(nSt)}</div><div class="s">места са објављеним решењем</div></div>
+    <div class="kpi"><div class="k">Проширени састав</div><div class="v">${fmt(nPr)}</div><div class="s">места са контролорима</div></div>
     <div class="kpi"><div class="k">Листе / групе</div><div class="v">${fmt(lists.size)}</div><div class="s">предлагача у одборима</div></div>`;
+  const missing=total-nSt, missingPr=total-nPr;
   $("#note").innerHTML=`<strong>Извор:</strong> Републичка изборна комисија,
-    <a href="${esc(m.source)}" target="_blank" rel="noopener">документa о именовању бирачких одбора</a>.
-    Обрађено је ${fmt(total)} бирачких места у граду Крагујевцу.
-    ${sm.stations_stalni<total?`Стални састав није објављен за ${fmt(total-sm.stations_stalni)} места.`:""}
+    <a href="${esc(m.source)}" target="_blank" rel="noopener">документа о именовању бирачких одбора</a>.
+    Приказано је ${fmt(total)} бирачких места (${esc(cn)}).
+    ${missing>0?`Стални састав није објављен за ${fmt(missing)} места.`:""}
+    ${missingPr>0?`Проширени састав није објављен за ${fmt(missingPr)} места.`:""}
     Подаци се аутоматски извлаче из PDF решења (OCR) и могу садржати грешке у именима;
     за правно релевантан податак увек проверите изворни PDF.
     <br>Преузимање: <a href="odbori.csv">odbori.csv</a> (табела) · <a href="odbori.json">odbori.json</a>.`;
@@ -250,19 +298,43 @@ function renderMeta(){
 function renderListOptions(){
   const sel=$("#list");
   const keys=new Set();
-  for(const s of STATIONS){ for(const c of ["stalni","prosireni"]) for(const p of roster(s,c)) keys.add(p.list); }
+  for(const s of cityStations()){ for(const c of ["stalni","prosireni"]) for(const p of roster(s,c)) keys.add(p.list); }
   const arr=[...keys].map(listInfo).sort((a,b)=>a.name.localeCompare(b.name,"sr"));
   sel.innerHTML='<option value="all">Све листе</option>'+arr.map(l=>`<option value="${esc(l.key)}">${esc(l.name)}</option>`).join("");
+  sel.value=state.list;
+}
+
+function statsTable(stations,comp){
+  const rows=summaryRows(stations,comp).filter(r=>state.list==="all"||r.key===state.list);
+  const totalStations=stations.filter(s=>rosterCount(s,comp)).length;
+  const members=rows.reduce((n,r)=>n+r.members,0), deputies=rows.reduce((n,r)=>n+r.deputies,0);
+  return `<div class="box"><h3>${compLabel(comp)} · ${esc(cityName())} <span>${fmt(members)} контролора · ${fmt(deputies)} заменика</span></h3>
+    <div class="tablewrap" style="padding:0"><table>
+      <thead><tr><th>Листа / група</th><th class="num">Члан.</th><th class="num">Зам.</th><th class="num">Места</th><th>Покривеност</th></tr></thead>
+      <tbody>${rows.map(r=>`<tr>
+        <td>${listDot(r.key)}<span class="lname" title="${esc(r.name)}">${esc(r.short)}</span></td>
+        <td class="num"><b>${fmt(r.members)}</b></td><td class="num">${fmt(r.deputies)}</td><td class="num">${fmt(r.stations)}</td>
+        <td><div class="bar" style="min-width:60px"><i style="width:${pct(r.stations,totalStations)}%;background:${r.color}"></i></div></td>
+      </tr>`).join("")||'<tr><td colspan="5" class="none">нема података</td></tr>'}</tbody></table></div></div>`;
+}
+
+function renderCityStats(){
+  const host=$("#city-stats"); if(!host) return;
+  if(state.comp==="oba"){
+    host.innerHTML=`<div class="grid">${statsTable(cityStations(),"stalni")}${statsTable(cityStations(),"prosireni")}</div>`;
+  } else {
+    host.innerHTML=statsTable(cityStations(),state.comp);
+  }
 }
 
 function renderSummary(){
+  const stations=cityStations();
   const comps=state.comp==="oba"?["stalni","prosireni"]:[state.comp];
   let html="", counts=[];
   for(const comp of comps){
-    const rows=(DATA.summary.by_list[comp]||[]).filter(r=>state.list==="all"||r.key===state.list);
-    const max=Math.max(1,...rows.map(r=>r.members));
-    const totalStations=DATA.summary["stations_"+comp]||DATA.summary.stations_total;
-    html+=`<h3 class="section" style="max-width:1500px;margin:6px auto 7px;padding:0 20px">${compLabel(comp)}</h3>
+    const rows=summaryRows(stations,comp).filter(r=>state.list==="all"||r.key===state.list);
+    const totalStations=stations.filter(s=>rosterCount(s,comp)).length;
+    html+=`<h3 class="section" style="max-width:1500px;margin:6px auto 7px;padding:0 20px">${compLabel(comp)} — ${esc(cityName())}</h3>
     <div class="tablewrap"><table>
       <thead><tr><th>#</th><th>Листа / посланичка група</th><th class="num">Чланови</th><th class="num">Заменици</th>
         <th class="num">Укупно</th><th class="num">Места</th><th>Покривеност</th><th></th></tr></thead>
@@ -274,13 +346,14 @@ function renderSummary(){
         <td><div class="bar" title="${pct(r.stations,totalStations)}%"><i style="width:${pct(r.stations,totalStations)}%;background:${r.color}"></i></div>
           <small class="muted">${pct(r.stations,totalStations)}%</small></td>
         <td><button class="btn" data-listfilter="${esc(r.key)}">прикажи места</button></td>
-      </tr>`).join("")}</tbody></table></div>`;
+      </tr>`).join("")||'<tr><td colspan="8" class="none">нема података</td></tr>'}</tbody></table></div>`;
     counts.push(`${compLabel(comp)}: ${rows.length} листа/групе, ${fmt(rows.reduce((n,r)=>n+r.members,0))} чланова и ${fmt(rows.reduce((n,r)=>n+r.deputies,0))} заменика`);
   }
   $("#view").innerHTML=html;
   $("#count").textContent=counts.join(" · ");
   document.querySelectorAll("[data-listfilter]").forEach(b=>b.onclick=()=>{ state.list=b.dataset.listfilter; $("#list").value=state.list; state.tab="matrica"; state.page=0; syncTabs(); render(); });
 }
+
 function renderStations(){
   const list=filteredStations();
   const pageSize=40;
@@ -288,8 +361,9 @@ function renderStations(){
   if(state.page>=pages) state.page=pages-1;
   const rows=list.slice(state.page*pageSize,(state.page+1)*pageSize);
   const comps=state.comp==="oba"?["stalni","prosireni"]:[state.comp];
+  const showCity=state.city==="all";
   $("#view").innerHTML=`<div class="tablewrap"><table>
-    <thead><tr><th class="num">БМ</th><th>Бирачко место</th>
+    <thead><tr><th class="num">БМ</th>${showCity?"<th>Град / општина</th>":""}<th>Бирачко место</th>
       ${comps.map(c=>`<th class="num">${c==="stalni"?"Стални":"Проширени"}</th>`).join("")}
       <th>Састав (${comps.map(c=>c==="stalni"?"стални":"проширени").join(" + ")})</th><th>Документи</th></tr></thead>
     <tbody>${rows.map(s=>{
@@ -299,46 +373,62 @@ function renderStations(){
       }).join(comps.length>1?'<span class="muted"> · </span>':"");
       return `<tr>
         <td class="num">${s.no}</td>
-        <td class="st-name"><button class="linkbtn" data-open="${s.no}">${esc(stationName(s))}</button>
+        ${showCity?`<td class="muted">${esc(s.city||"")}</td>`:""}
+        <td class="st-name"><button class="linkbtn" data-open="${stationKey(s)}">${esc(stationName(s))}</button>
           ${stationPlace(s)?`<small>${esc(stationPlace(s))}</small>`:""}</td>
         ${comps.map(c=>`<td class="num">${rosterCount(s,c)||'<span class="none">—</span>'}</td>`).join("")}
         <td style="white-space:normal;max-width:520px">${chips||'<span class="none">нема података</span>'}</td>
-        <td><button class="btn" data-open="${s.no}">детаљи</button></td>
+        <td><button class="btn" data-open="${stationKey(s)}">детаљи</button></td>
       </tr>`;}).join("")}</tbody></table></div>
     <div class="pager"><button id="prev" ${state.page<=0?"disabled":""}>← Претходна</button>
       <span>Страна ${state.page+1} / ${pages}</span>
       <button id="next" ${state.page>=pages-1?"disabled":""}>Следећа →</button></div>`;
-  $("#count").textContent=`Пронађено ${fmt(list.length)} бирачких места (${compLabel(state.comp)}).`;
-  document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openStation(Number(b.dataset.open)));
+  $("#count").textContent=`Пронађено ${fmt(list.length)} бирачких места · ${cityName()} · ${compLabel(state.comp)}.`;
+  document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openStation(b.dataset.open));
   $("#prev").onclick=()=>{ if(state.page>0){state.page--;render();} };
   $("#next").onclick=()=>{ if(state.page<pages-1){state.page++;render();} };
 }
 
 function renderMatrix(){
   const comp=state.comp==="oba"?"prosireni":state.comp;
-  const rows=filteredStations();
-  const totals={}; for(const s of STATIONS) for(const p of roster(s,comp)) if(!p.deputy) totals[p.list]=(totals[p.list]||0)+1;
+  const src=filteredStations();
+  const totals={};
+  for(const s of src) for(const p of roster(s,comp)) if(!p.deputy) totals[p.list]=(totals[p.list]||0)+1;
   let keys=Object.keys(totals).filter(k=>state.list==="all"||k===state.list);
   keys.sort((a,b)=>(totals[b]||0)-(totals[a]||0));
   const header=keys.map(k=>`<th class="rot" title="${esc(listInfo(k).name)}">${listDot(k)}${esc(listInfo(k).short)}</th>`).join("");
+  let rowDefs;
+  if(state.city==="all"){
+    const g=new Map();
+    for(const s of src){
+      let v=g.get(s.city_slug);
+      if(!v){v={key:s.city_slug,label:s.city||s.city_slug,stations:[]};g.set(s.city_slug,v);}
+      v.stations.push(s);
+    }
+    rowDefs=[...g.values()].sort((a,b)=>a.label.localeCompare(b.label,"sr"));
+  } else {
+    rowDefs=src.map(s=>({key:stationKey(s),label:`${s.no} · ${stationName(s)}`,stations:[s],station:s}));
+  }
   $("#view").innerHTML=`<div class="tablewrap"><table class="matrix">
-    <thead><tr><th>БМ / место</th>${header}<th class="num">Σ чланова</th></tr></thead>
-    <tbody>${rows.map(s=>{
-      const counts={}, total=roster(s,comp).filter(p=>!p.deputy).length;
-      for(const p of roster(s,comp)) if(!p.deputy) counts[p.list]=(counts[p.list]||0)+1;
-      return `<tr><td><button class="linkbtn" data-open="${s.no}"><b>${s.no}</b> · ${esc(stationName(s))}</button></td>
+    <thead><tr><th>${state.city==="all"?"Град / општина":"БМ / место"}</th>${header}<th class="num">Σ чланова</th></tr></thead>
+    <tbody>${rowDefs.map(r=>{
+      const counts={}; let total=0;
+      for(const s of r.stations){ for(const p of roster(s,comp)){ if(!p.deputy){ counts[p.list]=(counts[p.list]||0)+1; total++; } } }
+      const label=r.station?`<button class="linkbtn" data-open="${r.key}"><b>${r.station.no}</b> · ${esc(stationName(r.station))}</button>`:`<button class="linkbtn" data-city="${esc(r.key)}"><b>${esc(r.label)}</b> <span class="muted">(${r.stations.length} м.)</span></button>`;
+      return `<tr><td>${label}</td>
         ${keys.map(k=>{
           const n=counts[k]||0; const l=listInfo(k);
           return `<td class="c ${n?'':'zero'}">${n?`<span style="background:${l.color}22;color:${l.color};border:1px solid ${l.color}55" title="${esc(l.name)}">${n}</span>`:"·"}</td>`;
         }).join("")}<td class="num"><b>${total}</b></td></tr>`;
     }).join("")}</tbody></table></div>`;
-  $("#count").textContent=`Матрица: ${fmt(rows.length)} места × ${keys.length} листа · ${compLabel(comp)} · бројеви су чланови (без заменика)`;
-  document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openStation(Number(b.dataset.open)));
+  $("#count").textContent=`Матрица: ${fmt(rowDefs.length)} ${state.city==="all"?"градова":"места"} × ${keys.length} листа · ${compLabel(comp)} · бројеви су чланови (без заменика)`;
+  document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openStation(b.dataset.open));
+  document.querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>{ state.city=b.dataset.city; $("#city").value=state.city; state.list="all"; state.page=0; renderListOptions(); render(); });
 }
 
 function allPeople(){
   const out=[];
-  for(const s of STATIONS){
+  for(const s of cityStations()){
     for(const comp of ["stalni","prosireni"]){
       for(const p of roster(s,comp)) out.push({...p,comp,station:s});
     }
@@ -351,31 +441,34 @@ function renderPeople(){
   let list=allPeople();
   if(state.list!=="all") list=list.filter(p=>p.list===state.list);
   if(state.comp!=="oba") list=list.filter(p=>p.comp===state.comp);
-  if(q) list=list.filter(p=>p.name.toLowerCase().includes(q)||(p.proposer_raw||"").toLowerCase().includes(q)||stationName(p.station).toLowerCase().includes(q)||String(p.station.no)===q);
+  if(q) list=list.filter(p=>p.name.toLowerCase().includes(q)||(p.proposer_raw||"").toLowerCase().includes(q)||stationName(p.station).toLowerCase().includes(q)||(p.station.city||"").toLowerCase().includes(q)||String(p.station.no)===q);
   const pageSize=80, pages=Math.max(1,Math.ceil(list.length/pageSize));
   if(state.peoplePage>=pages) state.peoplePage=pages-1;
   const rows=list.slice(state.peoplePage*pageSize,(state.peoplePage+1)*pageSize);
   $("#view").innerHTML=`<div class="tablewrap"><table>
-    <thead><tr><th>Особа</th><th>Улога</th><th>Састав</th><th>Листа / група</th><th>Бирачко место</th><th>Предлог</th></tr></thead>
+    <thead><tr><th>Особа</th><th>Улога</th><th>Састав</th><th>Листа / група</th><th>Град / општина</th><th>Бирачко место</th><th>Предлог</th></tr></thead>
     <tbody>${rows.map(p=>`<tr>
       <td><b>${esc(p.name)}</b></td>
       <td>${esc(p.role_label||p.role)}</td>
       <td>${p.comp==="stalni"?"стални":"проширени"}</td>
       <td>${listDot(p.list)}${esc(listInfo(p.list).short)} <span class="muted">${esc(listInfo(p.list).name)}</span></td>
-      <td><button class="linkbtn" data-open="${p.station.no}"><b>${p.station.no}</b> · ${esc(stationName(p.station))}</button></td>
+      <td class="muted">${esc(p.station.city||"")}</td>
+      <td><button class="linkbtn" data-open="${stationKey(p.station)}"><b>${p.station.no}</b> · ${esc(stationName(p.station))}</button></td>
       <td style="white-space:normal;max-width:360px" class="muted">${esc(p.proposer_raw||"")}</td>
     </tr>`).join("")}</tbody></table></div>
     <div class="pager"><button id="prev" ${state.peoplePage<=0?"disabled":""}>← Претходна</button>
       <span>Страна ${state.peoplePage+1} / ${pages}</span>
       <button id="next" ${state.peoplePage>=pages-1?"disabled":""}>Следећа →</button></div>`;
-  $("#count").textContent=`${fmt(list.length)} именовања особа · ${compLabel(state.comp)}${state.list!=="all"?" · филтер по листи":""}`;
-  document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openStation(Number(b.dataset.open)));
+  $("#count").textContent=`${fmt(list.length)} именовања особа · ${cityName()} · ${compLabel(state.comp)}${state.list!=="all"?" · филтер по листи":""}`;
+  document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openStation(b.dataset.open));
   $("#prev").onclick=()=>{ if(state.peoplePage>0){state.peoplePage--;render();} };
   $("#next").onclick=()=>{ if(state.peoplePage<pages-1){state.peoplePage++;render();} };
 }
 
 function render(){
   if(!DATA) return;
+  renderMeta();
+  renderCityStats();
   if(state.tab==="liste") renderSummary();
   else if(state.tab==="matrica") renderMatrix();
   else if(state.tab==="ljudi") renderPeople();
@@ -387,8 +480,8 @@ function syncTabs(){
   document.querySelectorAll("#comp-seg button").forEach(b=>b.classList.toggle("active",b.dataset.comp===state.comp));
 }
 
-function openStation(no){
-  const s=STATIONS.find(x=>x.no===no); if(!s) return;
+function openStation(key){
+  const s=STATIONS.find(x=>stationKey(x)===String(key)); if(!s) return;
   const comps=["stalni","prosireni"];
   const body=comps.map(c=>{
     const ps=roster(s,c);
@@ -402,7 +495,7 @@ function openStation(no){
   }).join("");
   const docs=(s.docs||[]).slice().sort((a,b)=>(b.datetime||0)-(a.datetime||0));
   $("#modal-body").innerHTML=`<h2>${s.no} · ${esc(stationName(s))}</h2>
-    <div class="msub">${esc(stationPlace(s)||"")}</div>
+    <div class="msub">${esc(s.city||"")}${stationPlace(s)?` · ${esc(stationPlace(s))}`:""}</div>
     <div class="mgrid2">${body}</div>
     <div class="docs"><h3>Изворни документи (РИК)</h3>
       ${docs.map(d=>`<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.type==="imenovanje"?"решење":d.type==="dopuna"?"допуна":d.type==="izmena"?"измена":d.type)} · ${d.composition==="stalni"?"стални":"проширени"}${d.datetime?` · ${new Date(d.datetime*1000).toLocaleDateString("sr-RS")}`:""}</a>`).join("")||'<span class="muted">нема</span>'}
@@ -419,12 +512,44 @@ document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{ state.tab=b
 document.querySelectorAll("#comp-seg button").forEach(b=>b.onclick=()=>{ state.comp=b.dataset.comp; state.page=0; state.peoplePage=0; syncTabs(); render(); });
 $("#list").onchange=e=>{ state.list=e.target.value; state.page=0; state.peoplePage=0; render(); };
 $("#q").addEventListener("input",e=>{ state.q=e.target.value; state.page=0; state.peoplePage=0; clearTimeout(window._qt); window._qt=setTimeout(render,160); });
-$("#city").onchange=()=>{ /* за сада само Крагујевац */ };
+$("#city").onchange=e=>{
+  state.city=e.target.value;
+  state.list="all"; state.page=0; state.peoplePage=0;
+  SUMMARY_CACHE.clear();
+  $("#list").value="all";
+  renderListOptions(); render();
+};
+
+function buildCityOptions(){
+  const sel=$("#city");
+  const groups=new Map();
+  for(const c of CITIES){
+    const g=c.region_name||"Остало";
+    if(!groups.has(g)) groups.set(g,[]);
+    groups.get(g).push(c);
+  }
+  let html='<option value="all">Сви градови</option>';
+  for(const [g,arr] of groups){
+    arr.sort((a,b)=>a.name.localeCompare(b.name,"sr"));
+    html+=`<optgroup label="${esc(g)}">`+arr.map(c=>`<option value="${esc(c.slug)}">${esc(c.name)}</option>`).join("")+`</optgroup>`;
+  }
+  sel.innerHTML=html;
+}
 
 fetch("odbori.json").then(r=>r.json()).then(d=>{
   DATA=d; STATIONS=d.stations||[];
+  SUMMARY_CACHE.clear();
   LISTS=d.meta.lists||[]; BYKEY=Object.fromEntries(LISTS.map(l=>[l.key,l]));
-  renderMeta(); renderListOptions(); render();
+  CITIES=d.meta.cities||[];
+  if(CITIES.length){
+    const preferred=CITIES.find(c=>c.slug==="kragujevac")||CITIES.find(c=>c.name.includes("Крагујевац"))||CITIES[0];
+    state.city=preferred.slug;
+  } else {
+    state.city="all";
+  }
+  buildCityOptions();
+  $("#city").value=state.city;
+  renderListOptions(); render();
 }).catch(()=>{ $("#count").textContent="Подаци нису учитани. Отворите страну преко сервера (http://localhost:8000/odbori.html)."; });
 </script>
 </body>

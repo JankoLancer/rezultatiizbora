@@ -18,7 +18,7 @@ from datetime import datetime, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "odbori", "data")
-OUT = os.path.join(ROOT, "map", "odbori.json")
+META = os.path.join(ROOT, "odbori", "meta")
 RIK = "https://www.rik.parlament.gov.rs"
 
 # Canonical lists / parliamentary groups. `aliases` are matched against the raw
@@ -29,42 +29,42 @@ LISTS = [
         "name": "Александар Вучић – Уједињена Србија / СНС",
         "short": "SNS",
         "color": "#1a6fb5",
-        "aliases": ["александар вучић", "србија не сме да стане", "уједињена србија"],
+        "aliases": ["александар", "алексапдар", "сандар", "србија не сме да стане", "сме да стане", "србија не", "србија пе", "уједињена србија", "српска напредна", "снс", "снес", "сене"],
     },
     {
         "key": "sps",
         "name": "Ивица Дачић – Фактор стабилности / СПС",
         "short": "SPS",
         "color": "#e6550d",
-        "aliases": ["ивица дачић", "фактор стабилности", "социјалистичка партија србије"],
+        "aliases": ["ивица дачић", "фактор стабилности", "социјалистичка партија србије", "социјалистичке партије", "социјалистичка партије", "спс", "сеп"],
     },
     {
         "key": "nps",
         "name": "Народни покрет Србије – Ново лице Србије",
         "short": "НПС",
         "color": "#8856a7",
-        "aliases": ["народни покрет србије", "ново лице србије"],
+        "aliases": ["народни покрет србије", "народног покрета", "ново лице србије", "нпс", "нпис"],
     },
     {
         "key": "studenti",
         "name": "Студентска листа – Студенти побеђују",
         "short": "Студенти",
         "color": "#31a354",
-        "aliases": ["студентска листа", "студенти побеђују", "посланици уз студенте", "студенти"],
+        "aliases": ["студентска", "студенти побеђују", "посланици уз студент", "посланици уз слуденте", "посланици за студенте", "послапици уз студенте", "за контролу избора", "студенти"],
     },
     {
         "key": "ssp",
         "name": "Европска Србија / Странка слободе и правде",
         "short": "ССП",
         "color": "#bd9e00",
-        "aliases": ["странка слободе и правде", "европска србија", "ссп"],
+        "aliases": ["странка слободе", "странке слободе", "странка олободе", "странка гпободе", "странка слобеде", "странка слоболе", "страпка слободе", "европска србија", "ссп"],
     },
     {
         "key": "zlf",
         "name": "Зелено-леви фронт – Не давимо Београд",
         "short": "ЗЛФ",
         "color": "#6b6b6b",
-        "aliases": ["зелено-леви фронт", "зелено леви фронт", "не давимо београд"],
+        "aliases": ["зелено-леви фронт", "зелено леви фронт", "зелепо леви", "фропт", "не давимо београд", "злф"],
     },
     {
         "key": "ljajic",
@@ -78,7 +78,7 @@ LISTS = [
         "name": "Аутентична десница / Нови ДСС – НАДА",
         "short": "АД",
         "color": "#7fa8c9",
-        "aliases": ["аутентична десница", "милош јовановић", "нови дсс", "монархисти"],
+        "aliases": ["аутентична десница", "милош јовановић", "нови дсс", "монархисти", "национално демократска алтернатива", "нова демократска странка", "покрет за краљевину србије", "одажно српски", "одважно", "нада"],
     },
     {
         "key": "karic",
@@ -99,35 +99,35 @@ LISTS = [
         "name": "Социјалдемократска партија Србије",
         "short": "СДПС",
         "color": "#9c9ede",
-        "aliases": ["социјалдемократска партија србије", "сдпс"],
+        "aliases": ["социјалдемократск", "социјал демократск", "социјалдемокрадск", "социјапдемократск", "сдпс", "сдппс"],
     },
     {
         "key": "js",
         "name": "Драган Марковић Палма – Јединствена Србија",
         "short": "ЈС",
         "color": "#8c564b",
-        "aliases": ["једиствена србија", "драган марковић"],
+        "aliases": ["јединствена србија", "драган марковић", "јс", "марковић палма"],
     },
     {
         "key": "pups",
         "name": "ПУПС – Солидарност и правда",
         "short": "ПУПС",
         "color": "#e377c2",
-        "aliases": ["пупс"],
+        "aliases": ["пупс", "пузс", "лупс", "пулс", "партија уједињених пензионера", "партија уједнињених пензинера"],
     },
     {
         "key": "svm",
         "name": "Савез војвођанских Мађара",
         "short": "СВМ",
         "color": "#17becf",
-        "aliases": ["савез војвођанских мађара", "svm"],
+        "aliases": ["савез војвођанских мађара", "војвођанских мађара", "мађар", "мађарска", "vajdasagi", "magyar szovetseg", "svm", "уајразаст", "уајраваст", "масуае", "масуак", "мајдаса", "мајдаза", "мадуаг", "мајда5ао"],
     },
     {
         "key": "psg",
         "name": "Покрет слободних грађана – СДА Санџака",
         "short": "ПСГ",
         "color": "#bcbd22",
-        "aliases": ["покрет слободних грађана", "псг"],
+        "aliases": ["покрет слободних грађана", "псг", "сг-сда", "пдд"],
     },
     {
         "key": "srce",
@@ -141,14 +141,168 @@ LISTS = [
         "name": "Радничка партија – Руска странка – Уједињена сељачка странка",
         "short": "РП",
         "color": "#a55194",
-        "aliases": ["радничка партија"],
+        "aliases": ["радничка партија", "рп-рс-усс"],
+    },
+    {
+        "key": "caletebi",
+        "name": "Ћале, ово је за тебе – Петар Ђурић – Премијер Србије",
+        "short": "Ћале",
+        "color": "#e6194b",
+        "aliases": ["ћале ово је", "ћапе", "петар ђурић"],
+    },
+    {
+        "key": "ruska",
+        "name": "Руска странка – Србија у БРИКС-у – Слободан Николић",
+        "short": "РС",
+        "color": "#3cb44b",
+        "aliases": ["руска странка", "брикс", "руска"],
+    },
+    {
+        "key": "lzs",
+        "name": "Либерално зелена странка – За слободну и чистију Србију",
+        "short": "ЛЗС",
+        "color": "#00a86b",
+        "aliases": ["либерално зелена", "чистију србију"],
+    },
+    {
+        "key": "rss",
+        "name": "Странка руско-српског јединства – Руси и Срби браћа заувек",
+        "short": "РСС",
+        "color": "#7f3c8d",
+        "aliases": ["руско-српског јединства", "руско српског јединства", "странка руско", "руси и срби"],
+    },
+    {
+        "key": "ekoloski",
+        "name": "Еколошки устанак",
+        "short": "ЕУ",
+        "color": "#2ca02c",
+        "aliases": ["еколошки устанак", "лошки устанак", "устанак"],
+    },
+    {
+        "key": "alternativa",
+        "name": "Владимир Гајић – Алтернатива за Србију – Народна странка, БУНТ",
+        "short": "АЛТ",
+        "color": "#ff7f0e",
+        "aliases": ["владимир гајић", "бладимир", "гајмћ", "гашмћ", "алтернатива за србију", "алтернатива за србмлм", "алтернатива"],
+    },
+    {
+        "key": "biram_pravdu",
+        "name": "Бирам правду – Бирам будућност (Коалиција СНАГА – Ферид Булић)",
+        "short": "БП",
+        "color": "#d62728",
+        "aliases": ["бирам правду", "ферид булић"],
+    },
+    {
+        "key": "snaga_naroda",
+        "name": "Ми снага народа – проф. др Бранимир Несторовић",
+        "short": "СН",
+        "color": "#9467bd",
+        "aliases": ["снага народа", "бранимир несторовић", "снага"],
+    },
+    {
+        "key": "spp",
+        "name": "Странка правде и помирења – Усаме Зукорлић",
+        "short": "СПП",
+        "color": "#8c564b",
+        "aliases": ["зукорлић", "покрет за уједињење", "странка правде и помирења", "џзате", "рокге"],
+    },
+    {
+        "key": "mi_glas",
+        "name": "МИ – Глас из народа",
+        "short": "МИ",
+        "color": "#e377c2",
+        "aliases": ["глас из народа"],
+    },
+    {
+        "key": "zdrava",
+        "name": "Здрава Србија – Покрет социјалиста",
+        "short": "ЗС",
+        "color": "#17becf",
+        "aliases": ["здрава србија", "покрет социјалиста", "зс-пс", "зс пс"],
+    },
+    {
+        "key": "albanska",
+        "name": "Албанска коалиција",
+        "short": "АК",
+        "color": "#c49c94",
+        "aliases": ["албанска коалиција", "албанска", "коаћсјол"],
+    },
+    {
+        "key": "majka_srbija",
+        "name": "Мајка Србија – Груда",
+        "short": "МС",
+        "color": "#f7b6d2",
+        "aliases": ["мајка србија", "мајка", "груда"],
+    },
+    {
+        "key": "samostalni",
+        "name": "Самостални посланици",
+        "short": "САМ",
+        "color": "#9edae5",
+        "aliases": ["самосталних посланика", "самостални посланици"],
+    },
+    {
+        "key": "nu",
+        "name": "НУ (скраћеница из решења)",
+        "short": "НУ",
+        "color": "#aec7e8",
+        "aliases": [],
+    },
+    {
+        "key": "npls",
+        "name": "НПЛС",
+        "short": "НПЛС",
+        "color": "#ffbb78",
+        "aliases": ["нплс"],
+    },
+    {
+        "key": "nls",
+        "name": "НЛС",
+        "short": "НЛС",
+        "color": "#98df8a",
+        "aliases": ["нлс"],
+    },
+    {
+        "key": "3s_ps",
+        "name": "3С – ПС",
+        "short": "3С-ПС",
+        "color": "#ff9896",
+        "aliases": ["3с-пс", "3с пс", "32-пс"],
+    },
+    {
+        "key": "eko",
+        "name": "ЕКО",
+        "short": "ЕКО",
+        "color": "#c5b0d5",
+        "aliases": ["еко"],
+    },
+    {
+        "key": "sp",
+        "name": "СП (скраћеница из решења)",
+        "short": "СП",
+        "color": "#f7b6d2",
+        "aliases": ["сп"],
+    },
+    {
+        "key": "nis",
+        "name": "НИС (скраћеница из решења)",
+        "short": "НИС",
+        "color": "#c7c7c7",
+        "aliases": ["нис"],
+    },
+    {
+        "key": "ns",
+        "name": "НС (скраћеница из решења)",
+        "short": "НС",
+        "color": "#dbdb8d",
+        "aliases": ["нс"],
     },
     {
         "key": "gradska_uprava",
         "name": "Градска управа (предлог начелника)",
         "short": "ГУ",
         "color": "#6b6b6b",
-        "aliases": ["начелника градске управе", "градске управе", "начелник градске управе"],
+        "aliases": ["начелника градске управе", "градске управе", "начелник градске управе", "начелника општинске управе", "општинске управе", "начелника управе", "начелник управе", "начелнице управе", "начелница управе", "управе градске општине", "оптинске управе", "начелника гу", "начелник гу", "начелника г", "начелнице гу", "начелника оу", "општиске управе", "општинске управве", "општиснке", "општине управе", "пштинске управе", "радске управе", "рдаске управе", "иуправе", "упрае"],
     },
 ]
 DEFAULT_LIST = {
@@ -207,9 +361,17 @@ def fold(s):
 
 def list_for(proposer):
     p = fold(proposer)
+    if p in ("nu", "n u") or p.endswith(" nu"):
+        for item in LISTS:
+            if item["key"] == "nu":
+                return item
     for item in LISTS:
         for a in item["aliases"]:
-            if fold(a) in p:
+            fa = fold(a)
+            if len(fa) <= 3:
+                if re.search(r"(?:^| )" + re.escape(fa) + r"(?: |$)", p):
+                    return item
+            elif fa in p:
                 return item
     return DEFAULT_LIST
 
@@ -281,7 +443,7 @@ def apply_decisions(decisions):
 
 def add_entry(roster, e, problems, no, comp, doc):
     name = NAME_FIXES.get(clean(e.get("name")), clean(e.get("name")))
-    if not name:
+    if not name or "име и презиме" in name.lower() or len(name.strip("() ")) < 2:
         return
     role = e.get("role")
     idx = e.get("index")
@@ -306,6 +468,9 @@ def add_entry(roster, e, problems, no, comp, doc):
 
 def apply_change(roster, ch, problems, no, comp, doc):
     old_name = clean(ch.get("old_name"))
+    new_name = clean(ch.get("name"))
+    if "име и презиме" in (old_name + " " + new_name).lower() or len(new_name.strip("() ")) < 2:
+        return
     if not roster:
         problems.append(
             {
@@ -318,7 +483,6 @@ def apply_change(roster, ch, problems, no, comp, doc):
             }
         )
         return
-    new_name = clean(ch.get("name"))
     role = ch.get("role")
     idx = ch.get("index")
     if not new_name:
@@ -376,7 +540,14 @@ def apply_change(roster, ch, problems, no, comp, doc):
     candidate["changed"] = True
 
 
-def build(municipality="kragujevac", election=None, municipality_name="Град Крагујевац"):
+def build(municipality="kragujevac", election=None, municipality_name=None):
+    meta_path = os.path.join(META, municipality + ".json")
+    meta = {}
+    if os.path.exists(meta_path):
+        meta = json.load(open(meta_path, encoding="utf-8"))
+    mmeta = meta.get("municipality") or {}
+    if municipality_name is None:
+        municipality_name = mmeta.get("name") or municipality
     decisions = json.load(open(os.path.join(DATA, municipality + "_decisions.json"), encoding="utf-8"))
     # de-duplicate by URL (the RIK API repeats some documents)
     seen = set()
@@ -407,14 +578,27 @@ def build(municipality="kragujevac", election=None, municipality_name="Град 
             for e in roster:
                 key = (e["role"], e.get("index"), e["name"].lower())
                 uniq[key] = e
-            roster = sorted(
-                uniq.values(),
-                key=lambda e: (
-                    {"predsednik": 0, "zamenik_predsednika": 1, "clan": 2, "zamenik_clana": 3}.get(e["role"], 9),
-                    e.get("index") or 0,
-                    e["name"],
-                ),
-            )
+            if comp == "prosireni":
+                # In expanded committees the source often repeats "zamenik
+                # 1. clana"; keep document order and make the labels unique.
+                roster = list(uniq.values())
+                ci = di = 0
+                for e in roster:
+                    if e["role"] == "clan":
+                        ci += 1
+                        e["index"] = ci
+                    elif e["role"] == "zamenik_clana":
+                        di += 1
+                        e["index"] = di
+            else:
+                roster = sorted(
+                    uniq.values(),
+                    key=lambda e: (
+                        {"predsednik": 0, "zamenik_predsednika": 1, "clan": 2, "zamenik_clana": 3}.get(e["role"], 9),
+                        e.get("index") or 0,
+                        e["name"],
+                    ),
+                )
             members = []
             counts = Counter()
             for e in roster:
@@ -439,6 +623,8 @@ def build(municipality="kragujevac", election=None, municipality_name="Град 
         out_stations.append(
             {
                 "no": no,
+                "city": municipality_name,
+                "city_slug": municipality,
                 "title": title,
                 "name": re.sub(r"^\d+\s*-\s*", "", title),
                 "place": st.get("place", ""),
@@ -506,8 +692,16 @@ def build(municipality="kragujevac", election=None, municipality_name="Град 
     data = {
         "meta": {
             "election": election or {"id": "parl2026", "name": "Парламентарни 2026", "date": "2026-10-25"},
-            "municipality": {"name": municipality_name, "slug": municipality},
-            "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+            "municipality": {
+                "id": mmeta.get("id"),
+                "data_id": mmeta.get("data_id"),
+                "name": municipality_name,
+                "slug": municipality,
+                "region": mmeta.get("region", meta.get("region", "")),
+                "region_name": mmeta.get("region_name", meta.get("region_name", "")),
+            },
+            "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "fetched_at": meta.get("fetched_at", ""),
             "source": "https://www.rik.parlament.gov.rs/dokumenta/41985",
             "lists": lists_meta,
             "notes": [
@@ -521,25 +715,27 @@ def build(municipality="kragujevac", election=None, municipality_name="Град 
         "summary": summary,
         "problems": problems,
     }
-    json.dump(data, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    os.makedirs(DATA, exist_ok=True)
+    out_json = os.path.join(DATA, municipality + "_odbori.json")
+    json.dump(data, open(out_json, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
 
-    csv_path = os.path.join(os.path.dirname(OUT), "odbori.csv")
+    csv_path = os.path.join(DATA, municipality + "_people.csv")
     with open(csv_path, "w", encoding="utf-8-sig", newline="") as fh:
         w = csv.writer(fh, delimiter=";")
         w.writerow([
-            "station_no", "station_title", "place", "composition", "role",
+            "city", "city_slug", "station_no", "station_title", "place", "composition", "role",
             "index", "name", "list_key", "list_short", "proposer_raw", "source",
         ])
         for s in out_stations:
             for comp in ("stalni", "prosireni"):
                 for p in s["committees"][comp]["members"]:
                     w.writerow([
-                        s["no"], s["title"], s["place"], comp, p["role"],
+                        s["city"], s["city_slug"], s["no"], s["title"], s["place"], comp, p["role"],
                         p.get("index") or "", p["name"], p["list"], p["list_short"],
                         p["proposer_raw"], p.get("source", ""),
                     ])
     print(f"wrote {csv_path}")
-    print(f"wrote {OUT}: {len(out_stations)} stations, {len(problems)} problems")
+    print(f"wrote {out_json}: {len(out_stations)} stations, {len(problems)} problems")
     print("permanent stations:", summary["stations_stalni"], "expanded stations:", summary["stations_prosireni"])
     for comp in ("stalni", "prosireni"):
         print(comp, [(r["short"], r["members"], r["deputies"]) for r in summary["by_list"][comp]])

@@ -28,3 +28,14 @@ geo/kosovo_centers.json
 # ---- odbori: raw PDFs and OCR text (reproducible, bulky) ----
 odbori/pdf/
 odbori/ocr/
+
+# ---- odbori: intermediate per-city files (raw PDFs/OCR above) ----
+odbori/work/
+odbori/meta/*.json
+odbori/data/*_decisions.json
+odbori/data/*_problems.json
+odbori/data/*_odbori.json
+odbori/data/*_people.csv
+map/odbori.json
+map/odbori.csv
+odbori/stations/

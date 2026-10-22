@@ -1,0 +1,2412 @@
+{
+ "generated": "2026-10-22T03:15:13Z",
+ "cities": {
+  "aleksandrovac": {
+   "name": "Александровац",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    1,
+    2,
+    3,
+    8,
+    11,
+    16,
+    25,
+    26,
+    27,
+    28,
+    32,
+    33,
+    34,
+    39,
+    40,
+    48,
+    57,
+    58,
+    59,
+    60,
+    61
+   ]
+  },
+  "alibunar": {
+   "name": "Алибунар",
+   "missing_permanent_nos": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+   ],
+   "missing_expanded_nos": []
+  },
+  "apatin": {
+   "name": "Апатин",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+   ]
+  },
+  "arilje": {
+   "name": "Ариље",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    23
+   ]
+  },
+  "babusnica": {
+   "name": "Бабушница",
+   "missing_permanent_nos": [
+    13,
+    22,
+    30,
+    35
+   ],
+   "missing_expanded_nos": []
+  },
+  "bac": {
+   "name": "Бач",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    15,
+    16,
+    17,
+    18
+   ]
+  },
+  "backapalanka": {
+   "name": "Бачка Паланка",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    24,
+    25,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43
+   ]
+  },
+  "backatopola": {
+   "name": "Бачка Топола",
+   "missing_permanent_nos": [
+    19,
+    398
+   ],
+   "missing_expanded_nos": [
+    398
+   ]
+  },
+  "backipetrovac": {
+   "name": "Бачки Петровац",
+   "missing_permanent_nos": [
+    7
+   ],
+   "missing_expanded_nos": [
+    7,
+    8
+   ]
+  },
+  "bajinabasta": {
+   "name": "Бајина Башта",
+   "missing_permanent_nos": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46
+   ],
+   "missing_expanded_nos": []
+  },
+  "becej": {
+   "name": "Бечеј",
+   "missing_permanent_nos": [
+    14,
+    18
+   ],
+   "missing_expanded_nos": [
+    14,
+    15,
+    27,
+    31
+   ]
+  },
+  "belacrkva": {
+   "name": "Бела Црква",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    10,
+    19
+   ]
+  },
+  "belapalanka": {
+   "name": "Бела Паланка",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    16
+   ]
+  },
+  "blace": {
+   "name": "Блаце",
+   "missing_permanent_nos": [
+    1,
+    3,
+    4,
+    6,
+    7,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "missing_expanded_nos": []
+  },
+  "bogatic": {
+   "name": "Богатић",
+   "missing_permanent_nos": [
+    1,
+    3,
+    4,
+    5,
+    7,
+    22
+   ],
+   "missing_expanded_nos": [
+    23,
+    24,
+    26,
+    22
+   ]
+  },
+  "boljevac": {
+   "name": "Бољевац",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    11
+   ]
+  },
+  "bosilegrad": {
+   "name": "Босилеград",
+   "missing_permanent_nos": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9,
+    10,
+    12,
+    13,
+    14,
+    16,
+    17
+   ],
+   "missing_expanded_nos": []
+  },
+  "brus": {
+   "name": "Брус",
+   "missing_permanent_nos": [
+    1,
+    3,
+    4,
+    5,
+    17
+   ],
+   "missing_expanded_nos": []
+  },
+  "cajetina": {
+   "name": "Чајетина",
+   "missing_permanent_nos": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    20,
+    22
+   ],
+   "missing_expanded_nos": []
+  },
+  "coka": {
+   "name": "Чока",
+   "missing_permanent_nos": [
+    3,
+    6,
+    17
+   ],
+   "missing_expanded_nos": []
+  },
+  "crnatrava": {
+   "name": "Црна Трава",
+   "missing_permanent_nos": [
+    6
+   ],
+   "missing_expanded_nos": [
+    5
+   ]
+  },
+  "cuprija": {
+   "name": "Ћуприја",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    1,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+   ]
+  },
+  "despotovac": {
+   "name": "Деспотовац",
+   "missing_permanent_nos": [
+    12,
+    22,
+    26
+   ],
+   "missing_expanded_nos": []
+  },
+  "doljevac": {
+   "name": "Дољевац",
+   "missing_permanent_nos": [
+    28,
+    200,
+    277
+   ],
+   "missing_expanded_nos": [
+    20,
+    27,
+    30
+   ]
+  },
+  "golubac": {
+   "name": "Голубац",
+   "missing_permanent_nos": [
+    7,
+    11,
+    16,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "missing_expanded_nos": [
+    20
+   ]
+  },
+  "gornjimilanovac": {
+   "name": "Горњи Милановац",
+   "missing_permanent_nos": [
+    500,
+    571,
+    52
+   ],
+   "missing_expanded_nos": [
+    1,
+    2,
+    9,
+    10,
+    11,
+    12,
+    17,
+    27,
+    28,
+    29,
+    34,
+    43,
+    44,
+    45,
+    46,
+    47,
+    49,
+    50,
+    51,
+    53,
+    59,
+    52
+   ]
+  },
+  "gradcacak": {
+   "name": "Град Чачак",
+   "missing_permanent_nos": [
+    5,
+    33,
+    37,
+    49,
+    51,
+    58,
+    59,
+    69,
+    78,
+    86,
+    89,
+    90,
+    93,
+    96,
+    98
+   ],
+   "missing_expanded_nos": []
+  },
+  "gradjagodina": {
+   "name": "Град Јагодина",
+   "missing_permanent_nos": [
+    50
+   ],
+   "missing_expanded_nos": []
+  },
+  "gradkragujevac": {
+   "name": "Град Крагујевац",
+   "missing_permanent_nos": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "missing_expanded_nos": []
+  },
+  "gradkraljevo": {
+   "name": "Град Краљево",
+   "missing_permanent_nos": [
+    1102
+   ],
+   "missing_expanded_nos": [
+    10,
+    30,
+    80,
+    81,
+    102
+   ]
+  },
+  "gradleskovac": {
+   "name": "Град Лесковац",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    2,
+    10,
+    12,
+    18,
+    23,
+    28,
+    38,
+    43,
+    49,
+    50,
+    54,
+    60,
+    62,
+    67,
+    71,
+    73,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    90,
+    101,
+    103,
+    112,
+    113,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152
+   ]
+  },
+  "gradloznica": {
+   "name": "Град Лозница",
+   "missing_permanent_nos": [
+    2,
+    8,
+    9,
+    14,
+    19,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    44,
+    45,
+    47,
+    59,
+    68,
+    73,
+    74,
+    75,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85
+   ],
+   "missing_expanded_nos": []
+  },
+  "gradnovipazar": {
+   "name": "Град Нови Пазар",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    72
+   ]
+  },
+  "gradnovisad": {
+   "name": "Град Нови Сад",
+   "missing_permanent_nos": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    11,
+    12,
+    13,
+    19,
+    20,
+    21,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    46,
+    47,
+    48,
+    49,
+    50,
+    52,
+    53,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    80,
+    81,
+    83,
+    87,
+    88,
+    93,
+    94,
+    95,
+    101,
+    102,
+    104,
+    105,
+    106,
+    107,
+    109,
+    110,
+    112,
+    115,
+    116,
+    118,
+    119,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    4,
+    8,
+    9,
+    10,
+    14,
+    15,
+    16,
+    17,
+    18,
+    22,
+    23,
+    24,
+    33,
+    44,
+    45,
+    51,
+    54,
+    67,
+    76,
+    77,
+    78,
+    79,
+    82,
+    84,
+    85,
+    86,
+    89,
+    90,
+    91,
+    92,
+    96,
+    97,
+    98,
+    99,
+    100,
+    103,
+    108,
+    111,
+    113,
+    114,
+    117,
+    120
+   ],
+   "missing_expanded_nos": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    11,
+    12,
+    13,
+    19,
+    20,
+    21,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    46,
+    47,
+    48,
+    49,
+    50,
+    52,
+    53,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    80,
+    81,
+    83,
+    87,
+    88,
+    93,
+    94,
+    95,
+    101,
+    102,
+    104,
+    105,
+    106,
+    107,
+    109,
+    110,
+    112,
+    115,
+    116,
+    118,
+    119,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    4,
+    8,
+    9,
+    10,
+    14,
+    15,
+    16,
+    17,
+    18,
+    22,
+    23,
+    24,
+    33,
+    44,
+    45,
+    51,
+    54,
+    67,
+    76,
+    77,
+    78,
+    79,
+    82,
+    84,
+    85,
+    86,
+    89,
+    90,
+    91,
+    92,
+    96,
+    97,
+    98,
+    99,
+    100,
+    103,
+    108,
+    111,
+    113,
+    114,
+    117,
+    120
+   ]
+  },
+  "gradpancevo": {
+   "name": "Град Панчево",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    1,
+    3,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    16,
+    24,
+    26,
+    28,
+    29,
+    36,
+    40,
+    50,
+    52,
+    53,
+    54,
+    55,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    76
+   ]
+  },
+  "gradpirot": {
+   "name": "Град Пирот",
+   "missing_permanent_nos": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    20,
+    21,
+    27,
+    28,
+    36,
+    37,
+    38,
+    57,
+    58,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    2,
+    4
+   ],
+   "missing_expanded_nos": [
+    1,
+    3,
+    5,
+    2,
+    4
+   ]
+  },
+  "gradpozarevac": {
+   "name": "Град Пожаревац",
+   "missing_permanent_nos": [
+    11,
+    45,
+    46,
+    50,
+    51
+   ],
+   "missing_expanded_nos": []
+  },
+  "gradskaopstinabarajevo": {
+   "name": "Градска општина Барајево",
+   "missing_permanent_nos": [
+    1,
+    3,
+    4,
+    5,
+    15
+   ],
+   "missing_expanded_nos": []
+  },
+  "gradskaopstinacrvenikrst": {
+   "name": "Градска општина Црвени крст",
+   "missing_permanent_nos": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    18,
+    19
+   ],
+   "missing_expanded_nos": []
+  },
+  "gradskaopstinagrocka": {
+   "name": "Градска општина Гроцка",
+   "missing_permanent_nos": [
+    41
+   ],
+   "missing_expanded_nos": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    27,
+    34,
+    35,
+    36,
+    40,
+    50
+   ]
+  },
+  "gradskaopstinakostolac": {
+   "name": "Градска општина Костолац",
+   "missing_permanent_nos": [
+    5
+   ],
+   "missing_expanded_nos": []
+  },
+  "gradskaopstinalazarevac": {
+   "name": "Градска општина Лазаревац",
+   "missing_permanent_nos": [
+    10,
+    11,
+    26,
+    35,
+    42
+   ],
+   "missing_expanded_nos": [
+    23
+   ]
+  },
+  "gradskaopstinamedijana": {
+   "name": "Градска општина Медијана",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    27,
+    34,
+    35,
+    36,
+    40,
+    50
+   ]
+  },
+  "gradskaopstinamladenovac": {
+   "name": "Градска општина Младеновац",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    13,
+    14,
+    15,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    31,
+    32,
+    33,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45
+   ]
+  },
+  "gradskaopstinaniskabanja": {
+   "name": "Градска општина Нишка Бања",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    1,
+    10,
+    11,
+    12,
+    13,
+    16
+   ]
+  },
+  "gradskaopstinanovibeograd": {
+   "name": "Градска општина Нови Београд",
+   "missing_permanent_nos": [
+    8,
+    61,
+    119,
+    147,
+    447
+   ],
+   "missing_expanded_nos": [
+    4,
+    28,
+    42,
+    66,
+    71,
+    95,
+    113,
+    135,
+    149,
+    447
+   ]
+  },
+  "gradskaopstinaobrenovac": {
+   "name": "Градска општина Обреновац",
+   "missing_permanent_nos": [
+    11
+   ],
+   "missing_expanded_nos": []
+  },
+  "gradskaopstinapalilulabeograd": {
+   "name": "Градска општина Палилула (Београд)",
+   "missing_permanent_nos": [
+    59
+   ],
+   "missing_expanded_nos": []
+  },
+  "gradskaopstinapalilulanis": {
+   "name": "Градска општина Палилула (Ниш)",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    6,
+    11,
+    14,
+    19,
+    20,
+    21,
+    25,
+    26,
+    27,
+    28,
+    32,
+    33,
+    38,
+    40,
+    41,
+    50
+   ]
+  },
+  "gradskaopstinapantelej": {
+   "name": "Градска општина Пантелеј",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    21,
+    31,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+   ]
+  },
+  "gradskaopstinarakovica": {
+   "name": "Градска општина Раковица",
+   "missing_permanent_nos": [
+    29,
+    44
+   ],
+   "missing_expanded_nos": []
+  },
+  "gradskaopstinasopot": {
+   "name": "Градска општина Сопот",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    14,
+    18,
+    21
+   ]
+  },
+  "gradskaopstinastarigrad": {
+   "name": "Градска општина Стари Град",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    9
+   ]
+  },
+  "gradskaopstinavozdovac": {
+   "name": "Градска општина Вождовац",
+   "missing_permanent_nos": [
+    398
+   ],
+   "missing_expanded_nos": [
+    1,
+    3,
+    6,
+    7,
+    8,
+    16,
+    17,
+    19,
+    20,
+    28,
+    39,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    55,
+    56,
+    57,
+    59,
+    60,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    79,
+    80,
+    84,
+    85,
+    95
+   ]
+  },
+  "gradskaopstinazvezdara": {
+   "name": "Градска општина Звездара",
+   "missing_permanent_nos": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   "missing_expanded_nos": [
+    1,
+    22,
+    23,
+    24,
+    25,
+    27,
+    32,
+    33,
+    34,
+    35,
+    36,
+    38,
+    46,
+    47
+   ]
+  },
+  "gradsremskamitrovica": {
+   "name": "Град Сремска Митровица",
+   "missing_permanent_nos": [
+    15,
+    21,
+    42,
+    53,
+    12,
+    13,
+    31,
+    52
+   ],
+   "missing_expanded_nos": [
+    1,
+    2,
+    4,
+    5,
+    11,
+    18,
+    26,
+    30,
+    32,
+    45,
+    47,
+    48,
+    49,
+    50,
+    155,
+    271,
+    371,
+    12,
+    13,
+    31,
+    52
+   ]
+  },
+  "gradsubotica": {
+   "name": "Град Суботица",
+   "missing_permanent_nos": [
+    5,
+    6,
+    7,
+    8,
+    10,
+    20,
+    23,
+    26,
+    29,
+    30,
+    32,
+    47,
+    48,
+    49,
+    53,
+    59,
+    61,
+    64,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    80,
+    82,
+    86,
+    92,
+    93,
+    96,
+    100,
+    968,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    37,
+    50,
+    60,
+    101,
+    102
+   ],
+   "missing_expanded_nos": [
+    51,
+    79,
+    83,
+    98,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    37,
+    50,
+    60,
+    101,
+    102
+   ]
+  },
+  "graduzice": {
+   "name": "Град Ужице",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    1,
+    5,
+    12,
+    16,
+    26,
+    37,
+    43,
+    44,
+    45,
+    47,
+    54,
+    55,
+    56,
+    58,
+    64,
+    68,
+    75,
+    77,
+    79
+   ]
+  },
+  "gradvaljevo": {
+   "name": "Град Ваљево",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14,
+    16,
+    17,
+    74,
+    75,
+    76,
+    77,
+    82,
+    99,
+    100,
+    101,
+    102,
+    103
+   ]
+  },
+  "gradvranje": {
+   "name": "Град Врање",
+   "missing_permanent_nos": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    72
+   ],
+   "missing_expanded_nos": [
+    110,
+    111,
+    113
+   ]
+  },
+  "gradvrsac": {
+   "name": "Град Вршац",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    14
+   ]
+  },
+  "indjija": {
+   "name": "Инђија",
+   "missing_permanent_nos": [
+    1,
+    2,
+    3,
+    4,
+    11,
+    26,
+    30
+   ],
+   "missing_expanded_nos": [
+    2
+   ]
+  },
+  "irig": {
+   "name": "Ириг",
+   "missing_permanent_nos": [
+    4,
+    7,
+    11,
+    13
+   ],
+   "missing_expanded_nos": [
+    12
+   ]
+  },
+  "ivanjica": {
+   "name": "Ивањица",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    45
+   ]
+  },
+  "knic": {
+   "name": "Кнић",
+   "missing_permanent_nos": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    18,
+    19
+   ],
+   "missing_expanded_nos": []
+  },
+  "knjazevac": {
+   "name": "Књажевац",
+   "missing_permanent_nos": [
+    36
+   ],
+   "missing_expanded_nos": [
+    1,
+    2,
+    3,
+    9,
+    10,
+    12,
+    17,
+    27,
+    28,
+    29,
+    30,
+    34,
+    42,
+    43,
+    44,
+    45,
+    49,
+    50,
+    60,
+    368
+   ]
+  },
+  "koceljeva": {
+   "name": "Коцељева",
+   "missing_permanent_nos": [
+    21,
+    22,
+    23
+   ],
+   "missing_expanded_nos": []
+  },
+  "kosjeric": {
+   "name": "Косјерић",
+   "missing_permanent_nos": [
+    12,
+    13,
+    14,
+    15,
+    16
+   ],
+   "missing_expanded_nos": []
+  },
+  "kosovskamitrovica": {
+   "name": "Косовска Митровица",
+   "missing_permanent_nos": [
+    1
+   ],
+   "missing_expanded_nos": []
+  },
+  "kovacica": {
+   "name": "Ковачица",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    14
+   ]
+  },
+  "kovin": {
+   "name": "Ковин",
+   "missing_permanent_nos": [
+    22,
+    23
+   ],
+   "missing_expanded_nos": []
+  },
+  "kula": {
+   "name": "Кула",
+   "missing_permanent_nos": [
+    2,
+    8,
+    10,
+    11,
+    17,
+    18,
+    19,
+    20,
+    21
+   ],
+   "missing_expanded_nos": []
+  },
+  "kursumlija": {
+   "name": "Куршумлија",
+   "missing_permanent_nos": [
+    300,
+    371,
+    16,
+    30
+   ],
+   "missing_expanded_nos": [
+    1,
+    2,
+    3,
+    5,
+    10,
+    25,
+    26,
+    27,
+    31,
+    34,
+    16,
+    30
+   ]
+  },
+  "lajkovac": {
+   "name": "Лајковац",
+   "missing_permanent_nos": [
+    6
+   ],
+   "missing_expanded_nos": [
+    9,
+    17,
+    19,
+    29
+   ]
+  },
+  "lebane": {
+   "name": "Лебане",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    12,
+    14,
+    15,
+    16,
+    34
+   ]
+  },
+  "ljubovija": {
+   "name": "Љубовија",
+   "missing_permanent_nos": [
+    22
+   ],
+   "missing_expanded_nos": [
+    13,
+    16
+   ]
+  },
+  "lucani": {
+   "name": "Лучани",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    24,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43
+   ]
+  },
+  "majdanpek": {
+   "name": "Мајданпек",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    1,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41
+   ]
+  },
+  "maliidjos": {
+   "name": "Мали Иђош",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    5
+   ]
+  },
+  "malizvornik": {
+   "name": "Мали Зворник",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    8,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+   ]
+  },
+  "malocrnice": {
+   "name": "Мало Црниће",
+   "missing_permanent_nos": [
+    14
+   ],
+   "missing_expanded_nos": [
+    16,
+    17,
+    18
+   ]
+  },
+  "medvedja": {
+   "name": "Медвеђа",
+   "missing_permanent_nos": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "missing_expanded_nos": []
+  },
+  "mionica": {
+   "name": "Мионица",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    21
+   ]
+  },
+  "negotin": {
+   "name": "Неготин",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    2,
+    7,
+    8,
+    9,
+    10,
+    19,
+    20,
+    26,
+    34,
+    36,
+    44,
+    45,
+    55,
+    56,
+    60,
+    61,
+    62,
+    63,
+    64
+   ]
+  },
+  "novacrnja": {
+   "name": "Нова Црња",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+   ]
+  },
+  "novavaros": {
+   "name": "Нова Варош",
+   "missing_permanent_nos": [
+    26
+   ],
+   "missing_expanded_nos": [
+    22
+   ]
+  },
+  "novibecej": {
+   "name": "Нови Бечеј",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    1,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+   ]
+  },
+  "noviknezevac": {
+   "name": "Нови Кнежевац",
+   "missing_permanent_nos": [
+    21,
+    47
+   ],
+   "missing_expanded_nos": [
+    4
+   ]
+  },
+  "odzaci": {
+   "name": "Оџаци",
+   "missing_permanent_nos": [
+    1,
+    3,
+    4,
+    5,
+    14
+   ],
+   "missing_expanded_nos": []
+  },
+  "opovo": {
+   "name": "Опово",
+   "missing_permanent_nos": [
+    1,
+    16
+   ],
+   "missing_expanded_nos": []
+  },
+  "presevo": {
+   "name": "Прешево",
+   "missing_permanent_nos": [
+    31
+   ],
+   "missing_expanded_nos": [
+    1,
+    28,
+    29,
+    30,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    31
+   ]
+  },
+  "prijepolje": {
+   "name": "Пријепоље",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    34,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48
+   ]
+  },
+  "prokuplje": {
+   "name": "Прокупље",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    4,
+    5,
+    6,
+    13,
+    18,
+    36,
+    37,
+    38,
+    39,
+    40,
+    45,
+    46,
+    47,
+    48,
+    49,
+    51,
+    52,
+    58,
+    60,
+    61,
+    62,
+    63,
+    68,
+    69,
+    73,
+    74,
+    83,
+    85
+   ]
+  },
+  "raca": {
+   "name": "Рача",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    15,
+    16,
+    17,
+    18
+   ]
+  },
+  "ruma": {
+   "name": "Рума",
+   "missing_permanent_nos": [
+    19
+   ],
+   "missing_expanded_nos": []
+  },
+  "secanj": {
+   "name": "Сечањ",
+   "missing_permanent_nos": [
+    8,
+    11,
+    16
+   ],
+   "missing_expanded_nos": [
+    13
+   ]
+  },
+  "senta": {
+   "name": "Сента",
+   "missing_permanent_nos": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    16,
+    17
+   ],
+   "missing_expanded_nos": []
+  },
+  "sjenica": {
+   "name": "Сјеница",
+   "missing_permanent_nos": [
+    51
+   ],
+   "missing_expanded_nos": []
+  },
+  "smederevskapalanka": {
+   "name": "Смедеревска Паланка",
+   "missing_permanent_nos": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49
+   ],
+   "missing_expanded_nos": [
+    1,
+    2
+   ]
+  },
+  "sokobanja": {
+   "name": "Сокобања",
+   "missing_permanent_nos": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    19,
+    21
+   ],
+   "missing_expanded_nos": []
+  },
+  "srbobran": {
+   "name": "Србобран",
+   "missing_permanent_nos": [
+    28
+   ],
+   "missing_expanded_nos": []
+  },
+  "starapazova": {
+   "name": "Стара Пазова",
+   "missing_permanent_nos": [
+    1,
+    2,
+    3,
+    5,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    32,
+    33,
+    34,
+    35
+   ],
+   "missing_expanded_nos": []
+  },
+  "surdulica": {
+   "name": "Сурдулица",
+   "missing_permanent_nos": [
+    16,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    32
+   ],
+   "missing_expanded_nos": []
+  },
+  "svilajnac": {
+   "name": "Свилајнац",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    23,
+    24,
+    26,
+    27
+   ]
+  },
+  "temerin": {
+   "name": "Темерин",
+   "missing_permanent_nos": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    16,
+    17
+   ],
+   "missing_expanded_nos": []
+  },
+  "titel": {
+   "name": "Тител",
+   "missing_permanent_nos": [
+    1
+   ],
+   "missing_expanded_nos": [
+    6,
+    16,
+    17,
+    19,
+    20,
+    23
+   ]
+  },
+  "topola": {
+   "name": "Топола",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    8,
+    20,
+    21,
+    22,
+    23
+   ]
+  },
+  "trstenik": {
+   "name": "Трстеник",
+   "missing_permanent_nos": [
+    11
+   ],
+   "missing_expanded_nos": []
+  },
+  "ub": {
+   "name": "Уб",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    21,
+    31
+   ]
+  },
+  "velikaplana": {
+   "name": "Велика Плана",
+   "missing_permanent_nos": [
+    11
+   ],
+   "missing_expanded_nos": []
+  },
+  "velikogradiste": {
+   "name": "Велико Градиште",
+   "missing_permanent_nos": [
+    5,
+    18,
+    29
+   ],
+   "missing_expanded_nos": [
+    19,
+    20,
+    21
+   ]
+  },
+  "vladimirci": {
+   "name": "Владимирци",
+   "missing_permanent_nos": [
+    11,
+    19,
+    21,
+    33,
+    34,
+    157
+   ],
+   "missing_expanded_nos": [
+    15,
+    21
+   ]
+  },
+  "vlasotince": {
+   "name": "Власотинце",
+   "missing_permanent_nos": [
+    4,
+    9,
+    16,
+    26,
+    27,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    417,
+    25,
+    30
+   ],
+   "missing_expanded_nos": [
+    1,
+    2,
+    4,
+    9,
+    15,
+    23,
+    24,
+    28,
+    417,
+    25,
+    30
+   ]
+  },
+  "zabalj": {
+   "name": "Жабаљ",
+   "missing_permanent_nos": [
+    17,
+    27,
+    10,
+    11,
+    13,
+    15
+   ],
+   "missing_expanded_nos": [
+    16,
+    18,
+    19,
+    31,
+    10,
+    11,
+    13,
+    15
+   ]
+  },
+  "zabari": {
+   "name": "Жабари",
+   "missing_permanent_nos": [
+    10,
+    18
+   ],
+   "missing_expanded_nos": [
+    20,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37
+   ]
+  },
+  "zitiste": {
+   "name": "Житиште",
+   "missing_permanent_nos": [
+    14,
+    20,
+    6
+   ],
+   "missing_expanded_nos": [
+    1,
+    3,
+    4,
+    5,
+    8,
+    21,
+    66,
+    200,
+    6
+   ]
+  },
+  "zitoradja": {
+   "name": "Житорађа",
+   "missing_permanent_nos": [],
+   "missing_expanded_nos": [
+    1,
+    17,
+    18,
+    19,
+    20
+   ]
+  }
+ }
+}

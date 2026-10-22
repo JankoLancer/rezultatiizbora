@@ -15,7 +15,9 @@ done later in build_odbori.py.
 import json
 import os
 import re
+import subprocess
 import sys
+import tempfile
 import unicodedata
 from difflib import SequenceMatcher
 
@@ -23,6 +25,37 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 OCR = os.path.join(ROOT, "ocr")
 META = os.path.join(ROOT, "meta")
 DATA = os.path.join(ROOT, "data")
+
+
+def append_page2(slug, ocr_file, dpi=150):
+    """OCR page 2 and append it to the cached text (fallback for long decisions)."""
+    key = os.path.splitext(os.path.basename(ocr_file))[0]
+    pdf = os.path.join(ROOT, "pdf", slug, key + ".pdf")
+    dst = os.path.join(OCR, slug, os.path.basename(ocr_file))
+    if not os.path.exists(pdf) or not os.path.exists(dst):
+        return False
+    if "\f" in open(dst, encoding="utf-8").read():
+        return False
+    try:
+        with tempfile.TemporaryDirectory(prefix="rikp2_") as td:
+            base = os.path.join(td, "p")
+            subprocess.run(
+                ["pdftoppm", "-png", "-r", str(dpi), "-f", "2", "-l", "2", pdf, base],
+                check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=90,
+            )
+            chunks = []
+            for img in sorted(__import__("glob").glob(base + "*.png")):
+                r = subprocess.run(
+                    ["tesseract", img, "stdout", "-l", "srp"],
+                    capture_output=True, text=True, timeout=90,
+                    env={**os.environ, "OMP_THREAD_LIMIT": "1"},
+                )
+                chunks.append(r.stdout)
+            with open(dst, "a", encoding="utf-8") as fh:
+                fh.write("\n\f\n" + "\n\f\n".join(chunks))
+        return True
+    except Exception:
+        return False
 
 
 def norm(text):
@@ -37,7 +70,7 @@ def norm(text):
 
 
 def clean_name(s):
-    s = s.strip(" \n\t-–—•*|:;,.")
+    s = s.strip(" \n\t-–—•*|:;,.\"„“”")
     s = re.sub(r"\s+", " ", s)
     s = re.sub(r"\s+и$", "", s).strip()
     # OCR sometimes puts a stray leading digit/letter from a bullet
@@ -46,11 +79,13 @@ def clean_name(s):
 
 
 def clean_proposer(s):
-    s = s.strip(" \n\t-–—•*|:;,.")
+    s = s.strip(" \n\t-–—•*|:;,.\"„“”")
     s = re.sub(r"\s+", " ", s)
     s = re.sub(r"\s+од\s+\d{1,2}\.\s*[а-шА-Ш]+\s+\d{4}\.?\s*(године)?\.?$", "", s)
     s = re.sub(r"\s+од\s+\d{1,2}\.\d{1,2}\.\d{4}\.?\s*(године)?\.?$", "", s)
     s = re.sub(r"\s*[.;]+$", "", s).strip()
+    if re.fullmatch(r"[\d\W]+", s or ""):
+        return ""
     return s
 
 
@@ -142,8 +177,121 @@ def disposition(text):
     return text[start:end]
 
 
+def extract_headings(body):
+    """List headings written before the members, e.g. Bojnik:
+    "1. На предлог подносиоца изборне листе X; члан: ..."
+    """
+    out = []
+    pat = re.compile(
+        r"(?:На|на)\s+предлог\s+(.+?)(?=;\s*\n|:\s*\n|\n\s*(?:члан|Члан|заменик|Заменик|\d+\.)|$)",
+        re.S,
+    )
+    for m in pat.finditer(body):
+        p = clean_proposer(m.group(1))
+        if p:
+            out.append((m.start(), p))
+    return out
+
+
+def fill_pair_proposers(entries):
+    for i, e in enumerate(entries):
+        p = (e.get("proposer") or "").strip().lower()
+        truncated = not p or p in ("подносиоца изборне листе", "посланичке групе") or p.endswith(("листе", "групе"))
+        if truncated and i + 1 < len(entries) and entries[i + 1]["role"] in ("zamenik_clana", "zamenik_predsednika"):
+            if entries[i + 1].get("proposer"):
+                e["proposer"] = entries[i + 1]["proposer"]
+        if truncated and e["role"] in ("zamenik_clana", "zamenik_predsednika") and i > 0:
+            if entries[i - 1]["role"] == "clan" and entries[i - 1].get("proposer"):
+                e["proposer"] = entries[i - 1]["proposer"]
+    return entries
+
+
+def heading_first(body):
+    h = body.find("На предлог")
+    if h < 0:
+        h = body.find("на предлог")
+    r = re.search(r"(?:члан|заменик\s+члана|заменик\s+председника|председник)\b", body, re.I)
+    return h >= 0 and (r is None or h < r.start())
+
+
+def parse_base_lines(text):
+    """Parser for decisions that put the list heading before the members:
+    "1. На предлог подносиоца изборне листе X; члан: Име ..."
+    """
+    body = disposition(text)
+    entries = []
+    current = ""
+    buf = ""
+    collecting = False
+    role_re = re.compile(
+        r"^[-–—•*]?\s*(заменик\s+члана|заменик\s+председника|председник|члан)\s*:?\s*(.*)$",
+        re.I,
+    )
+    for raw in body.splitlines():
+        line = raw.strip()
+        if not line:
+            continue
+        if collecting:
+            buf += " " + line
+            if line.endswith((";", ":")):
+                current = clean_proposer(buf)
+                collecting = False
+            continue
+        if re.match(r"^\d+\.\s*(?:На|на)\s+предлог", line) or re.match(r"^(?:На|на)\s+предлог", line):
+            buf = re.sub(r"^\d+\.\s*", "", line)
+            if line.endswith((";", ":")):
+                current = clean_proposer(buf)
+            else:
+                collecting = True
+            continue
+        m = role_re.match(line)
+        if not m:
+            continue
+        low = m.group(1).lower()
+        if "заменик" in low and "председник" in low:
+            role = "zamenik_predsednika"
+        elif "председник" in low:
+            role = "predsednik"
+        elif "заменик" in low:
+            role = "zamenik_clana"
+        else:
+            role = "clan"
+        name = extract_name(m.group(2))
+        if not name:
+            continue
+        entries.append({"role": role, "index": None, "name": name, "proposer": current})
+    return entries
+
+
+SHIFTED_RE = re.compile(
+    r"(\d+)\.\s*члан:\s*(.+?)\s*\n+\s*(.+?)\s*-\s*заменик\s+члана:\s*,?\s*на\s+предлог\s+(.+?);",
+    re.S | re.I,
+)
+
+
+def parse_base_shifted(text):
+    """Layout used in some Vojvodina municipalities:
+    "1. члан: NAME и
+     DEPUTY - заменик члана: , на предлог ... LIST;"
+    """
+    body = disposition(text)
+    out = []
+    for m in SHIFTED_RE.finditer(body):
+        member = clean_name(re.sub(r"\s+и$", "", m.group(2)))
+        deputy = clean_name(m.group(3))
+        proposer = clean_proposer(m.group(4))
+        if not member:
+            continue
+        out.append({"role": "clan", "index": int(m.group(1)), "name": member, "proposer": proposer})
+        if deputy:
+            out.append({"role": "zamenik_clana", "index": int(m.group(1)), "name": deputy, "proposer": proposer})
+    return out
+
+
 def parse_base(text):
     body = disposition(text)
+    if heading_first(body):
+        return parse_base_lines(text)
     entries = []
     matches = list(ROLE_RE.finditer(body))
     for i, m in enumerate(matches):
@@ -159,11 +307,7 @@ def parse_base(text):
         entries.append(
             {"role": role, "index": idx, "name": name, "proposer": proposer}
         )
-    # In the expanded composition the proposer is written after the deputy,
-    # so the member and deputy share the same "на предлог ..." text.
-    for i, e in enumerate(entries):
-        if not e["proposer"] and i + 1 < len(entries) and entries[i + 1]["role"] in ("zamenik_clana", "zamenik_predsednika"):
-            e["proposer"] = entries[i + 1]["proposer"]
+    entries = fill_pair_proposers(entries)
     # Grouped bullet lists (dopune) sometimes put one "на предлог ..." after
     # several members; copy it to the preceding members of the same group.
     for i, e in enumerate(entries[:-1]):
@@ -179,8 +323,46 @@ def parse_base(text):
     return entries
 
 
+ROLE_NC = re.compile(
+    r"(?P<marker>"
+    r"Заменик\s+председника|заменик\s+председника"
+    r"|Заменик\s+члана|заменик\s+члана"
+    r"|ПРЕДСЕДНИК|председник"
+    r"|ЧЛАН|Члан|члан"
+    r")\s+(?:(?P<idx>\d+)\.?\s*)?",
+    re.I,
+)
+
+
+def parse_base_nocolon(text):
+    """Fallback for decisions that write "Члан Име ..." without a colon."""
+    body = disposition(text)
+    entries = []
+    matches = list(ROLE_NC.finditer(body))
+    for i, m in enumerate(matches):
+        marker = m.group("marker").lower()
+        if "заменик" in marker and "председник" in marker:
+            role = "zamenik_predsednika"
+        elif "председник" in marker:
+            role = "predsednik"
+        elif "заменик" in marker and "члан" in marker:
+            role = "zamenik_clana"
+        else:
+            role = "clan"
+        idx = m.group("idx")
+        idx = int(idx) if idx else None
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(body)
+        segment = body[m.end():end]
+        name = extract_name(segment)
+        if not name:
+            continue
+        proposer = extract_proposer(segment)
+        entries.append({"role": role, "index": idx, "name": name, "proposer": proposer})
+    return fill_pair_proposers(entries)
+
+
 IZMENA_RE = re.compile(
-    r"уместо\s+(?P<old>[^,;]+?)\s+за\s+(?P<role>[^\n,;]+?)\s+именује\s+(?:се\s+)?"
+    r"(?:уместо|место)\s+(?P<old>[^,;]+?)\s+(?:за|као)\s+(?P<role>[^\n,;]+?)\s+именује\s*[:;,]?\s*(?:се\s+)?"
     r"(?P<new>[^,;]+?)(?=,|;|\.\s|\s+на\s+предлог|$)(?P<rest>[^;]*)",
     re.I | re.S,
 )
@@ -194,6 +376,8 @@ def parse_izmena(text):
         new = clean_name(m.group("new"))
         role, idx = parse_role_from_text(m.group("role"))
         if not old or not new or role is None:
+            continue
+        if "име и презиме" in (old + " " + new).lower():
             continue
         rest = m.group("rest") or ""
         # The proposer may be in the rest of the sentence, sometimes on the next line.
@@ -282,7 +466,14 @@ def classify(text):
             comp = "prosireni"
         elif "сталном саставу" in low:
             comp = "stalni"
-    if "исправк" in low:
+    if (
+        ("мења се назив" in low or "у називу решења" in low)
+        and "бирачког места" in low
+        and "именују се" not in low
+        and "именује се" not in low
+    ):
+        typ = "station_change"
+    elif "исправк" in low:
         typ = "ispravka"
     elif "допун" in low:
         typ = "dopuna"
@@ -315,6 +506,26 @@ def fuzzy_find(name, candidates, threshold=0.72):
     return None, score
 
 
+def needs_page2(rec):
+    if rec.get("type") in ("imenovanje", "dopuna"):
+        entries = rec.get("entries") or []
+        if not entries:
+            return True
+        for e in entries:
+            p = (e.get("proposer") or "").strip().lower()
+            if not p or p in ("посланичке групе", "подносиоца изборне листе", "на предлог") or p.endswith(("групе", "листе")):
+                return True
+    if rec.get("type") in ("izmena", "ispravka"):
+        changes = rec.get("changes") or []
+        if not changes:
+            return True
+        for ch in changes:
+            p = (ch.get("proposer") or "").strip().lower()
+            if not p or p.endswith(("групе", "листе")):
+                return True
+    return False
+
+
 def main(municipality="kragujevac"):
     meta_path = os.path.join(META, municipality + ".json")
     if not os.path.exists(meta_path):
@@ -340,39 +551,53 @@ def main(municipality="kragujevac"):
         if not os.path.exists(path):
             problems.append({"url": link, "error": "missing_ocr", "file": key})
             continue
-        text = norm(open(path, encoding="utf-8").read())
-        no = station_no(text) or station_no(r.get("election_station_title", ""))
-        comp, typ = classify(text)
-        if not no:
-            m = re.match(r"(\d+)", r.get("election_station_title", ""))
-            no = int(m.group(1)) if m else None
-        rec = {
-            "url": link,
-            "file": key,
-            "station_no": no,
-            "station_title": r.get("election_station_title", ""),
-            "datetime": int(r.get("datetime") or 0),
-            "decision_title": r.get("election_board_decision", ""),
-            "place": place_from_ocr(text),
-            "document_name": r.get("document_name", ""),
-            "document_bearer": r.get("document_bearer", ""),
-            "composition": comp,
-            "type": typ,
-        }
-        if typ == "izmena":
-            rec["changes"] = parse_izmena(text)
-            if not rec["changes"]:
-                problems.append({"url": link, "station": no, "error": "no_changes_parsed", "text": text[:2000]})
-        elif typ == "ispravka":
-            rec["changes"] = parse_ispravka(text)
-            if not rec["changes"]:
-                problems.append({"url": link, "station": no, "error": "no_changes_parsed", "text": text[:2000]})
-        elif typ in ("imenovanje", "dopuna"):
-            rec["entries"] = parse_base(text)
-            if not rec["entries"]:
-                problems.append({"url": link, "station": no, "error": "no_entries_parsed", "text": text[:2000]})
-        else:
-            problems.append({"url": link, "station": no, "error": "unknown_type", "text": text[:1000]})
+        rec = None
+        no = None
+        for attempt in range(2):
+            text = norm(open(path, encoding="utf-8").read())
+            no = station_no(text) or station_no(r.get("election_station_title", ""))
+            comp, typ = classify(text)
+            if not no:
+                m = re.match(r"(\d+)", r.get("election_station_title", ""))
+                no = int(m.group(1)) if m else None
+            rec = {
+                "url": link,
+                "file": key,
+                "station_no": no,
+                "station_title": r.get("election_station_title", ""),
+                "datetime": int(r.get("datetime") or 0),
+                "decision_title": r.get("election_board_decision", ""),
+                "place": place_from_ocr(text),
+                "document_name": r.get("document_name", ""),
+                "document_bearer": r.get("document_bearer", ""),
+                "composition": comp,
+                "type": typ,
+            }
+            if typ == "izmena":
+                rec["changes"] = parse_izmena(text)
+            elif typ == "ispravka":
+                rec["changes"] = parse_ispravka(text)
+            elif typ in ("imenovanje", "dopuna"):
+                shifted = parse_base_shifted(text)
+                if len(shifted) >= 2:
+                    rec["entries"] = shifted
+                else:
+                    rec["entries"] = parse_base(text)
+                    if not rec["entries"]:
+                        rec["entries"] = parse_base_nocolon(text)
+            else:
+                rec["entries"] = []
+            if attempt == 0 and needs_page2(rec) and append_page2(municipality, key):
+                continue
+            break
+        if rec.get("type") == "izmena" and not rec.get("changes"):
+            problems.append({"url": link, "file": key, "station": no, "error": "no_changes_parsed", "text": text[:2000]})
+        elif rec.get("type") == "ispravka" and not rec.get("changes"):
+            problems.append({"url": link, "file": key, "station": no, "error": "no_changes_parsed", "text": text[:2000]})
+        elif rec.get("type") in ("imenovanje", "dopuna") and not rec.get("entries"):
+            problems.append({"url": link, "file": key, "station": no, "error": "no_entries_parsed", "text": text[:2000]})
+        elif rec.get("type") not in ("imenovanje", "dopuna", "izmena", "ispravka"):
+            problems.append({"url": link, "file": key, "station": no, "error": "unknown_type", "text": text[:1000]})
         out.append(rec)
 
     # diagnostics for base documents with an unexpected number of entries
@@ -382,7 +607,7 @@ def main(municipality="kragujevac"):
             bad = False
             if rec["composition"] == "stalni" and n != 6:
                 bad = True
-            if rec["composition"] == "prosireni" and (n < 3 or n > 12):
+            if rec["composition"] == "prosireni" and (n < 3 or n > 20):
                 bad = True
             if bad:
                 problems.append(

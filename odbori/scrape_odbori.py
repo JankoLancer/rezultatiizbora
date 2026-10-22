@@ -120,11 +120,11 @@ def download(urls, slug, workers=8):
     print(f"PDFs: {ok}/{len(urls)} in {outdir}")
 
 
-def ocr(slug, workers=4):
+def ocr(slug, workers=4, dpi=150):
     srcdir = os.path.join(ROOT, "odbori", "pdf", slug)
     outdir = os.path.join(ROOT, "odbori", "ocr", slug)
     os.makedirs(outdir, exist_ok=True)
-    pdfs = sorted(glob.glob(os.path.join(srcdir, "*.pdf")))
+    pdfs = sorted(p for p in glob.glob(os.path.join(srcdir, "*")) if p.lower().endswith(".pdf"))
     todo = [p for p in pdfs if not (os.path.exists(os.path.join(outdir, os.path.splitext(os.path.basename(p))[0] + ".txt")))]
     print(f"OCR: {len(todo)} files to process ({len(pdfs)-len(todo)} cached)")
 
@@ -134,7 +134,7 @@ def ocr(slug, workers=4):
         with tempfile.TemporaryDirectory(prefix="rikocr_") as td:
             base = os.path.join(td, "p")
             subprocess.run(
-                ["pdftoppm", "-png", "-r", "200", "-f", "1", "-l", "2", path, base],
+                ["pdftoppm", "-png", "-r", str(dpi), "-f", "1", "-l", "1", path, base],
                 check=True,
                 stdout=subprocess.DEVNULL,
                 stderr=subprocess.DEVNULL,
@@ -170,23 +170,40 @@ def ocr(slug, workers=4):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("municipality", help="e.g. 'Град Крагујевац'")
+    ap.add_argument("municipality", nargs="?", help="e.g. 'Град Крагујевац'")
     ap.add_argument("--slug", required=True)
+    ap.add_argument("--id", help="RIK document municipality id (skips autocomplete)")
+    ap.add_argument("--name", help="municipality display name (with --id)")
+    ap.add_argument("--region", default="", help="region id (optional metadata)")
+    ap.add_argument("--region-name", default="", help="region name (optional metadata)")
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--download-workers", type=int, default=None)
+    ap.add_argument("--ocr-workers", type=int, default=None)
+    ap.add_argument("--dpi", type=int, default=150)
     ap.add_argument("--skip-download", action="store_true")
     ap.add_argument("--skip-ocr", action="store_true")
     args = ap.parse_args()
 
-    m = municipality_id(args.municipality)
+    if args.id:
+        m = {"id": str(args.id), "name": args.name or args.municipality or args.slug}
+    else:
+        if not args.municipality:
+            raise SystemExit("municipality name or --id is required")
+        m = municipality_id(args.municipality)
     print("municipality:", m)
     records, uniq = fetch_metadata(m["id"])
     print(f"records: {len(records)}, unique documents: {len(uniq)}")
     os.makedirs(os.path.join(ROOT, "odbori", "meta"), exist_ok=True)
     meta_path = os.path.join(ROOT, "odbori", "meta", args.slug + ".json")
+    fetched_at = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    m["slug"] = args.slug
+    m["region"] = args.region
+    m["region_name"] = args.region_name
     json.dump(
         {
             "municipality": m,
             "election_round": ELECTION_ROUND,
+            "fetched_at": fetched_at,
             "documents": records,
         },
         open(meta_path, "w", encoding="utf-8"),
@@ -194,10 +211,12 @@ def main():
         indent=1,
     )
     print("metadata:", meta_path)
+    dw = args.download_workers or args.workers
+    ow = args.ocr_workers or args.workers
     if not args.skip_download:
-        download([r["_url"] for r in uniq], args.slug, args.workers)
+        download([r["_url"] for r in uniq], args.slug, dw)
     if not args.skip_ocr:
-        ocr(args.slug, args.workers)
+        ocr(args.slug, ow, args.dpi)
 
 
 if __name__ == "__main__":

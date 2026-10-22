@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Парламентарни избори 2026. — подаци по бирачким местима | Резултати избора</title>
-<meta name="description" content="Парламентарни избори 2026. у Србији: бирачки одбори, контролори, бирачка места и резултати. Први обрађени град — Крагујевац." />
+<meta name="description" content="Парламентарни избори 2026. у Србији: бирачки одбори, контролори и бирачка места за све градове и општине." />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://rezultatiizbora.rs/izbori2026.html" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -61,8 +61,8 @@
       који контролори су именовани у проширеном саставу и, после избора, резултати и излазност.</p>
     <div class="badges">
       <span class="badge">📅 <b>25.10.2026.</b></span>
-      <span class="badge">📍 први град: <b>Крагујевац</b></span>
-      <span class="badge">🗳️ <b>174</b> бирачка места</span>
+      <span class="badge">📍 <b id="m-cities">191</b> град/општина</span>
+      <span class="badge">🗳️ <b id="m-stations">8.415</b> бирачких места</span>
       <span class="badge">🔄 подаци се допуњују</span>
     </div>
   </div>
@@ -94,21 +94,23 @@
   <h3 class="section">Шта је већ обрађено</h3>
   <div class="cols">
     <div class="pane">
-      <p><strong>Крагујевац — бирачки одбори</strong></p>
-      <p>Из РИК-ових PDF решења извучени су сви именовани чланови и заменици:
-        председници, заменици председника, чланови и заменици чланова.</p>
+      <p><strong>Србија — бирачки одбори</strong></p>
+      <p>Из РИК-ових PDF решења извучени су именовани чланови и заменици:
+        председници, заменици председника, чланови и заменици чланова.
+        Обрађено је <b id="m-cities2">191</b> град/општина и <b id="m-stations2">8.415</b> бирачких места.</p>
       <ul>
         <li>стални састав (предлог посланичких група)</li>
         <li>проширени састав (предлог изборних листа — контролори)</li>
         <li>измене, допуне и замене применљене хронолошки</li>
         <li>линкови ка изворним PDF решењима за свако место</li>
       </ul>
-      <p class="muted" style="color:#93a3bd;font-size:12.5px;margin-top:10px">Стални састав је објављен за 167 од 174 места;
-        за места 1 и 3–8 у тренутку израде није било решења на РИК-овом порталу.</p>
+      <p class="muted" style="color:#93a3bd;font-size:12.5px;margin-top:10px">Стални састав је објављен за
+        <b id="m-stalni">7.598</b> од <b id="m-total">8.415</b> места. За места без решења подаци ће бити
+        допуњени у следећем прегледу РИК-овог портала.</p>
     </div>
     <div class="pane">
-      <div class="stat"><div class="k">Обрађена места</div><div class="v">174</div><div class="s">Крагујевац</div></div>
-      <div class="stat" style="margin-top:8px"><div class="k">Састави</div><div class="v">2</div><div class="s">стални и проширени</div></div>
+      <div class="stat"><div class="k">Обрађена места</div><div class="v" id="m-stat-total">8.415</div><div class="s" id="m-stat-cities">191 град/општина</div></div>
+      <div class="stat" style="margin-top:8px"><div class="k">Контролори</div><div class="v" id="m-stat-controllers">53.385</div><div class="s">чланови у проширеном саставу</div></div>
       <div class="stat" style="margin-top:8px"><div class="k">Извор</div><div class="v" style="font-size:15px">РИК</div><div class="s">Републичка изборна комисија</div></div>
     </div>
   </div>
@@ -129,5 +131,23 @@
   <p class="foot">Извор: <a href="https://www.rik.parlament.gov.rs/dokumenta/41985" target="_blank" rel="noopener">Републичка изборна комисија — документа</a>.
     Анализа: <a href="odbori.html">бирачки одбори</a> · <a href="odbori.csv">подаци (CSV)</a> · <a href="odbori.json">JSON</a> · <a href="./">мапа резултата 2023</a> · <a href="o-sajtu.html">о сајту</a>.</p>
 </div>
+
+<script>
+fetch("odbori-meta.json").then(r=>r.json()).then(d=>{
+  const s=d.summary||{}, c=(d.meta&&d.meta.cities)||[];
+  const set=(id,v)=>{const e=document.getElementById(id); if(e) e.textContent=v;};
+  const nf=n=>new Intl.NumberFormat("sr-RS").format(n||0);
+  set("m-cities", c.length);
+  set("m-cities2", c.length);
+  set("m-stations", nf(s.stations_total));
+  set("m-stations2", nf(s.stations_total));
+  set("m-total", nf(s.stations_total));
+  set("m-stalni", nf(s.stations_stalni));
+  set("m-stat-total", nf(s.stations_total));
+  set("m-stat-cities", c.length+" град/општина");
+  const rows=(s.by_list&&s.by_list.prosireni)||[];
+  set("m-stat-controllers", nf(rows.reduce((n,r)=>n+(r.members||0),0)));
+}).catch(()=>{});
+</script>
 </body>
 </html>
