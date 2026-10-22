@@ -191,7 +191,7 @@
       "mainEntity":[
         {"@type":"Question","name":"Шта су бирачки одбори 2026?","acceptedAnswer":{"@type":"Answer","text":"Бирачки одбор је тело које спроводи гласање на бирачком месту. Чине га стални састав (председник, заменик председника, два члана и два заменика) и проширени састав (члан и заменик члана које предлаже свака изборна листа)."}},
         {"@type":"Question","name":"Шта је проширени састав и ко су контролори?","acceptedAnswer":{"@type":"Answer","text":"Проширени састав чине чланови и заменици чланова које предлажу подносиоци изборних листа. Такве чланове најчешће називамо контролорима; у проширеном саставу листа може имати по једног члана и заменика по бирачком месту."}},
-        {"@type":"Question","name":"Како се рачуна покривеност листе?","acceptedAnswer":{"@type":"Answer","text":"Покривеност = број објављених бирачких места где листа има бар једног члана, подељен бројем објављених места за тај састав. Места без објављеног решења не улазе у покривеност."}},
+        {"@type":"Question","name":"Како се рачуна покривеност листе?","acceptedAnswer":{"@type":"Answer","text":"За појединачан састав, покривеност = број објављених бирачких места где листа има бар једног члана, подељен бројем објављених места тог састава. За приказ оба састава, бројилац су места где листа има члана у било ком саставу, а именилац места где је објављен бар један састав. Места без објављеног решења не улазе у покривеност."}},
         {"@type":"Question","name":"Зашто нека бирачка места немају податке?","acceptedAnswer":{"@type":"Answer","text":"РИК у тренутку израде није објавио решење за тај састав или то место. Та места су означена као недостајућа и допуњују се у следећем прегледу објављених решења."}}
       ]
     }
@@ -265,11 +265,14 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
     jedna lista po pravilu ima jednog člana i jednog zamenika po biračkom mestu.</p>
 
   <h2>Kako se računa pokrivenost</h2>
-  <p>Pokrivenost liste je odnos broja <strong>objavljenih biračkih mesta</strong> na kojima
-    lista ima bar jednog člana i broja objavljenih mesta za taj sastav. Mesta za koja RIK
-    nije objavio rešenje ne ulaze u pokrivenost. Kolona <strong>Bez</strong> pokazuje na
-    koliko objavljenih mesta lista nema nijednog člana. Kada je izabrano <strong>Oba</strong>,
-    stalni sastav može samo da poveća ukupnu pokrivenost.</p>
+  <p>Za pojedinačan sastav, pokrivenost liste je odnos broja <strong>objavljenih biračkih
+    mesta</strong> na kojima lista ima bar jednog člana i broja objavljenih mesta tog sastava.
+    Za prikaz <strong>Oba</strong>, brojilac su mesta gde lista ima člana u bilo kom sastavu,
+    a imenilac mesta gde je objavljen bar jedan sastav (stalni ili prošireni). Mesta za koja
+    RIK nije objavio nijedan sastav ne ulaze u pokrivenost. Kolona <strong>Bez</strong> pokazuje
+    na koliko objavljenih mesta lista nema nijednog člana. Zato kombinovana pokrivenost može
+    biti niža od pokrivenosti samo proširenog sastava: računa se na širem skupu objavljenih
+    mesta.</p>
 
   <h2>Zašto neka mesta nemaju podatke</h2>
   <p>RIK objavljuje rešenja postepeno. Ako za neko biračko mesto u trenutku izrade nije
@@ -404,14 +407,14 @@ function rowsFor(stations,comp){
 }
 
 function publishedCount(stations,comp){
-  if(comp==="oba") return stations.filter(s=>rosterCount(s,"prosireni")>0).length;
+  if(comp==="oba") return stations.filter(s=>rosterCount(s,"stalni")>0 || rosterCount(s,"prosireni")>0).length;
   return stations.filter(s=>rosterCount(s,comp)>0).length;
 }
 
 function stationsWithoutControllers(stations,comp){
   return stations.filter(s=>{
     if(comp==="oba"){
-      if(!rosterCount(s,"prosireni")) return false;
+      if(!rosterCount(s,"stalni") && !rosterCount(s,"prosireni")) return false;
       const n=roster(s,"stalni").filter(p=>!p.deputy).length + roster(s,"prosireni").filter(p=>!p.deputy).length;
       return n===0;
     }
@@ -477,8 +480,8 @@ function renderMeta(){
     Приказано је ${fmt(total)} бирачких места (${esc(cn)}).
     ${missing>0?`Стални састав није објављен за ${fmt(missing)} места.`:""}
     ${missingPr>0?`Проширени састав није објављен за ${fmt(missingPr)} места.`:""}
-    ${zeroAny>0?`${fmt(zeroAny)} објављених места без иједног контролора.`:""}
-    Покривеност се рачуна само од места где је састав објављен.
+    ${zeroAny>0?`${fmt(zeroAny)} објављених места без иједног члана.`:""}
+    Покривеност се рачуна само од места где је састав објављен; за „Оба“ од места где је објављен бар један састав.
     Подаци се аутоматски извлаче из PDF решења (OCR) и могу садржати грешке у именима;
     за правно релевантан податак увек проверите изворни PDF.
     <br>Преузимање: <a href="odbori.csv">odbori.csv</a> (табела) · <a href="odbori.json">odbori.json</a> ·
@@ -502,7 +505,7 @@ function statsTable(stations,comp){
   const members=rows.reduce((n,r)=>n+r.members,0), deputies=rows.reduce((n,r)=>n+r.deputies,0);
   return `<div class="box"><h3>${compTitle(comp)} · ${esc(cityName())} <span>${fmt(members)} контролора · ${fmt(deputies)} заменика</span></h3>
     <div class="tablewrap" style="padding:0"><table>
-      <thead><tr><th>Листа / група</th><th class="num">Члан.</th><th class="num">Зам.</th><th class="num">Места</th><th class="num" title="Објављена места без члана ове листе">Без</th><th>Покривеност</th></tr></thead>
+      <thead><tr><th>Листа / група</th><th class="num">Члан.</th><th class="num">Зам.</th><th class="num" title="Јединствена места где листа има члана у сталном или проширеном саставу">Места</th><th class="num" title="Објављена места (бар један састав) без члана ове листе">Без</th><th>Покривеност</th></tr></thead>
       <tbody>${rows.map(r=>{
         const zero=Math.max(0,published-r.stations);
         const cov=Math.min(100,pct(r.stations,published));
@@ -512,7 +515,7 @@ function statsTable(stations,comp){
         <td class="num">${zero?`<b style="color:#f0b429">${fmt(zero)}</b>`:"0"}</td>
         <td><div class="bar" style="min-width:52px" title="${cov}%"><i style="width:${cov}%;background:${r.color}"></i></div><small class="muted">${cov}%</small></td>
       </tr>`;}).join("")||'<tr><td colspan="6" class="none">нема података</td></tr>'}</tbody></table></div>
-    <div class="muted" style="font-size:11px;margin-top:6px;line-height:1.4">${comp==="oba"?"Објављена места проширеног састава":"Објављена места"}: <b>${fmt(published)}</b> · без иједног контролора: <b>${fmt(zeroAny)}</b>. Покривеност = јединствена места где листа има бар једног члана / објављена места; стални састав може само да дода.</div></div>`;
+    <div class="muted" style="font-size:11px;margin-top:6px;line-height:1.4">${comp==="oba"?"Објављена места (стални ∪ проширени)":"Објављена места"}: <b>${fmt(published)}</b> · без иједног члана: <b>${fmt(zeroAny)}</b>. Покривеност = јединствена места где листа има бар једног члана / објављена места за приказ.${comp==="oba"?" За „Оба“ су објављена места она где је објављен бар један састав; зато комбинована покривеност може бити нижа од само проширене.":""}</div></div>`;
 }
 function renderCityStats(){
   const host=$("#city-stats"); if(!host) return;
@@ -534,7 +537,7 @@ function renderSummary(){
     html+=`<h3 class="section" style="max-width:1500px;margin:6px auto 7px;padding:0 20px">${compTitle(comp)} — ${esc(cityName())}</h3>
     <div class="tablewrap"><table>
       <thead><tr><th>#</th><th>Листа / посланичка група</th><th class="num">Чланови</th><th class="num">Заменици</th>
-        <th class="num">Укупно</th><th class="num">Места</th><th class="num" title="Објављена места без члана ове листе">Без</th><th>Покривеност</th><th></th></tr></thead>
+        <th class="num">Укупно</th><th class="num" title="Јединствена места где листа има члана у сталном или проширеном саставу">Места</th><th class="num" title="Објављена места (бар један састав) без члана ове листе">Без</th><th>Покривеност</th><th></th></tr></thead>
       <tbody>${rows.map((r,i)=>{
         const zero=Math.max(0,published-r.stations);
         const cov=Math.min(100,pct(r.stations,published));
@@ -548,8 +551,8 @@ function renderSummary(){
           <small class="muted">${cov}%</small></td>
         <td><button class="btn" data-listfilter="${esc(r.key)}">прикажи места</button></td>
       </tr>`;}).join("")||'<tr><td colspan="9" class="none">нема података</td></tr>'}</tbody></table></div>
-    <div class="muted" style="max-width:1500px;margin:-2px auto 8px;padding:0 20px;font-size:11.5px">${comp==="oba"?"Објављена места проширеног састава":"Објављена места"}: <b>${fmt(published)}</b> · без иједног контролора: <b>${fmt(zeroAny)}</b>. Покривеност се рачуна само од објављених места; „Без“ је број објављених места где ова листа нема ниједног члана. За „Оба“ стални састав може само да повећа покривеност.</div>`;
-    counts.push(`${compTitle(comp)}: ${rows.length} листа/групе, ${fmt(rows.reduce((n,r)=>n+r.members,0))} чланова, ${fmt(rows.reduce((n,r)=>n+r.deputies,0))} заменика, ${fmt(zeroAny)} места без контролора`);
+    <div class="muted" style="max-width:1500px;margin:-2px auto 8px;padding:0 20px;font-size:11.5px">${comp==="oba"?"Објављена места (стални ∪ проширени)":"Објављена места"}: <b>${fmt(published)}</b> · без иједног члана: <b>${fmt(zeroAny)}</b>. Покривеност се рачуна само од објављених места; „Без“ је број објављених места где ова листа нема ниједног члана.${comp==="oba"?" За „Оба“ су објављена места она где је објављен бар један састав, па комбинована покривеност може бити нижа од само проширене.":""}</div>`;
+    counts.push(`${compTitle(comp)}: ${rows.length} листа/групе, ${fmt(rows.reduce((n,r)=>n+r.members,0))} чланова, ${fmt(rows.reduce((n,r)=>n+r.deputies,0))} заменика, ${fmt(zeroAny)} места без члана`);
   }
   $("#view").innerHTML=html;
   $("#count").textContent=counts.join(" · ");

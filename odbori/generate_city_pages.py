@@ -60,12 +60,16 @@ def city_stats(stations):
     agg = defaultdict(lambda: {
         "ms": 0, "ds": 0, "mp": 0, "dp": 0, "stations": set(),
     })
-    pub_s = pub_p = 0
+    pub_s = pub_p = pub_union = 0
     for s in stations:
-        if s["committees"]["stalni"]["total"]:
+        has_s = bool(s["committees"]["stalni"]["total"])
+        has_p = bool(s["committees"]["prosireni"]["total"])
+        if has_s:
             pub_s += 1
-        if s["committees"]["prosireni"]["total"]:
+        if has_p:
             pub_p += 1
+        if has_s or has_p:
+            pub_union += 1
         for comp, mk, dk in (("stalni", "ms", "ds"), ("prosireni", "mp", "dp")):
             for p in s["committees"][comp]["members"]:
                 v = agg[p["list"]]
@@ -74,7 +78,7 @@ def city_stats(stations):
                 else:
                     v[mk] += 1
                     v["stations"].add(s["no"])
-    return agg, pub_s, pub_p
+    return agg, pub_s, pub_p, pub_union
 
 
 CSS = """
@@ -155,15 +159,15 @@ def city_page(city, stations, meta, lm):
     slug = city["slug"]
     name = city["name"]
     lat = latin(name)
-    agg, pub_s, pub_p = city_stats(stations)
+    agg, pub_s, pub_p, pub_union = city_stats(stations)
     controllers = sum(v["mp"] for v in agg.values())
     deputies = sum(v["dp"] for v in agg.values())
     rows = []
     for k, v in agg.items():
         info = lm.get(k, {"name": k, "short": k, "color": "#9aa5b1"})
         union = len(v["stations"])
-        zero = max(0, pub_p - union)
-        cov = min(100, pct(union, pub_p))
+        zero = max(0, pub_union - union)
+        cov = min(100, pct(union, pub_union))
         rows.append((v["ms"] + v["mp"], info, v, union, zero, cov))
     rows.sort(key=lambda x: (-x[0], x[1]["name"]))
 
@@ -248,12 +252,13 @@ kontrolori po izbornim listama, sa pokrivenošću po objavljenim biračkim mesti
 </div>
 <h2>Članovi i pokrivenost po listama</h2>
 <p class="note">Pokrivenost = broj objavljenih mesta gde lista ima bar jednog člana / broj objavljenih mesta
-proširenog sastava. Kolona „Bez“ je broj objavljenih mesta bez člana te liste. Stalni sastav može samo
-da poveća ukupnu pokrivenost.</p>
+za prikaz. Za prikaz oba sastava, imenilac su mesta gde je objavljen bar jedan sastav (stalni ili
+prošireni; ovde {pub_union}). Kolona „Bez“ je broj objavljenih mesta bez člana te liste. Zato kombinovana pokrivenost
+može biti niža od pokrivenosti samo proširenog sastava.</p>
 <div class="tablewrap"><table>
 <thead><tr><th>Lista / grupa</th><th class="num">Stalni član.</th><th class="num">Stalni zam.</th>
 <th class="num">Prošireni član.</th><th class="num">Prošireni zam.</th><th class="num">Ukupno članova</th>
-<th class="num">Mesta</th><th class="num">Bez</th><th class="num">Pokrivenost</th></tr></thead>
+<th class="num" title="Jedinstvena mesta gde lista ima člana u stalnom ili proširenom sastavu">Mesta</th><th class="num" title="Objavljena mesta (bar jedan sastav) bez člana liste">Bez</th><th class="num">Pokrivenost</th></tr></thead>
 <tbody>{summary_rows}</tbody></table></div>
 <p class="note">Ukupno kontrolora u proširenom sastavu: <strong>{controllers}</strong>;
 zamenika: <strong>{deputies}</strong>.</p>
@@ -278,6 +283,8 @@ def hub_page(data):
     summary = data["summary"]
     lm = list_map(meta)
     controllers = sum(r["members"] for r in summary["by_list"]["prosireni"])
+    published_union = sum(1 for x in data["stations"] if x["committees"]["stalni"]["total"] or x["committees"]["prosireni"]["total"])
+    published_union_label = f"{published_union:,}".replace(",", ".")
     groups = defaultdict(list)
     for c in cities:
         groups[c.get("region_name") or "Ostalo"].append(c)
@@ -319,7 +326,7 @@ def hub_page(data):
                 {"@type": "Question", "name": "Koliko ima kontrolora u proširenom sastavu?",
                  "acceptedAnswer": {"@type": "Answer", "text": f"U proširenom sastavu prikazano je {controllers} članova (kontrolora) i zamenika po listama."}},
                 {"@type": "Question", "name": "Kako se računa pokrivenost?",
-                 "acceptedAnswer": {"@type": "Answer", "text": "Pokrivenost je broj objavljenih biračkih mesta gde lista ima bar jednog člana, podeljen brojem objavljenih mesta za taj sastav."}},
+                 "acceptedAnswer": {"@type": "Answer", "text": "Pokrivenost je broj objavljenih biračkih mesta gde lista ima bar jednog člana, podeljen brojem objavljenih mesta za taj prikaz. Za oba sastava, imenilac su mesta gde je objavljen bar jedan sastav."}},
             ]},
         ],
     }
@@ -340,9 +347,10 @@ Ovo je pregled bez učitavanja velikog JSON fajla; interaktivna analiza je dostu
 {city_html}
 <h2>Kako se računa pokrivenost</h2>
 <p>Pokrivenost liste je broj <strong>objavljenih biračkih mesta</strong> na kojima lista ima bar
-jednog člana, podeljen brojem objavljenih mesta za taj sastav. Mesta bez objavljenog rešenja
-ne ulaze u pokrivenost. Kada se posmatraju oba sastava, stalni sastav može samo da poveća
-ukupnu pokrivenost.</p>
+jednog člana, podeljen brojem objavljenih mesta za taj prikaz. Za pojedinačan sastav, imenilac
+su mesta gde je taj sastav objavljen; za oba sastava, imenilac su mesta gde je objavljen bar
+jedan sastav (stalni ili prošireni; na nivou Srbije {published_union_label}). Mesta bez ijednog objavljenog sastava ne ulaze u pokrivenost.
+Zato kombinovana pokrivenost može biti niža od pokrivenosti samo proširenog sastava.</p>
 <h2>Najčešća pitanja</h2>
 <details><summary>Šta je razlika između stalnog i proširenog sastava?</summary>
 <p>Stalni sastav čine predsednik, zamenik predsednika, dva člana i dva zamenika članova.

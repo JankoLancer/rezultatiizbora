@@ -23,5 +23,5 @@
 
 - Podaci o biračkim odborima su iz javno objavljenih rešenja RIK-a.
 - Imena su izvučena OCR-om i mogu sadržati greške; merodavan je izvorni PDF.
-- Pokrivenost se računa samo od biračkih mesta za koja je RIK objavio rešenje.
+- Pokrivenost se računa samo od biračkih mesta za koja je RIK objavio rešenje; za oba sastava, od mesta gde je objavljen bar jedan sastav.
 - Ažurirano: 22.10.2026.

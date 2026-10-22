@@ -66,7 +66,7 @@
       "mainEntity":[
         {"@type":"Question","name":"Šta sadrži dataset biračkih odbora 2026?","acceptedAnswer":{"@type":"Answer","text":"Dataset sadrži 8.415 biračkih mesta, 142.044 imenovanja u stalnom i proširenom sastavu, 52.534 kontrolora i 46.260 zamenika kontrolora, sa izbornim listama i izvorima."}},
         {"@type":"Question","name":"U kom formatu mogu da preuzmem podatke?","acceptedAnswer":{"@type":"Answer","text":"Podaci su dostupni kao CSV tabela (jedan red = jedna osoba) i kao JSON dataset sa gradovima, biračkim mestima i odborima."}},
-        {"@type":"Question","name":"Kako se računa pokrivenost?","acceptedAnswer":{"@type":"Answer","text":"Pokrivenost liste je broj objavljenih biračkih mesta gde lista ima bar jednog člana, podeljen brojem objavljenih mesta za taj sastav. Mesta bez objavljenog rešenja ne ulaze u pokrivenost."}},
+        {"@type":"Question","name":"Kako se računa pokrivenost?","acceptedAnswer":{"@type":"Answer","text":"Za pojedinačan sastav, pokrivenost je broj objavljenih biračkih mesta gde lista ima bar jednog člana, podeljen brojem objavljenih mesta tog sastava. Za oba sastava, imenilac su mesta gde je objavljen bar jedan sastav (8.242)."}},
         {"@type":"Question","name":"Da li su podaci zvanični?","acceptedAnswer":{"@type":"Answer","text":"Podaci su izvučeni iz javno objavljenih rešenja RIK-a. Ovo je nezvanična analiza; imena su izvučena OCR-om i mogu sadržati greške. Merodavan je izvorni PDF."}}
       ]
     }
@@ -120,6 +120,7 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
   <h1>Podaci o biračkim odborima 2026 — CSV, JSON i metodologija</h1>
   <p class="lead">Dataset imenovanja u biračke odbore za parlamentarne izbore 2026. u Srbiji:
     8.415 biračkih mesta, 142.044 imenovanja, 52.534 kontrolora i 46.260 zamenika kontrolora.
+    Od toga 8.242 mesta imaju objavljen bar jedan sastav (stalni ili prošireni).
     Podaci su izvučeni iz javno objavljenih rešenja RIK-a i dostupni su za preuzimanje.</p>
 
   <div class="kpis">
@@ -129,6 +130,7 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
     <div class="kpi"><div class="k">Imenovanja</div><div class="v">142.044</div></div>
     <div class="kpi"><div class="k">Kontrolori</div><div class="v">52.534</div></div>
   </div>
+  <p class="muted">Za zbirni prikaz oba sastava koristi se 8.242 mesta na kojima je objavljen bar jedan sastav.</p>
 
   <h2>Preuzimanje</h2>
   <div class="downloads">
@@ -159,10 +161,12 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
   <p><strong>Obrada.</strong> PDF dokumenti su skenirani i obrađeni OCR-om. Imena i uloge su
     izvučeni automatski, a sumnjivi spojeni unosi su razdvojeni. Moguće su greške u imenima,
     redosledu i pripadnosti listi; merodavan je izvorni PDF.</p>
-  <p><strong>Pokrivenost.</strong> Pokrivenost liste = broj objavljenih biračkih mesta gde lista
-    ima bar jednog člana / broj objavljenih biračkih mesta za taj sastav. Mesta bez objavljenog
-    rešenja ne ulaze u pokrivenost. Kod zbirnog prikaza oba sastava stalni sastav može samo da
-    poveća pokrivenost.</p>
+  <p><strong>Pokrivenost.</strong> Za pojedinačan sastav, pokrivenost liste = broj objavljenih
+    biračkih mesta gde lista ima bar jednog člana / broj objavljenih biračkih mesta tog sastava.
+    Za zbirni prikaz oba sastava, brojilac su mesta gde lista ima člana u bilo kom sastavu, a
+    imenilac mesta gde je objavljen bar jedan sastav (8.242). Mesta bez ijednog objavljenog
+    sastava ne ulaze u pokrivenost. Zato kombinovana pokrivenost može biti niža od pokrivenosti
+    samo proširenog sastava.</p>
   <p><strong>Nedostajuća mesta.</strong> RIK objavljuje rešenja postepeno. Ako za neko mesto nema
     rešenja za stalni ili prošireni sastav, ono je označeno kao nedostajuće i biće dopunjeno u
     sledećem pregledu. Snapshot nedostajućih podataka je od 22.10.2026.</p>
