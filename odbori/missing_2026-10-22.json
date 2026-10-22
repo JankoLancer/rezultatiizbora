@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T08:45:14Z",
+ "generated": "2026-10-22T09:30:10Z",
  "cities": {
   "aleksandrovac": {
    "name": "Александровац",
@@ -326,39 +326,7 @@
   },
   "cuprija": {
    "name": "Ћуприја",
-   "missing_permanent_nos": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
-    21,
-    22,
-    23,
-    24,
-    25,
-    26,
-    27,
-    28,
-    29,
-    30,
-    31
-   ],
+   "missing_permanent_nos": [],
    "missing_expanded_nos": [
     1,
     18,
@@ -388,7 +356,6 @@
   "doljevac": {
    "name": "Дољевац",
    "missing_permanent_nos": [
-    28,
     200,
     277
    ],
@@ -2165,33 +2132,6 @@
   "srbobran": {
    "name": "Србобран",
    "missing_permanent_nos": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
-    21,
-    22,
-    23,
-    24,
-    25,
-    26,
-    27,
     28
    ],
    "missing_expanded_nos": []
@@ -2303,21 +2243,14 @@
   },
   "ub": {
    "name": "Уб",
-   "missing_permanent_nos": [
-    17,
-    26,
-    42
-   ],
+   "missing_permanent_nos": [],
    "missing_expanded_nos": [
     4,
     7,
-    10,
     12,
     14,
     17,
-    19,
     21,
-    28,
     31,
     32,
     34,
@@ -2346,8 +2279,6 @@
     4,
     5,
     6,
-    18,
-    29,
     32
    ],
    "missing_expanded_nos": [

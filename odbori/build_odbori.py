@@ -16,6 +16,9 @@ import unicodedata
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from parse_odbori import norm, parse_loose  # noqa: E402
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "odbori", "data")
 META = os.path.join(ROOT, "odbori", "meta")
@@ -417,6 +420,36 @@ def place_from_ocr(text):
     return s
 
 
+def repair_entries(decisions, municipality):
+    """Recover people from entries whose name was a merged OCR blob."""
+    ocr_dir = os.path.join(ROOT, "odbori", "ocr", municipality)
+    repaired = 0
+    for d in decisions:
+        if d.get("type") not in ("imenovanje", "dopuna"):
+            continue
+        entries = d.get("entries") or []
+        if entries and all(valid_name(e.get("name")) for e in entries):
+            continue
+        path = os.path.join(ocr_dir, d.get("file") or "")
+        if not os.path.exists(path):
+            continue
+        text = norm(open(path, encoding="utf-8").read())
+        loose = [e for e in parse_loose(text) if valid_name(e.get("name"))]
+        existing = [e for e in entries if valid_name(e.get("name"))]
+        merged, seen = [], set()
+        for e in existing + loose:
+            key = e["name"].lower()
+            if key not in seen:
+                seen.add(key)
+                merged.append(e)
+        if len(merged) > len(existing):
+            d["entries"] = merged
+            repaired += 1
+    if repaired:
+        print(f"  repaired merged OCR entries in {repaired} documents")
+    return decisions
+
+
 def apply_decisions(decisions):
     """Return roster per station/composition after applying all documents."""
     stations = defaultdict(lambda: {"stalni": [], "prosireni": [], "docs": []})
@@ -564,6 +597,7 @@ def build(municipality="kragujevac", election=None, municipality_name=None):
     if municipality_name is None:
         municipality_name = mmeta.get("name") or municipality
     decisions = json.load(open(os.path.join(DATA, municipality + "_decisions.json"), encoding="utf-8"))
+    decisions = repair_entries(decisions, municipality)
     # de-duplicate by URL (the RIK API repeats some documents)
     seen = set()
     unique = []

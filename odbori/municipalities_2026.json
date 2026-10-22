@@ -24,7 +24,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:02Z",
   "last_fetched_at": "2026-10-22T02:01:07Z",
   "parse_problems": 15,
   "build_problems": 0
@@ -85,7 +85,7 @@
    95
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:07Z",
+  "last_built_at": "2026-10-22T09:30:03Z",
   "last_fetched_at": "2026-10-22T00:31:54Z",
   "parse_problems": 19,
   "build_problems": 0
@@ -109,7 +109,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:07Z",
+  "last_built_at": "2026-10-22T09:30:03Z",
   "last_fetched_at": "2026-10-22T00:56:48Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -148,7 +148,7 @@
    50
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:02Z",
   "last_fetched_at": "2026-10-22T01:05:06Z",
   "parse_problems": 3,
   "build_problems": 0
@@ -201,7 +201,7 @@
    47
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:03Z",
   "last_fetched_at": "2026-10-22T00:38:12Z",
   "parse_problems": 40,
   "build_problems": 4
@@ -225,7 +225,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:03Z",
   "last_fetched_at": "2026-10-22T00:23:11Z",
   "parse_problems": 1,
   "build_problems": 0
@@ -257,7 +257,7 @@
    23
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:02Z",
   "last_fetched_at": "2026-10-22T00:57:28Z",
   "parse_problems": 67,
   "build_problems": 0
@@ -305,7 +305,7 @@
    45
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:07Z",
+  "last_built_at": "2026-10-22T09:30:02Z",
   "last_fetched_at": "2026-10-22T00:59:43Z",
   "parse_problems": 42,
   "build_problems": 2
@@ -346,7 +346,7 @@
    447
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:07Z",
+  "last_built_at": "2026-10-22T09:30:03Z",
   "last_fetched_at": "2026-10-22T00:12:33Z",
   "parse_problems": 234,
   "build_problems": 4
@@ -372,7 +372,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:07Z",
+  "last_built_at": "2026-10-22T09:30:02Z",
   "last_fetched_at": "2026-10-22T01:09:09Z",
   "parse_problems": 2,
   "build_problems": 0
@@ -398,7 +398,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:07Z",
+  "last_built_at": "2026-10-22T09:30:03Z",
   "last_fetched_at": "2026-10-22T00:12:03Z",
   "parse_problems": 5,
   "build_problems": 9
@@ -425,7 +425,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:07Z",
+  "last_built_at": "2026-10-22T09:30:03Z",
   "last_fetched_at": "2026-10-22T01:04:20Z",
   "parse_problems": 3,
   "build_problems": 0
@@ -449,7 +449,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:07Z",
+  "last_built_at": "2026-10-22T09:30:03Z",
   "last_fetched_at": "2026-10-22T01:48:29Z",
   "parse_problems": 86,
   "build_problems": 0
@@ -477,7 +477,7 @@
    21
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:07Z",
+  "last_built_at": "2026-10-22T09:30:03Z",
   "last_fetched_at": "2026-10-22T01:44:44Z",
   "parse_problems": 45,
   "build_problems": 0
@@ -503,7 +503,7 @@
    9
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:07Z",
+  "last_built_at": "2026-10-22T09:30:03Z",
   "last_fetched_at": "2026-10-22T00:55:21Z",
   "parse_problems": 3,
   "build_problems": 0
@@ -527,7 +527,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:07Z",
+  "last_built_at": "2026-10-22T09:30:03Z",
   "last_fetched_at": "2026-10-22T01:59:44Z",
   "parse_problems": 4,
   "build_problems": 0
@@ -551,7 +551,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:02Z",
   "last_fetched_at": "2026-10-22T00:23:35Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -575,7 +575,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:09Z",
   "last_fetched_at": "2026-10-22T02:12:35Z",
   "parse_problems": 1,
   "build_problems": 0
@@ -599,7 +599,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T00:39:08Z",
   "parse_problems": 2,
   "build_problems": 0
@@ -623,7 +623,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:03Z",
+  "last_built_at": "2026-10-22T09:29:58Z",
   "last_fetched_at": "2026-10-22T01:47:31Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -656,7 +656,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:03Z",
+  "last_built_at": "2026-10-22T09:29:58Z",
   "last_fetched_at": "2026-10-22T01:59:08Z",
   "parse_problems": 4,
   "build_problems": 0
@@ -689,7 +689,7 @@
    25
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T02:06:50Z",
   "parse_problems": 5,
   "build_problems": 0
@@ -718,7 +718,7 @@
    18
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T01:55:37Z",
   "parse_problems": 7,
   "build_problems": 0
@@ -756,7 +756,7 @@
    43
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T01:33:16Z",
   "parse_problems": 19,
   "build_problems": 0
@@ -785,7 +785,7 @@
    398
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T01:05:36Z",
   "parse_problems": 36,
   "build_problems": 0
@@ -814,7 +814,7 @@
    8
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T02:27:29Z",
   "parse_problems": 3,
   "build_problems": 0
@@ -841,7 +841,7 @@
    19
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T02:09:33Z",
   "parse_problems": 18,
   "build_problems": 0
@@ -865,7 +865,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T02:26:15Z",
   "parse_problems": 3,
   "build_problems": 0
@@ -897,7 +897,7 @@
    31
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T01:21:12Z",
   "parse_problems": 32,
   "build_problems": 2
@@ -921,7 +921,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:57:45Z",
   "parse_problems": 25,
   "build_problems": 0
@@ -947,7 +947,7 @@
    14
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T01:07:47Z",
   "parse_problems": 6,
   "build_problems": 0
@@ -971,7 +971,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T00:49:16Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -995,7 +995,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:01Z",
   "last_fetched_at": "2026-10-22T00:49:10Z",
   "parse_problems": 43,
   "build_problems": 0
@@ -1340,7 +1340,7 @@
    120
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:01Z",
   "last_fetched_at": "2026-10-22T00:12:40Z",
   "parse_problems": 57,
   "build_problems": 152
@@ -1392,7 +1392,7 @@
    76
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:01Z",
   "last_fetched_at": "2026-10-22T00:45:29Z",
   "parse_problems": 27,
   "build_problems": 0
@@ -1416,7 +1416,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T00:54:11Z",
   "parse_problems": 7,
   "build_problems": 0
@@ -1471,7 +1471,7 @@
    52
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:03Z",
   "last_fetched_at": "2026-10-22T01:01:05Z",
   "parse_problems": 1,
   "build_problems": 0
@@ -1561,7 +1561,7 @@
    102
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T00:50:31Z",
   "parse_problems": 2,
   "build_problems": 0
@@ -1601,7 +1601,7 @@
    15
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:36:42Z",
   "parse_problems": 1,
   "build_problems": 0
@@ -1639,7 +1639,7 @@
    6
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:09Z",
   "last_fetched_at": "2026-10-22T01:38:37Z",
   "parse_problems": 26,
   "build_problems": 0
@@ -1673,7 +1673,7 @@
    2
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T01:54:53Z",
   "parse_problems": 8,
   "build_problems": 0
@@ -1704,7 +1704,7 @@
    12
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T02:33:34Z",
   "parse_problems": 17,
   "build_problems": 0
@@ -1728,7 +1728,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T01:57:16Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -1754,7 +1754,7 @@
    14
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T02:12:29Z",
   "parse_problems": 15,
   "build_problems": 3
@@ -1781,7 +1781,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T01:54:11Z",
   "parse_problems": 48,
   "build_problems": 0
@@ -1815,7 +1815,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T01:32:15Z",
   "parse_problems": 31,
   "build_problems": 1
@@ -1841,7 +1841,7 @@
    5
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T02:08:09Z",
   "parse_problems": 22,
   "build_problems": 0
@@ -1872,7 +1872,7 @@
    20
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:26:15Z",
   "parse_problems": 4,
   "build_problems": 0
@@ -1911,7 +1911,7 @@
    30
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:07:49Z",
   "parse_problems": 4,
   "build_problems": 0
@@ -1940,7 +1940,7 @@
    4
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:16:59Z",
   "parse_problems": 11,
   "build_problems": 0
@@ -1967,7 +1967,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:05:32Z",
   "parse_problems": 23,
   "build_problems": 0
@@ -1997,7 +1997,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:23:37Z",
   "parse_problems": 6,
   "build_problems": 0
@@ -2021,7 +2021,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T01:42:04Z",
   "parse_problems": 20,
   "build_problems": 0
@@ -2045,7 +2045,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:20:43Z",
   "parse_problems": 3,
   "build_problems": 0
@@ -2071,7 +2071,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T01:25:31Z",
   "parse_problems": 25,
   "build_problems": 2
@@ -2110,7 +2110,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T01:47:40Z",
   "parse_problems": 8,
   "build_problems": 0
@@ -2140,7 +2140,7 @@
    13
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T02:31:28Z",
   "parse_problems": 17,
   "build_problems": 2
@@ -2157,46 +2157,19 @@
   "document_records": 75,
   "fetched_at": "2026-10-22T00:00:27Z",
   "stations_total": 28,
-  "stations_stalni": 0,
+  "stations_stalni": 27,
   "stations_prosireni": 28,
-  "missing_permanent": 28,
+  "missing_permanent": 1,
   "missing_expanded": 0,
   "missing_permanent_nos": [
-   1,
-   2,
-   3,
-   4,
-   5,
-   6,
-   7,
-   8,
-   9,
-   10,
-   11,
-   12,
-   13,
-   14,
-   15,
-   16,
-   17,
-   18,
-   19,
-   20,
-   21,
-   22,
-   23,
-   24,
-   25,
-   26,
-   27,
    28
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T01:49:23Z",
   "parse_problems": 42,
-  "build_problems": 5
+  "build_problems": 2
  },
  {
   "region": "2",
@@ -2214,7 +2187,7 @@
   "stations_prosireni": 8,
   "missing_permanent": 0,
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T02:12:51Z",
   "parse_problems": 0,
   "build_problems": 0,
@@ -2260,7 +2233,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T01:14:10Z",
   "parse_problems": 56,
   "build_problems": 2
@@ -2299,7 +2272,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T02:04:28Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -2332,7 +2305,7 @@
    23
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T02:18:06Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -2360,7 +2333,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T02:00:37Z",
   "parse_problems": 9,
   "build_problems": 2
@@ -2384,7 +2357,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T01:41:36Z",
   "parse_problems": 46,
   "build_problems": 0
@@ -2408,7 +2381,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T00:46:08Z",
   "parse_problems": 62,
   "build_problems": 0
@@ -2437,7 +2410,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T01:44:10Z",
   "parse_problems": 51,
   "build_problems": 0
@@ -2475,7 +2448,7 @@
    16
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T01:49:35Z",
   "parse_problems": 45,
   "build_problems": 0
@@ -2515,7 +2488,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T02:02:21Z",
   "parse_problems": 24,
   "build_problems": 0
@@ -2539,7 +2512,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T02:14:17Z",
   "parse_problems": 23,
   "build_problems": 0
@@ -2565,7 +2538,7 @@
    11
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T01:45:42Z",
   "parse_problems": 26,
   "build_problems": 0
@@ -2603,7 +2576,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T01:39:26Z",
   "parse_problems": 28,
   "build_problems": 0
@@ -2627,7 +2600,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T01:18:53Z",
   "parse_problems": 85,
   "build_problems": 1
@@ -2653,7 +2626,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:27:07Z",
   "parse_problems": 53,
   "build_problems": 0
@@ -2670,17 +2643,15 @@
   "document_records": 97,
   "fetched_at": "2026-10-22T00:01:14Z",
   "stations_total": 32,
-  "stations_stalni": 25,
+  "stations_stalni": 27,
   "stations_prosireni": 28,
-  "missing_permanent": 7,
+  "missing_permanent": 5,
   "missing_expanded": 4,
   "missing_permanent_nos": [
    3,
    4,
    5,
    6,
-   18,
-   29,
    32
   ],
   "missing_expanded_nos": [
@@ -2690,7 +2661,7 @@
    32
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:31:22Z",
   "parse_problems": 48,
   "build_problems": 0
@@ -2714,7 +2685,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:16:39Z",
   "parse_problems": 2,
   "build_problems": 0
@@ -2786,7 +2757,7 @@
    30
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:08:23Z",
   "parse_problems": 35,
   "build_problems": 20
@@ -2810,7 +2781,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T01:41:39Z",
   "parse_problems": 19,
   "build_problems": 0
@@ -2847,7 +2818,7 @@
    29
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T01:44:26Z",
   "parse_problems": 36,
   "build_problems": 0
@@ -2871,7 +2842,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T01:19:08Z",
   "parse_problems": 21,
   "build_problems": 0
@@ -2967,7 +2938,7 @@
    113
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T00:38:45Z",
   "parse_problems": 55,
   "build_problems": 0
@@ -2991,7 +2962,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T00:50:36Z",
   "parse_problems": 119,
   "build_problems": 0
@@ -3074,7 +3045,7 @@
    152
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:01Z",
   "last_fetched_at": "2026-10-22T00:12:12Z",
   "parse_problems": 97,
   "build_problems": 0
@@ -3128,7 +3099,7 @@
    4
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:01Z",
   "last_fetched_at": "2026-10-22T00:44:28Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -3158,7 +3129,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:02Z",
   "last_fetched_at": "2026-10-22T00:54:31Z",
   "parse_problems": 15,
   "build_problems": 0
@@ -3182,7 +3153,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:03Z",
   "last_fetched_at": "2026-10-22T00:44:55Z",
   "parse_problems": 9,
   "build_problems": 0
@@ -3208,7 +3179,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:02Z",
   "last_fetched_at": "2026-10-22T02:11:49Z",
   "parse_problems": 1,
   "build_problems": 0
@@ -3245,7 +3216,7 @@
    50
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:02Z",
   "last_fetched_at": "2026-10-22T01:15:27Z",
   "parse_problems": 1,
   "build_problems": 0
@@ -3276,7 +3247,7 @@
    16
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:02Z",
   "last_fetched_at": "2026-10-22T02:04:51Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -3317,7 +3288,7 @@
    50
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:07Z",
+  "last_built_at": "2026-10-22T09:30:02Z",
   "last_fetched_at": "2026-10-22T01:12:45Z",
   "parse_problems": 3,
   "build_problems": 0
@@ -3352,7 +3323,7 @@
    40
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:07Z",
+  "last_built_at": "2026-10-22T09:30:02Z",
   "last_fetched_at": "2026-10-22T01:18:04Z",
   "parse_problems": 2,
   "build_problems": 0
@@ -3388,7 +3359,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:02Z",
   "last_fetched_at": "2026-10-22T01:42:05Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -3412,7 +3383,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T02:00:51Z",
   "parse_problems": 11,
   "build_problems": 0
@@ -3429,12 +3400,11 @@
   "document_records": 76,
   "fetched_at": "2026-10-22T00:02:31Z",
   "stations_total": 39,
-  "stations_stalni": 36,
+  "stations_stalni": 37,
   "stations_prosireni": 36,
-  "missing_permanent": 3,
+  "missing_permanent": 2,
   "missing_expanded": 3,
   "missing_permanent_nos": [
-   28,
    200,
    277
   ],
@@ -3444,7 +3414,7 @@
    30
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T01:38:44Z",
   "parse_problems": 40,
   "build_problems": 0
@@ -3484,7 +3454,7 @@
    37
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:26:34Z",
   "parse_problems": 10,
   "build_problems": 0
@@ -3508,7 +3478,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:09Z",
   "last_fetched_at": "2026-10-22T02:42:32Z",
   "parse_problems": 6,
   "build_problems": 0
@@ -3538,7 +3508,7 @@
    20
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:09Z",
   "last_fetched_at": "2026-10-22T02:03:35Z",
   "parse_problems": 7,
   "build_problems": 0
@@ -3562,7 +3532,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T02:09:38Z",
   "parse_problems": 12,
   "build_problems": 7
@@ -3609,7 +3579,7 @@
    368
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T00:45:44Z",
   "parse_problems": 19,
   "build_problems": 0
@@ -3651,7 +3621,7 @@
    30
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T01:37:06Z",
   "parse_problems": 7,
   "build_problems": 0
@@ -3675,7 +3645,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T01:34:22Z",
   "parse_problems": 16,
   "build_problems": 0
@@ -3712,7 +3682,7 @@
    34
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T01:26:43Z",
   "parse_problems": 52,
   "build_problems": 0
@@ -3756,7 +3726,7 @@
    41
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T01:39:24Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -3786,7 +3756,7 @@
    18
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T01:50:22Z",
   "parse_problems": 1,
   "build_problems": 0
@@ -3817,7 +3787,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:27:54Z",
   "parse_problems": 4,
   "build_problems": 0
@@ -3841,7 +3811,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:11:05Z",
   "parse_problems": 28,
   "build_problems": 0
@@ -3885,7 +3855,7 @@
    64
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T00:40:20Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -3909,7 +3879,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T01:23:11Z",
   "parse_problems": 54,
   "build_problems": 9
@@ -3947,7 +3917,7 @@
    31
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T01:25:17Z",
   "parse_problems": 31,
   "build_problems": 0
@@ -4000,7 +3970,7 @@
    85
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T00:40:09Z",
   "parse_problems": 6,
   "build_problems": 0
@@ -4024,7 +3994,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T02:22:40Z",
   "parse_problems": 19,
   "build_problems": 1
@@ -4048,7 +4018,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:15:09Z",
   "parse_problems": 26,
   "build_problems": 0
@@ -4124,7 +4094,7 @@
    2
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T01:08:50Z",
   "parse_problems": 18,
   "build_problems": 1
@@ -4160,7 +4130,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T02:05:05Z",
   "parse_problems": 5,
   "build_problems": 1
@@ -4198,7 +4168,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T01:12:46Z",
   "parse_problems": 16,
   "build_problems": 1
@@ -4222,7 +4192,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:57:36Z",
   "parse_problems": 28,
   "build_problems": 0
@@ -4250,7 +4220,7 @@
    5
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T02:21:53Z",
   "parse_problems": 10,
   "build_problems": 0
@@ -4274,7 +4244,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T02:29:05Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4298,7 +4268,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T02:13:19Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4322,7 +4292,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T02:12:52Z",
   "parse_problems": 1,
   "build_problems": 0
@@ -4346,7 +4316,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T02:36:54Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4370,7 +4340,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:09Z",
   "last_fetched_at": "2026-10-22T02:28:23Z",
   "parse_problems": 1,
   "build_problems": 0
@@ -4394,7 +4364,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:09Z",
   "last_fetched_at": "2026-10-22T02:24:23Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4418,7 +4388,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T02:10:26Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4442,7 +4412,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T02:47:26Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4466,7 +4436,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T02:39:23Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4490,7 +4460,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T02:47:02Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4516,7 +4486,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T02:35:14Z",
   "parse_problems": 6,
   "build_problems": 0
@@ -4540,7 +4510,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T02:05:47Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4564,7 +4534,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T02:10:13Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4588,7 +4558,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:45:13Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4612,7 +4582,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:29:12Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4636,7 +4606,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:14:05Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4660,7 +4630,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:10:31Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4684,7 +4654,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:47:31Z",
   "parse_problems": 1,
   "build_problems": 0
@@ -4708,7 +4678,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:23:44Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4732,7 +4702,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T02:39:37Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4756,7 +4726,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T02:45:19Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4780,7 +4750,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T02:44:57Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4826,7 +4796,7 @@
    61
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:03Z",
+  "last_built_at": "2026-10-22T09:29:58Z",
   "last_fetched_at": "2026-10-22T01:15:10Z",
   "parse_problems": 10,
   "build_problems": 0
@@ -4850,7 +4820,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T01:30:44Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4876,7 +4846,7 @@
    23
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T02:09:34Z",
   "parse_problems": 8,
   "build_problems": 0
@@ -4947,7 +4917,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T01:30:30Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -4971,7 +4941,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T02:29:34Z",
   "parse_problems": 11,
   "build_problems": 0
@@ -5007,7 +4977,7 @@
    22
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:29:59Z",
   "last_fetched_at": "2026-10-22T01:49:32Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -5037,7 +5007,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T01:52:25Z",
   "parse_problems": 32,
   "build_problems": 0
@@ -5063,7 +5033,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:18:50Z",
   "parse_problems": 17,
   "build_problems": 0
@@ -5097,7 +5067,7 @@
    21
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:50:59Z",
   "parse_problems": 16,
   "build_problems": 1
@@ -5121,7 +5091,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:42:11Z",
   "parse_problems": 49,
   "build_problems": 0
@@ -5172,7 +5142,7 @@
    52
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T01:00:09Z",
   "parse_problems": 2,
   "build_problems": 0
@@ -5220,7 +5190,7 @@
    103
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T00:21:47Z",
   "parse_problems": 37,
   "build_problems": 0
@@ -5246,7 +5216,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T00:57:54Z",
   "parse_problems": 2,
   "build_problems": 0
@@ -5278,7 +5248,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:01Z",
   "last_fetched_at": "2026-10-22T00:12:46Z",
   "parse_problems": 1,
   "build_problems": 0
@@ -5310,7 +5280,7 @@
    102
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:01Z",
   "last_fetched_at": "2026-10-22T00:30:47Z",
   "parse_problems": 31,
   "build_problems": 0
@@ -5334,7 +5304,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:01Z",
   "last_fetched_at": "2026-10-22T00:11:42Z",
   "parse_problems": 1,
   "build_problems": 0
@@ -5384,7 +5354,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:01Z",
   "last_fetched_at": "2026-10-22T00:29:03Z",
   "parse_problems": 11,
   "build_problems": 0
@@ -5410,7 +5380,7 @@
    72
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:01Z",
   "last_fetched_at": "2026-10-22T00:31:03Z",
   "parse_problems": 3,
   "build_problems": 0
@@ -5454,7 +5424,7 @@
    79
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T00:34:52Z",
   "parse_problems": 3,
   "build_problems": 0
@@ -5494,7 +5464,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T00:27:06Z",
   "parse_problems": 40,
   "build_problems": 0
@@ -5518,7 +5488,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:06Z",
+  "last_built_at": "2026-10-22T09:30:02Z",
   "last_fetched_at": "2026-10-22T00:35:37Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -5542,7 +5512,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:07Z",
+  "last_built_at": "2026-10-22T09:30:03Z",
   "last_fetched_at": "2026-10-22T02:46:40Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -5570,7 +5540,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T01:40:38Z",
   "parse_problems": 24,
   "build_problems": 0
@@ -5596,7 +5566,7 @@
    45
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:08Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T01:01:33Z",
   "parse_problems": 55,
   "build_problems": 0
@@ -5632,7 +5602,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:04Z",
   "last_fetched_at": "2026-10-22T01:26:54Z",
   "parse_problems": 1,
   "build_problems": 0
@@ -5662,7 +5632,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T02:21:12Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -5690,7 +5660,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T01:29:48Z",
   "parse_problems": 21,
   "build_problems": 0
@@ -5714,7 +5684,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T01:45:02Z",
   "parse_problems": 6,
   "build_problems": 0
@@ -5745,7 +5715,7 @@
    29
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T02:02:08Z",
   "parse_problems": 38,
   "build_problems": 0
@@ -5769,7 +5739,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T02:45:36Z",
   "parse_problems": 5,
   "build_problems": 0
@@ -5808,7 +5778,7 @@
    43
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T01:16:32Z",
   "parse_problems": 3,
   "build_problems": 1
@@ -5832,7 +5802,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T02:13:45Z",
   "parse_problems": 32,
   "build_problems": 0
@@ -5861,7 +5831,7 @@
    16
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T01:57:58Z",
   "parse_problems": 33,
   "build_problems": 0
@@ -5900,7 +5870,7 @@
    29
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:09Z",
+  "last_built_at": "2026-10-22T09:30:05Z",
   "last_fetched_at": "2026-10-22T02:14:33Z",
   "parse_problems": 10,
   "build_problems": 0
@@ -5926,7 +5896,7 @@
    21
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T01:22:30Z",
   "parse_problems": 8,
   "build_problems": 0
@@ -5954,7 +5924,7 @@
    22
   ],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T01:37:02Z",
   "parse_problems": 52,
   "build_problems": 0
@@ -5978,7 +5948,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T02:18:49Z",
   "parse_problems": 22,
   "build_problems": 0
@@ -6002,7 +5972,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T01:25:07Z",
   "parse_problems": 57,
   "build_problems": 0
@@ -6026,7 +5996,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:06Z",
   "last_fetched_at": "2026-10-22T00:59:39Z",
   "parse_problems": 0,
   "build_problems": 0
@@ -6050,7 +6020,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T01:21:29Z",
   "parse_problems": 6,
   "build_problems": 0
@@ -6098,7 +6068,7 @@
    48
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:10Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T01:04:07Z",
   "parse_problems": 13,
   "build_problems": 1
@@ -6127,7 +6097,7 @@
    18
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T02:16:12Z",
   "parse_problems": 8,
   "build_problems": 0
@@ -6151,7 +6121,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T01:10:31Z",
   "parse_problems": 88,
   "build_problems": 0
@@ -6175,7 +6145,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T01:27:38Z",
   "parse_problems": 13,
   "build_problems": 1
@@ -6204,7 +6174,7 @@
    27
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T01:51:33Z",
   "parse_problems": 43,
   "build_problems": 0
@@ -6230,7 +6200,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:07Z",
   "last_fetched_at": "2026-10-22T00:50:17Z",
   "parse_problems": 14,
   "build_problems": 0
@@ -6260,7 +6230,7 @@
    23
   ],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T02:08:12Z",
   "parse_problems": 11,
   "build_problems": 0
@@ -6286,7 +6256,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:08:31Z",
   "parse_problems": 23,
   "build_problems": 0
@@ -6310,7 +6280,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:12Z",
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:04:17Z",
   "parse_problems": 29,
   "build_problems": 1
@@ -6334,7 +6304,7 @@
   "missing_permanent_nos": [],
   "missing_expanded_nos": [],
   "complete": true,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T02:02:48Z",
   "parse_problems": 9,
   "build_problems": 0
@@ -6351,43 +6321,11 @@
   "document_records": 62,
   "fetched_at": "2026-10-22T00:06:32Z",
   "stations_total": 31,
-  "stations_stalni": 0,
+  "stations_stalni": 31,
   "stations_prosireni": 17,
-  "missing_permanent": 31,
+  "missing_permanent": 0,
   "missing_expanded": 14,
-  "missing_permanent_nos": [
-   1,
-   2,
-   3,
-   4,
-   5,
-   6,
-   7,
-   8,
-   9,
-   10,
-   11,
-   12,
-   13,
-   14,
-   15,
-   16,
-   17,
-   18,
-   19,
-   20,
-   21,
-   22,
-   23,
-   24,
-   25,
-   26,
-   27,
-   28,
-   29,
-   30,
-   31
-  ],
+  "missing_permanent_nos": [],
   "missing_expanded_nos": [
    1,
    18,
@@ -6404,8 +6342,8 @@
    29,
    30
   ],
-  "complete": false,
-  "last_built_at": "2026-10-22T08:45:05Z",
+  "complete": true,
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T02:05:07Z",
   "parse_problems": 31,
   "build_problems": 0
@@ -6422,33 +6360,26 @@
   "document_records": 118,
   "fetched_at": "2026-10-22T00:06:41Z",
   "stations_total": 52,
-  "stations_stalni": 49,
-  "stations_prosireni": 38,
-  "missing_permanent": 3,
-  "missing_expanded": 14,
-  "missing_permanent_nos": [
-   17,
-   26,
-   42
-  ],
+  "stations_stalni": 52,
+  "stations_prosireni": 41,
+  "missing_permanent": 0,
+  "missing_expanded": 11,
+  "missing_permanent_nos": [],
   "missing_expanded_nos": [
    4,
    7,
-   10,
    12,
    14,
    17,
-   19,
    21,
-   28,
    31,
    32,
    34,
    40,
    48
   ],
-  "complete": false,
-  "last_built_at": "2026-10-22T08:45:11Z",
+  "complete": true,
+  "last_built_at": "2026-10-22T09:30:08Z",
   "last_fetched_at": "2026-10-22T01:21:35Z",
   "parse_problems": 72,
   "build_problems": 0
@@ -6484,7 +6415,7 @@
   ],
   "missing_expanded_nos": [],
   "complete": false,
-  "last_built_at": "2026-10-22T08:45:04Z",
+  "last_built_at": "2026-10-22T09:30:00Z",
   "last_fetched_at": "2026-10-22T02:01:30Z",
   "parse_problems": 7,
   "build_problems": 0

@@ -368,6 +368,48 @@ def parse_base_nocolon(text):
     return fill_pair_proposers(entries)
 
 
+LOOSE_RE = re.compile(
+    r"(?:(?P<num>\d+)[.)]?\s*)?"
+    r"(?P<role>заменик\s+члана|заменик\s+председника|председник|члан)\b\s*[:;/. ]?\s*",
+    re.I,
+)
+
+
+def parse_loose(text):
+    """Recover all role/name pairs from a messy OCR text.
+
+    Used when the strict parser merged several people into one name.
+    """
+    body = disposition(text)
+    if len(body) < 50:
+        body = text
+    matches = list(LOOSE_RE.finditer(body))
+    out = []
+    for i, m in enumerate(matches):
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(body)
+        segment = body[m.end():end]
+        name = extract_name(segment)
+        if not name:
+            continue
+        low = m.group("role").lower()
+        if "заменик" in low and "председник" in low:
+            role = "zamenik_predsednika"
+        elif "председник" in low:
+            role = "predsednik"
+        elif "заменик" in low:
+            role = "zamenik_clana"
+        else:
+            role = "clan"
+        idx = m.group("num")
+        out.append({
+            "role": role,
+            "index": int(idx) if idx else None,
+            "name": name,
+            "proposer": extract_proposer(segment),
+        })
+    return fill_pair_proposers(out)
+
+
 IZMENA_RE = re.compile(
     r"(?:уместо|место)\s+(?P<old>[^,;]+?)\s+(?:за|као)\s+(?P<role>[^\n,;]+?)\s+именује\s*[:;,]?\s*(?:се\s+)?"
     r"(?P<new>[^,;]+?)(?=,|;|\.\s|\s+на\s+предлог|$)(?P<rest>[^;]*)",
