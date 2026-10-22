@@ -30,9 +30,13 @@
   .city-stats .box h3{margin:0 0 7px;font-size:12.5px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
   .city-stats .box h3 span{font-size:11px;color:var(--muted);font-weight:400}
   .city-stats .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .city-stats .grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .city-stats .grid.three .lname{max-width:110px}
+  .city-stats .grid.three .box h3{font-size:11.5px}
   .city-stats table{font-size:11.5px;white-space:nowrap}
   .city-stats th,.city-stats td{padding:4px 6px}
   .city-stats .lname{max-width:260px;overflow:hidden;text-overflow:ellipsis;display:inline-block;vertical-align:middle}
+  @media (max-width:1100px){ .city-stats .grid.three{grid-template-columns:1fr} }
   @media (max-width:900px){ .city-stats .grid{grid-template-columns:1fr} }
   .controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:end;max-width:1500px;margin:0 auto;padding:4px 20px 10px}
   .controls label{display:flex;flex-direction:column;gap:3px;font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
@@ -208,6 +212,7 @@ function cityStations(){
 }
 
 const SUMMARY_CACHE=new Map();
+
 function summaryRows(stations,comp){
   const cacheKey=state.city+"|"+comp;
   if(stations.length===cityStations().length && SUMMARY_CACHE.has(cacheKey)) return SUMMARY_CACHE.get(cacheKey);
@@ -215,17 +220,74 @@ function summaryRows(stations,comp){
   for(const s of stations){
     for(const p of roster(s,comp)){
       let v=agg.get(p.list);
-      if(!v){ v={key:p.list,members:0,deputies:0,stations:new Set()}; agg.set(p.list,v); }
+      if(!v){ v={key:p.list,members:0,deputies:0,stations:new Set(),perStation:new Map()}; agg.set(p.list,v); }
       if(p.deputy) v.deputies++;
-      else { v.members++; v.stations.add(stationKey(s)); }
+      else {
+        v.members++;
+        const sk=stationKey(s);
+        v.stations.add(sk);
+        v.perStation.set(sk,(v.perStation.get(sk)||0)+1);
+      }
     }
   }
   const rows=[...agg.values()].map(v=>{
     const info=listInfo(v.key);
-    return {...info,members:v.members,deputies:v.deputies,stations:v.stations.size,total:v.members+v.deputies};
+    const multi=[...v.perStation.values()].filter(n=>n>1).length;
+    return {...info,members:v.members,deputies:v.deputies,stations:v.stations.size,multi,total:v.members+v.deputies};
   }).sort((a,b)=> (b.members-a.members)||(b.total-a.total)||a.name.localeCompare(b.name,"sr"));
   if(stations.length===cityStations().length) SUMMARY_CACHE.set(cacheKey,rows);
   return rows;
+}
+
+function combinedSummaryRows(stations){
+  const cacheKey=state.city+"|oba";
+  if(stations.length===cityStations().length && SUMMARY_CACHE.has(cacheKey)) return SUMMARY_CACHE.get(cacheKey);
+  const agg=new Map();
+  for(const s of stations){
+    const multiLists=new Set();
+    for(const comp of ["stalni","prosireni"]){
+      const local=new Map();
+      for(const p of roster(s,comp)){
+        let v=agg.get(p.list);
+        if(!v){ v={key:p.list,members:0,deputies:0,stations:new Set()}; agg.set(p.list,v); }
+        if(p.deputy) v.deputies++;
+        else {
+          v.members++;
+          v.stations.add(stationKey(s));
+          local.set(p.list,(local.get(p.list)||0)+1);
+        }
+      }
+      for(const [k,n] of local){ if(n>1) multiLists.add(k); }
+    }
+    for(const k of multiLists) agg.get(k).multi=(agg.get(k).multi||0)+1;
+  }
+  const rows=[...agg.values()].map(v=>{
+    const info=listInfo(v.key);
+    return {...info,members:v.members,deputies:v.deputies,stations:v.stations.size,multi:v.multi||0,total:v.members+v.deputies};
+  }).sort((a,b)=> (b.members-a.members)||(b.total-a.total)||a.name.localeCompare(b.name,"sr"));
+  if(stations.length===cityStations().length) SUMMARY_CACHE.set(cacheKey,rows);
+  return rows;
+}
+
+function rowsFor(stations,comp){
+  return comp==="oba"?combinedSummaryRows(stations):summaryRows(stations,comp);
+}
+
+function publishedCount(stations,comp){
+  if(comp==="oba") return stations.filter(s=>rosterCount(s,"stalni")>0||rosterCount(s,"prosireni")>0).length;
+  return stations.filter(s=>rosterCount(s,comp)>0).length;
+}
+
+function stationsWithoutControllers(stations,comp){
+  return stations.filter(s=>{
+    if(comp==="oba"){
+      if(!rosterCount(s,"stalni") && !rosterCount(s,"prosireni")) return false;
+      const n=roster(s,"stalni").filter(p=>!p.deputy).length + roster(s,"prosireni").filter(p=>!p.deputy).length;
+      return n===0;
+    }
+    if(!rosterCount(s,comp)) return false;
+    return roster(s,comp).filter(p=>!p.deputy).length===0;
+  }).length;
 }
 
 function matchesQuery(s,q){
@@ -261,6 +323,7 @@ function filteredStations(){
 }
 
 function compLabel(c){ return c==="stalni"?"Стални састав":c==="prosireni"?"Проширени састав":"Оба састава"; }
+function compTitle(c){ return c==="oba"?"Укупно (стални + проширени)":compLabel(c); }
 
 function renderMeta(){
   const m=DATA.meta, st=cityStations();
@@ -285,11 +348,14 @@ function renderMeta(){
     <div class="kpi"><div class="k">Проширени састав</div><div class="v">${fmt(nPr)}</div><div class="s">места са контролорима</div></div>
     <div class="kpi"><div class="k">Листе / групе</div><div class="v">${fmt(lists.size)}</div><div class="s">предлагача у одборима</div></div>`;
   const missing=total-nSt, missingPr=total-nPr;
+  const zeroAny=stationsWithoutControllers(st,state.comp);
   $("#note").innerHTML=`<strong>Извор:</strong> Републичка изборна комисија,
     <a href="${esc(m.source)}" target="_blank" rel="noopener">документа о именовању бирачких одбора</a>.
     Приказано је ${fmt(total)} бирачких места (${esc(cn)}).
     ${missing>0?`Стални састав није објављен за ${fmt(missing)} места.`:""}
     ${missingPr>0?`Проширени састав није објављен за ${fmt(missingPr)} места.`:""}
+    ${zeroAny>0?`${fmt(zeroAny)} објављених места без иједног контролора.`:""}
+    Покривеност се рачуна само од места где је састав објављен.
     Подаци се аутоматски извлаче из PDF решења (OCR) и могу садржати грешке у именима;
     за правно релевантан податак увек проверите изворни PDF.
     <br>Преузимање: <a href="odbori.csv">odbori.csv</a> (табела) · <a href="odbori.json">odbori.json</a>.`;
@@ -305,23 +371,27 @@ function renderListOptions(){
 }
 
 function statsTable(stations,comp){
-  const rows=summaryRows(stations,comp).filter(r=>state.list==="all"||r.key===state.list);
-  const totalStations=stations.filter(s=>rosterCount(s,comp)).length;
+  const rows=rowsFor(stations,comp).filter(r=>state.list==="all"||r.key===state.list);
+  const published=publishedCount(stations,comp);
+  const zeroAny=stationsWithoutControllers(stations,comp);
   const members=rows.reduce((n,r)=>n+r.members,0), deputies=rows.reduce((n,r)=>n+r.deputies,0);
-  return `<div class="box"><h3>${compLabel(comp)} · ${esc(cityName())} <span>${fmt(members)} контролора · ${fmt(deputies)} заменика</span></h3>
+  return `<div class="box"><h3>${compTitle(comp)} · ${esc(cityName())} <span>${fmt(members)} контролора · ${fmt(deputies)} заменика</span></h3>
     <div class="tablewrap" style="padding:0"><table>
-      <thead><tr><th>Листа / група</th><th class="num">Члан.</th><th class="num">Зам.</th><th class="num">Места</th><th>Покривеност</th></tr></thead>
-      <tbody>${rows.map(r=>`<tr>
+      <thead><tr><th>Листа / група</th><th class="num">Члан.</th><th class="num">Зам.</th><th class="num">Места</th><th class="num" title="Објављена места без члана ове листе">Без</th><th class="num" title="Места са 2 или више чланова ове листе">2+</th><th>Покривеност</th></tr></thead>
+      <tbody>${rows.map(r=>{
+        const zero=Math.max(0,published-r.stations);
+        return `<tr>
         <td>${listDot(r.key)}<span class="lname" title="${esc(r.name)}">${esc(r.short)}</span></td>
         <td class="num"><b>${fmt(r.members)}</b></td><td class="num">${fmt(r.deputies)}</td><td class="num">${fmt(r.stations)}</td>
-        <td><div class="bar" style="min-width:60px"><i style="width:${pct(r.stations,totalStations)}%;background:${r.color}"></i></div></td>
-      </tr>`).join("")||'<tr><td colspan="5" class="none">нема података</td></tr>'}</tbody></table></div></div>`;
+        <td class="num">${zero?`<b style="color:#f0b429">${fmt(zero)}</b>`:"0"}</td><td class="num">${r.multi?fmt(r.multi):"0"}</td>
+        <td><div class="bar" style="min-width:52px" title="${pct(r.stations,published)}%"><i style="width:${pct(r.stations,published)}%;background:${r.color}"></i></div><small class="muted">${pct(r.stations,published)}%</small></td>
+      </tr>`;}).join("")||'<tr><td colspan="7" class="none">нема података</td></tr>'}</tbody></table></div>
+    <div class="muted" style="font-size:11px;margin-top:6px;line-height:1.4">${comp==="oba"?"Објављена места (било који састав)":"Објављена места"}: <b>${fmt(published)}</b> · без иједног контролора: <b>${fmt(zeroAny)}</b>. Покривеност = места где листа има бар једног члана / објављена места.</div></div>`;
 }
-
 function renderCityStats(){
   const host=$("#city-stats"); if(!host) return;
   if(state.comp==="oba"){
-    host.innerHTML=`<div class="grid">${statsTable(cityStations(),"stalni")}${statsTable(cityStations(),"prosireni")}</div>`;
+    host.innerHTML=`<div class="grid three">${statsTable(cityStations(),"stalni")}${statsTable(cityStations(),"prosireni")}${statsTable(cityStations(),"oba")}</div>`;
   } else {
     host.innerHTML=statsTable(cityStations(),state.comp);
   }
@@ -329,25 +399,30 @@ function renderCityStats(){
 
 function renderSummary(){
   const stations=cityStations();
-  const comps=state.comp==="oba"?["stalni","prosireni"]:[state.comp];
+  const comps=state.comp==="oba"?["stalni","prosireni","oba"]:[state.comp];
   let html="", counts=[];
   for(const comp of comps){
-    const rows=summaryRows(stations,comp).filter(r=>state.list==="all"||r.key===state.list);
-    const totalStations=stations.filter(s=>rosterCount(s,comp)).length;
-    html+=`<h3 class="section" style="max-width:1500px;margin:6px auto 7px;padding:0 20px">${compLabel(comp)} — ${esc(cityName())}</h3>
+    const rows=rowsFor(stations,comp).filter(r=>state.list==="all"||r.key===state.list);
+    const published=publishedCount(stations,comp);
+    const zeroAny=stationsWithoutControllers(stations,comp);
+    html+=`<h3 class="section" style="max-width:1500px;margin:6px auto 7px;padding:0 20px">${compTitle(comp)} — ${esc(cityName())}</h3>
     <div class="tablewrap"><table>
       <thead><tr><th>#</th><th>Листа / посланичка група</th><th class="num">Чланови</th><th class="num">Заменици</th>
-        <th class="num">Укупно</th><th class="num">Места</th><th>Покривеност</th><th></th></tr></thead>
-      <tbody>${rows.map((r,i)=>`<tr>
+        <th class="num">Укупно</th><th class="num">Места</th><th class="num" title="Објављена места без члана ове листе">Без</th><th class="num" title="Места са 2 или више чланова ове листе">2+</th><th>Покривеност</th><th></th></tr></thead>
+      <tbody>${rows.map((r,i)=>{
+        const zero=Math.max(0,published-r.stations);
+        return `<tr>
         <td class="num">${i+1}</td>
         <td>${listDot(r.key)}<b>${esc(r.name)}</b> <span class="muted">(${esc(r.short)})</span></td>
         <td class="num">${fmt(r.members)}</td><td class="num">${fmt(r.deputies)}</td>
         <td class="num"><b>${fmt(r.total)}</b></td><td class="num">${fmt(r.stations)}</td>
-        <td><div class="bar" title="${pct(r.stations,totalStations)}%"><i style="width:${pct(r.stations,totalStations)}%;background:${r.color}"></i></div>
-          <small class="muted">${pct(r.stations,totalStations)}%</small></td>
+        <td class="num">${zero?`<b style="color:#f0b429">${fmt(zero)}</b>`:"0"}</td><td class="num">${r.multi?fmt(r.multi):"0"}</td>
+        <td><div class="bar" title="${pct(r.stations,published)}%"><i style="width:${pct(r.stations,published)}%;background:${r.color}"></i></div>
+          <small class="muted">${pct(r.stations,published)}%</small></td>
         <td><button class="btn" data-listfilter="${esc(r.key)}">прикажи места</button></td>
-      </tr>`).join("")||'<tr><td colspan="8" class="none">нема података</td></tr>'}</tbody></table></div>`;
-    counts.push(`${compLabel(comp)}: ${rows.length} листа/групе, ${fmt(rows.reduce((n,r)=>n+r.members,0))} чланова и ${fmt(rows.reduce((n,r)=>n+r.deputies,0))} заменика`);
+      </tr>`;}).join("")||'<tr><td colspan="10" class="none">нема података</td></tr>'}</tbody></table></div>
+    <div class="muted" style="max-width:1500px;margin:-2px auto 8px;padding:0 20px;font-size:11.5px">${comp==="oba"?"Објављена места (било који састав)":"Објављена места"}: <b>${fmt(published)}</b> · без иједног контролора: <b>${fmt(zeroAny)}</b>. Покривеност се рачуна само од објављених места; „Без“ је број објављених места где ова листа нема ниједног члана.</div>`;
+    counts.push(`${compTitle(comp)}: ${rows.length} листа/групе, ${fmt(rows.reduce((n,r)=>n+r.members,0))} чланова, ${fmt(rows.reduce((n,r)=>n+r.deputies,0))} заменика, ${fmt(zeroAny)} места без контролора`);
   }
   $("#view").innerHTML=html;
   $("#count").textContent=counts.join(" · ");
@@ -390,10 +465,10 @@ function renderStations(){
 }
 
 function renderMatrix(){
-  const comp=state.comp==="oba"?"prosireni":state.comp;
+  const comps=state.comp==="oba"?["stalni","prosireni"]:[state.comp];
   const src=filteredStations();
   const totals={};
-  for(const s of src) for(const p of roster(s,comp)) if(!p.deputy) totals[p.list]=(totals[p.list]||0)+1;
+  for(const s of src) for(const c of comps) for(const p of roster(s,c)) if(!p.deputy) totals[p.list]=(totals[p.list]||0)+1;
   let keys=Object.keys(totals).filter(k=>state.list==="all"||k===state.list);
   keys.sort((a,b)=>(totals[b]||0)-(totals[a]||0));
   const header=keys.map(k=>`<th class="rot" title="${esc(listInfo(k).name)}">${listDot(k)}${esc(listInfo(k).short)}</th>`).join("");
@@ -413,7 +488,7 @@ function renderMatrix(){
     <thead><tr><th>${state.city==="all"?"Град / општина":"БМ / место"}</th>${header}<th class="num">Σ чланова</th></tr></thead>
     <tbody>${rowDefs.map(r=>{
       const counts={}; let total=0;
-      for(const s of r.stations){ for(const p of roster(s,comp)){ if(!p.deputy){ counts[p.list]=(counts[p.list]||0)+1; total++; } } }
+      for(const s of r.stations){ for(const c of comps){ for(const p of roster(s,c)){ if(!p.deputy){ counts[p.list]=(counts[p.list]||0)+1; total++; } } } }
       const label=r.station?`<button class="linkbtn" data-open="${r.key}"><b>${r.station.no}</b> · ${esc(stationName(r.station))}</button>`:`<button class="linkbtn" data-city="${esc(r.key)}"><b>${esc(r.label)}</b> <span class="muted">(${r.stations.length} м.)</span></button>`;
       return `<tr><td>${label}</td>
         ${keys.map(k=>{
@@ -421,7 +496,7 @@ function renderMatrix(){
           return `<td class="c ${n?'':'zero'}">${n?`<span style="background:${l.color}22;color:${l.color};border:1px solid ${l.color}55" title="${esc(l.name)}">${n}</span>`:"·"}</td>`;
         }).join("")}<td class="num"><b>${total}</b></td></tr>`;
     }).join("")}</tbody></table></div>`;
-  $("#count").textContent=`Матрица: ${fmt(rowDefs.length)} ${state.city==="all"?"градова":"места"} × ${keys.length} листа · ${compLabel(comp)} · бројеви су чланови (без заменика)`;
+  $("#count").textContent=`Матрица: ${fmt(rowDefs.length)} ${state.city==="all"?"градова":"места"} × ${keys.length} листа · ${compTitle(state.comp)} · бројеви су чланови (без заменика)`;
   document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openStation(b.dataset.open));
   document.querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>{ state.city=b.dataset.city; $("#city").value=state.city; state.list="all"; state.page=0; renderListOptions(); render(); });
 }
