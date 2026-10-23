@@ -299,7 +299,7 @@ zamenika: <strong>{deputies}</strong>.</p>
 <p>{esc(missing_html)}</p>
 <h2>Interaktivni prikaz</h2>
 <p><a href="../odbori.html#city={esc(slug)}">Otvori interaktivnu analizu za {esc(name)}</a> — filtriranje po listama,
-matrica mesto × lista i pretraga imena.</p>
+matrica mesto × lista, pretraga imena i prikaz mesta na kojima nedostaju kontrolori ili stalni sastav.</p>
 """
     body += footer()
     return body
@@ -364,7 +364,8 @@ def hub_page(data):
 <p class="lead">Statički pregled imenovanja u biračke odbore za parlamentarne izbore 2026.
 Za svaki grad i opštinu prikazani su članovi, zamenici, kontrolori i pokrivenost po izbornim listama.
 Ovo je pregled bez učitavanja velikog JSON fajla; interaktivna analiza je dostupna na
-<a href="../odbori.html">odbori.html</a>.</p>
+<a href="../odbori.html">odbori.html</a> i uključuje prikaz mesta na kojima listama nedostaju
+kontrolori ili stalni sastav.</p>
 <div class="kpis">
 <div class="kpi"><div class="k">Gradova / opština</div><div class="v">{len(cities)}</div></div>
 <div class="kpi"><div class="k">Biračkih mesta</div><div class="v">{summary['stations_total']}</div></div>

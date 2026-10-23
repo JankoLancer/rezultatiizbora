@@ -17,6 +17,7 @@
 
 - [odbori.json](https://rezultatiizbora.rs/odbori.json): kompletan dataset biračkih odbora 2026.
 - [odbori.csv](https://rezultatiizbora.rs/odbori.csv): tabela imenovanja (jedan red = jedna osoba).
+- [odbori-voters.json](https://rezultatiizbora.rs/odbori-voters.json): pomoćni pregled broja birača po biračkom mestu (2023), za prikaz nedostajućih mesta.
 - [data.json](https://rezultatiizbora.rs/data.json): rezultati izbora 2023. po biračkim mestima.
 
 ## Napomene

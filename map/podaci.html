@@ -137,7 +137,8 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
     <a class="dl" href="odbori.csv"><b>odbori.csv</b><span>CSV tabela · jedan red = jedna osoba · 74 MB (3,3 MB gzip)</span></a>
     <a class="dl" href="odbori.json"><b>odbori.json</b><span>JSON dataset · gradovi, biračka mesta, odbori i liste · 87 MB (4,3 MB gzip)</span></a>
   </div>
-  <p class="muted">Server automatski kompresuje velike fajlove. CSV koristi tačku-zapetu kao separator i UTF-8 sa BOM-om, radi lakšeg otvaranja u Excelu.</p>
+  <p class="muted">Server automatski kompresuje velike fajlove. CSV koristi tačku-zapetu kao separator i UTF-8 sa BOM-om, radi lakšeg otvaranja u Excelu.
+    Pomoćni fajl <a href="odbori-voters.json">odbori-voters.json</a> sadrži broj upisanih birača iz 2023. po biračkom mestu; koristi se u prikazu nedostajućih mesta.</p>
 
   <h2>Šta sadrži dataset</h2>
   <div class="tablewrap"><table>
@@ -174,6 +175,10 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
   <p><strong>Nedostajuća mesta.</strong> RIK objavljuje rešenja postepeno. Ako za neko mesto nema
     rešenja za stalni ili prošireni sastav, ono je označeno kao nedostajuće i biće dopunjeno u
     sledećem pregledu. Snapshot nedostajućih podataka je od 22.10.2026.</p>
+  <p><strong>Broj birača u prikazu nedostajućih mesta.</strong> Pošto 2026. godina još nema
+    objavljene brojeve birača po biračkom mestu u RIK dokumentima, prikaz koristi broj upisanih
+    birača iz 2023. za isto biračko mesto. Za nova mesta iz 2026. broj je označen kao nedostajući.
+    Podatak je informativan, ne zvaničan podatak za 2026.</p>
   <p><strong>Privatnost.</strong> Prikazujemo samo ime, ulogu, predlagača i biračko mesto.
     Ne prikazujemo JMBG, adrese, kontakte ni druge lične podatke. Za ispravke otvorite
     <a href="https://github.com/JankoLancer/rezultatiizbora/issues/new" target="_blank" rel="noopener">issue na GitHubu</a>

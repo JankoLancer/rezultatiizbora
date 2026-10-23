@@ -245,6 +245,7 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
   <button data-tab="liste">По листама</button>
   <button data-tab="matrica">Матрица места × листа</button>
   <button data-tab="ljudi">Сви људи</button>
+  <button data-tab="nedostaju">Недостају</button>
 </div>
 
 <div class="count" id="count">Učitavanje podataka…</div>
@@ -279,6 +280,13 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
   <p>U prikazu po listama koalicione liste su grupisane: <strong>Evropska Srbija
     (SSP + SRCE)</strong> i <strong>Faktor stabilnosti (SPS + JS + SDPS)</strong>.
     CSV i JSON zadržavaju izvorne oznake listi; grupisanje je samo prikaz.</p>
+
+  <h2>Gde nedostaju kontrolori ili stalni sastav</h2>
+  <p>U tabu <strong>„Недостају“</strong> izaberite listu ili koaliciju i sastav
+    (prošireni, stalni ili oba). Prikazaće se biračka mesta na kojima ta lista nema
+    člana, sa brojem upisanih birača. Prikazana su samo mesta na kojima je odgovarajući
+    sastav objavljen. Broj birača je iz 2023; podaci za 2026. po biračkom mestu nisu
+    objavljeni u RIK dokumentima o odborima.</p>
 
   <h2>Zašto neka mesta nemaju podatke</h2>
   <p>RIK objavljuje rešenja postepeno. Ako za neko biračko mesto u trenutku izrade nije
@@ -323,6 +331,10 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmt=n=>new Intl.NumberFormat("sr-RS").format(n||0);
+function plural(n,one,few,many){const x=Math.abs(n)%100;if(x>=11&&x<=14)return many;switch(x%10){case 1:return one;case 2:case 3:case 4:return few;default:return many;}}
+const placesWord=n=>plural(n,"место","места","места");
+const missingWord=n=>plural(n,"недостајуће место","недостајућа места","недостајућих места");
+const votersWord=n=>plural(n,"бирач","бирача","бирача");
 const pct=(a,b)=>b?Math.round(1000*a/b)/10:0;
 // Keep in sync with COALITIONS in odbori/generate_city_pages.py.
 const COALITIONS=[
@@ -335,7 +347,7 @@ const groupKey=k=>GROUP_OF[k]||k;
 const CYR2LAT={а:"a",б:"b",в:"v",г:"g",д:"d",ђ:"dj",е:"e",ж:"z",з:"z",и:"i",ј:"j",к:"k",л:"l",љ:"lj",м:"m",н:"n",њ:"nj",о:"o",п:"p",р:"r",с:"s",т:"t",ћ:"c",у:"u",ф:"f",х:"h",ц:"c",ч:"c",џ:"dz",ш:"s",č:"c",ć:"c",š:"s",ž:"z",đ:"dj"};
 function foldText(v){return String(v||"").toLowerCase().replace(/[а-шђјљњћџčćšžđ]/g,ch=>CYR2LAT[ch]||ch).replace(/[^a-z0-9]+/g," ").trim();}
 
-let DATA=null, STATIONS=[], LISTS=[], BYKEY={}, CITIES=[];
+let DATA=null, STATIONS=[], LISTS=[], BYKEY={}, CITIES=[], VOTERS_META={};
 const state={city:"all",tab:"mesta",comp:"prosireni",list:"all",q:"",page:0,peoplePage:0};
 
 function listInfo(k){ const gk=groupKey(k); return BYKEY[gk]||{key:gk,name:gk,short:gk,color:"#9aa5b1"}; }
@@ -452,6 +464,10 @@ function stationHasList(s,comp,k){
   return roster(s,comp).some(p=>groupKey(p.list)===k);
 }
 
+function memberOn(s,comp,k){
+  return roster(s,comp).some(p=>!p.deputy && groupKey(p.list)===k);
+}
+
 function filteredStations(){
   const q=state.q.trim();
   return cityStations().filter(s=>{
@@ -565,7 +581,7 @@ function renderSummary(){
         <td class="num">${zero?`<b style="color:#f0b429">${fmt(zero)}</b>`:"0"}</td>
         <td><div class="bar" title="${cov}%"><i style="width:${cov}%;background:${r.color}"></i></div>
           <small class="muted">${cov}%</small></td>
-        <td><button class="btn" data-listfilter="${esc(r.key)}">прикажи места</button></td>
+        <td><button class="btn" data-listfilter="${esc(r.key)}">прикажи места</button>${r.stations<published?` <button class="btn" data-missing="${esc(r.key)}">недостају</button>`:""}</td>
       </tr>`;}).join("")||'<tr><td colspan="9" class="none">нема података</td></tr>'}</tbody></table></div>
     <div class="muted" style="max-width:1500px;margin:-2px auto 8px;padding:0 20px;font-size:11.5px">${comp==="oba"?"Објављена места (стални ∪ проширени)":"Објављена места"}: <b>${fmt(published)}</b> · без иједног члана: <b>${fmt(zeroAny)}</b>. Покривеност се рачуна само од објављених места; „Без“ је број објављених места где ова листа нема ниједног члана.${comp==="oba"?" За „Оба“ су објављена места она где је објављен бар један састав, па комбинована покривеност може бити нижа од само проширене.":""}</div>`;
     counts.push(`${compTitle(comp)}: ${rows.length} листа/групе, ${fmt(rows.reduce((n,r)=>n+r.members,0))} чланова, ${fmt(rows.reduce((n,r)=>n+r.deputies,0))} заменика, ${fmt(zeroAny)} места без члана`);
@@ -573,6 +589,7 @@ function renderSummary(){
   $("#view").innerHTML=html;
   $("#count").textContent=counts.join(" · ");
   document.querySelectorAll("[data-listfilter]").forEach(b=>b.onclick=()=>{ state.list=b.dataset.listfilter; $("#list").value=state.list; state.tab="matrica"; state.page=0; syncTabs(); render(); });
+  document.querySelectorAll("[data-missing]").forEach(b=>b.onclick=()=>{ state.list=b.dataset.missing; $("#list").value=state.list; state.tab="nedostaju"; state.page=0; state.peoplePage=0; syncTabs(); render(); });
 }
 
 function renderStations(){
@@ -686,6 +703,78 @@ function renderPeople(){
   $("#next").onclick=()=>{ if(state.peoplePage<pages-1){state.peoplePage++;render();} };
 }
 
+function renderMissing(){
+  const host=$("#view");
+  if(state.list==="all"){
+    host.innerHTML=`<h3 class="section" style="max-width:1500px;margin:6px auto 7px;padding:0 20px">Недостају · изаберите листу</h3>
+      <p class="muted" style="max-width:1500px;margin:0 auto 12px;padding:0 20px;font-size:13px">Изаберите листу или коалициону групу у филтеру „Изборна листа / група“ да видите на којим бирачким местима нема контролора или сталног састава.</p>`;
+    $("#count").textContent="Изаберите листу/групу да видите недостајућа места.";
+    return;
+  }
+  const info=listInfo(state.list);
+  const voterYear=VOTERS_META.year||2023;
+  const st=cityStations().filter(s=>matchesQuery(s,state.q.trim()));
+  const isMissing=(s,comp)=>rosterCount(s,comp)>0 && !memberOn(s,comp,state.list);
+  let items=[];
+  if(state.comp==="oba"){
+    for(const s of st){
+      const reasons=[];
+      if(isMissing(s,"prosireni")) reasons.push("контролор");
+      if(isMissing(s,"stalni")) reasons.push("стални");
+      if(reasons.length) items.push({s,reasons});
+    }
+  } else {
+    for(const s of st){
+      if(isMissing(s,state.comp)) items.push({s,reasons:[state.comp==="prosireni"?"контролор":"стални"]});
+    }
+  }
+  items.sort((a,b)=>(a.s.city||"").localeCompare(b.s.city||"","sr")||a.s.no-b.s.no);
+  const sumV=arr=>arr.reduce((n,x)=>n+(x.s.registered??0),0);
+  const known=items.filter(x=>x.s.registered!=null).length;
+  const unknown=items.length-known;
+  const voterTotal=sumV(items);
+  const missC=items.filter(x=>x.reasons.includes("контролор"));
+  const missS=items.filter(x=>x.reasons.includes("стални"));
+  const title=compLabel(state.comp);
+  let summary;
+  if(state.comp==="oba"){
+    summary=`Без контролора: <b>${fmt(missC.length)}</b> ${placesWord(missC.length)} (${fmt(sumV(missC))} ${votersWord(sumV(missC))}) · без сталног састава: <b>${fmt(missS.length)}</b> ${placesWord(missS.length)} (${fmt(sumV(missS))} ${votersWord(sumV(missS))}) · укупно различитих места: <b>${fmt(items.length)}</b> (${fmt(voterTotal)} ${votersWord(voterTotal)})`;
+  } else {
+    summary=`<b>${fmt(items.length)}</b> ${placesWord(items.length)} · <b>${fmt(voterTotal)}</b> ${votersWord(voterTotal)}`;
+  }
+  const unknownTxt=unknown?` · ${fmt(unknown)} ${placesWord(unknown)} без податка о бирачима`:"";
+  const pageSize=40, pages=Math.max(1,Math.ceil(items.length/pageSize));
+  if(state.page>=pages) state.page=pages-1;
+  const rows=items.slice(state.page*pageSize,(state.page+1)*pageSize);
+  const showCity=state.city==="all";
+  const body=rows.map(x=>{
+    const r=x.s;
+    const reason=x.reasons.map(z=>z==="контролор"?"нема контролора":"нема сталног").join(" · ");
+    return `<tr>
+      <td class="num">${r.no}</td>
+      ${showCity?`<td class="muted">${esc(r.city||"")}</td>`:""}
+      <td class="st-name"><button class="linkbtn" data-open="${stationKey(r)}">${esc(stationName(r))}</button>
+        ${stationPlace(r)?`<small>${esc(stationPlace(r))}</small>`:""}</td>
+      <td class="num" title="Број уписаних бирача ${voterYear}">${r.registered!=null?fmt(r.registered):'<span class="none">—</span>'}</td>
+      <td>${esc(reason)}</td>
+      <td><button class="btn" data-open="${stationKey(r)}">детаљи</button></td>
+    </tr>`;
+  }).join("");
+  const pager=pages>1?`<div class="pager"><button id="prev" ${state.page<=0?"disabled":""}>← Претходна</button>
+    <span>Страна ${state.page+1} / ${pages}</span>
+    <button id="next" ${state.page>=pages-1?"disabled":""}>Следећа →</button></div>`:"";
+  host.innerHTML=`<h3 class="section" style="max-width:1500px;margin:6px auto 7px;padding:0 20px">Недостају · ${esc(info.name)} <span class="muted" style="font-weight:400">${esc(title)}</span></h3>
+    <div style="max-width:1500px;margin:0 auto 7px;padding:0 20px;font-size:12px;color:var(--muted)">${summary}${unknownTxt}. Приказана су само места где је састав објављен. Број бирача је из ${voterYear}; подаци за 2026. по бирачком месту нису објављени.</div>
+    <div class="tablewrap"><table>
+      <thead><tr><th class="num">БМ</th>${showCity?"<th>Град / општина</th>":""}<th>Бирачко место</th><th class="num">Бирача (${voterYear})</th><th>Недостаје</th><th></th></tr></thead>
+      <tbody>${body||`<tr><td colspan="${showCity?6:5}" class="none">Нема недостајућих места за изабрану листу и састав.</td></tr>`}</tbody>
+    </table></div>${pager}`;
+  $("#count").textContent=`${fmt(items.length)} ${missingWord(items.length)} · ${fmt(voterTotal)} ${votersWord(voterTotal)} (${voterYear})${unknown?` · ${fmt(unknown)} без податка`:""} · ${info.short} · ${title}`;
+  document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openStation(b.dataset.open));
+  if($("#prev")) $("#prev").onclick=()=>{ if(state.page>0){state.page--;render();} };
+  if($("#next")) $("#next").onclick=()=>{ if(state.page<pages-1){state.page++;render();} };
+}
+
 function render(){
   if(!DATA) return;
   renderMeta();
@@ -693,6 +782,7 @@ function render(){
   if(state.tab==="liste") renderSummary();
   else if(state.tab==="matrica") renderMatrix();
   else if(state.tab==="ljudi") renderPeople();
+  else if(state.tab==="nedostaju") renderMissing();
   else renderStations();
 }
 
@@ -716,7 +806,7 @@ function openStation(key){
   }).join("");
   const docs=(s.docs||[]).slice().sort((a,b)=>(b.datetime||0)-(a.datetime||0));
   $("#modal-body").innerHTML=`<h2>${s.no} · ${esc(stationName(s))}</h2>
-    <div class="msub">${esc(s.city||"")}${stationPlace(s)?` · ${esc(stationPlace(s))}`:""}</div>
+    <div class="msub">${esc(s.city||"")}${stationPlace(s)?` · ${esc(stationPlace(s))}`:""}${s.registered!=null?` · уписани бирачи (2023): <b>${fmt(s.registered)}</b>`:""}</div>
     <div class="mgrid2">${body}</div>
     <div class="docs"><h3>Изворни документи (РИК)</h3>
       ${docs.map(d=>`<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.type==="imenovanje"?"решење":d.type==="dopuna"?"допуна":d.type==="izmena"?"измена":d.type)} · ${d.composition==="stalni"?"стални":"проширени"}${d.datetime?` · ${new Date(d.datetime*1000).toLocaleDateString("sr-RS")}`:""}</a>`).join("")||'<span class="muted">нема</span>'}
@@ -758,8 +848,14 @@ function buildCityOptions(){
   sel.innerHTML=html;
 }
 
-fetch("odbori.json").then(r=>r.json()).then(d=>{
+Promise.all([
+  fetch("odbori.json").then(r=>r.json()),
+  fetch("odbori-voters.json").then(r=>r.json()).catch(()=>({stations:{}}))
+]).then(([d,v])=>{
   DATA=d; STATIONS=d.stations||[];
+  VOTERS_META=(v&&v.meta)||{};
+  const voterMap=(v&&v.stations)||{};
+  for(const s of STATIONS) s.registered=voterMap[stationKey(s)] ?? null;
   for(const s of STATIONS){
     const names=[];
     for(const c of ["stalni","prosireni"]) for(const p of roster(s,c)) names.push(p.name,(p.proposer_raw||""));
