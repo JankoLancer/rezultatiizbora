@@ -157,7 +157,7 @@
       "isAccessibleForFree":true,
       "spatialCoverage":{"@type":"Place","name":"Србија"},
       "temporalCoverage":"2026-10-25",
-      "dateModified":"2026-10-22",
+      "dateModified":"2026-10-23",
       "creator":{"@id":"https://rezultatiizbora.rs/#organization"},
       "publisher":{"@id":"https://rezultatiizbora.rs/#organization"},
       "license":"https://creativecommons.org/licenses/by-nc-nd/3.0/rs/",
@@ -176,7 +176,7 @@
       "isPartOf":{"@type":"WebSite","name":"Rezultati izbora — Srbija","url":"https://rezultatiizbora.rs/"},
       "publisher":{"@id":"https://rezultatiizbora.rs/#organization"},
       "about":{"@type":"Thing","name":"Парламентарни избори 2026. у Србији"},
-      "dateModified":"2026-10-22"
+      "dateModified":"2026-10-23"
     },
     {
       "@type":"BreadcrumbList",
@@ -851,8 +851,8 @@ function buildCityOptions(){
 }
 
 Promise.all([
-  fetch("odbori.json?v=20261023b").then(r=>r.json()),
-  fetch("odbori-voters.json?v=20261023b").then(r=>r.json()).catch(()=>({stations:{}}))
+  fetch("odbori.json?v=20261023c").then(r=>r.json()),
+  fetch("odbori-voters.json?v=20261023c").then(r=>r.json()).catch(()=>({stations:{}}))
 ]).then(([d,v])=>{
   DATA=d; STATIONS=d.stations||[];
   VOTERS_META=(v&&v.meta)||{};

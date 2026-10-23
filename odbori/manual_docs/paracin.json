@@ -1,0 +1,942 @@
+{
+ "documents": [
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/732/Измене БО-2 по захтеву BM53.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM53-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792672254",
+   "candidates": "0",
+   "number": "1.",
+   "election_station_title": "53 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/732/Измене БО-2 по захтеву BM53.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/726/Измене БО-2 по захтеву BM51.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM51-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792672232",
+   "candidates": "0",
+   "number": "2.",
+   "election_station_title": "51 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/726/Измене БО-2 по захтеву BM51.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/714/Измене БО-2 по захтеву BM50.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM50-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792672180",
+   "candidates": "0",
+   "number": "3.",
+   "election_station_title": "50 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/714/Измене БО-2 по захтеву BM50.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/690/Измене БО-2 по захтеву BM49.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM49-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792672115",
+   "candidates": "0",
+   "number": "4.",
+   "election_station_title": "49 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/690/Измене БО-2 по захтеву BM49.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/681/Измене БО-2 по захтеву BM48.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM48-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792672094",
+   "candidates": "0",
+   "number": "5.",
+   "election_station_title": "48 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/681/Измене БО-2 по захтеву BM48.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/654/Измене БО-2 по захтеву BM41.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM41-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792672021",
+   "candidates": "0",
+   "number": "6.",
+   "election_station_title": "41 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/654/Измене БО-2 по захтеву BM41.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/645/Измене БО-2 по захтеву BM39.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM39-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792672002",
+   "candidates": "0",
+   "number": "7.",
+   "election_station_title": "39 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/645/Измене БО-2 по захтеву BM39.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/636/Измене БО-2 по захтеву BM37.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM37-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671973",
+   "candidates": "0",
+   "number": "8.",
+   "election_station_title": "37 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/636/Измене БО-2 по захтеву BM37.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/621/Измене БО-2 по захтеву BM35.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM35-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671937",
+   "candidates": "0",
+   "number": "9.",
+   "election_station_title": "35 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/621/Измене БО-2 по захтеву BM35.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/603/Измене БО-2 по захтеву BM31.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM31-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671887",
+   "candidates": "0",
+   "number": "10.",
+   "election_station_title": "31 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/603/Измене БО-2 по захтеву BM31.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/342/Измене БО-2 по захтеву BM10.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM10-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671254",
+   "candidates": "0",
+   "number": "21.",
+   "election_station_title": "10 - МЗ \"ЦЕНТАР\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/342/Измене БО-2 по захтеву BM10.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/309/Измене БО-2 по захтеву BM7.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM7-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671177",
+   "candidates": "0",
+   "number": "22.",
+   "election_station_title": "7 - МЗ \"4. ЈУЛИ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/309/Измене БО-2 по захтеву BM7.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/303/Измене БО-2 по захтеву BM3.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM3-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671155",
+   "candidates": "0",
+   "number": "23.",
+   "election_station_title": "3 - МЗ \"БРАНКО КРСМАНОВИЋ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/303/Измене БО-2 по захтеву BM3.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/288/Измене БО-2 по захтеву BM1.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM1-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671136",
+   "candidates": "0",
+   "number": "24.",
+   "election_station_title": "1 - МЗ \"ВРАПЧАНЕ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/288/Измене БО-2 по захтеву BM1.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/270/Измене БО-2 по захтеву_BM52.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM52-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671111",
+   "candidates": "0",
+   "number": "25.",
+   "election_station_title": "52 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/270/Измене БО-2 по захтеву_BM52.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/264/Измене БО-2 по захтеву_BM45.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM45-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671092",
+   "candidates": "0",
+   "number": "26.",
+   "election_station_title": "45 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/264/Измене БО-2 по захтеву_BM45.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/255/Измене БО-2 по захтеву_BM43.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM43-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671073",
+   "candidates": "0",
+   "number": "27.",
+   "election_station_title": "43 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/255/Измене БО-2 по захтеву_BM43.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/246/Измене БО-2 по захтеву_BM42.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM42-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671053",
+   "candidates": "0",
+   "number": "28.",
+   "election_station_title": "42 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/246/Измене БО-2 по захтеву_BM42.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/240/Измене БО-2 по захтеву_BM40.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM40-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671033",
+   "candidates": "0",
+   "number": "29.",
+   "election_station_title": "40 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/240/Измене БО-2 по захтеву_BM40.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/228/Измене БО-2 по захтеву_BM15.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM15-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671012",
+   "candidates": "0",
+   "number": "30.",
+   "election_station_title": "15 - МЗ \"ГЛОЖДАК\" ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/228/Измене БО-2 по захтеву_BM15.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/216/Измене БО-2 по захтеву_BM11.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM11-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792670995",
+   "candidates": "0",
+   "number": "31.",
+   "election_station_title": "11 - КЛУБ ПЕНЗИОНЕРА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/216/Измене БО-2 по захтеву_BM11.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/793/187/Измене БО-1 по захтеву BM27.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM27-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792667984",
+   "candidates": "0",
+   "number": "32.",
+   "election_station_title": "27 - МЕСНА ЗАЈЕДНИЦА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/793/187/Измене БО-1 по захтеву BM27.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/793/181/Измене БО-1 по захтеву BM30.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM30-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792667965",
+   "candidates": "0",
+   "number": "33.",
+   "election_station_title": "30 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/793/181/Измене БО-1 по захтеву BM30.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/793/166/Измене БО-1 по захтеву BM32.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM32-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792667942",
+   "candidates": "0",
+   "number": "34.",
+   "election_station_title": "32 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/793/166/Измене БО-1 по захтеву BM32.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/793/151/Измене БО-1 по захтеву BM33.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM33-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792667921",
+   "candidates": "0",
+   "number": "35.",
+   "election_station_title": "33 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/793/151/Измене БО-1 по захтеву BM33.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/793/139/Измене БО-1 по захтеву BM34.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM34-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792667903",
+   "candidates": "0",
+   "number": "36.",
+   "election_station_title": "34 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/793/139/Измене БО-1 по захтеву BM34.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/793/130/Измене БО-1 по захтеву BM35.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM35-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792667879",
+   "candidates": "0",
+   "number": "37.",
+   "election_station_title": "35 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/793/130/Измене БО-1 по захтеву BM35.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/793/118/Измене БО-1 по захтеву BM41.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM41-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792667859",
+   "candidates": "0",
+   "number": "38.",
+   "election_station_title": "41 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/793/118/Измене БО-1 по захтеву BM41.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/793/058/Измене БО-1 по захтеву BM46.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM46-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792667761",
+   "candidates": "0",
+   "number": "39.",
+   "election_station_title": "46 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/793/058/Измене БО-1 по захтеву BM46.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/793/046/Измене БО-1 по захтеву BM53.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM53-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792667738",
+   "candidates": "0",
+   "number": "40.",
+   "election_station_title": "53 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/793/046/Измене БО-1 по захтеву BM53.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/576/Измене БО-2 по захтеву BM30.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM30-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671829",
+   "candidates": "0",
+   "number": "11.",
+   "election_station_title": "30 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/576/Измене БО-2 по захтеву BM30.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/555/Измене БО-2 по захтеву BM26.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM26-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671797",
+   "candidates": "0",
+   "number": "12.",
+   "election_station_title": "26 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/555/Измене БО-2 по захтеву BM26.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/522/Измене БО-2 по захтеву BM25.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM25-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671728",
+   "candidates": "0",
+   "number": "13.",
+   "election_station_title": "25 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/522/Измене БО-2 по захтеву BM25.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/447/Измене БО-2 по захтеву BM21.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM21-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671533",
+   "candidates": "0",
+   "number": "14.",
+   "election_station_title": "21 - МЗ \"ДАНКОВО\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/447/Измене БО-2 по захтеву BM21.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/432/Измене БО-2 по захтеву BM20.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM20-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671470",
+   "candidates": "0",
+   "number": "15.",
+   "election_station_title": "20 - МЗ \"11. КОНГРЕС\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/432/Измене БО-2 по захтеву BM20.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/399/Измене БО-2 по захтеву BM19.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM19-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671392",
+   "candidates": "0",
+   "number": "16.",
+   "election_station_title": "19 - МЗ \"11. КОНГРЕС\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/399/Измене БО-2 по захтеву BM19.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/384/Измене БО-2 по захтеву BM17.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM17-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671362",
+   "candidates": "0",
+   "number": "17.",
+   "election_station_title": "17 - МЗ \"11. КОНГРЕС\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/384/Измене БО-2 по захтеву BM17.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/381/Измене БО-2 по захтеву BM16.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM16-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671341",
+   "candidates": "0",
+   "number": "18.",
+   "election_station_title": "16 - МЗ \"ГЛОЖДАК\" ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/381/Измене БО-2 по захтеву BM16.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/369/Измене БО-2 по захтеву BM14.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM14-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671323",
+   "candidates": "0",
+   "number": "19.",
+   "election_station_title": "14 - МЗ \"ГЛОЖДАК\" ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/369/Измене БО-2 по захтеву BM14.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/794/360/Измене БО-2 по захтеву BM12.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM12-2",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792671294",
+   "candidates": "0",
+   "number": "20.",
+   "election_station_title": "12 - МЗ \"ЦЕНТАР\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/794/360/Измене БО-2 по захтеву BM12.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/793/031/Измене БО-1 по захтеву BM54.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM54-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792667722",
+   "candidates": "0",
+   "number": "41.",
+   "election_station_title": "54 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/793/031/Измене БО-1 по захтеву BM54.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/792/785/Измене БО-1 по захтеву BM25.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM25-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792667021",
+   "candidates": "0",
+   "number": "42.",
+   "election_station_title": "25 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/792/785/Измене БО-1 по захтеву BM25.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/792/767/Измене БО-1 по захтеву BM17.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM17-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792666995",
+   "candidates": "0",
+   "number": "43.",
+   "election_station_title": "17 - МЗ \"11. КОНГРЕС\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/792/767/Измене БО-1 по захтеву BM17.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/792/758/Измене БО-1 по захтеву BM14.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM14-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792666959",
+   "candidates": "0",
+   "number": "44.",
+   "election_station_title": "14 - МЗ \"ГЛОЖДАК\" ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/792/758/Измене БО-1 по захтеву BM14.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/792/716/Измене БО-1 по захтеву BM5.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM5-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792666847",
+   "candidates": "0",
+   "number": "45.",
+   "election_station_title": "5 - СПОРТСКО РЕКРЕАТИВНИ ЦЕНТАР \"7. ЈУЛИ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/792/716/Измене БО-1 по захтеву BM5.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/792/665/Измене БО-1 по захтеву BM2.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM2-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792666685",
+   "candidates": "0",
+   "number": "46.",
+   "election_station_title": "2 - МЗ \"ВРАПЧАНЕ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/792/665/Измене БО-1 по захтеву BM2.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/411/resenje o izmeni BM10.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM10-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662727",
+   "candidates": "0",
+   "number": "47.",
+   "election_station_title": "10 - МЗ \"ЦЕНТАР\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/411/resenje o izmeni BM10.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/405/resenje o izmeni BM55.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM55-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662707",
+   "candidates": "0",
+   "number": "48.",
+   "election_station_title": "55 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/405/resenje o izmeni BM55.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/393/resenje o izmeni BM50.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM50-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662686",
+   "candidates": "0",
+   "number": "49.",
+   "election_station_title": "50 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/393/resenje o izmeni BM50.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/384/resenje o izmeni BM49.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM49-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662664",
+   "candidates": "0",
+   "number": "50.",
+   "election_station_title": "49 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/384/resenje o izmeni BM49.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/312/resenje o izmeni BM18.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM18-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662429",
+   "candidates": "0",
+   "number": "61.",
+   "election_station_title": "18 - МЗ \"11. КОНГРЕС\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/312/resenje o izmeni BM18.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/306/resenje o izmeni BM17.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM17-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662408",
+   "candidates": "0",
+   "number": "62.",
+   "election_station_title": "17 - МЗ \"11. КОНГРЕС\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/306/resenje o izmeni BM17.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/303/resenje o izmeni BM16.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM16-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662392",
+   "candidates": "0",
+   "number": "63.",
+   "election_station_title": "16 - МЗ \"ГЛОЖДАК\" ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/303/resenje o izmeni BM16.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/294/resenje o izmeni BM15.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM15-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662374",
+   "candidates": "0",
+   "number": "64.",
+   "election_station_title": "15 - МЗ \"ГЛОЖДАК\" ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/294/resenje o izmeni BM15.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/288/resenje o izmeni BM14.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM14-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662350",
+   "candidates": "0",
+   "number": "65.",
+   "election_station_title": "14 - МЗ \"ГЛОЖДАК\" ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/288/resenje o izmeni BM14.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/285/resenje o izmeni BM12.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM12-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662331",
+   "candidates": "0",
+   "number": "66.",
+   "election_station_title": "12 - МЗ \"ЦЕНТАР\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/285/resenje o izmeni BM12.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/279/resenje o izmeni BM11.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM11-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662309",
+   "candidates": "0",
+   "number": "67.",
+   "election_station_title": "11 - КЛУБ ПЕНЗИОНЕРА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/279/resenje o izmeni BM11.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/375/resenje o izmeni BM43.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM43-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662641",
+   "candidates": "0",
+   "number": "51.",
+   "election_station_title": "43 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/375/resenje o izmeni BM43.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/369/resenje o izmeni BM42.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM42-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662624",
+   "candidates": "0",
+   "number": "52.",
+   "election_station_title": "42 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/369/resenje o izmeni BM42.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/363/resenje o izmeni BM40.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM40-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662607",
+   "candidates": "0",
+   "number": "53.",
+   "election_station_title": "40 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/363/resenje o izmeni BM40.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/354/resenje o izmeni BM38.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM38-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662585",
+   "candidates": "0",
+   "number": "54.",
+   "election_station_title": "38 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/354/resenje o izmeni BM38.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/348/resenje o izmeni BM34.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM34-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662566",
+   "candidates": "0",
+   "number": "55.",
+   "election_station_title": "34 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/348/resenje o izmeni BM34.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/342/resenje o izmeni BM32.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM32-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662548",
+   "candidates": "0",
+   "number": "56.",
+   "election_station_title": "32 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/342/resenje o izmeni BM32.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/336/resenje o izmeni BM29.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM29-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662529",
+   "candidates": "0",
+   "number": "57.",
+   "election_station_title": "29 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/336/resenje o izmeni BM29.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/333/resenje o izmeni BM24.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM24-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662511",
+   "candidates": "0",
+   "number": "58.",
+   "election_station_title": "24 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/333/resenje o izmeni BM24.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/327/resenje o izmeni BM22.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM22-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662492",
+   "candidates": "0",
+   "number": "59.",
+   "election_station_title": "22 - МЗ \"ДАНКОВО\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/327/resenje o izmeni BM22.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/791/318/resenje o izmeni BM19.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "BM19-1",
+   "municipality_display_name": "Параћин",
+   "datetime": "1792662450",
+   "candidates": "0",
+   "number": "60.",
+   "election_station_title": "19 - МЗ \"11. КОНГРЕС\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Параћин",
+   "_url": "/extfile/sr/files/additionalDocuments/791/318/resenje o izmeni BM19.pdf"
+  }
+ ]
+}

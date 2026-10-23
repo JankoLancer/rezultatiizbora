@@ -1,0 +1,956 @@
+{
+ "documents": [
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/807/137/Измена проширени састав БМ55.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ55",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761683",
+   "candidates": "0",
+   "number": "1.",
+   "election_station_title": "55 - ОСНОВНА ШКОЛА У СРЕДЊОЈ РЕЦИ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/807/137/Измена проширени састав БМ55.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/807/134/Измена проширени састав БМ54.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ54",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761662",
+   "candidates": "0",
+   "number": "2.",
+   "election_station_title": "54 - ОСНОВНА ШКОЛА У ОГРАЂЕНИКУ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/807/134/Измена проширени састав БМ54.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/807/128/Измена проширени састав БМ53.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ53",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761639",
+   "candidates": "0",
+   "number": "3.",
+   "election_station_title": "53 - ОСНОВНА ШКОЛА У ВЕЉОВИЋИМА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/807/128/Измена проширени састав БМ53.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/807/125/Измена проширени састав БМ52.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ52",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761616",
+   "candidates": "0",
+   "number": "4.",
+   "election_station_title": "52 - МЕСНА ЗАЈЕДНИЦА \"ПРИДВОРИЦА\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/807/125/Измена проширени састав БМ52.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/807/122/Измена проширени састав БМ51.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ51",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761592",
+   "candidates": "0",
+   "number": "5.",
+   "election_station_title": "51 - ОСНОВНА ШКОЛА У ЦЕРОВИ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/807/122/Измена проширени састав БМ51.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/807/104/Измена проширени састав БМ50.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ50",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761546",
+   "candidates": "0",
+   "number": "6.",
+   "election_station_title": "50 - ПОСЛОВНИ ОБЈЕКАТ У ВЛАСНИШТВУ МИЛОВАНОВИЋ НОВАКА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/807/104/Измена проширени састав БМ50.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/807/098/Измена проширени састав БМ49.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ49",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761518",
+   "candidates": "0",
+   "number": "7.",
+   "election_station_title": "49 - ПРОДАВНИЦА 33 \"ПРИЛИКЕ\" У ГОРЊЕМ РАДАЉЕВУ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/807/098/Измена проширени састав БМ49.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/807/092/Измена проширени састав БМ48.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ48",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761491",
+   "candidates": "0",
+   "number": "8.",
+   "election_station_title": "48 - ОШ \"СРЕТЕН ЛАЗАРЕВИЋ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/807/092/Измена проширени састав БМ48.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/807/086/Измена проширени састав БМ47.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ47",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761458",
+   "candidates": "0",
+   "number": "9.",
+   "election_station_title": "47 - ПОСЛОВНО СТАМБЕНИ ОБЈЕКАТ ВЛ. РАЈКОВИЋ ДУШКА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/807/086/Измена проширени састав БМ47.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/807/071/Измена проширени састав БМ46.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ46",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761378",
+   "candidates": "0",
+   "number": "10.",
+   "election_station_title": "46 - МЕСНА ЗАЈЕДНИЦА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/807/071/Измена проширени састав БМ46.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/966/Измена проширени састав БМ35.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ35",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760921",
+   "candidates": "0",
+   "number": "21.",
+   "election_station_title": "35 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/966/Измена проширени састав БМ35.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/960/Измена проширени састав БМ34.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ34",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760896",
+   "candidates": "0",
+   "number": "22.",
+   "election_station_title": "34 - КУЋА БЕШЕВИЋ СТОЈЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/960/Измена проширени састав БМ34.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/951/Измена проширени састав БМ33.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ33",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760752",
+   "candidates": "0",
+   "number": "23.",
+   "election_station_title": "33 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/951/Измена проширени састав БМ33.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/948/Измена проширени састав БМ32.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ32",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760729",
+   "candidates": "0",
+   "number": "24.",
+   "election_station_title": "32 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/948/Измена проширени састав БМ32.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/942/Измена проширени састав БМ31.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ31",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760690",
+   "candidates": "0",
+   "number": "25.",
+   "election_station_title": "31 - КУЋА НЕДЕЉКА КОВАЧЕВИЋА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/942/Измена проширени састав БМ31.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/936/Измена проширени састав БМ30.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ30",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760654",
+   "candidates": "0",
+   "number": "26.",
+   "election_station_title": "30 - КУЋА МИРОСЛВА ЦВЕТКОВИЋА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/936/Измена проширени састав БМ30.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/933/Измена проширени састав БМ29.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ29",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760623",
+   "candidates": "0",
+   "number": "27.",
+   "election_station_title": "29 - ОШ \"МАЈОР ИЛИЋ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/933/Измена проширени састав БМ29.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/930/Измена проширени састав БМ28.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ28",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760600",
+   "candidates": "0",
+   "number": "28.",
+   "election_station_title": "28 - ОШ \"СВЕТОЗАР МАРКОВИЋ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/930/Измена проширени састав БМ28.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/927/Измена проширени састав БМ27.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ27",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760573",
+   "candidates": "0",
+   "number": "29.",
+   "election_station_title": "27 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/927/Измена проширени састав БМ27.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/924/Измена проширени састав БМ26.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ26",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760545",
+   "candidates": "0",
+   "number": "30.",
+   "election_station_title": "26 - АМБУЛАНТА ДОМА ЗДРАВЉА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/924/Измена проширени састав БМ26.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/918/Измена проширени састав БМ25.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ25",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760509",
+   "candidates": "0",
+   "number": "31.",
+   "election_station_title": "25 - ОШ \"НЕДЕЉКО КОШАНИН\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/918/Измена проширени састав БМ25.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/915/Измена проширени састав БМ24.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ24",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760484",
+   "candidates": "0",
+   "number": "32.",
+   "election_station_title": "24 - ОСНОВНА ШКОЛА У РАШЧИЋИМА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/915/Измена проширени састав БМ24.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/906/Измена проширени састав БМ23.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ23",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760412",
+   "candidates": "0",
+   "number": "33.",
+   "election_station_title": "23 - ВАТРОГАСНИ ДОМ ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/906/Измена проширени састав БМ23.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/900/Измена проширени састав БМ22.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ22",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760383",
+   "candidates": "0",
+   "number": "34.",
+   "election_station_title": "22 - ОСНОВНА ШКОЛА ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/900/Измена проширени састав БМ22.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/897/Измена проширени састав БМ21.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ21",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760348",
+   "candidates": "0",
+   "number": "35.",
+   "election_station_title": "21 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/897/Измена проширени састав БМ21.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/894/Измена проширени састав БМ20.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ20",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760319",
+   "candidates": "0",
+   "number": "36.",
+   "election_station_title": "20 - КУЋА ЧЕКЕРЕВАЦ МИЛИСАВА У ЧЕПОВУ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/894/Измена проширени састав БМ20.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/888/Измена проширени састав БМ19.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ19",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760289",
+   "candidates": "0",
+   "number": "37.",
+   "election_station_title": "19 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/888/Измена проширени састав БМ19.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/879/Измена проширени састав БМ18.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ18",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760118",
+   "candidates": "0",
+   "number": "38.",
+   "election_station_title": "18 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/879/Измена проширени састав БМ18.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/867/Измена проширени састав БМ17.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ17",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760078",
+   "candidates": "0",
+   "number": "39.",
+   "election_station_title": "17 - ОСНОВНА ШКОЛА У БЕЛОЈ ЦРКВИ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/867/Измена проширени састав БМ17.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/849/Измена проширени састав БМ16.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ16",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760023",
+   "candidates": "0",
+   "number": "40.",
+   "election_station_title": "16 - КУЋА МИЛИНКОВИЋ РАДОЉУБА РАКАНА И ДР.",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/849/Измена проширени састав БМ16.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/606/Измена проширени састав БМ5.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 5",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792759167",
+   "candidates": "0",
+   "number": "51.",
+   "election_station_title": "5 - ОШ \"МИЛИНКО КУШИЋ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/606/Измена проширени састав БМ5.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/600/Измена проширени састав БМ4.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 4",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792759139",
+   "candidates": "0",
+   "number": "52.",
+   "election_station_title": "4 - ТЕХНИЧКА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/600/Измена проширени састав БМ4.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/588/Измена проширени састав БМ3.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 3",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792759110",
+   "candidates": "0",
+   "number": "53.",
+   "election_station_title": "3 - ОСНОВНИ СУД У ИВАЊИЦИ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/588/Измена проширени састав БМ3.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/555/Измена проширени састав БМ2.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 2",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792758993",
+   "candidates": "0",
+   "number": "54.",
+   "election_station_title": "2 - ДОМ КУЛТУРЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/555/Измена проширени састав БМ2.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/543/Измена проширени састав БМ1.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 1",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792758968",
+   "candidates": "0",
+   "number": "55.",
+   "election_station_title": "1 - ОПШТИНА ИВАЊИЦА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/543/Измена проширени састав БМ1.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/492/Измена стални састав број 48.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 48",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792758813",
+   "candidates": "0",
+   "number": "56.",
+   "election_station_title": "48 - ОШ \"СРЕТЕН ЛАЗАРЕВИЋ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/492/Измена стални састав број 48.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/471/Измена стални састав број 43.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 43",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792758759",
+   "candidates": "0",
+   "number": "57.",
+   "election_station_title": "43 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/471/Измена стални састав број 43.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/465/Измена стални састав број 36.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 36",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792758725",
+   "candidates": "0",
+   "number": "58.",
+   "election_station_title": "36 - ОСНОВНА ШКОЛА У ЦРВЕНОЈ ГОРИ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/465/Измена стални састав број 36.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/441/Измена стални састав број 34.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 34",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792758626",
+   "candidates": "0",
+   "number": "59.",
+   "election_station_title": "34 - КУЋА БЕШЕВИЋ СТОЈЕ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/441/Измена стални састав број 34.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/429/Измена стални састав број 26.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 26",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792758589",
+   "candidates": "0",
+   "number": "60.",
+   "election_station_title": "26 - АМБУЛАНТА ДОМА ЗДРАВЉА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/429/Измена стални састав број 26.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/408/Измена стални састав број 20.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 20",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792758550",
+   "candidates": "0",
+   "number": "61.",
+   "election_station_title": "20 - КУЋА ЧЕКЕРЕВАЦ МИЛИСАВА У ЧЕПОВУ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/408/Измена стални састав број 20.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/378/Измена стални састав број 19.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 19",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792758476",
+   "candidates": "0",
+   "number": "62.",
+   "election_station_title": "19 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/378/Измена стални састав број 19.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/366/Измена стални састав број 18.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 18",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792758451",
+   "candidates": "0",
+   "number": "63.",
+   "election_station_title": "18 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/366/Измена стални састав број 18.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/351/Измена стални састав број 16.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 16",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792758407",
+   "candidates": "0",
+   "number": "64.",
+   "election_station_title": "16 - КУЋА МИЛИНКОВИЋ РАДОЉУБА РАКАНА И ДР.",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/351/Измена стални састав број 16.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/321/Измена стални састав број 13.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 13",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792758226",
+   "candidates": "0",
+   "number": "65.",
+   "election_station_title": "13 - ПОСЛОВНИ ОБЈЕКАТ ВЛАСНИКА НЕМАЊЕ КАРАКЛАЈИЋА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/321/Измена стални састав број 13.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/306/Измена стални састав број 7.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 7",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792758175",
+   "candidates": "0",
+   "number": "66.",
+   "election_station_title": "7 - ОШ \"КИРИЛО САВИЋ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/306/Измена стални састав број 7.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/186/Измена стални састав број 5.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 5",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792757709",
+   "candidates": "0",
+   "number": "67.",
+   "election_station_title": "5 - ОШ \"МИЛИНКО КУШИЋ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/186/Измена стални састав број 5.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/171/Измена стални састав број 1.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ1",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792757604",
+   "candidates": "0",
+   "number": "68.",
+   "election_station_title": "1 - ОПШТИНА ИВАЊИЦА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у сталном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/171/Измена стални састав број 1.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/825/Измена проширени састав БМ15.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ15",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792759930",
+   "candidates": "0",
+   "number": "41.",
+   "election_station_title": "15 - ОШ \"МИЛАН ВУЧИЋЕВИЋ ЗВЕРАЦ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/825/Измена проширени састав БМ15.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/816/Измена проширени састав БМ14.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ14",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792759860",
+   "candidates": "0",
+   "number": "42.",
+   "election_station_title": "14 - ПОСЛОВНИ ОБЈЕКАТ У СУВЛАСНИШТВУ ДИМИТРИЈЕВИЋ МИЛОРАДА И ДИМИТРИЈЕВИОЋ ГОРАНА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/816/Измена проширени састав БМ14.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/756/Измена проширени састав БМ13.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ13",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792759621",
+   "candidates": "0",
+   "number": "43.",
+   "election_station_title": "13 - ПОСЛОВНИ ОБЈЕКАТ ВЛАСНИКА НЕМАЊЕ КАРАКЛАЈИЋА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/756/Измена проширени састав БМ13.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/708/Измена проширени састав БМ12.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ12",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792759523",
+   "candidates": "0",
+   "number": "44.",
+   "election_station_title": "12 - СТУТРМК - МАРАКАНА - ВЛ. МАРКА КОВАЧЕВИЋА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/708/Измена проширени састав БМ12.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/684/Измена проширени састав БМ11.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ11",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792759435",
+   "candidates": "0",
+   "number": "45.",
+   "election_station_title": "11 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/684/Измена проширени састав БМ11.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/663/Измена проширени састав БМ10.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ10",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792759319",
+   "candidates": "0",
+   "number": "46.",
+   "election_station_title": "10 - СЕОСКИ ДОМ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/663/Измена проширени састав БМ10.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/645/Измена проширени састав БМ9.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ9",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792759289",
+   "candidates": "0",
+   "number": "47.",
+   "election_station_title": "9 - ПОСЛОВНА ЗГРАДА ШУМСКЕ УПРАВЕ ГОЛИЈА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/645/Измена проширени састав БМ9.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/627/Измена проширени састав БМ8.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ8",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792759253",
+   "candidates": "0",
+   "number": "48.",
+   "election_station_title": "8 - ОШ \"КИРИЛО САВИЋ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/627/Измена проширени састав БМ8.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/624/Измена проширени састав БМ7.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ7",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792759221",
+   "candidates": "0",
+   "number": "49.",
+   "election_station_title": "7 - ОШ \"КИРИЛО САВИЋ\"",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/624/Измена проширени састав БМ7.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/618/Измена проширени састав БМ6.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ 6",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792759196",
+   "candidates": "0",
+   "number": "50.",
+   "election_station_title": "6 - ГИМНАЗИЈА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/618/Измена проширени састав БМ6.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/807/047/Измена проширени састав БМ45.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ45",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761286",
+   "candidates": "0",
+   "number": "11.",
+   "election_station_title": "45 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/807/047/Измена проширени састав БМ45.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/807/041/Измена проширени састав БМ44.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ44",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761264",
+   "candidates": "0",
+   "number": "12.",
+   "election_station_title": "44 - ОСНОВНА ШКОЛА У ОСТАТИЈИ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/807/041/Измена проширени састав БМ44.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/807/026/Измена проширени састав БМ43.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ43",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761224",
+   "candidates": "0",
+   "number": "13.",
+   "election_station_title": "43 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/807/026/Измена проширени састав БМ43.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/807/020/Измена проширени састав БМ42.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ42",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761203",
+   "candidates": "0",
+   "number": "14.",
+   "election_station_title": "42 - КУЋА РУДАКОВИЋ ДРАГАНА ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/807/020/Измена проширени састав БМ42.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/999/Измена проширени састав БМ41.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ41",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761116",
+   "candidates": "0",
+   "number": "15.",
+   "election_station_title": "41 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/999/Измена проширени састав БМ41.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/990/Измена проширени састав БМ40.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ40",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761089",
+   "candidates": "0",
+   "number": "16.",
+   "election_station_title": "40 - ОСНОВНА ШКОЛА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/990/Измена проширени састав БМ40.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/981/Измена проширени састав БМ39.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ39",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761048",
+   "candidates": "0",
+   "number": "17.",
+   "election_station_title": "39 - КУЋА ТИХОМИРА АВРАМОВИЋА",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/981/Измена проширени састав БМ39.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/975/Измена проширени састав БМ38.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ38",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792761016",
+   "candidates": "0",
+   "number": "18.",
+   "election_station_title": "38 - ПРОДАВНИЦА ВЛ. ЛИШАНИН РАТКА ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/975/Измена проширени састав БМ38.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/972/Измена проширени састав БМ37.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ37",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760988",
+   "candidates": "0",
+   "number": "19.",
+   "election_station_title": "37 - СЕОСКИ ДОМ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/972/Измена проширени састав БМ37.pdf"
+  },
+  {
+   "extfiles_link": [
+    "<div><a href=\"/extfile/sr/files/additionalDocuments/806/969/Измена проширени састав БМ36.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"election-file active\"></span></a></div>"
+   ],
+   "document_name": "БМ36",
+   "municipality_display_name": "Ивањица",
+   "datetime": "1792760960",
+   "candidates": "0",
+   "number": "20.",
+   "election_station_title": "36 - ОСНОВНА ШКОЛА У ЦРВЕНОЈ ГОРИ",
+   "election_board_decision": "Решење о измени решења о именовању члана / заменика члана бирачког одбора у проширеном саставу",
+   "document_bearer": "Општинска изборна комисија општине Ивањица",
+   "_url": "/extfile/sr/files/additionalDocuments/806/969/Измена проширени састав БМ36.pdf"
+  }
+ ]
+}

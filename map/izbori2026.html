@@ -68,7 +68,7 @@
     {"@type":"WebPage","@id":"https://rezultatiizbora.rs/izbori2026.html#webpage",
      "url":"https://rezultatiizbora.rs/izbori2026.html",
      "name":"Парламентарни избори 2026. — бирачки одбори и бирачка места",
-     "inLanguage":"sr","dateModified":"2026-10-22",
+     "inLanguage":"sr","dateModified":"2026-10-23",
      "isPartOf":{"@type":"WebSite","name":"Rezultati izbora — Srbija","url":"https://rezultatiizbora.rs/"},
      "about":{"@type":"Event","name":"Парламентарни избори 2026. у Србији","startDate":"2026-10-25","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Country","name":"Србија"},"organizer":{"@type":"Organization","name":"Републичка изборна комисија","url":"https://www.rik.parlament.gov.rs/"}}},
     {"@type":"BreadcrumbList","itemListElement":[
@@ -101,8 +101,8 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
     <div class="badges">
       <span class="badge">📅 <b>25.10.2026.</b></span>
       <span class="badge">📍 <b id="m-cities">191</b> град/општина</span>
-      <span class="badge">🗳️ <b id="m-stations">8.415</b> бирачких места</span>
-      <span class="badge">🔄 ажурирано <b>22.10.2026.</b></span>
+      <span class="badge">🗳️ <b id="m-stations">8.392</b> бирачких места</span>
+      <span class="badge">🔄 ажурирано <b>23.10.2026.</b></span>
     </div>
   </div>
 
@@ -139,7 +139,7 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
       <p><strong>Србија — бирачки одбори</strong></p>
       <p>Из РИК-ових PDF решења извучени су именовани чланови и заменици:
         председници, заменици председника, чланови и заменици чланова.
-        Обрађено је <b id="m-cities2">191</b> град/општина и <b id="m-stations2">8.415</b> бирачких места.</p>
+        Обрађено је <b id="m-cities2">191</b> град/општина и <b id="m-stations2">8.392</b> бирачких места.</p>
       <ul>
         <li>стални састав (предлог посланичких група)</li>
         <li>проширени састав (предлог изборних листа — контролори)</li>
@@ -147,12 +147,12 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
         <li>линкови ка изворним PDF решењима за свако место</li>
       </ul>
       <p class="muted" style="color:#93a3bd;font-size:12.5px;margin-top:10px">Стални састав је објављен за
-        <b id="m-stalni">7.596</b> од <b id="m-total">8.415</b> места. За места без решења подаци ће бити
+        <b id="m-stalni">8.305</b> од <b id="m-total">8.392</b> места. За места без решења подаци ће бити
         допуњени у следећем прегледу РИК-овог портала.</p>
     </div>
     <div class="pane">
-      <div class="stat"><div class="k">Обрађена места</div><div class="v" id="m-stat-total">8.415</div><div class="s" id="m-stat-cities">191 град/општина</div></div>
-      <div class="stat" style="margin-top:8px"><div class="k">Контролори</div><div class="v" id="m-stat-controllers">52.699</div><div class="s">чланови у проширеном саставу</div></div>
+      <div class="stat"><div class="k">Обрађена места</div><div class="v" id="m-stat-total">8.392</div><div class="s" id="m-stat-cities">191 град/општина</div></div>
+      <div class="stat" style="margin-top:8px"><div class="k">Контролори</div><div class="v" id="m-stat-controllers">57.449</div><div class="s">чланови у проширеном саставу</div></div>
       <div class="stat" style="margin-top:8px"><div class="k">Извор</div><div class="v" style="font-size:15px">РИК</div><div class="s">Републичка изборна комисија</div></div>
     </div>
   </div>
@@ -175,7 +175,7 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
 </div>
 
 <script>
-fetch("odbori-meta.json?v=20261023b").then(r=>r.json()).then(d=>{
+fetch("odbori-meta.json?v=20261023c").then(r=>r.json()).then(d=>{
   const s=d.summary||{}, c=(d.meta&&d.meta.cities)||[];
   const set=(id,v)=>{const e=document.getElementById(id); if(e) e.textContent=v;};
   const nf=n=>new Intl.NumberFormat("sr-RS").format(n||0);

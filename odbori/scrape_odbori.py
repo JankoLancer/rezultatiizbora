@@ -28,6 +28,7 @@ import requests
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = "https://www.rik.parlament.gov.rs"
+MANUAL = os.path.join(ROOT, "odbori", "manual_docs")
 ELECTION_ROUND = "680072"
 DOCUMENT_TYPE = "4"
 HEADERS = {"X-Requested-With": "XMLHttpRequest", "User-Agent": "rezultatiizbora.rs/1.0"}
@@ -192,6 +193,18 @@ def main():
         m = municipality_id(args.municipality)
     print("municipality:", m)
     records, uniq = fetch_metadata(m["id"])
+    manual_path = os.path.join(MANUAL, args.slug + ".json")
+    if os.path.exists(manual_path):
+        manual = json.load(open(manual_path, encoding="utf-8")).get("documents", [])
+        seen = {r.get("_url") for r in uniq}
+        added = 0
+        for rec in manual:
+            if rec.get("_url") and rec["_url"] not in seen:
+                records.append(rec)
+                uniq.append(rec)
+                seen.add(rec["_url"])
+                added += 1
+        print(f"manual overlay: {added} new document(s)")
     print(f"records: {len(records)}, unique documents: {len(uniq)}")
     os.makedirs(os.path.join(ROOT, "odbori", "meta"), exist_ok=True)
     meta_path = os.path.join(ROOT, "odbori", "meta", args.slug + ".json")

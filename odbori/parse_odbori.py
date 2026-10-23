@@ -589,13 +589,17 @@ def main(municipality="kragujevac"):
             continue
         rec = None
         no = None
+        title = r.get("election_station_title", "") or ""
+        title_no = re.match(r"\s*(\d+)", title)
         for attempt in range(2):
             text = norm(open(path, encoding="utf-8").read())
-            no = station_no(text) or station_no(r.get("election_station_title", ""))
+            # The RIK title is authoritative. OCR sometimes reads an extra
+            # trailing digit in the "biračko mesto broj" line (17 -> 177),
+            # which used to create phantom stations.
+            no = int(title_no.group(1)) if title_no else station_no(text)
             comp, typ = classify(text)
             if not no:
-                m = re.match(r"(\d+)", r.get("election_station_title", ""))
-                no = int(m.group(1)) if m else None
+                no = station_no(text)
             rec = {
                 "url": link,
                 "file": key,

@@ -313,6 +313,8 @@ def hub_page(data):
     controllers = sum(r["members"] for r in summary["by_list"]["prosireni"])
     published_union = sum(1 for x in data["stations"] if x["committees"]["stalni"]["total"] or x["committees"]["prosireni"]["total"])
     published_union_label = f"{published_union:,}".replace(",", ".")
+    total_label = f"{summary['stations_total']:,}".replace(",", ".")
+    controllers_label = f"{controllers:,}".replace(",", ".")
     groups = defaultdict(list)
     for c in cities:
         groups[c.get("region_name") or "Ostalo"].append(c)
@@ -329,7 +331,7 @@ def hub_page(data):
     canonical = BASE + "/biracki-odbori/"
     title = "Birački odbori 2026 — svi gradovi i opštine"
     desc = (f"Statički pregled biračkih odbora 2026 za sve gradove i opštine: "
-            f"{summary['stations_total']} biračkih mesta, {controllers} kontrolora i pokrivenost po izbornim listama.")
+            f"{total_label} biračkih mesta, {controllers_label} kontrolora i pokrivenost po izbornim listama.")
     schema = {
         "@context": "https://schema.org",
         "@graph": [
@@ -350,9 +352,9 @@ def hub_page(data):
             ]},
             {"@type": "FAQPage", "mainEntity": [
                 {"@type": "Question", "name": "Koliko gradova i opština je obrađeno?",
-                 "acceptedAnswer": {"@type": "Answer", "text": f"Obrađeno je {len(cities)} gradova i opština i {summary['stations_total']} biračkih mesta."}},
+                 "acceptedAnswer": {"@type": "Answer", "text": f"Obrađeno je {len(cities)} gradova i opština i {total_label} biračkih mesta."}},
                 {"@type": "Question", "name": "Koliko ima kontrolora u proširenom sastavu?",
-                 "acceptedAnswer": {"@type": "Answer", "text": f"U proširenom sastavu prikazano je {controllers} članova (kontrolora) i zamenika po listama."}},
+                 "acceptedAnswer": {"@type": "Answer", "text": f"U proširenom sastavu prikazano je {controllers_label} članova (kontrolora) i zamenika po listama."}},
                 {"@type": "Question", "name": "Kako se računa pokrivenost?",
                  "acceptedAnswer": {"@type": "Answer", "text": "Pokrivenost je broj objavljenih biračkih mesta gde lista ima bar jednog člana, podeljen brojem objavljenih mesta za taj prikaz. Za oba sastava, imenilac su mesta gde je objavljen bar jedan sastav."}},
             ]},
@@ -368,9 +370,9 @@ Ovo je pregled bez učitavanja velikog JSON fajla; interaktivna analiza je dostu
 kontrolori ili stalni sastav.</p>
 <div class="kpis">
 <div class="kpi"><div class="k">Gradova / opština</div><div class="v">{len(cities)}</div></div>
-<div class="kpi"><div class="k">Biračkih mesta</div><div class="v">{summary['stations_total']}</div></div>
+<div class="kpi"><div class="k">Biračkih mesta</div><div class="v">{total_label}</div></div>
 <div class="kpi"><div class="k">Stalni sastav</div><div class="v">{summary['stations_stalni']}</div></div>
-<div class="kpi"><div class="k">Kontrolori</div><div class="v">{controllers}</div></div>
+<div class="kpi"><div class="k">Kontrolori</div><div class="v">{controllers_label}</div></div>
 </div>
 <h2>Gradovi i opštine</h2>
 {city_html}
