@@ -31,6 +31,13 @@ def main():
     milan = next(p for p in station["committees"]["stalni"]["members"] if p["name"] == "Милан Павловић")
     assert milan.get("list") == "sns", milan
 
+    # JMBG columns between a name and its deputy must not be mistaken for a
+    # party acronym, otherwise the Student-list member loses its list.
+    city = load("odbori/data/gradvrsac_odbori.json")
+    station = next(s for s in city["stations"] if s["no"] == 1)
+    tatjana = next(p for p in station["committees"]["prosireni"]["members"] if p["name"] == "ТАТЈАНА ПЕТРОВИЋ")
+    assert tatjana.get("list") == "studenti", tatjana
+
     # A document whose official RIK title says "измена" must never be parsed
     # as a base appointment; that was the root cause of wiped rosters.
     bad = []

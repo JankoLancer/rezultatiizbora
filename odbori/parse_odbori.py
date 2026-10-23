@@ -139,6 +139,14 @@ def role_from_marker(m):
     return None, None
 
 
+PARTY_ABBREV = {
+    "СНС", "СПС", "НПС", "СВМ", "СДА", "СДПС", "ЈС", "ПУПС", "ПСГ",
+    "СРЦЕ", "РС", "ЛЗС", "РСС", "ЕУ", "АЛТ", "БП", "СН", "СПП", "ГУ",
+    "ССП", "ЗЛФ", "АД", "БК", "ЋАЛЕ", "НУ", "СП", "САМ", "ЕКО", "ЗС",
+    "МИ", "РП", "НИС", "НПЛС", "НЛС", "3С-ПС",
+}
+
+
 def extract_proposer(segment):
     m = re.search(r"на\s+предлог\s+(.+)", segment, re.S)
     if m:
@@ -150,7 +158,14 @@ def extract_proposer(segment):
     # Some municipal commissions write only the parliamentary-group acronym
     # after the name: "Milan Pavlović, SNS" (no "na predlog ...").
     matches = re.findall(r",\s*([^,\n;]{2,80})", segment)
-    return clean_proposer(matches[-1]) if matches else ""
+    if matches:
+        candidate = clean_proposer(matches[-1])
+        token = candidate.upper().strip()
+        # Accept only known party acronyms. Leaving other OCR debris empty
+        # lets fill_pair_proposers copy the proposer from the deputy line.
+        if token in PARTY_ABBREV or any(token.startswith(x + "-") for x in PARTY_ABBREV):
+            return candidate
+    return ""
 
 
 def extract_name(segment):
