@@ -327,11 +327,23 @@ BAD_NAME_PARTS = (
 
 
 def clean_name(name):
-    """Remove trailing OCR conjunctions/markers from a person's name."""
+    """Remove trailing OCR conjunctions/markers/locations from a name."""
     n = re.sub(r"\s+", " ", (name or "").strip())
+    n = re.sub(r"\s*[»«“”\"']+\s*$", "", n)
     n = re.sub(r"(?:\s*[+/\-–—]+\s*)+$", "", n)
     n = re.sub(r"(?:\s+и)+\s*$", "", n, flags=re.I)
-    return n.strip(" ,;.+-–—/")
+    n = n.strip("() ")
+    # RIK documents often append the place of residence:
+    # "Marija Stanković iz mesta Veliko Gradište", "Petar Adamović sa Uba".
+    n = re.sub(r"\s+(?:из|са)\s+(?:места\s+)?[А-ЯЉЊЂЋЧШЏA-Z].*$", "", n, flags=re.I)
+    # OCR sometimes merges the proposer/list heading into the name.
+    n = re.sub(
+        r"\s*[„“\"]?\s*(?:на\s+предлог|изборне\s+листе|студентска\s+листа)\b.*$",
+        "",
+        n,
+        flags=re.I,
+    )
+    return n.strip(" ,;.+-–—/_")
 
 
 def valid_name(name):
@@ -391,15 +403,23 @@ def list_for(proposer):
         for item in LISTS:
             if item["key"] == "nu":
                 return item
+    # Match whole words/phrases, not substrings. The old substring rule let
+    # the SNS alias "сене" match inside "проглашене", misclassifying many
+    # Student/SPS entries as SNS. Prefer the longest matching alias.
+    best = None
+    best_len = 0
     for item in LISTS:
         for a in item["aliases"]:
             fa = fold(a)
-            if len(fa) <= 3:
-                if re.search(r"(?:^| )" + re.escape(fa) + r"(?: |$)", p):
-                    return item
-            elif fa in p:
-                return item
-    return DEFAULT_LIST
+            if not fa:
+                continue
+            pattern = r"(?:^| )" + re.escape(fa)
+            if len(fa) <= 4:
+                pattern += r"(?: |$)"
+            if re.search(pattern, p) and len(fa) > best_len:
+                best = item
+                best_len = len(fa)
+    return best or DEFAULT_LIST
 
 
 def role_label(role, index):
@@ -485,7 +505,10 @@ def apply_decisions(decisions):
         )
         if d.get("type") == "imenovanje":
             entries = d.get("entries") or []
-            if not entries:
+            new_roster = []
+            for e in entries:
+                add_entry(new_roster, e, problems, no, comp, d)
+            if not new_roster:
                 # Never let an empty/poorly OCR'd document erase a roster.
                 problems.append(
                     {
@@ -497,9 +520,7 @@ def apply_decisions(decisions):
                 )
                 continue
             # A fresh base decision replaces the roster for this composition.
-            st[comp] = []
-            for e in entries:
-                add_entry(st[comp], e, problems, no, comp, d)
+            st[comp] = new_roster
         elif d.get("type") == "dopuna":
             for e in d.get("entries") or []:
                 add_entry(st[comp], e, problems, no, comp, d)

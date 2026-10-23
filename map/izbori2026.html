@@ -147,12 +147,12 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
         <li>линкови ка изворним PDF решењима за свако место</li>
       </ul>
       <p class="muted" style="color:#93a3bd;font-size:12.5px;margin-top:10px">Стални састав је објављен за
-        <b id="m-stalni">8.373</b> од <b id="m-total">8.392</b> места. За места без решења подаци ће бити
+        <b id="m-stalni">8.378</b> од <b id="m-total">8.392</b> места. За места без решења подаци ће бити
         допуњени у следећем прегледу РИК-овог портала.</p>
     </div>
     <div class="pane">
       <div class="stat"><div class="k">Обрађена места</div><div class="v" id="m-stat-total">8.392</div><div class="s" id="m-stat-cities">191 град/општина</div></div>
-      <div class="stat" style="margin-top:8px"><div class="k">Контролори</div><div class="v" id="m-stat-controllers">58.800</div><div class="s">чланови у проширеном саставу</div></div>
+      <div class="stat" style="margin-top:8px"><div class="k">Контролори</div><div class="v" id="m-stat-controllers">61.174</div><div class="s">чланови у проширеном саставу</div></div>
       <div class="stat" style="margin-top:8px"><div class="k">Извор</div><div class="v" style="font-size:15px">РИК</div><div class="s">Републичка изборна комисија</div></div>
     </div>
   </div>
@@ -175,7 +175,7 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
 </div>
 
 <script>
-fetch("odbori-meta.json?v=20261023e").then(r=>r.json()).then(d=>{
+fetch("odbori-meta.json?v=20261023f").then(r=>r.json()).then(d=>{
   const s=d.summary||{}, c=(d.meta&&d.meta.cities)||[];
   const set=(id,v)=>{const e=document.getElementById(id); if(e) e.textContent=v;};
   const nf=n=>new Intl.NumberFormat("sr-RS").format(n||0);

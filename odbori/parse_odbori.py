@@ -94,7 +94,9 @@ ROLE_RE = re.compile(
     r"(?:ПРЕДСЕДНИК|председник)\s*:"
     r"|(?:заменик|ЗАМЕНИК)\s+(?:председника|ПРЕДСЕДНИКА)\s*:"
     r"|(?:заменик|ЗАМЕНИК)\s+(?:(?P<didx>\d+)\s*[.,:;]*\s*)?(?:члана|ЧЛАНА)\s*[:;/.]?"
-    r"|(?:(?P<idx>\d+)\.\s*)?(?:члан|ЧЛАН|члана|ЧЛАНА)\s*[:;]"
+    r"|(?:(?P<idx>\d+)\.\s*)?(?:члан|ЧЛАН|члана|ЧЛАНА)\s*[:;.]?"
+    r"|(?m:^\s*[-–—•*]?\s*(?:члан|ЧЛАН|члана|ЧЛАНА)\s+(?=\S))"
+    r"|(?:заменик|ЗАМЕНИК)\s*[.:]"
     r")"
 )
 
@@ -111,6 +113,9 @@ def parse_role_from_text(s):
         return "predsednik", None
     if "заменик" in low and "члан" in low:
         return "zamenik_clana", idx
+    if low.strip().startswith("заменик"):
+        # OCR sometimes drops "člana" and leaves just "zamenik :".
+        return "zamenik_clana", idx
     if "члан" in low:
         return "clan", idx
     return None, None
@@ -126,6 +131,8 @@ def role_from_marker(m):
     if "заменик" in low and "члан" in low:
         idx = m.group("didx")
         return "zamenik_clana", int(idx) if idx else None
+    if low.strip().startswith("заменик"):
+        return "zamenik_clana", None
     if "члан" in low:
         idx = m.group("idx")
         return "clan", int(idx) if idx else None
@@ -147,7 +154,7 @@ def extract_name(segment):
     # name is before the first comma or the end of the first line
     s = segment.strip()
     # strip leading bullets / numbering
-    s = re.sub(r"^[\s\-–—•*|]+", "", s)
+    s = re.sub(r"^[\s\-–—•*|_]+", "", s)
     s = re.sub(r"^\d+\)\s*", "", s)
     m = re.match(r"(.+?)(?:,|\s*[„“\"']?\s*на\s+предлог|$)", s, re.S)
     if not m:
@@ -621,7 +628,7 @@ def main(municipality="kragujevac"):
                 comp = "prosireni"
             elif "сталном саставу" in meta_title:
                 comp = "stalni"
-            if "исправк" in meta_title:
+            if "исправк" in meta_title or "исправц" in meta_title:
                 typ = "ispravka"
             elif "допун" in meta_title:
                 typ = "dopuna"

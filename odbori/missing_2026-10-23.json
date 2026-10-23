@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T16:58:59Z",
+ "generated": "2026-10-23T19:45:40Z",
  "cities": {
   "gradskaopstinapalilulabeograd": {
    "name": "Градска општина Палилула (Београд)",
@@ -23,9 +23,7 @@
    "name": "Градска општина Сопот",
    "missing_permanent_nos": [],
    "missing_expanded_nos": [
-    14,
-    18,
-    21
+    18
    ]
   },
   "babusnica": {
@@ -45,19 +43,6 @@
     39
    ],
    "missing_expanded_nos": []
-  },
-  "velikogradiste": {
-   "name": "Велико Градиште",
-   "missing_permanent_nos": [
-    3,
-    4,
-    5,
-    6,
-    32
-   ],
-   "missing_expanded_nos": [
-    32
-   ]
   },
   "golubac": {
    "name": "Голубац",
@@ -122,21 +107,6 @@
     44
    ],
    "missing_expanded_nos": []
-  },
-  "ub": {
-   "name": "Уб",
-   "missing_permanent_nos": [],
-   "missing_expanded_nos": [
-    4,
-    7,
-    12,
-    14,
-    17,
-    32,
-    34,
-    40,
-    48
-   ]
   }
  }
 }

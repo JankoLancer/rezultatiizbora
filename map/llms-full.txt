@@ -10,7 +10,7 @@ Birački odbor je telo koje sprovodi glasanje na jednom biračkom mestu. Za parl
 Čine ga član i zamenik člana koje predlaže svaka proglašena izborna lista. Članove proširenog sastava najčešće nazivamo kontrolorima. Jedna lista po pravilu ima jednog člana i jednog zamenika po biračkom mestu.
 
 ## Pokrivenost
-Za pojedinačan sastav, pokrivenost liste = broj objavljenih biračkih mesta na kojima lista ima bar jednog člana / broj objavljenih biračkih mesta tog sastava. Za zbirni prikaz oba sastava, brojilac su mesta gde lista ima člana u bilo kom sastavu, a imenilac mesta gde je objavljen bar jedan sastav (8.391). Mesta bez ijednog objavljenog sastava ne ulaze u pokrivenost. Zato kombinovana pokrivenost može biti niža od pokrivenosti samo proširenog sastava.
+Za pojedinačan sastav, pokrivenost liste = broj objavljenih biračkih mesta na kojima lista ima bar jednog člana / broj objavljenih biračkih mesta tog sastava. Za zbirni prikaz oba sastava, brojilac su mesta gde lista ima člana u bilo kom sastavu, a imenilac mesta gde je objavljen bar jedan sastav (8.392). Mesta bez ijednog objavljenog sastava ne ulaze u pokrivenost. Zato kombinovana pokrivenost može biti niža od pokrivenosti samo proširenog sastava.
 
 ## Grupisanje koalicija
 U interaktivnom prikazu i gradskim stranama koalicione liste su grupisane: Evropska Srbija (SSP + SRCE) i Faktor stabilnosti (SPS + JS + SDPS). CSV i JSON zadržavaju izvorne list_key oznake; grupisanje je samo prikaz.
