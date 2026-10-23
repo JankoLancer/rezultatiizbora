@@ -326,8 +326,16 @@ BAD_NAME_PARTS = (
 )
 
 
+def clean_name(name):
+    """Remove trailing OCR conjunctions/markers from a person's name."""
+    n = re.sub(r"\s+", " ", (name or "").strip())
+    n = re.sub(r"(?:\s*[+/\-–—]+\s*)+$", "", n)
+    n = re.sub(r"(?:\s+и)+\s*$", "", n, flags=re.I)
+    return n.strip(" ,;.+-–—/")
+
+
 def valid_name(name):
-    n = (name or "").strip("() ")
+    n = clean_name(name)
     if len(n) < 2 or len(n) > 60 or len(n.split()) > 5:
         return False
     low = n.lower()
@@ -490,7 +498,8 @@ def apply_decisions(decisions):
 
 
 def add_entry(roster, e, problems, no, comp, doc):
-    name = NAME_FIXES.get(clean(e.get("name")), clean(e.get("name")))
+    raw_name = clean_name(e.get("name"))
+    name = NAME_FIXES.get(raw_name, raw_name)
     if not name or "име и презиме" in name.lower() or not valid_name(name):
         return
     role = e.get("role")
@@ -515,8 +524,8 @@ def add_entry(roster, e, problems, no, comp, doc):
 
 
 def apply_change(roster, ch, problems, no, comp, doc):
-    old_name = clean(ch.get("old_name"))
-    new_name = clean(ch.get("name"))
+    old_name = clean_name(ch.get("old_name"))
+    new_name = clean_name(ch.get("name"))
     if "име и презиме" in (old_name + " " + new_name).lower() or not valid_name(new_name) or not valid_name(old_name):
         return
     if not roster:
@@ -526,7 +535,7 @@ def apply_change(roster, ch, problems, no, comp, doc):
                 "composition": comp,
                 "error": "change_without_base",
                 "old": old_name,
-                "new": clean(ch.get("name")),
+                "new": clean_name(ch.get("name")),
                 "url": doc.get("url"),
             }
         )

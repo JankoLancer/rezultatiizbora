@@ -16,7 +16,7 @@ Za pojedinačan sastav, pokrivenost liste = broj objavljenih biračkih mesta na 
 U interaktivnom prikazu i gradskim stranama koalicione liste su grupisane: Evropska Srbija (SSP + SRCE) i Faktor stabilnosti (SPS + JS + SDPS). CSV i JSON zadržavaju izvorne list_key oznake; grupisanje je samo prikaz.
 
 ## Prikaz nedostajućih mesta
-U tabu „Nedostaju“ može se izabrati lista/koalicija i sastav (prošireni, stalni ili oba) i videti na kojim objavljenim biračkim mestima lista nema člana. Broj upisanih birača u tom prikazu je iz 2023, jer 2026. brojevi po biračkom mestu nisu objavljeni u RIK dokumentima o odborima; za nova mesta podatak nedostaje.
+U tabu „Nedostaju“ može se izabrati lista/koalicija i sastav (prošireni, stalni ili oba) i videti na kojim objavljenim biračkim mestima lista nema člana. Za pojedinačan sastav traži se član tog sastava. Za „Oba“ mesto se prikazuje samo ako lista nema nikoga — ni člana ni zamenika — ni u stalnom ni u proširenom sastavu. Broj upisanih birača u tom prikazu je iz 2023, jer 2026. brojevi po biračkom mestu nisu objavljeni u RIK dokumentima o odborima; za nova mesta podatak nedostaje.
 
 ## Izvor
 Republička izborna komisija, javno objavljena rešenja o imenovanju biračkih odbora: https://www.rik.parlament.gov.rs/dokumenta/41985
