@@ -484,9 +484,21 @@ def apply_decisions(decisions):
             }
         )
         if d.get("type") == "imenovanje":
+            entries = d.get("entries") or []
+            if not entries:
+                # Never let an empty/poorly OCR'd document erase a roster.
+                problems.append(
+                    {
+                        "station": no,
+                        "composition": comp,
+                        "error": "empty_base_ignored",
+                        "url": d.get("url"),
+                    }
+                )
+                continue
             # A fresh base decision replaces the roster for this composition.
             st[comp] = []
-            for e in d.get("entries") or []:
+            for e in entries:
                 add_entry(st[comp], e, problems, no, comp, d)
         elif d.get("type") == "dopuna":
             for e in d.get("entries") or []:
@@ -544,22 +556,31 @@ def apply_change(roster, ch, problems, no, comp, doc):
     idx = ch.get("index")
     if not new_name:
         return
-    # find old entry by name first
+    # Find the old entry by name first, but only among the requested role.
+    # The same person can be both a member and a deputy (or appear in two
+    # compositions); a change "za zamenika clana" must not update the member.
     candidate = None
-    for e in roster:
+    role_roster = [e for e in roster if e["role"] == role]
+    for e in role_roster:
         if e["name"].lower() == old_name.lower():
             candidate = e
             break
     if candidate is None:
-        # fuzzy by name
+        # fuzzy by name within the role
         from difflib import SequenceMatcher
         best, score = None, 0
-        for e in roster:
+        for e in role_roster:
             r = SequenceMatcher(None, e["name"].lower(), old_name.lower()).ratio()
             if r > score:
                 best, score = e, r
         if best is not None and score >= 0.78:
             candidate = best
+    if candidate is None:
+        # Last resort: exact name across roles.
+        for e in roster:
+            if e["name"].lower() == old_name.lower():
+                candidate = e
+                break
     if candidate is None:
         # fall back to role/index only when unambiguous
         cands = [e for e in roster if e["role"] == role and (idx is None or e.get("index") == idx)]

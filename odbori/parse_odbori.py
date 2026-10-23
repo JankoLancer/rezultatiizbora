@@ -411,8 +411,17 @@ def parse_loose(text):
 
 
 IZMENA_RE = re.compile(
-    r"(?:уместо|место)\s+(?P<old>[^,;]+?)\s+(?:за|као)\s+(?P<role>[^\n,;]+?)\s+именује\s*[:;,]?\s*(?:се\s+)?"
-    r"(?P<new>[^,;]+?)(?=,|;|\.\s|\s+на\s+предлог|$)(?P<rest>[^;]*)",
+    r"(?:уместо|место)\s*:?\s*(?P<old>[^,;]+?)[\s,]+(?:за|као)\s*(?P<role>[^\n,;]+?)\s+именује\s*[:;,]?\s*(?:се\s+)?"
+    r"(?P<new>[^,;]+?)(?=,|;|\.\s|\s+на\s+предлог|$)(?P<rest>[^\n;]*)",
+    re.I | re.S,
+)
+
+# Common wording in several municipalities:
+# "уместо NAME, ROLE, треба да стоји NEW_NAME, ROLE"
+IZMENA_STOJI_RE = re.compile(
+    r"(?:уместо|место)\s*:?\s*(?P<old>[^,;]+?)\s*,\s*(?P<role>[^\n,;]+?)\s*,?\s*"
+    r"треба\s+да\s+стоји\s+(?P<new>[^,;]+?)"
+    r"(?=,|;|\.\s|\s+на\s+предлог|$)(?P<rest>[^\n;]*)",
     re.I | re.S,
 )
 
@@ -420,7 +429,9 @@ IZMENA_RE = re.compile(
 def parse_izmena(text):
     body = disposition(text)
     out = []
-    for m in IZMENA_RE.finditer(body):
+    seen = set()
+    matches = list(IZMENA_RE.finditer(body)) + list(IZMENA_STOJI_RE.finditer(body))
+    for m in matches:
         old = clean_name(m.group("old"))
         new = clean_name(m.group("new"))
         role, idx = parse_role_from_text(m.group("role"))
@@ -428,10 +439,14 @@ def parse_izmena(text):
             continue
         if "име и презиме" in (old + " " + new).lower():
             continue
+        key = (old.lower(), role, new.lower())
+        if key in seen:
+            continue
+        seen.add(key)
         rest = m.group("rest") or ""
         # The proposer may be in the rest of the sentence, sometimes on the next line.
         tail = body[m.end():]
-        tail = re.split(r"\n\s*\d+\)\s*", tail)[0]
+        tail = re.split(r"\n\s*\d+[\.\)]\s*", tail)[0]
         tail = re.split(r"\n\s*2\.\s*Ово", tail)[0]
         proposer = extract_proposer(rest + " " + tail)
         out.append(
@@ -598,6 +613,22 @@ def main(municipality="kragujevac"):
             # which used to create phantom stations.
             no = int(title_no.group(1)) if title_no else station_no(text)
             comp, typ = classify(text)
+            # The API's decision title is authoritative. OCR headings are
+            # often clipped (e.g. "О ИЗМЕ" / "НИ РЕШЕЊА"), which used to
+            # misclassify changes as fresh appointments.
+            meta_title = (r.get("election_board_decision") or "").lower()
+            if "проширеном саставу" in meta_title:
+                comp = "prosireni"
+            elif "сталном саставу" in meta_title:
+                comp = "stalni"
+            if "исправк" in meta_title:
+                typ = "ispravka"
+            elif "допун" in meta_title:
+                typ = "dopuna"
+            elif "измен" in meta_title or "разрешењ" in meta_title:
+                typ = "izmena"
+            elif "именовању" in meta_title:
+                typ = "imenovanje"
             if not no:
                 no = station_no(text)
             rec = {

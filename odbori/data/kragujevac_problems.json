@@ -1,1 +1,77 @@
-[]
+[
+ {
+  "url": "/extfile/sr/files/additionalDocuments/775/896/REŠENJE O ISPRAVCI BM 51.pdf",
+  "station": 51,
+  "error": "unexpected_entry_count",
+  "composition": "stalni",
+  "n": 1,
+  "entries": [
+   {
+    "role": "clan",
+    "index": null,
+    "name": "ОВИ",
+    "proposer": ""
+   }
+  ]
+ },
+ {
+  "url": "/extfile/sr/files/additionalDocuments/775/899/REŠENJE O ISPRAVCI BM 68.pdf",
+  "station": 68,
+  "error": "unexpected_entry_count",
+  "composition": "stalni",
+  "n": 1,
+  "entries": [
+   {
+    "role": "zamenik_predsednika",
+    "index": null,
+    "name": "РАДОМИР ЈАНИЋИЈЕВИЋ",
+    "proposer": "Посланичке групе Радничка партија - Руска странка - Уједињена сељачка странка"
+   }
+  ]
+ },
+ {
+  "url": "/extfile/sr/files/additionalDocuments/775/905/REŠENJE O ISPRAVCI BM 69.pdf",
+  "station": 69,
+  "error": "unexpected_entry_count",
+  "composition": "stalni",
+  "n": 1,
+  "entries": [
+   {
+    "role": "clan",
+    "index": null,
+    "name": "ОВИ",
+    "proposer": ""
+   }
+  ]
+ },
+ {
+  "url": "/extfile/sr/files/additionalDocuments/775/911/REŠENJE O ISPRAVCI BM 70.pdf",
+  "station": 70,
+  "error": "unexpected_entry_count",
+  "composition": "stalni",
+  "n": 1,
+  "entries": [
+   {
+    "role": "clan",
+    "index": null,
+    "name": "ОВИ",
+    "proposer": ""
+   }
+  ]
+ },
+ {
+  "url": "/extfile/sr/files/additionalDocuments/775/914/REŠENJE O ISPRAVCI BM 80.pdf",
+  "station": 80,
+  "error": "unexpected_entry_count",
+  "composition": "stalni",
+  "n": 1,
+  "entries": [
+   {
+    "role": "zamenik_predsednika",
+    "index": null,
+    "name": "АЛЕКСАНДРА ЂУРИЋ",
+    "proposer": "Посланичке групе Радничка партија - Руска странка - Уједињена сељачка странка"
+   }
+  ]
+ }
+]
