@@ -8,6 +8,15 @@ izbori-rezultati.rs, www.izbori-rezultati.rs {
 	encode zstd gzip
 	file_server
 
+	# 2026 committee data changes on deploy: revalidate instead of serving stale cache
+	header /odbori.html Cache-Control "no-cache, must-revalidate"
+	header /izbori2026.html Cache-Control "no-cache, must-revalidate"
+	header /podaci.html Cache-Control "no-cache, must-revalidate"
+	header /odbori.json Cache-Control "no-cache, must-revalidate"
+	header /odbori-voters.json Cache-Control "no-cache, must-revalidate"
+	header /odbori-meta.json Cache-Control "no-cache, must-revalidate"
+	header /odbori.csv Cache-Control "no-cache, must-revalidate"
+
 	# generated data file is big but immutable -> let the browser cache it
 	header /data.json  Cache-Control "public, max-age=86400"
 	header /index.html Cache-Control "no-cache"
