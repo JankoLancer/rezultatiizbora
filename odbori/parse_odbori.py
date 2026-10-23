@@ -141,13 +141,16 @@ def role_from_marker(m):
 
 def extract_proposer(segment):
     m = re.search(r"на\s+предлог\s+(.+)", segment, re.S)
-    if not m:
-        return ""
-    p = m.group(1)
-    p = re.split(r"\n\s*(?:" + ROLE_RE.pattern + r")", p)[0]
-    p = re.split(r";", p)[0]
-    p = re.split(r"\n\s*\d+\)\s*", p)[0]
-    return clean_proposer(p)
+    if m:
+        p = m.group(1)
+        p = re.split(r"\n\s*(?:" + ROLE_RE.pattern + r")", p)[0]
+        p = re.split(r";", p)[0]
+        p = re.split(r"\n\s*\d+\)\s*", p)[0]
+        return clean_proposer(p)
+    # Some municipal commissions write only the parliamentary-group acronym
+    # after the name: "Milan Pavlović, SNS" (no "na predlog ...").
+    matches = re.findall(r",\s*([^,\n;]{2,80})", segment)
+    return clean_proposer(matches[-1]) if matches else ""
 
 
 def extract_name(segment):

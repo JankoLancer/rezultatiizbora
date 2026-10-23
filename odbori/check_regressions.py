@@ -24,6 +24,13 @@ def main():
     names = {p["name"] for p in station["committees"]["prosireni"]["members"]}
     assert "Славица Радић" in names, "the 21 Oct change was not applied"
 
+    # Permanent decisions sometimes carry only a party acronym after the name
+    # ("Milan Pavlović, SNS"), without "na predlog ...".
+    city = load("odbori/data/aleksinac_odbori.json")
+    station = next(s for s in city["stations"] if s["no"] == 68)
+    milan = next(p for p in station["committees"]["stalni"]["members"] if p["name"] == "Милан Павловић")
+    assert milan.get("list") == "sns", milan
+
     # A document whose official RIK title says "измена" must never be parsed
     # as a base appointment; that was the root cause of wiped rosters.
     bad = []

@@ -175,7 +175,7 @@ gtag('config','G-1D190SES3N',{anonymize_ip:true,allow_google_signals:false,allow
 </div>
 
 <script>
-fetch("odbori-meta.json?v=20261023f").then(r=>r.json()).then(d=>{
+fetch("odbori-meta.json?v=20261023g").then(r=>r.json()).then(d=>{
   const s=d.summary||{}, c=(d.meta&&d.meta.cities)||[];
   const set=(id,v)=>{const e=document.getElementById(id); if(e) e.textContent=v;};
   const nf=n=>new Intl.NumberFormat("sr-RS").format(n||0);
